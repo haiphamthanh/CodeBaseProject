@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8604231427E32FEB0056EF17 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604231327E32FEB0056EF17 /* Request.swift */; };
+		8604231627E338E00056EF17 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604231527E338E00056EF17 /* APIClient.swift */; };
+		8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604231727E8E2270056EF17 /* URLSessionProxyDelegate.swift */; };
+		8604231A27E8E47D0056EF17 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604231927E8E47D0056EF17 /* Response.swift */; };
+		8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604231C27EA36AA0056EF17 /* Serializer.swift */; };
+		8604231F27EA36DB0056EF17 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604231E27EA36DB0056EF17 /* Common.swift */; };
+		8604232127EA375B0056EF17 /* URLRequest+Curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232027EA375B0056EF17 /* URLRequest+Curl.swift */; };
+		8604232327EA37780056EF17 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232227EA37780056EF17 /* DataLoader.swift */; };
+		8604232627EA38300056EF17 /* OperationQueue+MaxNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232527EA38300056EF17 /* OperationQueue+MaxNumber.swift */; };
+		8604232827EAA8E70056EF17 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232727EAA8E70056EF17 /* APIError.swift */; };
+		8604232B27EAA92F0056EF17 /* APIClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232A27EAA92F0056EF17 /* APIClientDelegate.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -34,6 +45,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8604231327E32FEB0056EF17 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		8604231527E338E00056EF17 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		8604231727E8E2270056EF17 /* URLSessionProxyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProxyDelegate.swift; sourceTree = "<group>"; };
+		8604231927E8E47D0056EF17 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		8604231C27EA36AA0056EF17 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		8604231E27EA36DB0056EF17 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		8604232027EA375B0056EF17 /* URLRequest+Curl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Curl.swift"; sourceTree = "<group>"; };
+		8604232227EA37780056EF17 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		8604232527EA38300056EF17 /* OperationQueue+MaxNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+MaxNumber.swift"; sourceTree = "<group>"; };
+		8604232727EAA8E70056EF17 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		8604232A27EAA92F0056EF17 /* APIClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientDelegate.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +93,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8604231127E32FB20056EF17 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8604231B27EA361F0056EF17 /* Helper */,
+				8604232927EAA9240056EF17 /* Client */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8604231B27EA361F0056EF17 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8604231E27EA36DB0056EF17 /* Common.swift */,
+				8604232427EA37CA0056EF17 /* Extension */,
+				8604232227EA37780056EF17 /* DataLoader.swift */,
+				8604231C27EA36AA0056EF17 /* Serializer.swift */,
+				8604231727E8E2270056EF17 /* URLSessionProxyDelegate.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		8604232427EA37CA0056EF17 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8604232027EA375B0056EF17 /* URLRequest+Curl.swift */,
+				8604232527EA38300056EF17 /* OperationQueue+MaxNumber.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8604232927EAA9240056EF17 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				8604231927E8E47D0056EF17 /* Response.swift */,
+				8604231327E32FEB0056EF17 /* Request.swift */,
+				8604232727EAA8E70056EF17 /* APIError.swift */,
+				8604232A27EAA92F0056EF17 /* APIClientDelegate.swift */,
+				8604231527E338E00056EF17 /* APIClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		86FE294427DC8E6000EF2C70 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +158,7 @@
 		86FE294F27DC8E6000EF2C70 /* CodeBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				8604231127E32FB20056EF17 /* Network */,
 				86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */,
 				86FE295227DC8E6000EF2C70 /* ContentView.swift */,
 				86FE295427DC8E6300EF2C70 /* Assets.xcassets */,
@@ -257,8 +322,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
+				8604232B27EAA92F0056EF17 /* APIClientDelegate.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */,
+				8604232627EA38300056EF17 /* OperationQueue+MaxNumber.swift in Sources */,
+				8604231427E32FEB0056EF17 /* Request.swift in Sources */,
+				8604231F27EA36DB0056EF17 /* Common.swift in Sources */,
+				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
+				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
+				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */,
+				8604232127EA375B0056EF17 /* URLRequest+Curl.swift in Sources */,
+				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
+				8604231627E338E00056EF17 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
