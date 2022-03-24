@@ -15,12 +15,11 @@ protocol Endpoint {
 	var path: String { get }
 	
 	/// The HTTP method used in the request.
-	var method: Method { get }
+	var method: HTTPMethod { get }
 	
 	/// Provides stub data for use in testing. Default is `Data()`.
 	var sampleData: Data { get }
 	
-	var queryItems: [URLQueryItem] { get }
 	/// The type of HTTP task to be performed.
 	var task: Task { get }
 	
@@ -29,4 +28,14 @@ protocol Endpoint {
 	
 	/// The headers to be used in the request.
 	var headers: [String: String]? { get }
+}
+
+
+extension Endpoint {
+
+	/// The type of validation to perform on the request. Default is `.none`.
+	var validationType: ValidationType { .none }
+
+	/// Provides stub data for use in testing. Default is `Data()`.
+	var sampleData: Data { Data() }
 }

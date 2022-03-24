@@ -1,7 +1,5 @@
-/*
-
 //
-//  Task.swift
+//  TaskNew.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 24/03/2022.
@@ -9,7 +7,19 @@
 
 import Foundation
 
-/// Types adopting the `URLRequestConvertible` protocol can be used to safely construct `URLRequest`s.
+/// Represents an HTTP task.
+public enum Task {
+	
+	/// A request with no additional data.
+	case requestPlain
+	
+	/// A requests body set with encoded parameters.
+	case requestParameters(parameters: [String: Any], translating: ParameterTranslating)
+}
+
+/// A dictionary of parameters to apply to a `URLRequest`.
+public typealias Parameters = [String: Any]
+
 public protocol URLRequestConvertible {
 	/// Returns a `URLRequest` or throws if an `Error` was encountered.
 	///
@@ -18,51 +28,8 @@ public protocol URLRequestConvertible {
 	func asURLRequest() throws -> URLRequest
 }
 
-/// Represents an HTTP task.
-public enum Task {
-
-	/// A request with no additional data.
-	case requestPlain
-
-//	/// A requests body set with data.
-//	case requestData(Data)
-//
-//	/// A request body set with `Encodable` type
-//	case requestJSONEncodable(Encodable)
-
-//	/// A request body set with `Encodable` type and custom encoder
-//	case requestCustomJSONEncodable(Encodable, encoder: JSONEncoder)
-
-	/// A requests body set with encoded parameters.
-	case requestParameters(parameters: [String: Any], encoding: ParameterEncoding)
-
-//	/// A requests body set with data, combined with url parameters.
-//	case requestCompositeData(bodyData: Data, urlParameters: [String: Any])
-//
-//	/// A requests body set with encoded parameters combined with url parameters.
-//	case requestCompositeParameters(bodyParameters: [String: Any], bodyEncoding: ParameterEncoding, urlParameters: [String: Any])
-//
-//	/// A file upload task.
-//	case uploadFile(URL)
-//
-//	/// A "multipart/form-data" upload task.
-//	case uploadMultipart([MultipartFormData])
-//
-//	/// A "multipart/form-data" upload task  combined with url parameters.
-//	case uploadCompositeMultipart([MultipartFormData], urlParameters: [String: Any])
-//
-//	/// A file download task to a destination.
-//	case downloadDestination(DownloadDestination)
-//
-//	/// A file download task to a destination with extra parameters using the given encoding.
-//	case downloadParameters(parameters: [String: Any], encoding: ParameterEncoding, destination: DownloadDestination)
-}
-
-/// A dictionary of parameters to apply to a `URLRequest`.
-public typealias Parameters = [String: Any]
-
 /// A type used to define how a set of parameters are applied to a `URLRequest`.
-public protocol ParameterEncoding {
+public protocol ParameterTranslating {
 	/// Creates a `URLRequest` by encoding parameters and applying them on the passed request.
 	///
 	/// - Parameters:
@@ -71,12 +38,12 @@ public protocol ParameterEncoding {
 	///
 	/// - Returns:      The encoded `URLRequest`.
 	/// - Throws:       Any `Error` produced during parameter encoding.
-	func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest
+	func flatParameters(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> [(String, String)]
 }
 
-public struct URLEncoding: ParameterEncoding {
+public struct URLParameterTranslating: ParameterTranslating {
 	// MARK: Helper Types
-
+	
 	/// Defines whether the url-encoded query string is applied to the existing query string or HTTP body of the
 	/// resulting URL request.
 	public enum Destination {
@@ -87,7 +54,7 @@ public struct URLEncoding: ParameterEncoding {
 		case queryString
 		/// Sets encoded query string result as the HTTP body of the URL request.
 		case httpBody
-
+		
 		func encodesParametersInURL(for method: HTTPMethod) -> Bool {
 			switch self {
 			case .methodDependent: return [.get, .head, .delete].contains(method)
@@ -96,14 +63,14 @@ public struct URLEncoding: ParameterEncoding {
 			}
 		}
 	}
-
+	
 	/// Configures how `Array` parameters are encoded.
 	public enum ArrayEncoding {
 		/// An empty set of square brackets is appended to the key for every value. This is the default behavior.
 		case brackets
 		/// No brackets are appended. The key is encoded as is.
 		case noBrackets
-
+		
 		func encode(key: String) -> String {
 			switch self {
 			case .brackets:
@@ -113,14 +80,14 @@ public struct URLEncoding: ParameterEncoding {
 			}
 		}
 	}
-
+	
 	/// Configures how `Bool` parameters are encoded.
 	public enum BoolEncoding {
 		/// Encode `true` as `1` and `false` as `0`. This is the default behavior.
 		case numeric
 		/// Encode `true` and `false` as string literals.
 		case literal
-
+		
 		func encode(value: Bool) -> String {
 			switch self {
 			case .numeric:
@@ -130,29 +97,29 @@ public struct URLEncoding: ParameterEncoding {
 			}
 		}
 	}
-
+	
 	// MARK: Properties
-
+	
 	/// Returns a default `URLEncoding` instance with a `.methodDependent` destination.
-	public static var `default`: URLEncoding { URLEncoding() }
-
+	public static var `default`: URLParameterTranslating { URLParameterTranslating() }
+	
 	/// Returns a `URLEncoding` instance with a `.queryString` destination.
-	public static var queryString: URLEncoding { URLEncoding(destination: .queryString) }
-
+	public static var queryString: URLParameterTranslating { URLParameterTranslating(destination: .queryString) }
+	
 	/// Returns a `URLEncoding` instance with an `.httpBody` destination.
-	public static var httpBody: URLEncoding { URLEncoding(destination: .httpBody) }
-
+	public static var httpBody: URLParameterTranslating { URLParameterTranslating(destination: .httpBody) }
+	
 	/// The destination defining where the encoded query string is to be applied to the URL request.
 	public let destination: Destination
-
+	
 	/// The encoding to use for `Array` parameters.
 	public let arrayEncoding: ArrayEncoding
-
+	
 	/// The encoding to use for `Bool` parameters.
 	public let boolEncoding: BoolEncoding
-
+	
 	// MARK: Initialization
-
+	
 	/// Creates an instance using the specified parameters.
 	///
 	/// - Parameters:
@@ -167,36 +134,32 @@ public struct URLEncoding: ParameterEncoding {
 		self.arrayEncoding = arrayEncoding
 		self.boolEncoding = boolEncoding
 	}
-
-	// MARK: Encoding
-
-	public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-		var urlRequest = try urlRequest.asURLRequest()
-
-		guard let parameters = parameters else { return urlRequest }
-
-		if let method = urlRequest.method, destination.encodesParametersInURL(for: method) {
-			guard let url = urlRequest.url else {
-				throw AFError.parameterEncodingFailed(reason: .missingURL)
-			}
-
-			if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false), !parameters.isEmpty {
-				let percentEncodedQuery = (urlComponents.percentEncodedQuery.map { $0 + "&" } ?? "") + query(parameters)
-				urlComponents.percentEncodedQuery = percentEncodedQuery
-				urlRequest.url = urlComponents.url
-			}
+	
+	// MARK: Flating
+	public func flatParameters(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> [(String, String)] {
+		guard let parameters = parameters else {
+			return []
 		}
-//		else {
-//			if urlRequest.headers["Content-Type"] == nil {
-//				urlRequest.headers.update(.contentType("application/x-www-form-urlencoded; charset=utf-8"))
-//			}
-//
-//			urlRequest.httpBody = Data(query(parameters).utf8)
-//		}
-
-		return urlRequest
+		
+		let urlRequest = try urlRequest.asURLRequest()
+		if let method = urlRequest.method, destination.encodesParametersInURL(for: method) {
+			return flatParameters(parameters)
+		}
+		
+		return []
 	}
-
+	
+	private func flatParameters(_ parameters: [String: Any]) -> [(String, String)] {
+		var flatParameters: [(String, String)] = []
+		
+		for key in parameters.keys.sorted(by: <) {
+			let value = parameters[key]!
+			flatParameters += queryComponents(fromKey: key, value: value)
+		}
+		
+		return flatParameters
+	}
+	
 	/// Creates a percent-escaped, URL encoded query string components from the given key-value pair recursively.
 	///
 	/// - Parameters:
@@ -204,8 +167,9 @@ public struct URLEncoding: ParameterEncoding {
 	///   - value: Value of the query component.
 	///
 	/// - Returns: The percent-escaped, URL encoded query string components.
-	public func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
+	private func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
 		var components: [(String, String)] = []
+		
 		switch value {
 		case let dictionary as [String: Any]:
 			for (nestedKey, value) in dictionary {
@@ -226,29 +190,19 @@ public struct URLEncoding: ParameterEncoding {
 		default:
 			components.append((escape(key), escape("\(value)")))
 		}
+		
 		return components
 	}
-
+	
 	/// Creates a percent-escaped string following RFC 3986 for a query string key or value.
 	///
 	/// - Parameter string: `String` to be percent-escaped.
 	///
 	/// - Returns:          The percent-escaped `String`.
-	public func escape(_ string: String) -> String {
+	private func escape(_ string: String) -> String {
 		string.addingPercentEncoding(withAllowedCharacters: .uRLQueryAllowed) ?? string
 	}
-
-	private func query(_ parameters: [String: Any]) -> String {
-		var components: [(String, String)] = []
-
-		for key in parameters.keys.sorted(by: <) {
-			let value = parameters[key]!
-			components += queryComponents(fromKey: key, value: value)
-		}
-		return components.map { "\($0)=\($1)" }.joined(separator: "&")
-	}
 }
-
 
 extension CharacterSet {
 	/// Creates a CharacterSet from RFC 3986 allowed characters.
@@ -265,11 +219,10 @@ extension CharacterSet {
 		let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
 		let subDelimitersToEncode = "!$&'()*+,;="
 		let encodableDelimiters = CharacterSet(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
-
+		
 		return CharacterSet.urlQueryAllowed.subtracting(encodableDelimiters)
 	}()
 }
-
 
 extension NSNumber {
 	fileprivate var isBool: Bool {
@@ -278,4 +231,3 @@ extension NSNumber {
 		String(cString: objCType) == "c"
 	}
 }
- */
