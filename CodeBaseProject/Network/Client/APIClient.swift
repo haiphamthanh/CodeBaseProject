@@ -129,7 +129,7 @@ private extension APIClient {
 // MARK: - ================================= Private =================================
 private extension APIClient {
 	func urlRequest<T>(for request: Request<T>) async throws -> URLRequest {
-		let url = try url(with: request.path, query: request.query)
+		let url = try url(with: request.path, queryParams: request.queryParams)
 		return try await urlRequest(url: url,
 									method: request.method,
 									body: request.body,
@@ -165,7 +165,7 @@ private extension APIClient {
 
 // MARK: - ================================= Atomics =================================
 private extension APIClient {
-	func url(with path: String, query: [(String, String?)]?) throws -> URL {
+	func url(with path: String, queryParams: [(String, String?)]?) throws -> URL {
 		guard let url = URL(string: path),
 			  var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
 			throw URLError(.badURL)
@@ -177,8 +177,8 @@ private extension APIClient {
 				components.port = port
 			}
 		}
-		if let query = query {
-			components.queryItems = query.map(URLQueryItem.init)
+		if let queryParams = queryParams {
+			components.queryItems = queryParams.map(URLQueryItem.init)
 		}
 		guard let url = components.url else {
 			throw URLError(.badURL)
@@ -186,7 +186,7 @@ private extension APIClient {
 		return url
 	}
 	
-	func urlRequest(url: URL, method: Method, body: AnyEncodable?, headers: [String: String]?) async throws -> URLRequest {
+	func urlRequest(url: URL, method: HTTPMethod, body: AnyEncodable?, headers: [String: String]?) async throws -> URLRequest {
 		var request = URLRequest(url: url)
 		request.allHTTPHeaderFields = headers
 		request.httpMethod = method.rawValue

@@ -18,6 +18,12 @@
 		8604232627EA38300056EF17 /* OperationQueue+MaxNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232527EA38300056EF17 /* OperationQueue+MaxNumber.swift */; };
 		8604232827EAA8E70056EF17 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232727EAA8E70056EF17 /* APIError.swift */; };
 		8604232B27EAA92F0056EF17 /* APIClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232A27EAA92F0056EF17 /* APIClientDelegate.swift */; };
+		8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232C27EB8AB40056EF17 /* Endpoint.swift */; };
+		8604232F27EB91790056EF17 /* ValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604232E27EB91790056EF17 /* ValidationType.swift */; };
+		8604233127EB944F0056EF17 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604233027EB944F0056EF17 /* Task.swift */; };
+		8604233327EBA1390056EF17 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604233227EBA1390056EF17 /* AFError.swift */; };
+		8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604233427EBA2400056EF17 /* ServerTrustManager.swift */; };
+		8604233827EBAE5D0056EF17 /* TaskNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604233727EBAE5D0056EF17 /* TaskNew.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -56,6 +62,12 @@
 		8604232527EA38300056EF17 /* OperationQueue+MaxNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+MaxNumber.swift"; sourceTree = "<group>"; };
 		8604232727EAA8E70056EF17 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		8604232A27EAA92F0056EF17 /* APIClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientDelegate.swift; sourceTree = "<group>"; };
+		8604232C27EB8AB40056EF17 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		8604232E27EB91790056EF17 /* ValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationType.swift; sourceTree = "<group>"; };
+		8604233027EB944F0056EF17 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		8604233227EBA1390056EF17 /* AFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFError.swift; sourceTree = "<group>"; };
+		8604233427EBA2400056EF17 /* ServerTrustManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTrustManager.swift; sourceTree = "<group>"; };
+		8604233727EBAE5D0056EF17 /* TaskNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNew.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +108,9 @@
 		8604231127E32FB20056EF17 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8604233627EBAB430056EF17 /* Others */,
+				8604232C27EB8AB40056EF17 /* Endpoint.swift */,
+				8604233727EBAE5D0056EF17 /* TaskNew.swift */,
 				8604231B27EA361F0056EF17 /* Helper */,
 				8604232927EAA9240056EF17 /* Client */,
 			);
@@ -126,13 +141,24 @@
 		8604232927EAA9240056EF17 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				8604232727EAA8E70056EF17 /* APIError.swift */,
 				8604231927E8E47D0056EF17 /* Response.swift */,
 				8604231327E32FEB0056EF17 /* Request.swift */,
-				8604232727EAA8E70056EF17 /* APIError.swift */,
 				8604232A27EAA92F0056EF17 /* APIClientDelegate.swift */,
 				8604231527E338E00056EF17 /* APIClient.swift */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		8604233627EBAB430056EF17 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				8604233027EB944F0056EF17 /* Task.swift */,
+				8604232E27EB91790056EF17 /* ValidationType.swift */,
+				8604233227EBA1390056EF17 /* AFError.swift */,
+				8604233427EBA2400056EF17 /* ServerTrustManager.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -322,15 +348,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
 				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
+				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
 				8604232B27EAA92F0056EF17 /* APIClientDelegate.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */,
+				8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */,
 				8604232627EA38300056EF17 /* OperationQueue+MaxNumber.swift in Sources */,
 				8604231427E32FEB0056EF17 /* Request.swift in Sources */,
 				8604231F27EA36DB0056EF17 /* Common.swift in Sources */,
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
+				8604233127EB944F0056EF17 /* Task.swift in Sources */,
+				8604233827EBAE5D0056EF17 /* TaskNew.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
+				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */,
 				8604232127EA375B0056EF17 /* URLRequest+Curl.swift in Sources */,
 				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
