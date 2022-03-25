@@ -32,6 +32,21 @@
 		8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604234727ED01B00056EF17 /* RequestFactory.swift */; };
 		8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604234927ED07F00056EF17 /* BaseNetwork.swift */; };
 		8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604234B27ED08AD0056EF17 /* DateExtensions.swift */; };
+		8604235927EDF0E30056EF17 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235627EDF0E30056EF17 /* AppRootView.swift */; };
+		8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235727EDF0E30056EF17 /* AppRootViewModel.swift */; };
+		8604235B27EDF0E30056EF17 /* AppRootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */; };
+		8604235E27EDF1530056EF17 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235D27EDF1530056EF17 /* HomeContentView.swift */; };
+		8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */; };
+		8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236127EDF1850056EF17 /* HomeViewModel.swift */; };
+		8604236927EDF4680056EF17 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236827EDF4680056EF17 /* Repository.swift */; };
+		8604236C27EDF5060056EF17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236B27EDF5060056EF17 /* AppDelegate.swift */; };
+		8604236F27EDF5C80056EF17 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236E27EDF5C80056EF17 /* BaseCoordinator.swift */; };
+		8604237227EDF6E30056EF17 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237127EDF6E20056EF17 /* SplashView.swift */; };
+		8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237627EDF83A0056EF17 /* TextShimmer.swift */; };
+		8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237827EDF9B50056EF17 /* NotificationManager.swift */; };
+		8604237B27EDFA3F0056EF17 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237A27EDFA3F0056EF17 /* AppSetting.swift */; };
+		8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237C27EDFC710056EF17 /* UserUseCase.swift */; };
+		8604238127EDFCE80056EF17 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604238027EDFCE70056EF17 /* NetworkLogger.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -84,6 +99,21 @@
 		8604234727ED01B00056EF17 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		8604234927ED07F00056EF17 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
 		8604234B27ED08AD0056EF17 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		8604235627EDF0E30056EF17 /* AppRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		8604235727EDF0E30056EF17 /* AppRootViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootViewModel.swift; sourceTree = "<group>"; };
+		8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootCoordinator.swift; sourceTree = "<group>"; };
+		8604235D27EDF1530056EF17 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		8604236127EDF1850056EF17 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8604236827EDF4680056EF17 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		8604236B27EDF5060056EF17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8604236E27EDF5C80056EF17 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		8604237127EDF6E20056EF17 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		8604237627EDF83A0056EF17 /* TextShimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextShimmer.swift; sourceTree = "<group>"; };
+		8604237827EDF9B50056EF17 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		8604237A27EDFA3F0056EF17 /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
+		8604237C27EDFC710056EF17 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		8604238027EDFCE70056EF17 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -209,6 +239,163 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		8604234F27EDEE9F0056EF17 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8604235427EDF0630056EF17 /* UseCases */,
+				8604235527EDF0730056EF17 /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8604235127EDEEF30056EF17 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8604236D27EDF5B50056EF17 /* Root */,
+				8604235C27EDF1160056EF17 /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8604235327EDEFF10056EF17 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8604238227EE00920056EF17 /* MainUI */,
+				8604237A27EDFA3F0056EF17 /* AppSetting.swift */,
+				86FE295427DC8E6300EF2C70 /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8604235427EDF0630056EF17 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8604237C27EDFC710056EF17 /* UserUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		8604235527EDF0730056EF17 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8604231127E32FB20056EF17 /* Network */,
+				8604236627EDF3C40056EF17 /* Local */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8604235C27EDF1160056EF17 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8604235D27EDF1530056EF17 /* HomeContentView.swift */,
+				8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */,
+				8604236127EDF1850056EF17 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8604236427EDF2F00056EF17 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8604237827EDF9B50056EF17 /* NotificationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8604236527EDF3470056EF17 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				8604235327EDEFF10056EF17 /* App */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		8604236627EDF3C40056EF17 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				8604236727EDF45D0056EF17 /* Realm */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		8604236727EDF45D0056EF17 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8604236827EDF4680056EF17 /* Repository.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		8604236A27EDF4F00056EF17 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				8604237F27EDFCC90056EF17 /* Network */,
+				8604237E27EDFCC20056EF17 /* App */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		8604236D27EDF5B50056EF17 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				8604236E27EDF5C80056EF17 /* BaseCoordinator.swift */,
+				8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */,
+				8604235627EDF0E30056EF17 /* AppRootView.swift */,
+				8604235727EDF0E30056EF17 /* AppRootViewModel.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		8604237027EDF6BA0056EF17 /* ViewLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				8604237427EDF76E0056EF17 /* Components */,
+				8604237327EDF7590056EF17 /* Atomics */,
+			);
+			path = ViewLibrary;
+			sourceTree = "<group>";
+		};
+		8604237327EDF7590056EF17 /* Atomics */ = {
+			isa = PBXGroup;
+			children = (
+				8604237627EDF83A0056EF17 /* TextShimmer.swift */,
+			);
+			path = Atomics;
+			sourceTree = "<group>";
+		};
+		8604237427EDF76E0056EF17 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8604237127EDF6E20056EF17 /* SplashView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8604237E27EDFCC20056EF17 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8604236B27EDF5060056EF17 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8604237F27EDFCC90056EF17 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8604238027EDFCE70056EF17 /* NetworkLogger.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8604238227EE00920056EF17 /* MainUI */ = {
+			isa = PBXGroup;
+			children = (
+				86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */,
+				86FE295227DC8E6000EF2C70 /* ContentView.swift */,
+			);
+			path = MainUI;
+			sourceTree = "<group>";
+		};
 		86FE294427DC8E6000EF2C70 = {
 			isa = PBXGroup;
 			children = (
@@ -232,10 +419,12 @@
 		86FE294F27DC8E6000EF2C70 /* CodeBaseProject */ = {
 			isa = PBXGroup;
 			children = (
-				8604231127E32FB20056EF17 /* Network */,
-				86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */,
-				86FE295227DC8E6000EF2C70 /* ContentView.swift */,
-				86FE295427DC8E6300EF2C70 /* Assets.xcassets */,
+				8604236427EDF2F00056EF17 /* Managers */,
+				8604236527EDF3470056EF17 /* Configurations */,
+				8604237027EDF6BA0056EF17 /* ViewLibrary */,
+				8604236A27EDF4F00056EF17 /* Plugins */,
+				8604235127EDEEF30056EF17 /* Screens */,
+				8604234F27EDEE9F0056EF17 /* Domain */,
 				86FE295627DC8E6300EF2C70 /* Preview Content */,
 			);
 			path = CodeBaseProject;
@@ -397,30 +586,45 @@
 			buildActionMask = 2147483647;
 			files = (
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
+				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				8604234627ECD8A30056EF17 /* OnlineProvider.swift in Sources */,
 				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
 				8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */,
 				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
+				8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */,
 				8604232B27EAA92F0056EF17 /* APIClientDelegate.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */,
 				8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */,
+				8604237B27EDFA3F0056EF17 /* AppSetting.swift in Sources */,
+				8604235927EDF0E30056EF17 /* AppRootView.swift in Sources */,
 				8604234427ECBAA50056EF17 /* Plugin.swift in Sources */,
 				8604232627EA38300056EF17 /* OperationQueue+MaxNumber.swift in Sources */,
 				8604231427E32FEB0056EF17 /* Request.swift in Sources */,
 				8604231F27EA36DB0056EF17 /* Common.swift in Sources */,
 				8604234027ECB42C0056EF17 /* NetworkingType.swift in Sources */,
+				8604235B27EDF0E30056EF17 /* AppRootCoordinator.swift in Sources */,
 				8604233D27ECB2DF0056EF17 /* UserNetwork.swift in Sources */,
+				8604235E27EDF1530056EF17 /* HomeContentView.swift in Sources */,
+				8604236C27EDF5060056EF17 /* AppDelegate.swift in Sources */,
+				8604236F27EDF5C80056EF17 /* BaseCoordinator.swift in Sources */,
+				8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */,
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
+				8604237227EDF6E30056EF17 /* SplashView.swift in Sources */,
+				8604238127EDFCE80056EF17 /* NetworkLogger.swift in Sources */,
 				8604233827EBAE5D0056EF17 /* Task.swift in Sources */,
 				8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */,
+				8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
 				8604233A27ECADBD0056EF17 /* UserAPI.swift in Sources */,
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
 				8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
+				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */,
 				8604232127EA375B0056EF17 /* URLRequest+Curl.swift in Sources */,
+				8604236927EDF4680056EF17 /* Repository.swift in Sources */,
 				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
+				8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */,
 				8604231627E338E00056EF17 /* APIClient.swift in Sources */,
 				8604234227ECB7360056EF17 /* NetworkingConstructor.swift in Sources */,
 			);
