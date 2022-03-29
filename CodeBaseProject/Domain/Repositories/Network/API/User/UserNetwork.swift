@@ -56,3 +56,101 @@ final class UserNetwork: BaseNetwork {
 //		return didSignIn(user: userData)
 //	}
 }
+
+
+// MARK: - ================================= Sample =================================
+//struct OfflineAction {
+//	
+//	enum `Type` {
+//		case cache, get, delete
+//	}
+//	
+//	fileprivate(set) var type: Type?
+//	fileprivate(set) var data: Data?
+//	fileprivate(set) var id: String?
+//	fileprivate(set) var encryptionKey: String?
+//	fileprivate(set) var keepAliveUntil: Date?
+//	fileprivate(set) var ifBefore: Date?
+//}
+//
+//protocol BuildStep {
+//	func build() -> OfflineAction
+//}
+//
+//protocol DataStep {
+//	func data(_ data: Data) -> CacheCommonsStep
+//}
+//
+//protocol CommonsStep: BuildStep {
+//	func forId(_ id: String) -> Self
+//	func withEncryptionKey(_ encryptionKey: String) -> Self
+//}
+//
+//protocol CacheCommonsStep: CommonsStep {
+//	func keepingAliveUntil(_ date: Date) -> Self
+//}
+//
+//protocol GetCommonsStep: CommonsStep {
+//	func ifBefore(_ date: Date) -> Self
+//}
+//
+//class OfflineActionBuilder {
+//	
+//	fileprivate var action: OfflineAction!
+//	
+//	init() {
+//		fatalError("This type cannot be constructed directly, use static var 'builder' instead.")
+//	}
+//	
+//	private init(_ action: OfflineAction) {
+//		self.action = action
+//	}
+//	
+//	static var builder: RequestStep {
+//		return OfflineActionBuilder(OfflineAction()) as RequestStep
+//	}
+//}
+//
+////extension OfflineActionBuilder: RequestStep, DataStep, CommonsStep, CacheCommonsStep, GetCommonsStep {
+////	// Implementations of each protocol above.
+////}
+//
+//
+//extension OfflineActionBuilder: DataStep, CommonsStep, CacheCommonsStep, GetCommonsStep {
+//	
+//	func data(_ data: Data) -> CacheCommonsStep {
+//		action.data = data
+//		return self as CacheCommonsStep
+//	}
+//
+//	func forId(_ id: String) -> Self {
+//		action.id = id
+//		return self
+//	}
+//
+//	func withEncryptionKey(_ encryptionKey: String) -> Self {
+//		action.encryptionKey = encryptionKey
+//		return self
+//	}
+//
+//	func keepingAliveUntil(_ date: Date) -> Self {
+//		action.keepAliveUntil = date
+//		return self
+//	}
+//
+//	func ifBefore(_ date: Date) -> Self {
+//		action.ifBefore = date
+//		return self
+//	}
+//
+//	func build() -> OfflineAction {
+//		return action
+//	}
+//}
+//
+//let cache = OfflineActionBuilder.builder
+//	.toCache("https://www.medium.com")
+//	.data(Data())
+//	.forId("id")
+//	.keepingAliveUntil(Date())
+//	.build()

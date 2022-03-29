@@ -47,6 +47,8 @@
 		8604237B27EDFA3F0056EF17 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237A27EDFA3F0056EF17 /* AppSetting.swift */; };
 		8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237C27EDFC710056EF17 /* UserUseCase.swift */; };
 		8604238127EDFCE80056EF17 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604238027EDFCE70056EF17 /* NetworkLogger.swift */; };
+		8604238427EE2F550056EF17 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604238327EE2F550056EF17 /* DependencyInjector.swift */; };
+		862EF1E027F273E10051A3A0 /* OfflineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1DF27F273E10051A3A0 /* OfflineAction.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -114,6 +116,8 @@
 		8604237A27EDFA3F0056EF17 /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		8604237C27EDFC710056EF17 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 		8604238027EDFCE70056EF17 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		8604238327EE2F550056EF17 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		862EF1DF27F273E10051A3A0 /* OfflineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineAction.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -261,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				8604238227EE00920056EF17 /* MainUI */,
-				8604237A27EDFA3F0056EF17 /* AppSetting.swift */,
 				86FE295427DC8E6300EF2C70 /* Assets.xcassets */,
 			);
 			path = App;
@@ -298,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				8604237827EDF9B50056EF17 /* NotificationManager.swift */,
+				8604238327EE2F550056EF17 /* DependencyInjector.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -305,7 +309,7 @@
 		8604236527EDF3470056EF17 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				8604235327EDEFF10056EF17 /* App */,
+				8604237A27EDFA3F0056EF17 /* AppSetting.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -314,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				8604236727EDF45D0056EF17 /* Realm */,
+				862EF1DF27F273E10051A3A0 /* OfflineAction.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 		86FE294F27DC8E6000EF2C70 /* CodeBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				8604235327EDEFF10056EF17 /* App */,
 				8604236427EDF2F00056EF17 /* Managers */,
 				8604236527EDF3470056EF17 /* Configurations */,
 				8604237027EDF6BA0056EF17 /* ViewLibrary */,
@@ -588,6 +594,7 @@
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
 				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				8604234627ECD8A30056EF17 /* OnlineProvider.swift in Sources */,
+				8604238427EE2F550056EF17 /* DependencyInjector.swift in Sources */,
 				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
 				8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */,
 				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
@@ -607,6 +614,7 @@
 				8604235E27EDF1530056EF17 /* HomeContentView.swift in Sources */,
 				8604236C27EDF5060056EF17 /* AppDelegate.swift in Sources */,
 				8604236F27EDF5C80056EF17 /* BaseCoordinator.swift in Sources */,
+				862EF1E027F273E10051A3A0 /* OfflineAction.swift in Sources */,
 				8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */,
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
 				8604237227EDF6E30056EF17 /* SplashView.swift in Sources */,
