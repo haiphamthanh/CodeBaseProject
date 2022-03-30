@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol Builder {
+	associatedtype T: Encodable
+	func build() -> T
+}
+
 class BaseNetwork {
 	private let id = Date().nanosecond
 	

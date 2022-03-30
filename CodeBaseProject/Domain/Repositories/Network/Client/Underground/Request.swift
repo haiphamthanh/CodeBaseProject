@@ -37,36 +37,25 @@ public struct HTTPMethod: RawRepresentable, Equatable, Hashable {
 	}
 }
 
-extension URLRequest {
-	/// Returns the `httpMethod` as Alamofire's `HTTPMethod` type.
-	public var method: HTTPMethod? {
-		get { httpMethod.flatMap(HTTPMethod.init) }
-		set { httpMethod = newValue?.rawValue }
-	}
-
-	public func validate() throws {
-		if method == .get, let bodyData = httpBody {
-			throw AFError.urlRequestValidationFailed(reason: .bodyDataInGETRequest(bodyData))
-		}
-	}
-}
-
+public typealias QueryParams = [(String, String)]
+//public typealias QueryParams = [String: String?]
+public typealias RequestHeaders = [String: String]
 public struct Request<Response> {
 	public var method: HTTPMethod
 	public var path: String
-	public var queryParams: [(String, String?)]?
+	public var queryParams: QueryParams?
 	var body: AnyEncodable?
-	public var headers: [String: String]?
+	public var headers: RequestHeaders?
 	public var id: String?
 	
-	public init(method: HTTPMethod, path: String, queryParams: [(String, String?)]? = nil, headers: [String : String]? = nil) {
+	public init(method: HTTPMethod, path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) {
 		self.method = method
 		self.path = path
 		self.queryParams = queryParams
 		self.headers = headers
 	}
 	
-	public init<U: Encodable>(method: HTTPMethod, path: String, queryParams: [(String, String?)]? = nil, body: U?, headers: [String : String]? = nil) {
+	public init<U: Encodable>(method: HTTPMethod, path: String, queryParams: QueryParams? = nil, body: U?, headers: RequestHeaders? = nil) {
 		self.method = method
 		self.path = path
 		self.queryParams = queryParams
@@ -76,52 +65,61 @@ public struct Request<Response> {
 }
 
 // MARK: - ================================= Usage =================================
+// TODO: Refactor to grouping values use Builder
 extension Request {
-	public static func get(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// GET
+	public static func get(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .get, path: path, queryParams: queryParams, headers: headers)
 	}
 	
-	public static func post(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// POST
+	public static func post(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .post, path: path, queryParams: queryParams, headers: headers)
 	}
 	
-	public static func post<U: Encodable>(_ path: String, queryParams: [(String, String?)]? = nil, body: U?, headers: [String: String]? = nil) -> Request {
+	public static func post<U: Encodable>(_ path: String, queryParams: QueryParams? = nil, body: U?, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .post, path: path, queryParams: queryParams, body: body, headers: headers)
 	}
 	
-	public static func put(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// PUT
+	public static func put(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .put, path: path, queryParams: queryParams, headers: headers)
 	}
 	
-	public static func put<U: Encodable>(_ path: String, queryParams: [(String, String?)]? = nil, body: U?, headers: [String: String]? = nil) -> Request {
+	public static func put<U: Encodable>(_ path: String, queryParams: QueryParams? = nil, body: U?, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .put, path: path, queryParams: queryParams, body: body, headers: headers)
 	}
 	
-	public static func patch(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// PATCH
+	public static func patch(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .patch, path: path, queryParams: queryParams, headers: headers)
 	}
 	
-	public static func patch<U: Encodable>(_ path: String, queryParams: [(String, String?)]? = nil, body: U?, headers: [String: String]? = nil) -> Request {
+	public static func patch<U: Encodable>(_ path: String, queryParams: QueryParams? = nil, body: U?, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .patch, path: path, queryParams: queryParams, body: body, headers: headers)
 	}
 	
-	public static func delete(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// DELETE
+	public static func delete(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .delete, path: path, queryParams: queryParams, headers: headers)
 	}
 	
-	public static func delete<U: Encodable>(_ path: String, queryParams: [(String, String?)]? = nil, body: U?, headers: [String: String]? = nil) -> Request {
+	public static func delete<U: Encodable>(_ path: String, queryParams: QueryParams? = nil, body: U?, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .delete, path: path, queryParams: queryParams, body: body, headers: headers)
 	}
 	
-	public static func options(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// OPTIONS
+	public static func options(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .options, path: path, queryParams: queryParams, headers: headers)
 	}
 	
-	public static func head(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// HEAD
+	public static func head(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .head, path: path, queryParams: queryParams, headers: headers)
 	}
 	
-	public static func trace(_ path: String, queryParams: [(String, String?)]? = nil, headers: [String: String]? = nil) -> Request {
+	// TRACE
+	public static func trace(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .trace, path: path, queryParams: queryParams, headers: headers)
 	}
 }

@@ -10,6 +10,20 @@
 
 import Foundation
 
+public protocol APIClientDelegate {
+	func client(_ client: APIClient, willSendRequest request: inout URLRequest) async throws
+	func shouldClientRetry(_ client: APIClient, withError error: Error) async throws -> Bool
+	func client(_ client: APIClient, didReceiveInvalidResponse response: HTTPURLResponse, data: Data) -> Error
+}
+
+public extension APIClientDelegate {
+	func client(_ client: APIClient, willSendRequest request: inout URLRequest) async throws {}
+	func shouldClientRetry(_ client: APIClient, withError error: Error) async throws -> Bool { false }
+	func client(_ client: APIClient, didReceiveInvalidResponse response: HTTPURLResponse, data: Data) -> Error {
+		APIError.unacceptableStatusCode(response.statusCode)
+	}
+}
+
 public protocol APIClientP {
 	/// Sends the given request and returns a response with a decoded response value.
 	func response<T: Decodable>(from request: Request<T?>) async throws -> Response<T?>
@@ -165,7 +179,7 @@ private extension APIClient {
 
 // MARK: - ================================= Atomics =================================
 private extension APIClient {
-	func url(with path: String, queryParams: [(String, String?)]?) throws -> URL {
+	func url(with path: String, queryParams: QueryParams?) throws -> URL {
 		guard let url = URL(string: path),
 			  var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
 			throw URLError(.badURL)
@@ -179,6 +193,7 @@ private extension APIClient {
 		}
 		if let queryParams = queryParams {
 			components.queryItems = queryParams.map(URLQueryItem.init)
+//			components.setQueryOptionalItems(with: queryParams)
 		}
 		guard let url = components.url else {
 			throw URLError(.badURL)

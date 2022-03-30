@@ -21,8 +21,12 @@ class OnlineProvider<Target, O> where Target: Endpoint, O: Decodable {
 
 // MARK: - ================================= Usage =================================
 extension OnlineProvider {
+	// TODO: Refactor later
 	func request(_ target: Target) async throws -> Response<O> {
-		let request = requestFactory.request(for: target)
+		guard let request = requestFactory.request(for: target) else {
+			throw URLError(.requestBodyStreamExhausted)
+		}
+		
 		return try await apiClient.response(from: request)
 	}
 }

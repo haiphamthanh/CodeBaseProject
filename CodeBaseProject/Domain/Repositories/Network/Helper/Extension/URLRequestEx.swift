@@ -1,5 +1,5 @@
 //
-//  URLRequest+Curl.swift
+//  URLRequestEx.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 22/03/2022.
@@ -29,5 +29,19 @@ extension URLRequest {
 		}
 		components.append("\"\(url.absoluteString)\"")
 		return components.joined(separator: " \\\n\t")
+	}
+}
+
+extension URLRequest {
+	/// Returns the `httpMethod` as Alamofire's `HTTPMethod` type.
+	public var method: HTTPMethod? {
+		get { httpMethod.flatMap(HTTPMethod.init) }
+		set { httpMethod = newValue?.rawValue }
+	}
+
+	public func validate() throws {
+		if method == .get, let bodyData = httpBody {
+			throw AFError.urlRequestValidationFailed(reason: .bodyDataInGETRequest(bodyData))
+		}
 	}
 }

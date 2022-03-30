@@ -16,11 +16,9 @@ fileprivate let PATH_USER_MAIL = "/user/emails" // User detail
 
 // MARK: - ================================= API Interface =================================
 enum UserAPI {
-	// Get
-	case userInfo
 	case userMail
-	// Post
-	case register(username: String, password: String)
+	case userInfo(params: UserRequestParams)
+	case register(params: UserRegisterRequestParams)
 }
 
 // MARK: - ================================= API Params =================================
@@ -58,10 +56,12 @@ extension UserAPI: Endpoint {
 	
 	var task: Task {
 		switch self {
-		case .userInfo, .userMail:
+		case .userMail:
 			return .requestPlain
-		case .register(let username, let password):
-			return userTask(username: username, password: password)
+		case .userInfo(let params):
+			return .requestParameters(parameters: params, translating: URLEncoding.default)
+		case .register(let params):
+			return .requestParameters(parameters: params, translating: URLEncoding.default)
 		}
 	}
 	
@@ -71,19 +71,5 @@ extension UserAPI: Endpoint {
 	
 	var headers: [String : String]? {
 		return nil
-	}
-}
-
-private extension UserAPI {
-	func userTask(username: String, password: String? = nil) -> Task {
-		var params: [String : Any] = ["username" : username]
-		
-		// Use for register
-		// TODO: Encrypt password
-		if let password = password, !password.isEmpty {
-			params["password"] = password
-		}
-		
-		return .requestParameters(parameters: params, translating: URLParameterTranslating.default)
 	}
 }

@@ -17,7 +17,7 @@ public struct User: Codable {
 	public var bio: String?
 }
 
-public struct UserEmail: Decodable {
+public struct UserEmail: Codable {
 	public var email: String
 	public var verified: Bool
 	public var primary: Bool
@@ -36,7 +36,12 @@ final class UserNetwork: BaseNetwork {
 	
 	// GET
 	func userInfo(input: InNWUserInfo) async throws -> User {
-		let api: UserAPI = .userInfo
+		let requestParams = UserRequestBuilder.builder
+			.gender(.female)
+			.userId("123")
+			.build()
+		
+		let api: UserAPI = .userInfo(params: requestParams)
 		return try await exec(api)
 	}
 	
@@ -47,7 +52,12 @@ final class UserNetwork: BaseNetwork {
 	
 	// POST
 	func register(input: InNWUserRegister) async throws -> Bool {
-		let api: UserAPI = .register(username: input.username, password: input.password)
+		let requestParams = UserRegisterRequestBuilder.builder
+			.username("hai")
+			.password("v0danh9086076")
+			.build()
+		
+		let api: UserAPI = .register(params: requestParams)
 		return try await exec(api)
 	}
 	
@@ -56,101 +66,3 @@ final class UserNetwork: BaseNetwork {
 //		return didSignIn(user: userData)
 //	}
 }
-
-
-// MARK: - ================================= Sample =================================
-//struct OfflineAction {
-//	
-//	enum `Type` {
-//		case cache, get, delete
-//	}
-//	
-//	fileprivate(set) var type: Type?
-//	fileprivate(set) var data: Data?
-//	fileprivate(set) var id: String?
-//	fileprivate(set) var encryptionKey: String?
-//	fileprivate(set) var keepAliveUntil: Date?
-//	fileprivate(set) var ifBefore: Date?
-//}
-//
-//protocol BuildStep {
-//	func build() -> OfflineAction
-//}
-//
-//protocol DataStep {
-//	func data(_ data: Data) -> CacheCommonsStep
-//}
-//
-//protocol CommonsStep: BuildStep {
-//	func forId(_ id: String) -> Self
-//	func withEncryptionKey(_ encryptionKey: String) -> Self
-//}
-//
-//protocol CacheCommonsStep: CommonsStep {
-//	func keepingAliveUntil(_ date: Date) -> Self
-//}
-//
-//protocol GetCommonsStep: CommonsStep {
-//	func ifBefore(_ date: Date) -> Self
-//}
-//
-//class OfflineActionBuilder {
-//	
-//	fileprivate var action: OfflineAction!
-//	
-//	init() {
-//		fatalError("This type cannot be constructed directly, use static var 'builder' instead.")
-//	}
-//	
-//	private init(_ action: OfflineAction) {
-//		self.action = action
-//	}
-//	
-//	static var builder: RequestStep {
-//		return OfflineActionBuilder(OfflineAction()) as RequestStep
-//	}
-//}
-//
-////extension OfflineActionBuilder: RequestStep, DataStep, CommonsStep, CacheCommonsStep, GetCommonsStep {
-////	// Implementations of each protocol above.
-////}
-//
-//
-//extension OfflineActionBuilder: DataStep, CommonsStep, CacheCommonsStep, GetCommonsStep {
-//	
-//	func data(_ data: Data) -> CacheCommonsStep {
-//		action.data = data
-//		return self as CacheCommonsStep
-//	}
-//
-//	func forId(_ id: String) -> Self {
-//		action.id = id
-//		return self
-//	}
-//
-//	func withEncryptionKey(_ encryptionKey: String) -> Self {
-//		action.encryptionKey = encryptionKey
-//		return self
-//	}
-//
-//	func keepingAliveUntil(_ date: Date) -> Self {
-//		action.keepAliveUntil = date
-//		return self
-//	}
-//
-//	func ifBefore(_ date: Date) -> Self {
-//		action.ifBefore = date
-//		return self
-//	}
-//
-//	func build() -> OfflineAction {
-//		return action
-//	}
-//}
-//
-//let cache = OfflineActionBuilder.builder
-//	.toCache("https://www.medium.com")
-//	.data(Data())
-//	.forId("id")
-//	.keepingAliveUntil(Date())
-//	.build()
