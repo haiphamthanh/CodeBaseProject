@@ -15,27 +15,23 @@ class RequestFactory<Target, O> where Target: Endpoint, O: Decodable {
 		let headers = target.headers
 		
 		// Un-unsed properties
-//		let host = target.host
-//		let validationType = target.validationType
-//		let sampleData = target.sampleData
+		//		let host = target.host
+		//		let validationType = target.validationType
+		//		let sampleData = target.sampleData
 		
-		var params: QueryParams? = nil
-		switch task {
-		case .requestPlain:
-			break
-		case .requestParameters(let parameters, let translating):
-			params = translating.flattenParameters(parameters, with: method)
-		}
+		let paramBridge = task.paramBridge
+		let queryParams = paramBridge.queryParams
+		let body = paramBridge.body
 		
 		switch method {
 		case .get:
-			return Request.get(path, queryParams: params, headers: headers)
+			return Request.get(path, queryParams: queryParams, headers: headers)
 		case .post:
-			return Request.post(path, queryParams: params, headers: headers)
+			return Request.post(path, queryParams: queryParams, body: body, headers: headers)
 		case .put:
-			return Request.put(path, queryParams: params, headers: headers)
+			return Request.put(path, queryParams: queryParams, body: body, headers: headers)
 		case .delete:
-			return Request.delete(path, queryParams: params, headers: headers)
+			return Request.delete(path, queryParams: queryParams, body: body, headers: headers)
 		default:
 			fatalError("None support for other methods")
 		}
@@ -91,23 +87,13 @@ class RequestFactory<Target, O> where Target: Endpoint, O: Decodable {
 //	   Request(method: .trace, path: path, queryParams: queryParams, headers: headers)
 //   }
 
-
-
-/// A type used to define how a set of parameters are applied to a `URLRequest`.
-public protocol ParameterTranslating {
-	/// Creates a `URLRequest` by encoding parameters and applying them on the passed request.
-	///
-	/// - Parameters:
-	///   - parameters: `Parameters` to encode onto the request.
-	///   - method: `HTTPMethod` type representing HTTP methods.
-	///
-	/// - Returns:      The encoded `URLRequest`.
-	/// - Throws:       Any `Error` produced during parameter encoding.
-	func flattenParameters(_ parameters: Parameters?, with method: HTTPMethod) -> QueryParams
-	func flattenParameters(_ parameters: Encodable?, with method: HTTPMethod) -> QueryParams
+public protocol ParameterEncoding {
+	func encode(_ parameters: Encodable?, with method: HTTPMethod) -> [(String, String)]
+	//	func flatParameters(_ parameters: Parameters?, with method: HTTPMethod) -> [(String, String)]
+	//	func flatParameters(_ parameters: Encodable?, with method: HTTPMethod) -> [(String, String)]
 }
 
-public struct URLEncoding: ParameterTranslating {
+public struct URLEncoding: ParameterEncoding {
 	// MARK: Helper Types
 	
 	/// Defines whether the url-encoded query string is applied to the existing query string or HTTP body of the
@@ -204,38 +190,39 @@ public struct URLEncoding: ParameterTranslating {
 	public static var httpBody: URLEncoding { URLEncoding(destination: .httpBody) }
 	
 	// MARK: Flating
-	public func flattenParameters(_ parameters: Encodable?, with method: HTTPMethod) -> QueryParams {
+	//	public func flattenParameters(_ parameters: Encodable?, with method: HTTPMethod) -> QueryParams {
+	public func encode(_ parameters: Encodable?, with method: HTTPMethod) -> [(String, String)] {
 		guard let parameters = parameters else {
 			return []
 		}
 		
 		let dictionary = parameters.dictionary
-		return flattenParameters(dictionary, with: method)
+		return encodedParameters(dictionary, with: method)
 	}
-	
-	public func flattenParameters(_ parameters: Parameters?, with method: HTTPMethod) -> QueryParams {
+}
+
+private extension URLEncoding {
+	private func encodedParameters(_ parameters: Parameters?, with method: HTTPMethod) -> [(String, String)] {
 		guard let parameters = parameters else {
 			return []
 		}
 		
 		if destination.encodesParametersInURL(for: method) {
-			return flatParameters(parameters)
+			return encodedParameters(parameters)
 		}
 		
 		return []
 	}
-}
-
-private extension URLEncoding {
-	private func flatParameters(_ parameters: [String: Any?]) -> [(String, String)] {
-		var flatParameters: [(String, String)] = []
+	
+	private func encodedParameters(_ parameters: [String: Any?]) -> [(String, String)] {
+		var encodedParameters: [(String, String)] = []
 		
 		for key in parameters.keys.sorted(by: <) {
 			let value = parameters[key]!
-			flatParameters += queryComponents(fromKey: key, value: value ?? "")
+			encodedParameters += queryComponents(fromKey: key, value: value ?? "")
 		}
 		
-		return flatParameters
+		return encodedParameters
 	}
 	
 	/// Creates a percent-escaped, URL encoded query string components from the given key-value pair recursively.

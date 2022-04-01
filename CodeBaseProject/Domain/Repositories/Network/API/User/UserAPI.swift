@@ -58,10 +58,13 @@ extension UserAPI: Endpoint {
 		switch self {
 		case .userMail:
 			return .requestPlain
-		case .userInfo(let params):
-			return .requestParameters(parameters: params, translating: URLEncoding.default)
-		case .register(let params):
-			return .requestParameters(parameters: params, translating: URLEncoding.default)
+		case .userInfo(let urlParameters):
+			let urlRequestParameter = UrlRequestParameter(parameter: urlParameters,
+														  encoding: URLEncoding.default,
+														  method: method)
+			return .request(urlRequestParameter: urlRequestParameter)
+		case .register(let bodyParameter):
+			return .requestComposite(bodyParameter: bodyParameter, urlRequestParameter: nil)
 		}
 	}
 	

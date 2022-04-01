@@ -9,6 +9,17 @@ import Foundation
 
 /// A dictionary of parameters to apply to a `URLRequest`.
 public typealias Parameters = [String: Any?]
+public struct UrlRequestParameter {
+	let parameter: Encodable
+	let encoding: ParameterEncoding
+	let method: HTTPMethod
+}
+
+public extension UrlRequestParameter {
+	var queryParams: QueryParams {
+		return encoding.encode(parameter, with: method)
+	}
+}
 
 /// Represents an HTTP task.
 public enum Task {
@@ -17,7 +28,24 @@ public enum Task {
 	case requestPlain
 	
 	/// A requests body set with encoded parameters.
-	case requestParameters(parameters: Encodable, translating: ParameterTranslating)
+	case request(urlRequestParameter: UrlRequestParameter)
+	
+	/// A requests body set with encoded parameters combined with url parameters.
+	case requestComposite(bodyParameter: Encodable,
+						  urlRequestParameter: UrlRequestParameter?)
+}
+
+extension Task {
+	var paramBridge: (queryParams: QueryParams?, body: Encodable?){
+		switch self {
+		case .requestPlain:
+			return (nil, nil)
+		case .request(let urlParameter):
+			return (urlParameter.queryParams, nil)
+		case .requestComposite(let bodyParameter, let urlParameter):
+			return (urlParameter?.queryParams, bodyParameter)
+		}
+	}
 }
 
 /*

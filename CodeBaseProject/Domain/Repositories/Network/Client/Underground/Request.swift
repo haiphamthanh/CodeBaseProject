@@ -48,25 +48,74 @@ public struct Request<Response> {
 	public var headers: RequestHeaders?
 	public var id: String?
 	
-	public init(method: HTTPMethod, path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) {
-		self.method = method
-		self.path = path
-		self.queryParams = queryParams
-		self.headers = headers
-	}
-	
-	public init<U: Encodable>(method: HTTPMethod, path: String, queryParams: QueryParams? = nil, body: U?, headers: RequestHeaders? = nil) {
+	public init(method: HTTPMethod, path: String, queryParams: QueryParams? = nil, body: Encodable? = nil, headers: RequestHeaders? = nil) {
 		self.method = method
 		self.path = path
 		self.queryParams = queryParams
 		self.body = body.map(AnyEncodable.init)
 		self.headers = headers
 	}
+	
+//	public init(method: HTTPMethod, path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) {
+//		self.method = method
+//		self.path = path
+//		self.queryParams = queryParams
+//		self.headers = headers
+//	}
+	
+//	public init<U: Encodable>(method: HTTPMethod, path: String, queryParams: QueryParams? = nil, body: U?, headers: RequestHeaders? = nil) {
+//		self.method = method
+//		self.path = path
+//		self.queryParams = queryParams
+//		self.body = body.map(AnyEncodable.init)
+//		self.headers = headers
+//	}
 }
 
 // MARK: - ================================= Usage =================================
 // TODO: Refactor to grouping values use Builder
 extension Request {
+	// GET
+	public static func get(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .get, path: path, queryParams: queryParams, headers: headers)
+	}
+	
+	// POST
+	public static func post(_ path: String, queryParams: QueryParams? = nil, body: Encodable?, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .post, path: path, queryParams: queryParams, body: body, headers: headers)
+	}
+	
+	// PUT
+	public static func put(_ path: String, queryParams: QueryParams? = nil, body: Encodable?, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .put, path: path, queryParams: queryParams, body: body, headers: headers)
+	}
+	
+	// PATCH
+	public static func patch(_ path: String, queryParams: QueryParams? = nil, body: Encodable?, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .patch, path: path, queryParams: queryParams, body: body, headers: headers)
+	}
+	
+	// DELETE
+	public static func delete(_ path: String, queryParams: QueryParams? = nil, body: Encodable?, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .delete, path: path, queryParams: queryParams, body: body, headers: headers)
+	}
+	
+	// OPTIONS
+	public static func options(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .options, path: path, queryParams: queryParams, headers: headers)
+	}
+	
+	// HEAD
+	public static func head(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .head, path: path, queryParams: queryParams, headers: headers)
+	}
+	
+	// TRACE
+	public static func trace(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
+		Request(method: .trace, path: path, queryParams: queryParams, headers: headers)
+	}
+	
+	/*
 	// GET
 	public static func get(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .get, path: path, queryParams: queryParams, headers: headers)
@@ -122,4 +171,5 @@ extension Request {
 	public static func trace(_ path: String, queryParams: QueryParams? = nil, headers: RequestHeaders? = nil) -> Request {
 		Request(method: .trace, path: path, queryParams: queryParams, headers: headers)
 	}
+	*/
 }
