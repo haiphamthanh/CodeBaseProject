@@ -57,6 +57,12 @@
 		862EF1F327F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1F227F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift */; };
 		862EF1F927F83ADB0051A3A0 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1F827F83ADB0051A3A0 /* UserEntity.swift */; };
 		862EF1FC27F8470D0051A3A0 /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1FB27F8470D0051A3A0 /* UserInput.swift */; };
+		862EF20027F848E40051A3A0 /* NetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1FF27F848E40051A3A0 /* NetProvider.swift */; };
+		862EF20227F849A70051A3A0 /* NetUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20127F849A70051A3A0 /* NetUseCaseProvider.swift */; };
+		862EF20527F84A130051A3A0 /* NetUserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20427F84A130051A3A0 /* NetUserAdapter.swift */; };
+		862EF20927F84E7C0051A3A0 /* UseCaseProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20827F84E7C0051A3A0 /* UseCaseProviderProtocol.swift */; };
+		862EF20E27F8AD3C0051A3A0 /* UseCaseConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */; };
+		862EF21027F8B28E0051A3A0 /* UseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -133,6 +139,12 @@
 		862EF1F227F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateRequestBuilder.swift; sourceTree = "<group>"; };
 		862EF1F827F83ADB0051A3A0 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		862EF1FB27F8470D0051A3A0 /* UserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInput.swift; sourceTree = "<group>"; };
+		862EF1FF27F848E40051A3A0 /* NetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetProvider.swift; sourceTree = "<group>"; };
+		862EF20127F849A70051A3A0 /* NetUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUseCaseProvider.swift; sourceTree = "<group>"; };
+		862EF20427F84A130051A3A0 /* NetUserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUserAdapter.swift; sourceTree = "<group>"; };
+		862EF20827F84E7C0051A3A0 /* UseCaseProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProviderProtocol.swift; sourceTree = "<group>"; };
+		862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseConstructor.swift; sourceTree = "<group>"; };
+		862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesProtocol.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -278,7 +290,10 @@
 		8604234F27EDEE9F0056EF17 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */,
+				862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */,
 				8604235427EDF0630056EF17 /* UseCases */,
+				862EF1FE27F848D10051A3A0 /* Provider */,
 				8604235527EDF0730056EF17 /* Repositories */,
 			);
 			path = Domain;
@@ -490,6 +505,33 @@
 				8604233C27ECB2DF0056EF17 /* UserNetwork.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		862EF1FE27F848D10051A3A0 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				862EF20827F84E7C0051A3A0 /* UseCaseProviderProtocol.swift */,
+				862EF20627F84D5F0051A3A0 /* Network */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		862EF20627F84D5F0051A3A0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				862EF20127F849A70051A3A0 /* NetUseCaseProvider.swift */,
+				862EF1FF27F848E40051A3A0 /* NetProvider.swift */,
+				862EF20C27F853FE0051A3A0 /* Adapter */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		862EF20C27F853FE0051A3A0 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				862EF20427F84A130051A3A0 /* NetUserAdapter.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -729,12 +771,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
+				862EF20927F84E7C0051A3A0 /* UseCaseProviderProtocol.swift in Sources */,
+				862EF20027F848E40051A3A0 /* NetProvider.swift in Sources */,
+				862EF20527F84A130051A3A0 /* NetUserAdapter.swift in Sources */,
 				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				8604234627ECD8A30056EF17 /* OnlineProvider.swift in Sources */,
 				8604238427EE2F550056EF17 /* DependencyInjector.swift in Sources */,
 				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
 				862EF1EA27F4A8860051A3A0 /* CharacterSetEx.swift in Sources */,
 				8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */,
+				862EF20E27F8AD3C0051A3A0 /* UseCaseConstructor.swift in Sources */,
 				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
 				8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */,
@@ -743,6 +789,7 @@
 				8604235927EDF0E30056EF17 /* AppRootView.swift in Sources */,
 				8604234427ECBAA50056EF17 /* Plugin.swift in Sources */,
 				8604232627EA38300056EF17 /* OperationQueue+MaxNumber.swift in Sources */,
+				862EF21027F8B28E0051A3A0 /* UseCasesProtocol.swift in Sources */,
 				8604231427E32FEB0056EF17 /* Request.swift in Sources */,
 				8604231F27EA36DB0056EF17 /* Common.swift in Sources */,
 				8604234027ECB42C0056EF17 /* NetworkingType.swift in Sources */,
@@ -768,6 +815,7 @@
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
 				8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
+				862EF20227F849A70051A3A0 /* NetUseCaseProvider.swift in Sources */,
 				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */,
 				8604232127EA375B0056EF17 /* URLRequestEx.swift in Sources */,

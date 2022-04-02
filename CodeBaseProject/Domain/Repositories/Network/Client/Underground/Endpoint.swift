@@ -21,7 +21,7 @@ protocol Endpoint {
 	var sampleData: Data { get }
 	
 	/// The type of HTTP task to be performed.
-	var task: Task { get }
+	var task: TaskA { get }
 	
 	/// The type of validation to perform on the request. Default is `.none`.
 	var validationType: ValidationType { get }

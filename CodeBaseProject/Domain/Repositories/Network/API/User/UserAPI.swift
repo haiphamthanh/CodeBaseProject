@@ -59,7 +59,7 @@ extension UserAPI: Endpoint {
 		}
 	}
 	
-	var task: Task {
+	var task: TaskA {
 		switch self {
 		case .userMail:
 			return .requestPlain

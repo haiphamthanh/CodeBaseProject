@@ -33,7 +33,7 @@ public extension BodyRequestParameter {
 }
 
 /// Represents an HTTP task.
-public enum Task {
+public enum TaskA {
 	
 	/// A request with no additional data.
 	case requestPlain
@@ -46,7 +46,7 @@ public enum Task {
 						  bodyParameter: BodyRequestParameter)
 }
 
-extension Task {
+extension TaskA {
 	var paramBridge: (queryParams: QueryParams?, body: Encodable?){
 		switch self {
 		case .requestPlain:
