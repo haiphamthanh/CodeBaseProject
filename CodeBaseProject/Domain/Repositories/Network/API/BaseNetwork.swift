@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Builder {
-	associatedtype T: Encodable
+	associatedtype T: Any
 	func build() -> T
 }
 

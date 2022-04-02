@@ -87,34 +87,35 @@ class RequestFactory<Target, O> where Target: Endpoint, O: Decodable {
 //	   Request(method: .trace, path: path, queryParams: queryParams, headers: headers)
 //   }
 
+public typealias Parameters = [String: Any?]
 public protocol ParameterEncoding {
-	func encode(_ parameters: Encodable?, with method: HTTPMethod) -> [(String, String)]
+	associatedtype Output
+	func encode(_ parameter: Encodable) -> Output
 	//	func flatParameters(_ parameters: Parameters?, with method: HTTPMethod) -> [(String, String)]
 	//	func flatParameters(_ parameters: Encodable?, with method: HTTPMethod) -> [(String, String)]
 }
 
-public struct URLEncoding: ParameterEncoding {
-	// MARK: Helper Types
+public protocol UrlParameterEncoding: ParameterEncoding {
+	func encode(_ parameter: Parameters) -> Output
+	//	func flatParameters(_ parameters: Parameters?, with method: HTTPMethod) -> [(String, String)]
+	//	func flatParameters(_ parameters: Encodable?, with method: HTTPMethod) -> [(String, String)]
+}
+
+public struct BodyEncoding: ParameterEncoding {
+	public typealias Output = Encodable
 	
-	/// Defines whether the url-encoded query string is applied to the existing query string or HTTP body of the
-	/// resulting URL request.
-	public enum Destination {
-		/// Applies encoded query string result to existing query string for `GET`, `HEAD` and `DELETE` requests and
-		/// sets as the HTTP body for requests with any other HTTP method.
-		case methodDependent
-		/// Sets or appends encoded query string result to existing query string.
-		case queryString
-		/// Sets encoded query string result as the HTTP body of the URL request.
-		case httpBody
-		
-		func encodesParametersInURL(for method: HTTPMethod) -> Bool {
-			switch self {
-			case .methodDependent: return [.get, .head, .delete].contains(method)
-			case .queryString: return true
-			case .httpBody: return false
-			}
-		}
+	// MARK: - Utils
+	/// Returns a default `URLEncoding` instance with a `.methodDependent` destination.
+	public static var `default`: BodyEncoding { BodyEncoding() }
+	
+	public func encode(_ parameter: Encodable) -> Output {
+		return parameter
 	}
+}
+
+public struct URLEncoding: UrlParameterEncoding {
+	public typealias Output = [(String, String)]
+	// MARK: Helper Types
 	
 	/// Configures how `Array` parameters are encoded.
 	public enum ArrayEncoding {
@@ -152,9 +153,6 @@ public struct URLEncoding: ParameterEncoding {
 	
 	// MARK: Properties
 	
-	/// The destination defining where the encoded query string is to be applied to the URL request.
-	public let destination: Destination
-	
 	/// The encoding to use for `Array` parameters.
 	public let arrayEncoding: ArrayEncoding
 	
@@ -170,50 +168,31 @@ public struct URLEncoding: ParameterEncoding {
 	///                    default.
 	///   - arrayEncoding: `ArrayEncoding` to use. `.brackets` by default.
 	///   - boolEncoding:  `BoolEncoding` to use. `.numeric` by default.
-	public init(destination: Destination = .methodDependent,
-				arrayEncoding: ArrayEncoding = .brackets,
+	public init(arrayEncoding: ArrayEncoding = .brackets,
 				boolEncoding: BoolEncoding = .numeric) {
-		self.destination = destination
 		self.arrayEncoding = arrayEncoding
 		self.boolEncoding = boolEncoding
 	}
-	
 	
 	// MARK: - Utils
 	/// Returns a default `URLEncoding` instance with a `.methodDependent` destination.
 	public static var `default`: URLEncoding { URLEncoding() }
 	
-	/// Returns a `URLEncoding` instance with a `.queryString` destination.
-	public static var queryString: URLEncoding { URLEncoding(destination: .queryString) }
-	
-	/// Returns a `URLEncoding` instance with an `.httpBody` destination.
-	public static var httpBody: URLEncoding { URLEncoding(destination: .httpBody) }
-	
 	// MARK: Flating
-	//	public func flattenParameters(_ parameters: Encodable?, with method: HTTPMethod) -> QueryParams {
-	public func encode(_ parameters: Encodable?, with method: HTTPMethod) -> [(String, String)] {
-		guard let parameters = parameters else {
+	public func encode(_ parameter: Encodable) -> Output {
+		guard let dictionary = parameter.dictionary else {
 			return []
 		}
 		
-		let dictionary = parameters.dictionary
-		return encodedParameters(dictionary, with: method)
+		return encodedParameters(dictionary)
+	}
+	
+	public func encode(_ parameter: Parameters) -> Output {
+		return encodedParameters(parameter)
 	}
 }
 
 private extension URLEncoding {
-	private func encodedParameters(_ parameters: Parameters?, with method: HTTPMethod) -> [(String, String)] {
-		guard let parameters = parameters else {
-			return []
-		}
-		
-		if destination.encodesParametersInURL(for: method) {
-			return encodedParameters(parameters)
-		}
-		
-		return []
-	}
-	
 	private func encodedParameters(_ parameters: [String: Any?]) -> [(String, String)] {
 		var encodedParameters: [(String, String)] = []
 		

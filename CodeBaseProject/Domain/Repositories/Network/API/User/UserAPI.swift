@@ -9,16 +9,17 @@ import Foundation
 
 // MARK: - ================================= Path =================================
 // C
-fileprivate let PATH_USER_REGISTER = "/user/register" // Register new account
+fileprivate let PATH_USER = "/user/" // Register new account / Update account
 // R
-fileprivate let PATH_USER_DETAIL = "/user/detail" // User detail
-fileprivate let PATH_USER_MAIL = "/user/emails" // User detail
+fileprivate let PATH_USER_DETAIL = "/user/detail"
+fileprivate let PATH_USER_MAIL = "/user/emails"
 
 // MARK: - ================================= API Interface =================================
 enum UserAPI {
 	case userMail
 	case userInfo(params: UserRequestParams)
 	case register(params: UserRegisterRequestParams)
+	case update(requestParams: UserUpdateRequestParams.Url, bodyParams: UserUpdateRequestParams.Body)
 }
 
 // MARK: - ================================= API Params =================================
@@ -31,6 +32,8 @@ extension UserAPI: Endpoint {
 			return "host_2"
 		case .register:
 			return "host_3"
+		case .update:
+			return "host_4"
 		}
 	}
 	
@@ -40,8 +43,8 @@ extension UserAPI: Endpoint {
 			return PATH_USER_DETAIL
 		case .userMail:
 			return PATH_USER_MAIL
-		case .register:
-			return PATH_USER_REGISTER
+		case .register, .update:
+			return PATH_USER
 		}
 	}
 	
@@ -51,6 +54,8 @@ extension UserAPI: Endpoint {
 			return .get
 		case .register:
 			return .post
+		case .update:
+			return .put
 		}
 	}
 	
@@ -60,11 +65,18 @@ extension UserAPI: Endpoint {
 			return .requestPlain
 		case .userInfo(let urlParameters):
 			let urlRequestParameter = UrlRequestParameter(parameter: urlParameters,
-														  encoding: URLEncoding.default,
-														  method: method)
+														  encoding: URLEncoding.default)
 			return .request(urlRequestParameter: urlRequestParameter)
-		case .register(let bodyParameter):
-			return .requestComposite(bodyParameter: bodyParameter, urlRequestParameter: nil)
+		case .register(let bodyParameters):
+			let bodyRequestParameter = BodyRequestParameter(parameter: bodyParameters,
+															encoding: BodyEncoding.default)
+			return .requestComposite(urlParameters: nil, bodyParameter: bodyRequestParameter)
+		case .update(let urlParameters, let bodyParameters):
+			let urlRequestParameter = UrlRequestParameter(parameter: urlParameters,
+														  encoding: URLEncoding.default)
+			let bodyRequestParameter = BodyRequestParameter(parameter: bodyParameters,
+															encoding: BodyEncoding.default)
+			return .requestComposite(urlParameters: urlRequestParameter, bodyParameter: bodyRequestParameter)
 		}
 	}
 	

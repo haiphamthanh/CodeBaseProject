@@ -7,17 +7,28 @@
 
 import Foundation
 
+// MARK: - ================================= Usage =================================
 /// A dictionary of parameters to apply to a `URLRequest`.
-public typealias Parameters = [String: Any?]
 public struct UrlRequestParameter {
 	let parameter: Encodable
-	let encoding: ParameterEncoding
-	let method: HTTPMethod
+	let encoding: URLEncoding
 }
 
 public extension UrlRequestParameter {
 	var queryParams: QueryParams {
-		return encoding.encode(parameter, with: method)
+		return encoding.encode(parameter)
+	}
+}
+
+// MARK: - ================================= Usage =================================
+public struct BodyRequestParameter {
+	let parameter: Encodable
+	let encoding: BodyEncoding
+}
+
+public extension BodyRequestParameter {
+	var body: Encodable {
+		return encoding.encode(parameter)
 	}
 }
 
@@ -31,8 +42,8 @@ public enum Task {
 	case request(urlRequestParameter: UrlRequestParameter)
 	
 	/// A requests body set with encoded parameters combined with url parameters.
-	case requestComposite(bodyParameter: Encodable,
-						  urlRequestParameter: UrlRequestParameter?)
+	case requestComposite(urlParameters: UrlRequestParameter?,
+						  bodyParameter: BodyRequestParameter)
 }
 
 extension Task {
@@ -42,8 +53,8 @@ extension Task {
 			return (nil, nil)
 		case .request(let urlParameter):
 			return (urlParameter.queryParams, nil)
-		case .requestComposite(let bodyParameter, let urlParameter):
-			return (urlParameter?.queryParams, bodyParameter)
+		case .requestComposite(let urlParameter, let bodyParameter):
+			return (urlParameter?.queryParams, bodyParameter.body)
 		}
 	}
 }
