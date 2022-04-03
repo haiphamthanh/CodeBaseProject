@@ -7,16 +7,8 @@
 
 import Foundation
 
-
-
 protocol UseCasesProtocol {
-	// GET
-	func userInfo(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEntity>
-	func userEmail(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEmailEntity>
-	// POST
-	func register(inputBody: BodyInputUserInfo) async -> FinalResult<Bool>
-	// PUT
-	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async -> FinalResult<Bool>
+	var user: UserUseCase { get }
 }
 
 private class DemoPreview {
@@ -25,7 +17,7 @@ private class DemoPreview {
 		let useCaseProvider = NetUseCaseProvider(networkProvider)
 		let networkService = NetworkService(usecaseProvider: useCaseProvider)
 		
-		let result = await networkService.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
+		let result = await networkService.user.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
 		switch result {
 		case .success(let value):
 			print(value)

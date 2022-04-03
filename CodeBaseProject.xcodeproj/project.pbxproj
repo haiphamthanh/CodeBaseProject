@@ -61,7 +61,6 @@
 		862EF20227F849A70051A3A0 /* NetUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20127F849A70051A3A0 /* NetUseCaseProvider.swift */; };
 		862EF20527F84A130051A3A0 /* NetUserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20427F84A130051A3A0 /* NetUserAdapter.swift */; };
 		862EF20927F84E7C0051A3A0 /* UseCaseProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20827F84E7C0051A3A0 /* UseCaseProviderProtocol.swift */; };
-		862EF20E27F8AD3C0051A3A0 /* UseCaseConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */; };
 		862EF21027F8B28E0051A3A0 /* UseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */; };
 		862EF21527F926680051A3A0 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21427F926680051A3A0 /* DomainError.swift */; };
 		862EF21927F958400051A3A0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21827F958400051A3A0 /* NetworkService.swift */; };
@@ -146,7 +145,6 @@
 		862EF20127F849A70051A3A0 /* NetUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUseCaseProvider.swift; sourceTree = "<group>"; };
 		862EF20427F84A130051A3A0 /* NetUserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUserAdapter.swift; sourceTree = "<group>"; };
 		862EF20827F84E7C0051A3A0 /* UseCaseProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProviderProtocol.swift; sourceTree = "<group>"; };
-		862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseConstructor.swift; sourceTree = "<group>"; };
 		862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesProtocol.swift; sourceTree = "<group>"; };
 		862EF21427F926680051A3A0 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		862EF21827F958400051A3A0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -296,10 +294,7 @@
 		8604234F27EDEE9F0056EF17 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				862EF21427F926680051A3A0 /* DomainError.swift */,
-				862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */,
-				8604235427EDF0630056EF17 /* UseCases */,
-				862EF21627F957AE0051A3A0 /* Infrastructures */,
+				8604235427EDF0630056EF17 /* Usage */,
 				862EF1FE27F848D10051A3A0 /* Provider */,
 				8604235527EDF0730056EF17 /* Repositories */,
 			);
@@ -324,12 +319,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		8604235427EDF0630056EF17 /* UseCases */ = {
+		8604235427EDF0630056EF17 /* Usage */ = {
 			isa = PBXGroup;
 			children = (
-				8604237C27EDFC710056EF17 /* UserUseCase.swift */,
+				862EF21427F926680051A3A0 /* DomainError.swift */,
+				862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */,
+				862EF21C27F95F590051A3A0 /* Usecases */,
+				862EF21627F957AE0051A3A0 /* Infrastructures */,
 			);
-			path = UseCases;
+			path = Usage;
 			sourceTree = "<group>";
 		};
 		8604235527EDF0730056EF17 /* Repositories */ = {
@@ -544,11 +542,18 @@
 		862EF21627F957AE0051A3A0 /* Infrastructures */ = {
 			isa = PBXGroup;
 			children = (
-				862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */,
 				862EF21827F958400051A3A0 /* NetworkService.swift */,
 				862EF21A27F958EB0051A3A0 /* LocalService.swift */,
 			);
 			path = Infrastructures;
+			sourceTree = "<group>";
+		};
+		862EF21C27F95F590051A3A0 /* Usecases */ = {
+			isa = PBXGroup;
+			children = (
+				8604237C27EDFC710056EF17 /* UserUseCase.swift */,
+			);
+			path = Usecases;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -798,7 +803,6 @@
 				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
 				862EF1EA27F4A8860051A3A0 /* CharacterSetEx.swift in Sources */,
 				8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */,
-				862EF20E27F8AD3C0051A3A0 /* UseCaseConstructor.swift in Sources */,
 				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
 				8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */,
