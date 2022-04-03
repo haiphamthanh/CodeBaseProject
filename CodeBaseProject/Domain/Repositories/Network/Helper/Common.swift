@@ -31,3 +31,23 @@ public protocol URLConvertible {
 	/// - Throws:  Any error thrown while creating the `URL`.
 	func asURL() throws -> URL
 }
+
+/// Generate log data
+///
+func errorConstructor(_ message: String, code: Int = 0, domain: String = "com.example.error", function: String = #function, file: String = #file, line: Int = #line) -> NSError {
+
+	let functionKey = "\(domain).function"
+	let fileKey = "\(domain).file"
+	let lineKey = "\(domain).line"
+
+	let error = NSError(domain: domain, code: code, userInfo: [
+		NSLocalizedDescriptionKey: message,
+		functionKey: function,
+		fileKey: file,
+		lineKey: line
+	])
+
+	// Crashlytics.sharedInstance().recordError(error)
+
+	return error
+}

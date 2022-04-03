@@ -63,6 +63,7 @@
 		862EF20927F84E7C0051A3A0 /* UseCaseProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20827F84E7C0051A3A0 /* UseCaseProviderProtocol.swift */; };
 		862EF20E27F8AD3C0051A3A0 /* UseCaseConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */; };
 		862EF21027F8B28E0051A3A0 /* UseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */; };
+		862EF21527F926680051A3A0 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21427F926680051A3A0 /* DomainError.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -145,6 +146,7 @@
 		862EF20827F84E7C0051A3A0 /* UseCaseProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProviderProtocol.swift; sourceTree = "<group>"; };
 		862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseConstructor.swift; sourceTree = "<group>"; };
 		862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesProtocol.swift; sourceTree = "<group>"; };
+		862EF21427F926680051A3A0 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		8604234F27EDEE9F0056EF17 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				862EF21427F926680051A3A0 /* DomainError.swift */,
 				862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */,
 				862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */,
 				8604235427EDF0630056EF17 /* UseCases */,
@@ -773,6 +776,7 @@
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
 				862EF20927F84E7C0051A3A0 /* UseCaseProviderProtocol.swift in Sources */,
 				862EF20027F848E40051A3A0 /* NetProvider.swift in Sources */,
+				862EF21527F926680051A3A0 /* DomainError.swift in Sources */,
 				862EF20527F84A130051A3A0 /* NetUserAdapter.swift in Sources */,
 				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				8604234627ECD8A30056EF17 /* OnlineProvider.swift in Sources */,

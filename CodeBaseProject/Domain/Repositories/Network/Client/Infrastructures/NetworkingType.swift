@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 protocol NetworkingType {
 	associatedtype E: Endpoint
@@ -25,6 +24,18 @@ extension NetworkingType {
 	
 	private func constructor(id: Int) -> NetworkingConstructor<E, O> {
 		return NetworkingConstructor<E, O>.init(id: id, provider: provider)
+	}
+}
+
+extension NetworkingType {
+	// Support Result https://nshipster.com/optional-throws-result-async-await/
+	func request(id: Int, _ api: E) async -> Result<O, Error> {
+		do {
+			let result = try await constructor(id: id).request(api)
+			return Result.success(result)
+		} catch {
+			return Result.failure(error)
+		}
 	}
 }
 

@@ -5,9 +5,9 @@
 //  Created by HaiKaito on 02/04/2022.
 //
 
-import SwiftUI
+import Foundation
 
-class UseCaseConstructor {
+class UseCaseConstructor: UseCasesProtocol {
 	private var useCaseProvider: UseCaseProviderProtocol
 	
 	// MARK: - ================================= Init =================================
@@ -19,22 +19,22 @@ class UseCaseConstructor {
 // MARK: - ================================= User =================================
 extension UseCaseConstructor {
 	// Info
-	func userInfo(inputUrl: UrlInputUserInfo) async throws -> UserEntity {
-		return try await useCaseProvider.user.userInfo(inputUrl: inputUrl)
+	func userInfo(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEntity> {
+		return await useCaseProvider.user.userInfo(inputUrl: inputUrl)
 	}
 	
-	func userEmail(inputUrl: UrlInputUserInfo) async throws -> UserEmailEntity {
-		return try await useCaseProvider.user.userEmail(inputUrl: inputUrl)
+	func userEmail(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEmailEntity> {
+		return await useCaseProvider.user.userEmail(inputUrl: inputUrl)
 	}
 	
 	// Register
-	func register(inputBody: BodyInputUserInfo) async throws -> Bool {
-		return try await useCaseProvider.user.register(inputBody: inputBody)
+	func register(inputBody: BodyInputUserInfo) async -> FinalResult<Bool> {
+		return await useCaseProvider.user.register(inputBody: inputBody)
 	}
 	
 	// Update
-	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async throws -> Bool {
-		return try await useCaseProvider.user.update(inputUrl: inputUrl, inputBody: inputBody)
+	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async -> FinalResult<Bool> {
+		return await useCaseProvider.user.update(inputUrl: inputUrl, inputBody: inputBody)
 	}
 }
 
@@ -47,19 +47,28 @@ private class DemoPreview {
 		let useCaseProvider = NetUseCaseProvider(networkProvider)
 		let networkService = NetworkService(useCaseProvider: useCaseProvider)
 		
-		do {
-			
-			defer {
-				print("do complete..")
-			}
-			
-			let result = try await networkService.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
-			print(result)
-			
-		} catch is ErrorPointer { //generic error
-			print("error")
-		} catch { // else
-			print("error")
+		//		do {
+		//
+		//			defer {
+		//				print("do complete..")
+		//			}
+		//
+		//			let result = try await networkService.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
+		//			print(result)
+		//
+		//		} catch is ErrorPointer { //generic error
+		//			print("error")
+		//		} catch { // else
+		//			print("error")
+		//		}
+		
+		let result = await networkService.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
+		switch result {
+		case .success(let value):
+			print(value)
+			break
+		case .failure(let error):
+			print(error)
 		}
 	}
 }
