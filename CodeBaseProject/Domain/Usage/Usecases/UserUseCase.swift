@@ -11,10 +11,10 @@ Provide methods using for User action
 */
 protocol UserUseCase {
 	// GET
-	func userInfo(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEntity>
-	func userEmail(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEmailEntity>
+	func userInfo(inputUrl: UrlInputUserInfo) async -> DataResult<UserData>
+	func userEmail(inputUrl: UrlInputUserInfo) async -> DataResult<UserData>
 	// POST
-	func register(inputBody: BodyInputUserInfo) async -> FinalResult<Bool>
+	func register(inputBody: BodyInputUserInfo) async -> DataResult<Bool>
 	// PUT
-	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async -> FinalResult<Bool>
+	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async -> DataResult<Bool>
 }

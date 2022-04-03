@@ -13,13 +13,10 @@ protocol NetworkServiceProtocol: UseCasesProtocol {
 
 class NetworkService {
 	private let usecaseProvider: UseCaseProviderProtocol
+	
 	init(usecaseProvider: UseCaseProviderProtocol) {
 		self.usecaseProvider = usecaseProvider
 	}
-	
-//	private func constructor() -> UseCaseConstructor {
-//		return UseCaseConstructor.init(useCaseProvider: usecaseProvider)
-//	}
 }
 
 extension NetworkService: NetworkServiceProtocol {

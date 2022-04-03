@@ -65,6 +65,10 @@
 		862EF21527F926680051A3A0 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21427F926680051A3A0 /* DomainError.swift */; };
 		862EF21927F958400051A3A0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21827F958400051A3A0 /* NetworkService.swift */; };
 		862EF21B27F958EB0051A3A0 /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21A27F958EB0051A3A0 /* LocalService.swift */; };
+		862EF21F27F962E10051A3A0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21E27F962E10051A3A0 /* UserData.swift */; };
+		862EF22227F9635A0051A3A0 /* DataPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22127F9635A0051A3A0 /* DataPresentation.swift */; };
+		862EF22427F9636E0051A3A0 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */; };
+		862EF22627F963A70051A3A0 /* LocalRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22527F963A70051A3A0 /* LocalRepresentable.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -149,6 +153,10 @@
 		862EF21427F926680051A3A0 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		862EF21827F958400051A3A0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		862EF21A27F958EB0051A3A0 /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
+		862EF21E27F962E10051A3A0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		862EF22127F9635A0051A3A0 /* DataPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPresentation.swift; sourceTree = "<group>"; };
+		862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
+		862EF22527F963A70051A3A0 /* LocalRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepresentable.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -294,6 +302,7 @@
 		8604234F27EDEE9F0056EF17 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				862EF21D27F962730051A3A0 /* Data */,
 				8604235427EDF0630056EF17 /* Usage */,
 				862EF1FE27F848D10051A3A0 /* Provider */,
 				8604235527EDF0730056EF17 /* Repositories */,
@@ -556,6 +565,25 @@
 			path = Usecases;
 			sourceTree = "<group>";
 		};
+		862EF21D27F962730051A3A0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				862EF22027F9634D0051A3A0 /* Convertion */,
+				862EF21E27F962E10051A3A0 /* UserData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		862EF22027F9634D0051A3A0 /* Convertion */ = {
+			isa = PBXGroup;
+			children = (
+				862EF22127F9635A0051A3A0 /* DataPresentation.swift */,
+				862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */,
+				862EF22527F963A70051A3A0 /* LocalRepresentable.swift */,
+			);
+			path = Convertion;
+			sourceTree = "<group>";
+		};
 		86FE294427DC8E6000EF2C70 = {
 			isa = PBXGroup;
 			children = (
@@ -807,6 +835,7 @@
 				8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */,
 				8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */,
+				862EF22427F9636E0051A3A0 /* DomainConvertibleType.swift in Sources */,
 				8604237B27EDFA3F0056EF17 /* AppSetting.swift in Sources */,
 				8604235927EDF0E30056EF17 /* AppRootView.swift in Sources */,
 				8604234427ECBAA50056EF17 /* Plugin.swift in Sources */,
@@ -822,6 +851,7 @@
 				8604236F27EDF5C80056EF17 /* BaseCoordinator.swift in Sources */,
 				862EF1F927F83ADB0051A3A0 /* UserEntity.swift in Sources */,
 				862EF1E427F38A3E0051A3A0 /* Encodable+Dict.swift in Sources */,
+				862EF22627F963A70051A3A0 /* LocalRepresentable.swift in Sources */,
 				862EF1E027F273E10051A3A0 /* OfflineAction.swift in Sources */,
 				8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */,
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
@@ -835,6 +865,7 @@
 				8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
 				8604233A27ECADBD0056EF17 /* UserAPI.swift in Sources */,
+				862EF21F27F962E10051A3A0 /* UserData.swift in Sources */,
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
 				8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
@@ -846,6 +877,7 @@
 				8604236927EDF4680056EF17 /* Repository.swift in Sources */,
 				862EF21B27F958EB0051A3A0 /* LocalService.swift in Sources */,
 				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
+				862EF22227F9635A0051A3A0 /* DataPresentation.swift in Sources */,
 				8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */,
 				8604231627E338E00056EF17 /* APIClient.swift in Sources */,
 				862EF1F327F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift in Sources */,

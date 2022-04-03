@@ -7,6 +7,7 @@
 
 import Foundation
 
+typealias DataResult<O> = Result<O, Error>
 protocol UseCasesProtocol {
 	var user: UserUseCase { get }
 }
