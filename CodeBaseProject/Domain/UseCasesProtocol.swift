@@ -19,10 +19,19 @@ protocol UseCasesProtocol {
 	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async -> FinalResult<Bool>
 }
 
-// Use for network
-protocol NetworkServiceProtocol: UseCasesProtocol {
+private class DemoPreview {
+	func execute() async throws {
+		let networkProvider = NetProvider()
+		let useCaseProvider = NetUseCaseProvider(networkProvider)
+		let networkService = NetworkService(usecaseProvider: useCaseProvider)
+		
+		let result = await networkService.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
+		switch result {
+		case .success(let value):
+			print(value)
+			break
+		case .failure(let error):
+			print(error)
+		}
+	}
 }
-
-// Use for local data
-//protocol DataStoreServiceProtocol: UseCasesProtocol {
-//}

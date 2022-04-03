@@ -64,6 +64,8 @@
 		862EF20E27F8AD3C0051A3A0 /* UseCaseConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */; };
 		862EF21027F8B28E0051A3A0 /* UseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */; };
 		862EF21527F926680051A3A0 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21427F926680051A3A0 /* DomainError.swift */; };
+		862EF21927F958400051A3A0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21827F958400051A3A0 /* NetworkService.swift */; };
+		862EF21B27F958EB0051A3A0 /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21A27F958EB0051A3A0 /* LocalService.swift */; };
 		86FE295127DC8E6000EF2C70 /* CodeBaseProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */; };
 		86FE295327DC8E6000EF2C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* ContentView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -147,6 +149,8 @@
 		862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseConstructor.swift; sourceTree = "<group>"; };
 		862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesProtocol.swift; sourceTree = "<group>"; };
 		862EF21427F926680051A3A0 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		862EF21827F958400051A3A0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		862EF21A27F958EB0051A3A0 /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* CodeBaseProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBaseProjectApp.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -294,8 +298,8 @@
 			children = (
 				862EF21427F926680051A3A0 /* DomainError.swift */,
 				862EF20F27F8B28E0051A3A0 /* UseCasesProtocol.swift */,
-				862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */,
 				8604235427EDF0630056EF17 /* UseCases */,
+				862EF21627F957AE0051A3A0 /* Infrastructures */,
 				862EF1FE27F848D10051A3A0 /* Provider */,
 				8604235527EDF0730056EF17 /* Repositories */,
 			);
@@ -535,6 +539,16 @@
 				862EF20427F84A130051A3A0 /* NetUserAdapter.swift */,
 			);
 			path = Adapter;
+			sourceTree = "<group>";
+		};
+		862EF21627F957AE0051A3A0 /* Infrastructures */ = {
+			isa = PBXGroup;
+			children = (
+				862EF20D27F8AD3C0051A3A0 /* UseCaseConstructor.swift */,
+				862EF21827F958400051A3A0 /* NetworkService.swift */,
+				862EF21A27F958EB0051A3A0 /* LocalService.swift */,
+			);
+			path = Infrastructures;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -812,6 +826,7 @@
 				8604233827EBAE5D0056EF17 /* Task.swift in Sources */,
 				862EF1FC27F8470D0051A3A0 /* UserInput.swift in Sources */,
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
+				862EF21927F958400051A3A0 /* NetworkService.swift in Sources */,
 				8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */,
 				8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
@@ -825,6 +840,7 @@
 				8604232127EA375B0056EF17 /* URLRequestEx.swift in Sources */,
 				862EF1E827F4A2EB0051A3A0 /* Convertible.swift in Sources */,
 				8604236927EDF4680056EF17 /* Repository.swift in Sources */,
+				862EF21B27F958EB0051A3A0 /* LocalService.swift in Sources */,
 				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
 				8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */,
 				8604231627E338E00056EF17 /* APIClient.swift in Sources */,
