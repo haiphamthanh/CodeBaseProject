@@ -32,10 +32,10 @@ class AuthManager: ObservableObject {
 	//MARK: - Outputs
 	@Published private(set) var forceLogout = false
 	@Published private(set) var authState: AuthState = .unChecked
-	@Published private(set) var level: AppUserModel.Level? = nil
-	private var appUserModel: AppUserModel? {
+	@Published private(set) var level: AppUserData.Level? = nil
+	private var appUserData: AppUserData? {
 		didSet {
-			didChange(appUserModel)
+			didChange(appUserData)
 		}
 	}
 	
@@ -61,7 +61,7 @@ class AuthManager: ObservableObject {
 			runningTask.cancel()
 		}
 		
-		let notification = Notification(name: AppUserModel.didSignOut, object: nil, userInfo: nil)
+		let notification = Notification(name: AppUserData.didSignOut, object: nil, userInfo: nil)
 		NotificationCenter.default.post(notification)
 	}
 }
@@ -74,13 +74,13 @@ private extension AuthManager {
 		
 		//TODO: Translate to AppUserModel
 		let emailData = userData.email?.asAppModel()
-		let appUserModel = AppUserModel(id: "", info: infoData, email: emailData)
-		self.appUserModel = appUserModel
+		let appUserData = AppUserData(id: "", info: infoData, email: emailData)
+		self.appUserData = appUserData
 	}
 	
-	private func didChange(_ appUserModel: AppUserModel?) {
+	private func didChange(_ appUserData: AppUserData?) {
 		// Authentication processing
-		guard let appUserModel = appUserModel else {
+		guard let appUserData = appUserData else {
 			forceLogout = true
 			return
 		}
@@ -88,11 +88,11 @@ private extension AuthManager {
 		var authState: AuthState = .unChecked
 		
 		// if email available
-		if let email = appUserModel.email, !email.verified {
+		if let email = appUserData.email, !email.verified {
 			authState = .unVerifiedEmail
 		}
 		
-		let info = appUserModel.info
+		let info = appUserData.info
 		if !info.actived {
 			authState = .unActived
 		}
@@ -103,13 +103,13 @@ private extension AuthManager {
 		
 		switch authState {
 		case .validUser:
-			let notification = Notification(name: AppUserModel.didSigned,
+			let notification = Notification(name: AppUserData.didSigned,
 											object: nil,
-											userInfo: [AppUserModel.signedUserInfoKey: appUserModel])
+											userInfo: [AppUserData.signedUserInfoKey: appUserData])
 			NotificationCenter.default.post(notification)
 		case .unChecked, .unVerifiedEmail, .error, .inValidUser, .unActived:
 			forceLogout = true
-			let notification = Notification(name: AppUserModel.didForceSignOut, object: nil, userInfo: nil)
+			let notification = Notification(name: AppUserData.didForceSignOut, object: nil, userInfo: nil)
 			NotificationCenter.default.post(notification)
 		}
 		

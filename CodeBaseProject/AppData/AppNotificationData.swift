@@ -1,5 +1,5 @@
 //
-//  AppNotificationModel.swift
+//  AppNotificationData.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 03/04/2022.
@@ -24,7 +24,7 @@ enum NotificationType: Int {
 	}
 }
 
-struct AppNotificationModel {
+struct AppNotificationData {
 	var aps: Alert?
 	var event: Event?
 	var category: String?

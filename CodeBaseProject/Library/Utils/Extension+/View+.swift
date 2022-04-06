@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 extension View {
-	func alert(by alertResponse: Binding<AppAlertModel?>, completion: (() -> Void)? = nil) -> some View {
+	func alert(by alertResponse: Binding<AppAlertData?>, completion: (() -> Void)? = nil) -> some View {
 		self.alert(item: alertResponse, content: { alertResponse in
 			return Alert(title: Text(alertResponse.title),
 						 message: Text(alertResponse.message),

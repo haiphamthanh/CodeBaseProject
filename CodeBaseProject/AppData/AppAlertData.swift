@@ -1,5 +1,5 @@
 //
-//  AppAlertModel.swift
+//  AppAlertData.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 05/04/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppAlertModel: Identifiable {
+struct AppAlertData: Identifiable {
 	enum Status {
 		case error
 		case successful

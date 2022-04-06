@@ -17,18 +17,18 @@ class NotificationManager: ObservableObject {
 
 	//MARK: - Outputs
 	@Published private(set) var hasNewNotification: Bool = false
-	private(set) var notification: AppNotificationModel? = nil
+	private(set) var notification: AppNotificationData? = nil
 
 	//MARK: - Actions
-	func got(notification: AppNotificationModel) {
+	func got(notification: AppNotificationData) {
 		self.notification = notification
 
 		// We're just making it new when the event are available
 		hasNewNotification = notification.event != nil
 		
-		let notification = Notification(name: AppNotificationModel.didReceiveNotification,
+		let notification = Notification(name: AppNotificationData.didReceiveNotification,
 										object: nil,
-										userInfo: [AppNotificationModel.notificationKey: notification])
+										userInfo: [AppNotificationData.notificationKey: notification])
 		NotificationCenter.default.post(notification)
 	}
 

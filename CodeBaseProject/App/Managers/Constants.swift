@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - ================================= AppNotification Keys =================================
-extension AppNotificationModel {
+extension AppNotificationData {
 	public static let didReceiveNotification = Notification.Name(rawValue: "org.gochickencode.notification.name.notification.didReceive")
 	public static let notificationKey = "org.gochickencode.notification.key.notification"
 }
 
-extension AppUserModel {
+extension AppUserData {
 	public static let didSigned = Notification.Name(rawValue: "org.gochickencode.notification.name.auth.didSigned")
 	public static let signedUserInfoKey = "org.gochickencode.notification.key.signedUserInfo"
 	

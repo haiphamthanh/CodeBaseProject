@@ -59,7 +59,7 @@
 		861E859027FB5BB20032C4F5 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E858727FB5BB20032C4F5 /* Date+.swift */; };
 		861E859327FB5BB20032C4F5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E858A27FB5BB20032C4F5 /* String+.swift */; };
 		861E859427FB5BB20032C4F5 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E858B27FB5BB20032C4F5 /* Font+.swift */; };
-		861E859627FB5C120032C4F5 /* AppAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E859527FB5C120032C4F5 /* AppAlertModel.swift */; };
+		861E859627FB5C120032C4F5 /* AppAlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E859527FB5C120032C4F5 /* AppAlertData.swift */; };
 		861E859D27FB6AA70032C4F5 /* TextFieldAlertInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E859C27FB66FC0032C4F5 /* TextFieldAlertInput.swift */; };
 		861E859E27FB6AAB0032C4F5 /* TextFieldAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E859B27FB66FC0032C4F5 /* TextFieldAlertVC.swift */; };
 		861E85A127FB6B6B0032C4F5 /* SectionHeaderViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85A027FB6B6B0032C4F5 /* SectionHeaderViewModifier.swift */; };
@@ -89,9 +89,9 @@
 		862EF22427F9636E0051A3A0 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */; };
 		862EF22627F963A70051A3A0 /* LocalRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22527F963A70051A3A0 /* LocalRepresentable.swift */; };
 		862EF22827F978250051A3A0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22727F978250051A3A0 /* AuthManager.swift */; };
-		862EF22B27F9796A0051A3A0 /* AppUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22A27F9796A0051A3A0 /* AppUserModel.swift */; };
-		862EF22D27F97F510051A3A0 /* AppModelPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22C27F97F510051A3A0 /* AppModelPresentation.swift */; };
-		862EF22F27F990590051A3A0 /* AppNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22E27F990590051A3A0 /* AppNotificationModel.swift */; };
+		862EF22B27F9796A0051A3A0 /* AppUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22A27F9796A0051A3A0 /* AppUserData.swift */; };
+		862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22C27F97F510051A3A0 /* AppDataPresentation.swift */; };
+		862EF22F27F990590051A3A0 /* AppNotificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22E27F990590051A3A0 /* AppNotificationData.swift */; };
 		862EF23127F997FD0051A3A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF23027F997FD0051A3A0 /* Constants.swift */; };
 		862EF23327FA6C2F0051A3A0 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF23227FA6C2F0051A3A0 /* AppStateManager.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
@@ -172,7 +172,7 @@
 		861E858727FB5BB20032C4F5 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		861E858A27FB5BB20032C4F5 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		861E858B27FB5BB20032C4F5 /* Font+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
-		861E859527FB5C120032C4F5 /* AppAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAlertModel.swift; sourceTree = "<group>"; };
+		861E859527FB5C120032C4F5 /* AppAlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAlertData.swift; sourceTree = "<group>"; };
 		861E859B27FB66FC0032C4F5 /* TextFieldAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertVC.swift; sourceTree = "<group>"; };
 		861E859C27FB66FC0032C4F5 /* TextFieldAlertInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertInput.swift; sourceTree = "<group>"; };
 		861E85A027FB6B6B0032C4F5 /* SectionHeaderViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderViewModifier.swift; sourceTree = "<group>"; };
@@ -202,9 +202,9 @@
 		862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
 		862EF22527F963A70051A3A0 /* LocalRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepresentable.swift; sourceTree = "<group>"; };
 		862EF22727F978250051A3A0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		862EF22A27F9796A0051A3A0 /* AppUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserModel.swift; sourceTree = "<group>"; };
-		862EF22C27F97F510051A3A0 /* AppModelPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelPresentation.swift; sourceTree = "<group>"; };
-		862EF22E27F990590051A3A0 /* AppNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationModel.swift; sourceTree = "<group>"; };
+		862EF22A27F9796A0051A3A0 /* AppUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserData.swift; sourceTree = "<group>"; };
+		862EF22C27F97F510051A3A0 /* AppDataPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataPresentation.swift; sourceTree = "<group>"; };
+		862EF22E27F990590051A3A0 /* AppNotificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationData.swift; sourceTree = "<group>"; };
 		862EF23027F997FD0051A3A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		862EF23227FA6C2F0051A3A0 /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -544,7 +544,6 @@
 				86FE295627DC8E6300EF2C70 /* Preview Content */,
 				8604235327EDEFF10056EF17 /* Resources */,
 				8604236A27EDF4F00056EF17 /* Plugins */,
-				862EF22927F9791D0051A3A0 /* AppModel */,
 				8604236427EDF2F00056EF17 /* Managers */,
 			);
 			path = App;
@@ -755,15 +754,15 @@
 			path = Convertion;
 			sourceTree = "<group>";
 		};
-		862EF22927F9791D0051A3A0 /* AppModel */ = {
+		862EF22927F9791D0051A3A0 /* AppData */ = {
 			isa = PBXGroup;
 			children = (
-				862EF22C27F97F510051A3A0 /* AppModelPresentation.swift */,
-				862EF22A27F9796A0051A3A0 /* AppUserModel.swift */,
-				862EF22E27F990590051A3A0 /* AppNotificationModel.swift */,
-				861E859527FB5C120032C4F5 /* AppAlertModel.swift */,
+				862EF22C27F97F510051A3A0 /* AppDataPresentation.swift */,
+				862EF22A27F9796A0051A3A0 /* AppUserData.swift */,
+				862EF22E27F990590051A3A0 /* AppNotificationData.swift */,
+				861E859527FB5C120032C4F5 /* AppAlertData.swift */,
 			);
-			path = AppModel;
+			path = AppData;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -792,6 +791,7 @@
 			isa = PBXGroup;
 			children = (
 				86FE295027DC8E6000EF2C70 /* Main.swift */,
+				862EF22927F9791D0051A3A0 /* AppData */,
 				861E857627FB4CA10032C4F5 /* App */,
 				8604235127EDEEF30056EF17 /* Screens */,
 				8604234F27EDEE9F0056EF17 /* Domain */,
@@ -1010,7 +1010,7 @@
 				861E859327FB5BB20032C4F5 /* String+.swift in Sources */,
 				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				861E859427FB5BB20032C4F5 /* Font+.swift in Sources */,
-				861E859627FB5C120032C4F5 /* AppAlertModel.swift in Sources */,
+				861E859627FB5C120032C4F5 /* AppAlertData.swift in Sources */,
 				8604234627ECD8A30056EF17 /* OnlineProvider.swift in Sources */,
 				861E858F27FB5BB20032C4F5 /* Color+.swift in Sources */,
 				861E857B27FB504A0032C4F5 /* SingleViewInput.swift in Sources */,
@@ -1053,9 +1053,9 @@
 				8604233827EBAE5D0056EF17 /* Task.swift in Sources */,
 				862EF1FC27F8470D0051A3A0 /* UserInput.swift in Sources */,
 				861E858D27FB5BB20032C4F5 /* PullToRefresh.swift in Sources */,
-				862EF22D27F97F510051A3A0 /* AppModelPresentation.swift in Sources */,
+				862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */,
 				861E857827FB4D570032C4F5 /* ViewType.swift in Sources */,
-				862EF22B27F9796A0051A3A0 /* AppUserModel.swift in Sources */,
+				862EF22B27F9796A0051A3A0 /* AppUserData.swift in Sources */,
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
 				862EF21927F958400051A3A0 /* NetworkService.swift in Sources */,
 				8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */,
@@ -1065,7 +1065,7 @@
 				862EF21F27F962E10051A3A0 /* UserData.swift in Sources */,
 				861E859027FB5BB20032C4F5 /* Date+.swift in Sources */,
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
-				862EF22F27F990590051A3A0 /* AppNotificationModel.swift in Sources */,
+				862EF22F27F990590051A3A0 /* AppNotificationData.swift in Sources */,
 				8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */,
 				861E858E27FB5BB20032C4F5 /* Int+.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
@@ -1247,7 +1247,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/App/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4YUFD45MA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1278,7 +1278,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/App/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4YUFD45MA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

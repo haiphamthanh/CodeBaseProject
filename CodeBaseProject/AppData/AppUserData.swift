@@ -1,5 +1,5 @@
 //
-//  AppData.swift
+//  AppUserData.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 03/04/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppUserModel: Identifiable {
+struct AppUserData: Identifiable {
 	enum Level: String {
 		case guest
 		case silver
@@ -48,11 +48,11 @@ struct AppUserModel: Identifiable {
 
 
 // MARK: Translation supporting
-extension UserData.Info: AppModelPresentation {
-	typealias AppModelType = AppUserModel.Info
+extension UserData.Info: AppDataPresentation {
+	typealias AppModelType = AppUserData.Info
 	
 	func asAppModel() -> AppModelType {
-		return AppUserModel.Info(id: "\(id)",
+		return AppUserData.Info(id: "\(id)",
 								 actived: actived,
 								 name: name,
 								 hireable: hireable,
@@ -63,11 +63,11 @@ extension UserData.Info: AppModelPresentation {
 }
 
 
-extension UserData.Email: AppModelPresentation {
-	typealias AppModelType = AppUserModel.Email
+extension UserData.Email: AppDataPresentation {
+	typealias AppModelType = AppUserData.Email
 	
 	func asAppModel() -> AppModelType {
-		return AppUserModel.Email(id: "id",
+		return AppUserData.Email(id: "id",
 								  email: email,
 								  verified: verified,
 								  primary: primary,
