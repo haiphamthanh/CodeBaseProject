@@ -10,7 +10,7 @@ import Foundation
 // MARK: - ================================= Entity =================================
 public struct UserEntity: Codable {
 	public var id: Int
-	public var login: String
+	public var actived: Bool
 	public var name: String?
 	public var hireable: Bool?
 	public var location: String?

@@ -1,4 +1,6 @@
 PODS:
+  - Introspect (0.1.4)
+  - SwiftDate (6.3.1)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
     - SwifterSwift/CoreAnimation (= 5.2.0)
@@ -26,15 +28,21 @@ PODS:
   - SwifterSwift/UIKit (5.2.0)
 
 DEPENDENCIES:
+  - Introspect
+  - SwiftDate
   - SwifterSwift
 
 SPEC REPOS:
   trunk:
+    - Introspect
+    - SwiftDate
     - SwifterSwift
 
 SPEC CHECKSUMS:
+  Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
+  SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
-PODFILE CHECKSUM: f83cda126c62bc2f2c2c249e64f6132ae08f1ed2
+PODFILE CHECKSUM: 66ea3e79cac3dc53cd18d018e82f9d563549766a
 
 COCOAPODS: 1.10.2

@@ -10,7 +10,7 @@ import Foundation
 struct UserData {
 	struct Info {
 		public let id: Int
-		public let login: String
+		public let actived: Bool
 		public let name: String?
 		public let hireable: Bool?
 		public let location: String?
@@ -40,7 +40,7 @@ extension UserEntity: DataPresentation {
 	
 	func asData() -> DataType {
 		return UserData.Info(id: id,
-							 login: login,
+							 actived: actived,
 							 name: name,
 							 hireable: hireable,
 							 location: location,
