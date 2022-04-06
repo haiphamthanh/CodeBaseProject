@@ -5,8 +5,5 @@
 //  Created by HaiKaito on 26/07/2021.
 //
 
-protocol AppRootCoordinator {
-}
-
-class AppRootCoordinatorImpl: BaseCoordinator, AppRootCoordinator {
+class AppRootCoordinator: CoordinatorRule {
 }

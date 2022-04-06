@@ -37,6 +37,10 @@ protocol ViewRule: View {
 ///
 ///
 
+// COORDINATOR
+fileprivate class SampleCoor: CoordinatorRule {
+}
+
 // VIEWMODEL
 fileprivate class SampleViewModel: ViewModelRule {
 	@Published var title: String = ""
@@ -72,10 +76,6 @@ fileprivate struct SampleView<VM>: ViewRule where VM: ViewModelRule, VM: ViewDat
 	var body: some View {
 		Text("Hello, World!")
 	}
-}
-
-// COORDINATOR
-fileprivate class SampleCoor: CoordinatorRule {
 }
 
 // HOW TO USE IT???
