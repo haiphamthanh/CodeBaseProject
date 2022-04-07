@@ -68,7 +68,6 @@
 		861E85AB27FB6F090032C4F5 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85AA27FB6F090032C4F5 /* BackBarButtonItem.swift */; };
 		861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85AF27FB71090032C4F5 /* UIKit+.swift */; };
 		861E85B427FDB6990032C4F5 /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85B327FDB6990032C4F5 /* Rules.swift */; };
-		861E85B727FDC99B0032C4F5 /* AppRootViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85B627FDC99B0032C4F5 /* AppRootViewData.swift */; };
 		862EF1E027F273E10051A3A0 /* OfflineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1DF27F273E10051A3A0 /* OfflineAction.swift */; };
 		862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1E127F35FAB0051A3A0 /* UserRequestBuilder.swift */; };
 		862EF1E427F38A3E0051A3A0 /* Encodable+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1E327F38A3E0051A3A0 /* Encodable+Dict.swift */; };
@@ -183,7 +182,6 @@
 		861E85AA27FB6F090032C4F5 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
 		861E85AF27FB71090032C4F5 /* UIKit+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+.swift"; sourceTree = "<group>"; };
 		861E85B327FDB6990032C4F5 /* Rules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
-		861E85B627FDC99B0032C4F5 /* AppRootViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewData.swift; sourceTree = "<group>"; };
 		862EF1DF27F273E10051A3A0 /* OfflineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineAction.swift; sourceTree = "<group>"; };
 		862EF1E127F35FAB0051A3A0 /* UserRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestBuilder.swift; sourceTree = "<group>"; };
 		862EF1E327F38A3E0051A3A0 /* Encodable+Dict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dict.swift"; sourceTree = "<group>"; };
@@ -465,8 +463,8 @@
 			isa = PBXGroup;
 			children = (
 				8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */,
+				8604235627EDF0E30056EF17 /* AppRootView.swift */,
 				8604235727EDF0E30056EF17 /* AppRootViewModel.swift */,
-				861E85B527FDC9910032C4F5 /* AppRootView */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -627,15 +625,6 @@
 				861E85AF27FB71090032C4F5 /* UIKit+.swift */,
 			);
 			path = "Extension+";
-			sourceTree = "<group>";
-		};
-		861E85B527FDC9910032C4F5 /* AppRootView */ = {
-			isa = PBXGroup;
-			children = (
-				861E85B627FDC99B0032C4F5 /* AppRootViewData.swift */,
-				8604235627EDF0E30056EF17 /* AppRootView.swift */,
-			);
-			path = AppRootView;
 			sourceTree = "<group>";
 		};
 		862EF1E527F4A2000051A3A0 /* Policy */ = {
@@ -1033,7 +1022,6 @@
 				861E85B427FDB6990032C4F5 /* Rules.swift in Sources */,
 				862EF22427F9636E0051A3A0 /* DomainConvertibleType.swift in Sources */,
 				861E85A127FB6B6B0032C4F5 /* SectionHeaderViewModifier.swift in Sources */,
-				861E85B727FDC99B0032C4F5 /* AppRootViewData.swift in Sources */,
 				861E85AB27FB6F090032C4F5 /* BackBarButtonItem.swift in Sources */,
 				8604237B27EDFA3F0056EF17 /* AppSetting.swift in Sources */,
 				8604235927EDF0E30056EF17 /* AppRootView.swift in Sources */,

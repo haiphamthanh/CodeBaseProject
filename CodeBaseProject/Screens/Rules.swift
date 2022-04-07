@@ -15,22 +15,14 @@ import SwiftUI
 protocol CoordinatorRule {
 }
 
-protocol ViewModelRule: ObservableObject {
+protocol ViewModelRule {
 	associatedtype C where C: CoordinatorRule
 	var coordinator: C { get }
 }
 
-protocol ViewDataRule {
-	associatedtype T
-	var asViewData: T { get }
-}
-
 protocol ViewRule {
-	associatedtype VM where VM: ViewModelRule, VM: ViewDataRule
+	associatedtype VM where VM: ViewModelRule
 	var viewModel: VM { get }
-	
-	associatedtype I
-	var viewData: I { get }
 }
 
 ///
@@ -56,30 +48,26 @@ fileprivate class SampleViewModel: ViewModelRule {
 }
 
 // VIEW
-fileprivate protocol SampleRequiredViewData {
+fileprivate protocol SampleViewDataPolicy: ObservableObject {
 	var title: String { get }
+	
+	// Allow to add new properties
+	var email2: String { get set }
 }
 
-extension SampleViewModel: ViewDataRule, SampleRequiredViewData {
-	typealias T = SampleRequiredViewData
-	var asViewData: T {
-		return self
+extension SampleViewModel: SampleViewDataPolicy {
+	var email2: String {
+		get { title }
+		set { title = newValue }
 	}
 }
 
-fileprivate struct SampleView<VM>: ViewRule where VM: ViewModelRule, VM: ViewDataRule {
+//struct AppRootView<VM: AppRootViewDataPolicy>: ViewRule where VM: ViewModelRule {
+fileprivate struct SampleView<VM: SampleViewDataPolicy>: View, ViewRule where VM: ViewModelRule {
 	@ObservedObject var viewModel: VM
-	typealias I = SampleRequiredViewData
-	let viewData: I
 	
 	init(viewModel: VM) {
 		self.viewModel = viewModel
-		
-		guard let viewData = viewModel.asViewData as? I else {
-			fatalError("Your view model need to be confirm to view data")
-		}
-		
-		self.viewData = viewData
 	}
 	
 	var body: some View {
