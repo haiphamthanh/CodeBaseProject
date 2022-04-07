@@ -25,9 +25,12 @@ protocol ViewDataRule {
 	var asViewData: T { get }
 }
 
-protocol ViewRule: View {
+protocol ViewRule {
 	associatedtype VM where VM: ViewModelRule, VM: ViewDataRule
 	var viewModel: VM { get }
+	
+	associatedtype I
+	var viewData: I { get }
 }
 
 ///
@@ -53,24 +56,30 @@ fileprivate class SampleViewModel: ViewModelRule {
 }
 
 // VIEW
-fileprivate struct SampleViewData {
-	let string: String
+fileprivate protocol SampleRequiredViewData {
+	var title: String { get }
 }
 
-extension SampleViewModel: ViewDataRule {
-	typealias T = SampleViewData
+extension SampleViewModel: ViewDataRule, SampleRequiredViewData {
+	typealias T = SampleRequiredViewData
 	var asViewData: T {
-		return SampleViewData(string: title)
+		return self
 	}
 }
 
 fileprivate struct SampleView<VM>: ViewRule where VM: ViewModelRule, VM: ViewDataRule {
 	@ObservedObject var viewModel: VM
+	typealias I = SampleRequiredViewData
+	let viewData: I
 	
-	@State private var viewData: AppRootViewData?
 	init(viewModel: VM) {
 		self.viewModel = viewModel
-		self.viewData = viewModel.asViewData as? AppRootViewData
+		
+		guard let viewData = viewModel.asViewData as? I else {
+			fatalError("Your view model need to be confirm to view data")
+		}
+		
+		self.viewData = viewData
 	}
 	
 	var body: some View {
