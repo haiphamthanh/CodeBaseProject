@@ -7,6 +7,9 @@
 
 import Foundation
 
+//class AppDelegate: AppDelegateProvider {
+//}
+
 //import Swinject
 //import RxSwift
 //import IQKeyboardManagerSwift

@@ -7,6 +7,17 @@
 
 import UIKit
 
+enum AppState {
+	case didFinishLaunching
+	case willResignActive
+	case didEnterBackground
+	case willEnterForeground
+	case didBecomeActive
+	case willTerminate
+	case openUrl
+	case other
+}
+
 protocol AppDelegateProvider {
 	func app(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	func appWillResignActive(_ app: UIApplication)

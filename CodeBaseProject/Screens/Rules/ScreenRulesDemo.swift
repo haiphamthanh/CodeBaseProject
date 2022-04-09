@@ -1,43 +1,23 @@
 //
-//  Rules.swift
+//  ScreenRulesDemo.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 06/04/2022.
 //
-
-import SwiftUI
 
 ///
 ///
 ///	EVERY CREATED SCREEN MUST BE CONFIRMED TO THESE PROTOCOLS
 ///
 ///
-protocol CoordinatorRule {
-}
-
-protocol ViewModelRule {
-	associatedtype C where C: CoordinatorRule
-	var coordinator: C { get }
-}
-
-protocol ViewRule {
-	associatedtype VM where VM: ViewModelRule
-	var viewModel: VM { get }
-}
-
-///
-///
-///	THIS IS SAMPLE TO USE THESE RULES
-///
-///
-///
+import SwiftUI
 
 // COORDINATOR
-fileprivate class SampleCoor: CoordinatorRule {
+private class SampleCoor: CoordinatorRule {
 }
 
 // VIEWMODEL
-fileprivate class SampleViewModel: ViewModelRule {
+private class SampleViewModel: ViewModelRule {
 	@Published var title: String = ""
 	
 	typealias C = SampleCoor
@@ -48,7 +28,7 @@ fileprivate class SampleViewModel: ViewModelRule {
 }
 
 // VIEW
-fileprivate protocol SampleViewDataPolicy: ObservableObject {
+private protocol SampleViewDataPolicy: ObservableObject {
 	var title: String { get }
 	
 	// Allow to add new properties
@@ -63,7 +43,7 @@ extension SampleViewModel: SampleViewDataPolicy {
 }
 
 //struct AppRootView<VM: AppRootViewDataPolicy>: ViewRule where VM: ViewModelRule {
-fileprivate struct SampleView<VM: SampleViewDataPolicy>: View, ViewRule where VM: ViewModelRule {
+private struct SampleView<VM: SampleViewDataPolicy>: View, ViewRule where VM: ViewModelRule {
 	@ObservedObject var viewModel: VM
 	
 	init(viewModel: VM) {

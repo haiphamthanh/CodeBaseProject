@@ -66,3 +66,7 @@ extension UIColor {
 	static let blueGray700 = UIColor(rgb: 0x37474F)
 	static let sideMenuColor = UIColor(named: "SideMenuColor") ?? UIColor(rgb: 0x37474F)
 }
+
+
+class AppColor: AppColorProvider {
+}

@@ -1,6 +1,6 @@
 //
 //  AppRootView.swift
-//  TBVCommunity
+//  CodeBaseProject
 //
 //  Created by HaiKaito on 13/07/2021.
 //
@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: - ================================= View input requirements =================================
 protocol AppRootViewDataPolicy: ObservableObject {
-	var appState: AppState { get }
+	var authState: AuthState { get }
 	var email: String { get set }
 	var mail: String { get set }
 }
