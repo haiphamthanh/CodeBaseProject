@@ -34,6 +34,10 @@ def shared_pods
 	pod 'SwiftDate' # The best way to deal with Dates & Time Zones in Swift
 	pod 'Introspect'
 	
+	# Pods for Design pattern
+	# Dependency injection
+	pod 'Swinject'
+	
 end
 
 target "CodeBaseProject" do

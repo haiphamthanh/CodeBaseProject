@@ -129,6 +129,9 @@
 		8685B24E28012BA10076B3AC /* AppSceneDelegateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */; };
 		8685B25028012CAE0076B3AC /* DefaultAppSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */; };
 		8685B256280149C50076B3AC /* AppCommonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B255280149C50076B3AC /* AppCommonProvider.swift */; };
+		8685B25A28014CE60076B3AC /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25928014CE60076B3AC /* PluginManager.swift */; };
+		8685B25D280154B40076B3AC /* MainServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25C280154B40076B3AC /* MainServices.swift */; };
+		8685B25F280154C50076B3AC /* ExternalServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25E280154C50076B3AC /* ExternalServices.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -277,6 +280,9 @@
 		8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSceneDelegateProvider.swift; sourceTree = "<group>"; };
 		8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppSceneDelegate.swift; sourceTree = "<group>"; };
 		8685B255280149C50076B3AC /* AppCommonProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommonProvider.swift; sourceTree = "<group>"; };
+		8685B25928014CE60076B3AC /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
+		8685B25C280154B40076B3AC /* MainServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServices.swift; sourceTree = "<group>"; };
+		8685B25E280154C50076B3AC /* ExternalServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalServices.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -492,6 +498,7 @@
 				8685B20A280057B90076B3AC /* CryptoManager.swift */,
 				8685B21E28005C190076B3AC /* RegistationManager.swift */,
 				8685B22D280061420076B3AC /* LocalizationManager.swift */,
+				8685B25928014CE60076B3AC /* PluginManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -897,7 +904,7 @@
 		8685B25328012CE80076B3AC /* System */ = {
 			isa = PBXGroup;
 			children = (
-				8604237A27EDFA3F0056EF17 /* AppSetting.swift */,
+				8685B25B2801549E0076B3AC /* AppSetting */,
 				861E857F27FB5A580032C4F5 /* AppColor.swift */,
 				8685B1FB280055F90076B3AC /* AppNotification.swift */,
 				8685B1FD2800560C0076B3AC /* FirstLoading.swift */,
@@ -925,6 +932,16 @@
 				86FE295627DC8E6300EF2C70 /* Preview Content */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		8685B25B2801549E0076B3AC /* AppSetting */ = {
+			isa = PBXGroup;
+			children = (
+				8604237A27EDFA3F0056EF17 /* AppSetting.swift */,
+				8685B25C280154B40076B3AC /* MainServices.swift */,
+				8685B25E280154C50076B3AC /* ExternalServices.swift */,
+			);
+			path = AppSetting;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -1263,8 +1280,10 @@
 				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
 				8685B256280149C50076B3AC /* AppCommonProvider.swift in Sources */,
 				861E858C27FB5BB20032C4F5 /* View+.swift in Sources */,
+				8685B25D280154B40076B3AC /* MainServices.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				8685B22A28005D3D0076B3AC /* NetworkSecurityPlugin.swift in Sources */,
+				8685B25A28014CE60076B3AC /* PluginManager.swift in Sources */,
 				8604232127EA375B0056EF17 /* URLRequestEx.swift in Sources */,
 				8685B21928005A550076B3AC /* AppColorProvider.swift in Sources */,
 				862EF1E827F4A2EB0051A3A0 /* Convertible.swift in Sources */,
@@ -1277,6 +1296,7 @@
 				862EF22227F9635A0051A3A0 /* DataPresentation.swift in Sources */,
 				8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */,
 				8604231627E338E00056EF17 /* APIClient.swift in Sources */,
+				8685B25F280154C50076B3AC /* ExternalServices.swift in Sources */,
 				862EF1F327F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift in Sources */,
 				8685B203280056A80076B3AC /* Migration+View.swift in Sources */,
 				862EF1F127F4B6F50051A3A0 /* UserRegisterRequestBuilder.swift in Sources */,
