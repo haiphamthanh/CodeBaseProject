@@ -122,7 +122,6 @@
 		8685B23628007C5E0076B3AC /* ViewRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B23528007C5E0076B3AC /* ViewRule.swift */; };
 		8685B23828007C720076B3AC /* ViewModelRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B23728007C720076B3AC /* ViewModelRule.swift */; };
 		8685B23A28007C870076B3AC /* CoordinatorRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B23928007C870076B3AC /* CoordinatorRule.swift */; };
-		8685B23C28007D4F0076B3AC /* AppRulesDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B23B28007D4F0076B3AC /* AppRulesDemo.swift */; };
 		8685B23F28007DD80076B3AC /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B23E28007DD80076B3AC /* IntroView.swift */; };
 		8685B24128007DE50076B3AC /* IntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24028007DE50076B3AC /* IntroCoordinator.swift */; };
 		8685B24328007DF10076B3AC /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24228007DF10076B3AC /* IntroViewModel.swift */; };
@@ -271,7 +270,6 @@
 		8685B23528007C5E0076B3AC /* ViewRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRule.swift; sourceTree = "<group>"; };
 		8685B23728007C720076B3AC /* ViewModelRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRule.swift; sourceTree = "<group>"; };
 		8685B23928007C870076B3AC /* CoordinatorRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRule.swift; sourceTree = "<group>"; };
-		8685B23B28007D4F0076B3AC /* AppRulesDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRulesDemo.swift; sourceTree = "<group>"; };
 		8685B23E28007DD80076B3AC /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		8685B24028007DE50076B3AC /* IntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCoordinator.swift; sourceTree = "<group>"; };
 		8685B24228007DF10076B3AC /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -581,12 +579,10 @@
 		861E857627FB4CA10032C4F5 /* Infrastructures */ = {
 			isa = PBXGroup;
 			children = (
-				8685B20C280058320076B3AC /* Rules */,
 				8604236A27EDF4F00056EF17 /* Plugins */,
 				8604236427EDF2F00056EF17 /* Managers */,
 				8685B1FA280055D00076B3AC /* Settings */,
 				8604235327EDEFF10056EF17 /* Resources */,
-				86FE295627DC8E6300EF2C70 /* Preview Content */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -836,14 +832,14 @@
 			path = "Tool+";
 			sourceTree = "<group>";
 		};
-		8685B20C280058320076B3AC /* Rules */ = {
+		8685B20C280058320076B3AC /* AppRules */ = {
 			isa = PBXGroup;
 			children = (
-				8685B23B28007D4F0076B3AC /* AppRulesDemo.swift */,
+				8685B255280149C50076B3AC /* AppCommonProvider.swift */,
 				8685B25228012CDD0076B3AC /* CommonProvider */,
 				8685B20F28005A070076B3AC /* SystemProvider */,
 			);
-			path = Rules;
+			path = AppRules;
 			sourceTree = "<group>";
 		};
 		8685B20F28005A070076B3AC /* SystemProvider */ = {
@@ -914,10 +910,21 @@
 		8685B254280149A00076B3AC /* Constructors */ = {
 			isa = PBXGroup;
 			children = (
-				8685B255280149C50076B3AC /* AppCommonProvider.swift */,
 				862EF22927F9791D0051A3A0 /* AppData */,
+				8685B20C280058320076B3AC /* AppRules */,
+				861E857627FB4CA10032C4F5 /* Infrastructures */,
 			);
 			path = Constructors;
+			sourceTree = "<group>";
+		};
+		8685B25828014B800076B3AC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				86FE295027DC8E6000EF2C70 /* Main.swift */,
+				8685B231280073550076B3AC /* MainSceneDelegate.swift */,
+				86FE295627DC8E6300EF2C70 /* Preview Content */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -945,10 +952,8 @@
 		86FE294F27DC8E6000EF2C70 /* CodeBaseProject */ = {
 			isa = PBXGroup;
 			children = (
-				86FE295027DC8E6000EF2C70 /* Main.swift */,
-				8685B231280073550076B3AC /* MainSceneDelegate.swift */,
+				8685B25828014B800076B3AC /* Main */,
 				8685B254280149A00076B3AC /* Constructors */,
-				861E857627FB4CA10032C4F5 /* Infrastructures */,
 				8604235127EDEEF30056EF17 /* Screens */,
 				8604234F27EDEE9F0056EF17 /* Domain */,
 				861E857527FB4AAF0032C4F5 /* Library */,
@@ -1269,7 +1274,6 @@
 				862EF21B27F958EB0051A3A0 /* LocalService.swift in Sources */,
 				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
 				862EF22827F978250051A3A0 /* AuthManager.swift in Sources */,
-				8685B23C28007D4F0076B3AC /* AppRulesDemo.swift in Sources */,
 				862EF22227F9635A0051A3A0 /* DataPresentation.swift in Sources */,
 				8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */,
 				8604231627E338E00056EF17 /* APIClient.swift in Sources */,
@@ -1439,11 +1443,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/Infrastructures/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/Main/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4YUFD45MA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CodeBaseProject/Infrastructures/Settings/Info.plist;
+				INFOPLIST_FILE = CodeBaseProject/Constructors/Infrastructures/Settings/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1471,11 +1475,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/Infrastructures/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeBaseProject/Main/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4YUFD45MA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CodeBaseProject/Infrastructures/Settings/Info.plist;
+				INFOPLIST_FILE = CodeBaseProject/Constructors/Infrastructures/Settings/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
