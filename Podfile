@@ -42,6 +42,8 @@ def shared_pods
 	# Pods for presentation
 	# Dialog
 	pod 'PopupDialog'
+	# Toast
+	pod 'Toast-Swift'
 	
 end
 

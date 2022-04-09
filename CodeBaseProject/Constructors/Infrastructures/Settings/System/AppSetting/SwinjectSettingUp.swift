@@ -52,6 +52,7 @@ class BaseRegisterApp {
 			let navService = r.sureResolve(BasicNavigationServiceProtocol.self)
 			return BaseToastService(navigationService: navService)
 		}
+		
 		container.register(ImageServiceProtocol.self) { _ in BaseImageService() }
 	}
 	

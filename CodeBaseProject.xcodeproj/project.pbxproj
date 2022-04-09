@@ -144,6 +144,7 @@
 		8685B277280164850076B3AC /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B276280164850076B3AC /* AlertButton.swift */; };
 		8685B279280164FC0076B3AC /* UsefulColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B278280164FC0076B3AC /* UsefulColors.swift */; };
 		8685B27B280166FB0076B3AC /* Swinject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27A280166FB0076B3AC /* Swinject+.swift */; };
+		8685B27D2801676E0076B3AC /* ToastServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27C2801676E0076B3AC /* ToastServiceProtocol.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -307,6 +308,7 @@
 		8685B276280164850076B3AC /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		8685B278280164FC0076B3AC /* UsefulColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulColors.swift; sourceTree = "<group>"; };
 		8685B27A280166FB0076B3AC /* Swinject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+.swift"; sourceTree = "<group>"; };
+		8685B27C2801676E0076B3AC /* ToastServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastServiceProtocol.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -981,6 +983,7 @@
 			children = (
 				8685B2632801600A0076B3AC /* BasicNavigationServiceProtocol.swift */,
 				8685B2742801639B0076B3AC /* AlertServiceProtocol.swift */,
+				8685B27C2801676E0076B3AC /* ToastServiceProtocol.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1359,6 +1362,7 @@
 				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
 				8685B256280149C50076B3AC /* AppCommonProvider.swift in Sources */,
 				861E858C27FB5BB20032C4F5 /* View+.swift in Sources */,
+				8685B27D2801676E0076B3AC /* ToastServiceProtocol.swift in Sources */,
 				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
 				8685B25D280154B40076B3AC /* MainServices.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
