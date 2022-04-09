@@ -145,6 +145,7 @@
 		8685B279280164FC0076B3AC /* UsefulColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B278280164FC0076B3AC /* UsefulColors.swift */; };
 		8685B27B280166FB0076B3AC /* Swinject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27A280166FB0076B3AC /* Swinject+.swift */; };
 		8685B27D2801676E0076B3AC /* ToastServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27C2801676E0076B3AC /* ToastServiceProtocol.swift */; };
+		8685B27F2801685F0076B3AC /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27E2801685F0076B3AC /* ImageProvider.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -309,6 +310,7 @@
 		8685B278280164FC0076B3AC /* UsefulColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulColors.swift; sourceTree = "<group>"; };
 		8685B27A280166FB0076B3AC /* Swinject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+.swift"; sourceTree = "<group>"; };
 		8685B27C2801676E0076B3AC /* ToastServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastServiceProtocol.swift; sourceTree = "<group>"; };
+		8685B27E2801685F0076B3AC /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -984,6 +986,7 @@
 				8685B2632801600A0076B3AC /* BasicNavigationServiceProtocol.swift */,
 				8685B2742801639B0076B3AC /* AlertServiceProtocol.swift */,
 				8685B27C2801676E0076B3AC /* ToastServiceProtocol.swift */,
+				8685B27E2801685F0076B3AC /* ImageProvider.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1249,6 +1252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8685B27F2801685F0076B3AC /* ImageProvider.swift in Sources */,
 				8685B22828005D0C0076B3AC /* WebSocketPlugin.swift in Sources */,
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
 				8685B21B28005A5D0076B3AC /* AppThemeProvider.swift in Sources */,

@@ -53,7 +53,7 @@ class BaseRegisterApp {
 			return BaseToastService(navigationService: navService)
 		}
 		
-		container.register(ImageServiceProtocol.self) { _ in BaseImageService() }
+		container.register(ImageProvider.self) { _ in BaseImageProvider() }
 	}
 	
 //	func registerGUITo(container: Container, window: UIWindow) {
@@ -111,8 +111,8 @@ class BaseRegisterApp {
 // MARK: - ================================= Private =================================
 private extension BaseRegisterApp {
 	func registerTo(container: Container, window: UIWindow) {
-//		registerMainServiceTo(container: container, window: window)
-//		registerUsageServiceTo(container: container)
+		registerMainServiceTo(container: container, window: window)
+		registerUsageServiceTo(container: container)
 //		registerGUITo(container: container, window: window)
 	}
 }
