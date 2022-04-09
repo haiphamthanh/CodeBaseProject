@@ -9,10 +9,10 @@ import Swinject
 
 class AppSetting: AppSettingProvider {
 	private weak var container: Container!
-	func settingMainServices() {
-		let result = MainServicesBuilder.builder
-			.useService(.container(container))
-			.build()
+	func settingInternalTools() {
+		let result = InternalToolsBuilder.builder
+			.setupInternalTool(.container(container))
+			.finish()
 		
 		guard let error = result.error else {
 			return
@@ -22,10 +22,10 @@ class AppSetting: AppSettingProvider {
 		print(error)
 	}
 	
-	func settingExternalServices() {
-		let result = ExternalServicesBuilder.builder
-			.useService(.facebook)
-			.build()
+	func settingExternalTools() {
+		let result = ExternalToolsBuilder.builder
+			.useExternalService(.facebook)
+			.finish()
 		
 		guard let error = result.error else {
 			return

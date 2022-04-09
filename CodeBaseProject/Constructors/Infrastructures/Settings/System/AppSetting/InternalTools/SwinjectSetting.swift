@@ -1,5 +1,5 @@
 //
-//  SwinjectSettingUp.swift
+//  SwinjectSetting.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 09/04/2022.
@@ -8,7 +8,7 @@
 import Swinject
 
 // MARK: - ================================= All Service is provided =================================
-class BaseRegisterApp {
+class SwinjectSetting {
 	// MARK: - ================================= Private Properties =================================
 	private weak var container: Container!
 	private weak var window: UIWindow!
@@ -22,11 +22,25 @@ class BaseRegisterApp {
 		// Register
 		self.registerTo(container: container, window: window)
 	}
-	
-	// MARK: - ================================= Register =================================
+}
+
+// MARK: - ================================= Private =================================
+private extension SwinjectSetting {
+	func registerTo(container: Container, window: UIWindow) {
+		// 1.
+		registerMainServiceTo(container: container, window: window)
+		// 2.
+		registerUsageServiceTo(container: container)
+		// 3.
+//		registerGUITo(container: container, window: window)
+	}
+}
+
+// MARK: - ================================= Register =================================
+private extension SwinjectSetting {
 	func registerMainServiceTo(container: Container, window: UIWindow) {
-		container.register(BasicNavigationServiceProtocol.self) { _ in
-			return BasicNavigationService.init(from: window)
+		container.register(NavigationProvider.self) { _ in
+			return DefaultNavigation.init(from: window)
 		}
 	}
 	
@@ -43,17 +57,17 @@ class BaseRegisterApp {
 //			return DataStoreService(useCaseProvider: useCaseProvider)
 //		}
 		
-		container.register(AlertServiceProtocol.self) { r in
-			let navService = r.sureResolve(BasicNavigationServiceProtocol.self)
-			return AlertService(navigationService: navService)
+		container.register(AlertProvider.self) { r in
+			let navigation = r.sureResolve(NavigationProvider.self)
+			return DefaultAlert(navigation: navigation)
 		}
 		
-		container.register(ToastServiceProtocol.self) { r in
-			let navService = r.sureResolve(BasicNavigationServiceProtocol.self)
-			return BaseToastService(navigationService: navService)
+		container.register(ToastProvider.self) { r in
+			let navigation = r.sureResolve(NavigationProvider.self)
+			return DefaultToast(navigation: navigation)
 		}
 		
-		container.register(ImageProvider.self) { _ in BaseImageProvider() }
+		container.register(ImageProvider.self) { _ in DefaultImage() }
 	}
 	
 //	func registerGUITo(container: Container, window: UIWindow) {
@@ -106,13 +120,4 @@ class BaseRegisterApp {
 //			return r.promiseCoordinator(view: view, viewModel: viewModel, coordinator: coordinator, window: window)
 //		}
 //	}
-}
-
-// MARK: - ================================= Private =================================
-private extension BaseRegisterApp {
-	func registerTo(container: Container, window: UIWindow) {
-		registerMainServiceTo(container: container, window: window)
-		registerUsageServiceTo(container: container)
-//		registerGUITo(container: container, window: window)
-	}
 }

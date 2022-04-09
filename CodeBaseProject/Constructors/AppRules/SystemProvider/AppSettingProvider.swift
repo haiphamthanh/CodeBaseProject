@@ -8,6 +8,6 @@
 import Foundation
 
 protocol AppSettingProvider {
-	func settingMainServices()
-	func settingExternalServices()
+	func settingInternalTools()
+	func settingExternalTools()
 }
