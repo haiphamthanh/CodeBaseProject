@@ -31,11 +31,11 @@ class BaseRegisterApp {
 	}
 	
 	func registerUsageServiceTo(container: Container) {
-		container.register(NetUseCaseProviderProtocol.self) { _ in NetUseCaseProvider() }
-		container.register(NetworkServiceProtocol.self) { r in
-			let useCaseProvider = r.sureResolve(NetUseCaseProviderProtocol.self)
-			return NetworkService(useCaseProvider: useCaseProvider)
-		}
+//		container.register(NetUseCaseProviderProtocol.self) { _ in NetUseCaseProvider() }
+//		container.register(NetworkServiceProtocol.self) { r in
+//			let useCaseProvider = r.sureResolve(NetUseCaseProviderProtocol.self)
+//			return NetworkService(useCaseProvider: useCaseProvider)
+//		}
 		
 //		container.register(DataStoreUseCaseProviderProtocol.self) { _ in DataStoreUseCaseProvider() }
 //		container.register(DataStoreServiceProtocol.self) { r in
@@ -47,6 +47,7 @@ class BaseRegisterApp {
 			let navService = r.sureResolve(BasicNavigationServiceProtocol.self)
 			return AlertService(navigationService: navService)
 		}
+		
 		container.register(ToastServiceProtocol.self) { r in
 			let navService = r.sureResolve(BasicNavigationServiceProtocol.self)
 			return BaseToastService(navigationService: navService)
@@ -109,8 +110,8 @@ class BaseRegisterApp {
 // MARK: - ================================= Private =================================
 private extension BaseRegisterApp {
 	func registerTo(container: Container, window: UIWindow) {
-		registerMainServiceTo(container: container, window: window)
-		registerUsageServiceTo(container: container)
-		registerGUITo(container: container, window: window)
+//		registerMainServiceTo(container: container, window: window)
+//		registerUsageServiceTo(container: container)
+//		registerGUITo(container: container, window: window)
 	}
 }

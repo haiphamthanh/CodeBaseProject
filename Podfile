@@ -38,6 +38,11 @@ def shared_pods
 	# Dependency injection
 	pod 'Swinject'
 	
+	
+	# Pods for presentation
+	# Dialog
+	pod 'PopupDialog'
+	
 end
 
 target "CodeBaseProject" do

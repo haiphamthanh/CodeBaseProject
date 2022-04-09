@@ -140,6 +140,10 @@
 		8685B26F2801614D0076B3AC /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26B2801614D0076B3AC /* CircularRevealAnimator.swift */; };
 		8685B2702801614D0076B3AC /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26C2801614D0076B3AC /* CircularRevealTransitionAnimator.swift */; };
 		8685B2732801623B0076B3AC /* CustomizeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B2722801623B0076B3AC /* CustomizeNavigation.swift */; };
+		8685B2752801639B0076B3AC /* AlertServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B2742801639B0076B3AC /* AlertServiceProtocol.swift */; };
+		8685B277280164850076B3AC /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B276280164850076B3AC /* AlertButton.swift */; };
+		8685B279280164FC0076B3AC /* UsefulColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B278280164FC0076B3AC /* UsefulColors.swift */; };
+		8685B27B280166FB0076B3AC /* Swinject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27A280166FB0076B3AC /* Swinject+.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -299,6 +303,10 @@
 		8685B26B2801614D0076B3AC /* CircularRevealAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealAnimator.swift; sourceTree = "<group>"; };
 		8685B26C2801614D0076B3AC /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
 		8685B2722801623B0076B3AC /* CustomizeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeNavigation.swift; sourceTree = "<group>"; };
+		8685B2742801639B0076B3AC /* AlertServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertServiceProtocol.swift; sourceTree = "<group>"; };
+		8685B276280164850076B3AC /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
+		8685B278280164FC0076B3AC /* UsefulColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulColors.swift; sourceTree = "<group>"; };
+		8685B27A280166FB0076B3AC /* Swinject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+.swift"; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -646,6 +654,7 @@
 			children = (
 				861E85AA27FB6F090032C4F5 /* BackBarButtonItem.swift */,
 				8685B2652801607A0076B3AC /* ExNavigationController.swift */,
+				8685B276280164850076B3AC /* AlertButton.swift */,
 			);
 			path = "View+";
 			sourceTree = "<group>";
@@ -694,6 +703,7 @@
 				861E858A27FB5BB20032C4F5 /* String+.swift */,
 				861E858327FB5BB20032C4F5 /* View+.swift */,
 				861E85AF27FB71090032C4F5 /* UIKit+.swift */,
+				8685B27A280166FB0076B3AC /* Swinject+.swift */,
 			);
 			path = "Extension+";
 			sourceTree = "<group>";
@@ -854,6 +864,7 @@
 			isa = PBXGroup;
 			children = (
 				8604238327EE2F550056EF17 /* DependencyInjector.swift */,
+				8685B278280164FC0076B3AC /* UsefulColors.swift */,
 			);
 			path = "Tool+";
 			sourceTree = "<group>";
@@ -969,6 +980,7 @@
 			isa = PBXGroup;
 			children = (
 				8685B2632801600A0076B3AC /* BasicNavigationServiceProtocol.swift */,
+				8685B2742801639B0076B3AC /* AlertServiceProtocol.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1237,6 +1249,7 @@
 				8685B22828005D0C0076B3AC /* WebSocketPlugin.swift in Sources */,
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
 				8685B21B28005A5D0076B3AC /* AppThemeProvider.swift in Sources */,
+				8685B279280164FC0076B3AC /* UsefulColors.swift in Sources */,
 				862EF20927F84E7C0051A3A0 /* UseCaseProviderProtocol.swift in Sources */,
 				862EF20027F848E40051A3A0 /* NetProvider.swift in Sources */,
 				861E85A927FB6DAD0032C4F5 /* FillAllInput.swift in Sources */,
@@ -1248,6 +1261,7 @@
 				862EF20527F84A130051A3A0 /* NetUserAdapter.swift in Sources */,
 				861E857E27FB580D0032C4F5 /* TextShimmerInput.swift in Sources */,
 				861E859327FB5BB20032C4F5 /* String+.swift in Sources */,
+				8685B2752801639B0076B3AC /* AlertServiceProtocol.swift in Sources */,
 				8685B2002800561A0076B3AC /* AppTheme.swift in Sources */,
 				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				8685B22428005C9C0076B3AC /* GooglePlugin.swift in Sources */,
@@ -1298,6 +1312,7 @@
 				8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */,
 				8604236C27EDF5060056EF17 /* DefaultAppDelegate.swift in Sources */,
 				8685B21128005A180076B3AC /* AppDelegateProvider.swift in Sources */,
+				8685B27B280166FB0076B3AC /* Swinject+.swift in Sources */,
 				8685B26E2801614D0076B3AC /* AnimationDelegate.swift in Sources */,
 				8685B24C28012A190076B3AC /* AppBackground.swift in Sources */,
 				8604236F27EDF5C80056EF17 /* CoordinatorManager.swift in Sources */,
@@ -1322,6 +1337,7 @@
 				8685B22E280061420076B3AC /* LocalizationManager.swift in Sources */,
 				862EF22B27F9796A0051A3A0 /* AppUserData.swift in Sources */,
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
+				8685B277280164850076B3AC /* AlertButton.swift in Sources */,
 				862EF21927F958400051A3A0 /* NetworkService.swift in Sources */,
 				8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */,
 				8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */,
