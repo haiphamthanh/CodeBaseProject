@@ -8,4 +8,9 @@
 import Foundation
 
 class AppSetting: AppSettingProvider {
+	func settingMainServices() {
+	}
+	
+	func settingExternalServices() {
+	}
 }

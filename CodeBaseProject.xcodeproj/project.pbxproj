@@ -39,7 +39,7 @@
 		8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */; };
 		8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236127EDF1850056EF17 /* HomeViewModel.swift */; };
 		8604236927EDF4680056EF17 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236827EDF4680056EF17 /* Repository.swift */; };
-		8604236C27EDF5060056EF17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236B27EDF5060056EF17 /* AppDelegate.swift */; };
+		8604236C27EDF5060056EF17 /* DefaultAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */; };
 		8604236F27EDF5C80056EF17 /* CoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236E27EDF5C80056EF17 /* CoordinatorManager.swift */; };
 		8604237227EDF6E30056EF17 /* SingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237127EDF6E20056EF17 /* SingleView.swift */; };
 		8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237627EDF83A0056EF17 /* TextShimmer.swift */; };
@@ -128,7 +128,8 @@
 		8685B24328007DF10076B3AC /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24228007DF10076B3AC /* IntroViewModel.swift */; };
 		8685B24C28012A190076B3AC /* AppBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24B28012A190076B3AC /* AppBackground.swift */; };
 		8685B24E28012BA10076B3AC /* AppSceneDelegateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */; };
-		8685B25028012CAE0076B3AC /* AppSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24F28012CAE0076B3AC /* AppSceneDelegate.swift */; };
+		8685B25028012CAE0076B3AC /* DefaultAppSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */; };
+		8685B256280149C50076B3AC /* AppCommonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B255280149C50076B3AC /* AppCommonProvider.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -187,7 +188,7 @@
 		8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8604236127EDF1850056EF17 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8604236827EDF4680056EF17 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		8604236B27EDF5060056EF17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppDelegate.swift; sourceTree = "<group>"; };
 		8604236E27EDF5C80056EF17 /* CoordinatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorManager.swift; sourceTree = "<group>"; };
 		8604237127EDF6E20056EF17 /* SingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleView.swift; sourceTree = "<group>"; };
 		8604237627EDF83A0056EF17 /* TextShimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextShimmer.swift; sourceTree = "<group>"; };
@@ -276,7 +277,8 @@
 		8685B24228007DF10076B3AC /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		8685B24B28012A190076B3AC /* AppBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackground.swift; sourceTree = "<group>"; };
 		8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSceneDelegateProvider.swift; sourceTree = "<group>"; };
-		8685B24F28012CAE0076B3AC /* AppSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSceneDelegate.swift; sourceTree = "<group>"; };
+		8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppSceneDelegate.swift; sourceTree = "<group>"; };
+		8685B255280149C50076B3AC /* AppCommonProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommonProvider.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -881,8 +883,8 @@
 		8685B25128012CB70076B3AC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8604236B27EDF5060056EF17 /* AppDelegate.swift */,
-				8685B24F28012CAE0076B3AC /* AppSceneDelegate.swift */,
+				8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */,
+				8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -907,6 +909,15 @@
 				8685B24B28012A190076B3AC /* AppBackground.swift */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		8685B254280149A00076B3AC /* Constructors */ = {
+			isa = PBXGroup;
+			children = (
+				8685B255280149C50076B3AC /* AppCommonProvider.swift */,
+				862EF22927F9791D0051A3A0 /* AppData */,
+			);
+			path = Constructors;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -936,7 +947,7 @@
 			children = (
 				86FE295027DC8E6000EF2C70 /* Main.swift */,
 				8685B231280073550076B3AC /* MainSceneDelegate.swift */,
-				862EF22927F9791D0051A3A0 /* AppData */,
+				8685B254280149A00076B3AC /* Constructors */,
 				861E857627FB4CA10032C4F5 /* Infrastructures */,
 				8604235127EDEEF30056EF17 /* Screens */,
 				8604234F27EDEE9F0056EF17 /* Domain */,
@@ -1170,7 +1181,7 @@
 				8685B23F28007DD80076B3AC /* IntroView.swift in Sources */,
 				861E857B27FB504A0032C4F5 /* SingleViewInput.swift in Sources */,
 				8685B23828007C720076B3AC /* ViewModelRule.swift in Sources */,
-				8685B25028012CAE0076B3AC /* AppSceneDelegate.swift in Sources */,
+				8685B25028012CAE0076B3AC /* DefaultAppSceneDelegate.swift in Sources */,
 				8604238427EE2F550056EF17 /* DependencyInjector.swift in Sources */,
 				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
 				862EF1EA27F4A8860051A3A0 /* CharacterSetEx.swift in Sources */,
@@ -1204,7 +1215,7 @@
 				8604233D27ECB2DF0056EF17 /* UserNetwork.swift in Sources */,
 				8604235E27EDF1530056EF17 /* HomeView.swift in Sources */,
 				8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */,
-				8604236C27EDF5060056EF17 /* AppDelegate.swift in Sources */,
+				8604236C27EDF5060056EF17 /* DefaultAppDelegate.swift in Sources */,
 				8685B21128005A180076B3AC /* AppDelegateProvider.swift in Sources */,
 				8685B24C28012A190076B3AC /* AppBackground.swift in Sources */,
 				8604236F27EDF5C80056EF17 /* CoordinatorManager.swift in Sources */,
@@ -1245,6 +1256,7 @@
 				862EF20227F849A70051A3A0 /* NetUseCaseProvider.swift in Sources */,
 				861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */,
 				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
+				8685B256280149C50076B3AC /* AppCommonProvider.swift in Sources */,
 				861E858C27FB5BB20032C4F5 /* View+.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				8685B22A28005D3D0076B3AC /* NetworkSecurityPlugin.swift in Sources */,
