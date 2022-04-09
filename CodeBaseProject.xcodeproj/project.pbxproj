@@ -132,6 +132,14 @@
 		8685B25A28014CE60076B3AC /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25928014CE60076B3AC /* PluginManager.swift */; };
 		8685B25D280154B40076B3AC /* MainServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25C280154B40076B3AC /* MainServices.swift */; };
 		8685B25F280154C50076B3AC /* ExternalServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25E280154C50076B3AC /* ExternalServices.swift */; };
+		8685B26128015DE50076B3AC /* SwinjectSettingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26028015DE50076B3AC /* SwinjectSettingUp.swift */; };
+		8685B2642801600A0076B3AC /* BasicNavigationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B2632801600A0076B3AC /* BasicNavigationServiceProtocol.swift */; };
+		8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B2652801607A0076B3AC /* ExNavigationController.swift */; };
+		8685B26D2801614D0076B3AC /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B2682801614D0076B3AC /* AnimationManager.swift */; };
+		8685B26E2801614D0076B3AC /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26A2801614D0076B3AC /* AnimationDelegate.swift */; };
+		8685B26F2801614D0076B3AC /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26B2801614D0076B3AC /* CircularRevealAnimator.swift */; };
+		8685B2702801614D0076B3AC /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26C2801614D0076B3AC /* CircularRevealTransitionAnimator.swift */; };
+		8685B2732801623B0076B3AC /* CustomizeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B2722801623B0076B3AC /* CustomizeNavigation.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -283,6 +291,14 @@
 		8685B25928014CE60076B3AC /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
 		8685B25C280154B40076B3AC /* MainServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServices.swift; sourceTree = "<group>"; };
 		8685B25E280154C50076B3AC /* ExternalServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalServices.swift; sourceTree = "<group>"; };
+		8685B26028015DE50076B3AC /* SwinjectSettingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectSettingUp.swift; sourceTree = "<group>"; };
+		8685B2632801600A0076B3AC /* BasicNavigationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationServiceProtocol.swift; sourceTree = "<group>"; };
+		8685B2652801607A0076B3AC /* ExNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNavigationController.swift; sourceTree = "<group>"; };
+		8685B2682801614D0076B3AC /* AnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		8685B26A2801614D0076B3AC /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
+		8685B26B2801614D0076B3AC /* CircularRevealAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealAnimator.swift; sourceTree = "<group>"; };
+		8685B26C2801614D0076B3AC /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
+		8685B2722801623B0076B3AC /* CustomizeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeNavigation.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -569,6 +585,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8685B2712801621B0076B3AC /* Navigation */,
 				861E857927FB4FE90032C4F5 /* SingleView */,
 			);
 			path = Components;
@@ -615,6 +632,7 @@
 		861E858127FB5BB20032C4F5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				8685B2672801614D0076B3AC /* Animation */,
 				8685B2092800573D0076B3AC /* Tool+ */,
 				8685B2012800568B0076B3AC /* Migration+ */,
 				861E85AD27FB706B0032C4F5 /* Extension+ */,
@@ -627,6 +645,7 @@
 			isa = PBXGroup;
 			children = (
 				861E85AA27FB6F090032C4F5 /* BackBarButtonItem.swift */,
+				8685B2652801607A0076B3AC /* ExNavigationController.swift */,
 			);
 			path = "View+";
 			sourceTree = "<group>";
@@ -937,11 +956,48 @@
 		8685B25B2801549E0076B3AC /* AppSetting */ = {
 			isa = PBXGroup;
 			children = (
+				8685B262280160000076B3AC /* Subs */,
 				8604237A27EDFA3F0056EF17 /* AppSetting.swift */,
 				8685B25C280154B40076B3AC /* MainServices.swift */,
 				8685B25E280154C50076B3AC /* ExternalServices.swift */,
+				8685B26028015DE50076B3AC /* SwinjectSettingUp.swift */,
 			);
 			path = AppSetting;
+			sourceTree = "<group>";
+		};
+		8685B262280160000076B3AC /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				8685B2632801600A0076B3AC /* BasicNavigationServiceProtocol.swift */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
+		8685B2672801614D0076B3AC /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				8685B2682801614D0076B3AC /* AnimationManager.swift */,
+				8685B2692801614D0076B3AC /* Bags */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		8685B2692801614D0076B3AC /* Bags */ = {
+			isa = PBXGroup;
+			children = (
+				8685B26A2801614D0076B3AC /* AnimationDelegate.swift */,
+				8685B26B2801614D0076B3AC /* CircularRevealAnimator.swift */,
+				8685B26C2801614D0076B3AC /* CircularRevealTransitionAnimator.swift */,
+			);
+			path = Bags;
+			sourceTree = "<group>";
+		};
+		8685B2712801621B0076B3AC /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				8685B2722801623B0076B3AC /* CustomizeNavigation.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
@@ -1200,8 +1256,11 @@
 				861E859627FB5C120032C4F5 /* AppAlertData.swift in Sources */,
 				8604234627ECD8A30056EF17 /* OnlineProvider.swift in Sources */,
 				861E858F27FB5BB20032C4F5 /* Color+.swift in Sources */,
+				8685B2642801600A0076B3AC /* BasicNavigationServiceProtocol.swift in Sources */,
 				8685B23F28007DD80076B3AC /* IntroView.swift in Sources */,
+				8685B26D2801614D0076B3AC /* AnimationManager.swift in Sources */,
 				861E857B27FB504A0032C4F5 /* SingleViewInput.swift in Sources */,
+				8685B2732801623B0076B3AC /* CustomizeNavigation.swift in Sources */,
 				8685B23828007C720076B3AC /* ViewModelRule.swift in Sources */,
 				8685B25028012CAE0076B3AC /* DefaultAppSceneDelegate.swift in Sources */,
 				8604238427EE2F550056EF17 /* DependencyInjector.swift in Sources */,
@@ -1239,6 +1298,7 @@
 				8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */,
 				8604236C27EDF5060056EF17 /* DefaultAppDelegate.swift in Sources */,
 				8685B21128005A180076B3AC /* AppDelegateProvider.swift in Sources */,
+				8685B26E2801614D0076B3AC /* AnimationDelegate.swift in Sources */,
 				8685B24C28012A190076B3AC /* AppBackground.swift in Sources */,
 				8604236F27EDF5C80056EF17 /* CoordinatorManager.swift in Sources */,
 				862EF1F927F83ADB0051A3A0 /* UserEntity.swift in Sources */,
@@ -1258,6 +1318,7 @@
 				862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */,
 				8685B21528005A360076B3AC /* AppNotificationProvider.swift in Sources */,
 				861E857827FB4D570032C4F5 /* ViewType.swift in Sources */,
+				8685B26F2801614D0076B3AC /* CircularRevealAnimator.swift in Sources */,
 				8685B22E280061420076B3AC /* LocalizationManager.swift in Sources */,
 				862EF22B27F9796A0051A3A0 /* AppUserData.swift in Sources */,
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
@@ -1266,6 +1327,7 @@
 				8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
 				8685B20E2800587D0076B3AC /* AppProvider.swift in Sources */,
+				8685B26128015DE50076B3AC /* SwinjectSettingUp.swift in Sources */,
 				8604233A27ECADBD0056EF17 /* UserAPI.swift in Sources */,
 				862EF21F27F962E10051A3A0 /* UserData.swift in Sources */,
 				861E859027FB5BB20032C4F5 /* Date+.swift in Sources */,
@@ -1276,10 +1338,12 @@
 				861E858E27FB5BB20032C4F5 /* Int+.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
 				862EF20227F849A70051A3A0 /* NetUseCaseProvider.swift in Sources */,
+				8685B2702801614D0076B3AC /* CircularRevealTransitionAnimator.swift in Sources */,
 				861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */,
 				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
 				8685B256280149C50076B3AC /* AppCommonProvider.swift in Sources */,
 				861E858C27FB5BB20032C4F5 /* View+.swift in Sources */,
+				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
 				8685B25D280154B40076B3AC /* MainServices.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				8685B22A28005D3D0076B3AC /* NetworkSecurityPlugin.swift in Sources */,
