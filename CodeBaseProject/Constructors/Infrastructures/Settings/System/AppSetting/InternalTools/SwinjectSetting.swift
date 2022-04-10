@@ -36,31 +36,26 @@ private extension SwinjectSetting {
 		container.register(NavigationProvider.self) { [weak self] _ in
 			DefaultNavigation(from: self?.window)
 		}
+		
+		// Network
+		container.register(NetworkProvider.self) { _ in NetworkProviderImpl() }
+		container.register(LocalProvider.self) { _ in LocalProviderImpl() }
+		container.register(RepoProvider.self) { r in
+			let networkProvider = r.sureResolve(NetworkProvider.self)
+			let localProvider = r.sureResolve(LocalProvider.self)
+			return RepoProviderImpl(networkProvider, localProvider)
+		}
+		container.register(UseCaseProvider.self) { r in
+			let repoProvider = r.sureResolve(RepoProvider.self)
+			return UseCaseProviderImpl(repoProvider)
+		}
+		container.register(UseCases.self) { r in
+			let useCaseProvider = r.sureResolve(UseCaseProvider.self)
+			return UseCasesImpl(usecaseProvider: useCaseProvider)
+		}
 	}
 	
-//	let networkProvider = NetProvider()
-//	let useCaseProvider = NetUseCaseProvider(networkProvider)
-//	let networkService = NetworkService(usecaseProvider: useCaseProvider)
-//
-//	let result = await networkService.user.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
-	
 	func registerUtilTools() {
-//		container.register(NetUseCaseProvider.self) { _ in NetUseCaseProvider() }
-//		container.register(NetUseCaseProvider.self) { r in
-//			let useCaseProvider = r.sureResolve(NetUseCaseProvider.self)
-//			return NetworkService(usecaseProvider: useCaseProvider)
-//		}
-//		container.register(NetworkServiceProtocol.self) { r in
-//			let useCaseProvider = r.sureResolve(NetUseCaseProvider.self)
-//			return NetworkService(usecaseProvider: useCaseProvider)
-//		}
-		
-//		container.register(DataStoreUseCaseProviderProtocol.self) { _ in DataStoreUseCaseProvider() }
-//		container.register(DataStoreServiceProtocol.self) { r in
-//			let useCaseProvider = r.sureResolve(DataStoreUseCaseProviderProtocol.self)
-//			return DataStoreService(useCaseProvider: useCaseProvider)
-//		}
-		
 		container.register(AlertProvider.self) { r in
 			let navigation = r.sureResolve(NavigationProvider.self)
 			return DefaultAlert(navigation: navigation)
