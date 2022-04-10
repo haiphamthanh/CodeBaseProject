@@ -19,7 +19,7 @@ class AppSetting: AppSettingProvider {
 	}
 	
 	//+++ AppSettingProvider =======
-	func settingInternalTools() {
+	func settingInternalTools() -> Self {
 		guard let container = container, let window = window else {
 			fatalError("Can't be founded container and window")
 		}
@@ -29,23 +29,29 @@ class AppSetting: AppSettingProvider {
 			.finish()
 		
 		guard let error = result.error else {
-			return
+			return self
 		}
 		
 		// TODO: Show error for setting up
 		print(error)
+		return self
 	}
 	
-	func settingExternalTools() {
+	func settingExternalTools() -> Self {
 		let result = ExternalToolsBuilder.builder
 			.useExternalService(.facebook)
 			.finish()
 		
 		guard let error = result.error else {
-			return
+			return self
 		}
 		
 		// TODO: Show error for setting up
 		print(error)
+		return self
+	}
+	
+	func done() {
+		//TODO: Do something after done setting up
 	}
 }

@@ -8,4 +8,8 @@
 import Foundation
 
 protocol AppBackgroundProvider {
+	// MARK: - Setup
+	func setting1() -> Self
+	func setting2() -> Self
+	func done()
 }
