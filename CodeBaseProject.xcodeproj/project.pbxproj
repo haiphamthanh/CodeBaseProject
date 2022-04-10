@@ -85,9 +85,8 @@
 		862EF21527F926680051A3A0 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21427F926680051A3A0 /* DomainError.swift */; };
 		862EF21927F958400051A3A0 /* UseCasesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21827F958400051A3A0 /* UseCasesImpl.swift */; };
 		862EF21F27F962E10051A3A0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21E27F962E10051A3A0 /* UserData.swift */; };
-		862EF22227F9635A0051A3A0 /* DataPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22127F9635A0051A3A0 /* DataPresentation.swift */; };
-		862EF22427F9636E0051A3A0 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */; };
-		862EF22627F963A70051A3A0 /* LocalRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22527F963A70051A3A0 /* LocalRepresentable.swift */; };
+		862EF22427F9636E0051A3A0 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22327F9636E0051A3A0 /* DataConvertible.swift */; };
+		862EF22627F963A70051A3A0 /* LocalConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22527F963A70051A3A0 /* LocalConvertable.swift */; };
 		862EF22827F978250051A3A0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22727F978250051A3A0 /* AuthManager.swift */; };
 		862EF22B27F9796A0051A3A0 /* AppUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22A27F9796A0051A3A0 /* AppUserData.swift */; };
 		862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22C27F97F510051A3A0 /* AppDataPresentation.swift */; };
@@ -263,9 +262,8 @@
 		862EF21427F926680051A3A0 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		862EF21827F958400051A3A0 /* UseCasesImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesImpl.swift; sourceTree = "<group>"; };
 		862EF21E27F962E10051A3A0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		862EF22127F9635A0051A3A0 /* DataPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPresentation.swift; sourceTree = "<group>"; };
-		862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
-		862EF22527F963A70051A3A0 /* LocalRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepresentable.swift; sourceTree = "<group>"; };
+		862EF22327F9636E0051A3A0 /* DataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertible.swift; sourceTree = "<group>"; };
+		862EF22527F963A70051A3A0 /* LocalConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalConvertable.swift; sourceTree = "<group>"; };
 		862EF22727F978250051A3A0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		862EF22A27F9796A0051A3A0 /* AppUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserData.swift; sourceTree = "<group>"; };
 		862EF22C27F97F510051A3A0 /* AppDataPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataPresentation.swift; sourceTree = "<group>"; };
@@ -484,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				862EF21427F926680051A3A0 /* DomainError.swift */,
+				862EF22327F9636E0051A3A0 /* DataConvertible.swift */,
 				862EF21D27F962730051A3A0 /* Data */,
 				8632D40F2802016500141EDC /* Usecases */,
 				8604235427EDF0630056EF17 /* Implements */,
@@ -563,6 +562,7 @@
 		8604236627EDF3C40056EF17 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				862EF22527F963A70051A3A0 /* LocalConvertable.swift */,
 				8632D42528021DE400141EDC /* Provider */,
 				8632D42B28021E9D00141EDC /* Implements */,
 				8604236727EDF45D0056EF17 /* Realm */,
@@ -801,20 +801,9 @@
 		862EF21D27F962730051A3A0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				862EF22027F9634D0051A3A0 /* Convertion */,
 				862EF21E27F962E10051A3A0 /* UserData.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		862EF22027F9634D0051A3A0 /* Convertion */ = {
-			isa = PBXGroup;
-			children = (
-				862EF22127F9635A0051A3A0 /* DataPresentation.swift */,
-				862EF22327F9636E0051A3A0 /* DomainConvertibleType.swift */,
-				862EF22527F963A70051A3A0 /* LocalRepresentable.swift */,
-			);
-			path = Convertion;
 			sourceTree = "<group>";
 		};
 		862EF22927F9791D0051A3A0 /* AppData */ = {
@@ -1444,7 +1433,7 @@
 				8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */,
 				861E85B427FDB6990032C4F5 /* ScreenRulesDemo.swift in Sources */,
 				8685B22628005CA90076B3AC /* FirebasePlugin.swift in Sources */,
-				862EF22427F9636E0051A3A0 /* DomainConvertibleType.swift in Sources */,
+				862EF22427F9636E0051A3A0 /* DataConvertible.swift in Sources */,
 				8685B22C28005D480076B3AC /* AppSecurityPlugin.swift in Sources */,
 				861E85A127FB6B6B0032C4F5 /* SectionHeaderViewModifier.swift in Sources */,
 				861E85AB27FB6F090032C4F5 /* BackBarButtonItem.swift in Sources */,
@@ -1476,7 +1465,7 @@
 				8604236F27EDF5C80056EF17 /* CoordinatorManager.swift in Sources */,
 				862EF1F927F83ADB0051A3A0 /* UserEntity.swift in Sources */,
 				862EF1E427F38A3E0051A3A0 /* Encodable+Dict.swift in Sources */,
-				862EF22627F963A70051A3A0 /* LocalRepresentable.swift in Sources */,
+				862EF22627F963A70051A3A0 /* LocalConvertable.swift in Sources */,
 				862EF1E027F273E10051A3A0 /* OfflineAction.swift in Sources */,
 				8685B205280056D10076B3AC /* Migration+Cell.swift in Sources */,
 				8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */,
@@ -1536,7 +1525,6 @@
 				8685B24128007DE50076B3AC /* IntroCoordinator.swift in Sources */,
 				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
 				862EF22827F978250051A3A0 /* AuthManager.swift in Sources */,
-				862EF22227F9635A0051A3A0 /* DataPresentation.swift in Sources */,
 				8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */,
 				8604231627E338E00056EF17 /* APIClient.swift in Sources */,
 				8685B25F280154C50076B3AC /* ExternalTools.swift in Sources */,

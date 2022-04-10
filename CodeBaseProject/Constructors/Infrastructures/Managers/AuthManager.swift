@@ -68,12 +68,12 @@ class AuthManager: ObservableObject {
 
 private extension AuthManager {
 	private func updateUserInformation(from userData: UserData?) {
-		guard let userData = userData, let infoData = userData.info?.asAppModel() else {
+		guard let userData = userData, let infoData = userData.info?.asAppData() else {
 			return
 		}
 		
 		//TODO: Translate to AppUserModel
-		let emailData = userData.email?.asAppModel()
+		let emailData = userData.email?.asAppData()
 		let appUserData = AppUserData(id: "", info: infoData, email: emailData)
 		self.appUserData = appUserData
 	}
