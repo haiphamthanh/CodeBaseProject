@@ -1,45 +1,45 @@
 //
-//  NetUserAdapter.swift
+//  UserAdapter.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 02/04/2022.
 //
 
 ///
-/// Adapt Network to Usecase
+/// Adapt Repository to Usecase
 ///
 import Foundation
 
-final class NetUserAdapter: UserUseCase {
-	private let network: UserNetworkProtocol
+final class UserAdapter: UserUseCase {
+	private let userRepo: UserRepository
 	
-	init(network: UserNetworkProtocol) {
-		self.network = network
+	init(userRepo: UserRepository) {
+		self.userRepo = userRepo
 	}
 	// GET
 	func userInfo(inputUrl: UrlInputUserInfo) async -> DataResult<UserData> {
-		let infoResult =  await network.userInfo(inputUrl: inputUrl)
+		let infoResult =  await userRepo.userInfo(inputUrl: inputUrl)
 		return userData(from: infoResult, email: nil)
 	}
 	
 	func userEmail(inputUrl: UrlInputUserInfo) async -> DataResult<UserData> {
-		let emailResult =  await network.userEmail(inputUrl: inputUrl)
+		let emailResult =  await userRepo.userEmail(inputUrl: inputUrl)
 		return userData(from: nil, email: emailResult)
 	}
 	
 	// POST
 	func register(inputBody: BodyInputUserInfo) async -> DataResult<Bool> {
-		return await network.register(inputBody: inputBody)
+		return await userRepo.register(inputBody: inputBody)
 	}
 	
 	// PUT
 	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async -> DataResult<Bool> {
-		return await network.update(inputUrl: inputUrl, inputBody: inputBody)
+		return await userRepo.update(inputUrl: inputUrl, inputBody: inputBody)
 	}
 }
 
 // MARK: Translation supporting
-private extension NetUserAdapter {
+private extension UserAdapter {
 	func userData(from userInfo: FinalResult<UserEntity>?,
 				  email: FinalResult<UserEmailEntity>?) -> DataResult<UserData> {
 		switch (userInfo, email) {

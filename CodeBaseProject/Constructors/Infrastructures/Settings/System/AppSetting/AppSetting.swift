@@ -8,10 +8,20 @@
 import Swinject
 
 class AppSetting: AppSettingProvider {
-	private weak var container: Container!
+	private let container: Container
+	private let window: UIWindow
+	
+	// MARK: - ================================= Initialize =================================
+	//+++ DependencyService =======
+	init(container: Container, window: UIWindow) {
+		self.container = container
+		self.window = window
+	}
+	
+	//+++ AppSettingProvider =======
 	func settingInternalTools() {
 		let result = InternalToolsBuilder.builder
-			.setupInternalTool(.container(container))
+			.setupInternalTool(.container(container, window))
 			.finish()
 		
 		guard let error = result.error else {

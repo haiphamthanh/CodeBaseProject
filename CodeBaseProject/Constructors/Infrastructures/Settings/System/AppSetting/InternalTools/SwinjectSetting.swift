@@ -10,45 +10,49 @@ import Swinject
 // MARK: - ================================= All Service is provided =================================
 class SwinjectSetting {
 	// MARK: - ================================= Private Properties =================================
-	private weak var container: Container!
-	private weak var window: UIWindow!
+	private let container: Container
+	private let window: UIWindow
 	
 	// MARK: - ================================= Initialize =================================
 	//+++ DependencyService =======
 	init(container: Container, window: UIWindow) {
 		self.container = container
 		self.window = window
-		
-		// Register
-		self.registerTo(container: container, window: window)
 	}
-}
-
-// MARK: - ================================= Private =================================
-private extension SwinjectSetting {
-	func registerTo(container: Container, window: UIWindow) {
+	
+	func startSettingUp() {
 		// 1.
-		registerMainServiceTo(container: container, window: window)
+		registerPrimaryTools()
 		// 2.
-		registerUsageServiceTo(container: container)
+		registerUtilTools()
 		// 3.
-//		registerGUITo(container: container, window: window)
+//		registerUserInterface()
 	}
 }
 
 // MARK: - ================================= Register =================================
 private extension SwinjectSetting {
-	func registerMainServiceTo(container: Container, window: UIWindow) {
-		container.register(NavigationProvider.self) { _ in
-			return DefaultNavigation.init(from: window)
+	func registerPrimaryTools() {
+		container.register(NavigationProvider.self) { [weak self] _ in
+			DefaultNavigation(from: self?.window)
 		}
 	}
 	
-	func registerUsageServiceTo(container: Container) {
-//		container.register(NetUseCaseProviderProtocol.self) { _ in NetUseCaseProvider() }
+//	let networkProvider = NetProvider()
+//	let useCaseProvider = NetUseCaseProvider(networkProvider)
+//	let networkService = NetworkService(usecaseProvider: useCaseProvider)
+//
+//	let result = await networkService.user.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
+	
+	func registerUtilTools() {
+//		container.register(NetUseCaseProvider.self) { _ in NetUseCaseProvider() }
+//		container.register(NetUseCaseProvider.self) { r in
+//			let useCaseProvider = r.sureResolve(NetUseCaseProvider.self)
+//			return NetworkService(usecaseProvider: useCaseProvider)
+//		}
 //		container.register(NetworkServiceProtocol.self) { r in
-//			let useCaseProvider = r.sureResolve(NetUseCaseProviderProtocol.self)
-//			return NetworkService(useCaseProvider: useCaseProvider)
+//			let useCaseProvider = r.sureResolve(NetUseCaseProvider.self)
+//			return NetworkService(usecaseProvider: useCaseProvider)
 //		}
 		
 //		container.register(DataStoreUseCaseProviderProtocol.self) { _ in DataStoreUseCaseProvider() }
@@ -70,7 +74,7 @@ private extension SwinjectSetting {
 		container.register(ImageProvider.self) { _ in DefaultImage() }
 	}
 	
-//	func registerGUITo(container: Container, window: UIWindow) {
+//	func registerUserInterface() {
 //		//MARK: ------------------------------------ APPLICATION ------------------------------------
 //		container.register(AppCoordinatorProtocol.self) { _ in BaseAppCoordinator() }
 //
