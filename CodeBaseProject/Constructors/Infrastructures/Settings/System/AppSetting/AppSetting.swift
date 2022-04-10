@@ -8,18 +8,22 @@
 import Swinject
 
 class AppSetting: AppSettingProvider {
-	private let container: Container
-	private let window: UIWindow
+	private let container: Container?
+	private let window: UIWindow?
 	
 	// MARK: - ================================= Initialize =================================
 	//+++ DependencyService =======
-	init(container: Container, window: UIWindow) {
+	init(container: Container?, window: UIWindow?) {
 		self.container = container
 		self.window = window
 	}
 	
 	//+++ AppSettingProvider =======
 	func settingInternalTools() {
+		guard let container = container, let window = window else {
+			fatalError("Can't be founded container and window")
+		}
+
 		let result = InternalToolsBuilder.builder
 			.setupInternalTool(.container(container, window))
 			.finish()

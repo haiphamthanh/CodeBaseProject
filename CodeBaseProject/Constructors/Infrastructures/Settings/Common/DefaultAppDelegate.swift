@@ -5,9 +5,32 @@
 //  Created by HaiKaito on 25/03/2022.
 //
 
-import UIKit
+import Swinject
 
-class DefaultAppDelegate: AppDelegateProvider {
+class DefaultAppDelegate {
+	//+++ Internal ============
+	private var window: UIWindow?
+	private var container = Container()
+	
+	// MARK: - ++++++ Can override functions =================================
+	// 1. Register
+	func setupSwinject(container: Container, window: UIWindow?) {
+		// 1. Setup system register
+		SwinjectSystem(container: container, window: window).startSettingUp()
+		
+		// 2. Setup others
+	}
+	
+	// 2. initialize
+	func initialize(with container: Container) {
+	}
+	
+	func setupGlobalThings(with container: Container) {
+		// Global setup in subclass
+	}
+}
+
+extension DefaultAppDelegate: AppDelegateProvider {
 	// MARK: - ================================= =================================
 	func app(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
@@ -47,6 +70,42 @@ class DefaultAppDelegate: AppDelegateProvider {
 		return false
 	}
 	
+}
+
+// MARK: - ================================= Private =================================
+private extension DefaultAppDelegate {
+	func initSystem(container: Container, window: UIWindow?) {
+		setupSwinjectTask(container: container, window: window)
+		initTask(with: container)
+		configTask(with: container)
+		return completedTask(with: container)
+	}
+	
+	// Register Task ----------
+	func setupSwinjectTask(container: Container, window: UIWindow?) {
+		return setupSwinject(container: container, window: window)
+	}
+	
+	// Init Task ----------
+	func initTask(with container: Container) {
+		return initialize(with: container)
+	}
+	
+	// Setup Task ----------
+	func configTask(with container: Container) {
+//		setupKeyboard()
+//		setupNetwork()
+//		return setupGlobalThings(from: container)
+	}
+	
+	// Completion Task ----------
+	func completedTask(with container: Container) {
+//		type(of: appThem.self).applyAppearanceDefaults()
+//
+//		appCoordinator.startProcess()
+//			.subscribe()
+//			.disposed(by: disposeBag)
+	}
 }
 
 //import Swinject

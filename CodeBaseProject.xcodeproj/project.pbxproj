@@ -110,7 +110,7 @@
 		8685B205280056D10076B3AC /* Migration+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B204280056D10076B3AC /* Migration+Cell.swift */; };
 		8685B207280056E20076B3AC /* Migration+VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B206280056E20076B3AC /* Migration+VC.swift */; };
 		8685B20B280057B90076B3AC /* CryptoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B20A280057B90076B3AC /* CryptoManager.swift */; };
-		8685B20E2800587D0076B3AC /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B20D2800587D0076B3AC /* AppProvider.swift */; };
+		8685B20E2800587D0076B3AC /* AppConnectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B20D2800587D0076B3AC /* AppConnectProvider.swift */; };
 		8685B21128005A180076B3AC /* AppDelegateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B21028005A180076B3AC /* AppDelegateProvider.swift */; };
 		8685B21328005A2D0076B3AC /* AppSettingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B21228005A2D0076B3AC /* AppSettingProvider.swift */; };
 		8685B21528005A360076B3AC /* AppNotificationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B21428005A360076B3AC /* AppNotificationProvider.swift */; };
@@ -158,6 +158,8 @@
 		8685B28528016CAF0076B3AC /* DefaultImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28428016CAF0076B3AC /* DefaultImage.swift */; };
 		8685B28728016CBB0076B3AC /* DefaultToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28628016CBB0076B3AC /* DefaultToast.swift */; };
 		8685B28928016CC50076B3AC /* DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28828016CC50076B3AC /* DefaultAlert.swift */; };
+		869BBEB62802A8BE003D87E6 /* SwinjectSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEB52802A8BE003D87E6 /* SwinjectSystem.swift */; };
+		869BBEB82802A994003D87E6 /* AppConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEB72802A994003D87E6 /* AppConnect.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -287,7 +289,7 @@
 		8685B204280056D10076B3AC /* Migration+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Migration+Cell.swift"; sourceTree = "<group>"; };
 		8685B206280056E20076B3AC /* Migration+VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Migration+VC.swift"; sourceTree = "<group>"; };
 		8685B20A280057B90076B3AC /* CryptoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoManager.swift; sourceTree = "<group>"; };
-		8685B20D2800587D0076B3AC /* AppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProvider.swift; sourceTree = "<group>"; };
+		8685B20D2800587D0076B3AC /* AppConnectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConnectProvider.swift; sourceTree = "<group>"; };
 		8685B21028005A180076B3AC /* AppDelegateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateProvider.swift; sourceTree = "<group>"; };
 		8685B21228005A2D0076B3AC /* AppSettingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingProvider.swift; sourceTree = "<group>"; };
 		8685B21428005A360076B3AC /* AppNotificationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationProvider.swift; sourceTree = "<group>"; };
@@ -335,6 +337,8 @@
 		8685B28428016CAF0076B3AC /* DefaultImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImage.swift; sourceTree = "<group>"; };
 		8685B28628016CBB0076B3AC /* DefaultToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultToast.swift; sourceTree = "<group>"; };
 		8685B28828016CC50076B3AC /* DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlert.swift; sourceTree = "<group>"; };
+		869BBEB52802A8BE003D87E6 /* SwinjectSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectSystem.swift; sourceTree = "<group>"; };
+		869BBEB72802A994003D87E6 /* AppConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConnect.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -969,7 +973,7 @@
 		8685B20F28005A070076B3AC /* SystemProvider */ = {
 			isa = PBXGroup;
 			children = (
-				8685B20D2800587D0076B3AC /* AppProvider.swift */,
+				8685B20D2800587D0076B3AC /* AppConnectProvider.swift */,
 				8685B21228005A2D0076B3AC /* AppSettingProvider.swift */,
 				8685B21828005A550076B3AC /* AppColorProvider.swift */,
 				8685B21428005A360076B3AC /* AppNotificationProvider.swift */,
@@ -1005,6 +1009,7 @@
 			children = (
 				8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */,
 				8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */,
+				869BBEB52802A8BE003D87E6 /* SwinjectSystem.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1021,6 +1026,7 @@
 		8685B25328012CE80076B3AC /* System */ = {
 			isa = PBXGroup;
 			children = (
+				869BBEB72802A994003D87E6 /* AppConnect.swift */,
 				8685B25B2801549E0076B3AC /* AppSetting */,
 				861E857F27FB5A580032C4F5 /* AppColor.swift */,
 				8685B1FB280055F90076B3AC /* AppNotification.swift */,
@@ -1387,6 +1393,7 @@
 				8685B28928016CC50076B3AC /* DefaultAlert.swift in Sources */,
 				8685B27F2801685F0076B3AC /* ImageProvider.swift in Sources */,
 				8685B22828005D0C0076B3AC /* WebSocketPlugin.swift in Sources */,
+				869BBEB62802A8BE003D87E6 /* SwinjectSystem.swift in Sources */,
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
 				8685B21B28005A5D0076B3AC /* AppThemeProvider.swift in Sources */,
 				8685B279280164FC0076B3AC /* UsefulColors.swift in Sources */,
@@ -1491,7 +1498,7 @@
 				8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */,
 				8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
-				8685B20E2800587D0076B3AC /* AppProvider.swift in Sources */,
+				8685B20E2800587D0076B3AC /* AppConnectProvider.swift in Sources */,
 				8685B26128015DE50076B3AC /* SwinjectSetting.swift in Sources */,
 				8604233A27ECADBD0056EF17 /* UserAPI.swift in Sources */,
 				862EF21F27F962E10051A3A0 /* UserData.swift in Sources */,
@@ -1509,6 +1516,7 @@
 				861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */,
 				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
 				8685B256280149C50076B3AC /* AppCommonProvider.swift in Sources */,
+				869BBEB82802A994003D87E6 /* AppConnect.swift in Sources */,
 				861E858C27FB5BB20032C4F5 /* View+.swift in Sources */,
 				8685B27D2801676E0076B3AC /* ToastProvider.swift in Sources */,
 				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
