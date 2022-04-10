@@ -19,8 +19,8 @@ class ExternalToolsBuilder {
 	typealias T = (success: Bool, error: Error?)
 	private var error: Error?
 	
-	init() {
-		fatalError("This type cannot be constructed directly, use static var 'builder' instead.")
+	private init() {
+//		fatalError("This type cannot be constructed directly, use static var 'builder' instead.")
 	}
 	
 	static var builder: ExternalToolsBuilder {
