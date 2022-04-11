@@ -645,6 +645,7 @@
 		861E857627FB4CA10032C4F5 /* Infrastructures */ = {
 			isa = PBXGroup;
 			children = (
+				8685B255280149C50076B3AC /* AppProvider.swift */,
 				8604236A27EDF4F00056EF17 /* Plugins */,
 				8604236427EDF2F00056EF17 /* Managers */,
 				8685B1FA280055D00076B3AC /* Settings */,
@@ -935,7 +936,6 @@
 		8685B1FA280055D00076B3AC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				8685B255280149C50076B3AC /* AppProvider.swift */,
 				8685B25128012CB70076B3AC /* Common */,
 				8685B25328012CE80076B3AC /* System */,
 			);
