@@ -64,6 +64,12 @@ struct AppRootView<VM: AppRootViewDataPolicy>: View, ViewRule where VM: ViewMode
 	}
 }
 
+//struct AppRootView_Previews: PreviewProvider {
+//	static var previews: some View {
+//		AppRootView()
+//	}
+//}
+
 struct AppTextField: View {
 	@Binding var text: String
 	var textPlaceholder: String = ""

@@ -6,8 +6,6 @@
 // https://www.swiftbysundell.com/articles/published-properties-in-swift/
 //
 
-import Foundation
-import SwiftUI
 import Combine
 
 enum AuthState {
@@ -27,7 +25,7 @@ class AppRootViewModel: ViewModelRule {
 	
 	private var authorized: Bool = false
 	private var disposables = Set<AnyCancellable>()
-	private var listActionId = [UUID]()
+	private var listActionId = [String]()
 	private var counting = 0
 	
 	

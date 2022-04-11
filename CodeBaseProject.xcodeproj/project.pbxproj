@@ -595,9 +595,9 @@
 		8604236D27EDF5B50056EF17 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */,
 				8604235627EDF0E30056EF17 /* AppRootView.swift */,
 				8604235727EDF0E30056EF17 /* AppRootViewModel.swift */,
+				8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -997,9 +997,9 @@
 		8685B23D28007DB20076B3AC /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				8685B24028007DE50076B3AC /* IntroCoordinator.swift */,
 				8685B23E28007DD80076B3AC /* IntroView.swift */,
 				8685B24228007DF10076B3AC /* IntroViewModel.swift */,
+				8685B24028007DE50076B3AC /* IntroCoordinator.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
