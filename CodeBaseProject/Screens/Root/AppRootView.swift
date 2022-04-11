@@ -17,17 +17,6 @@ protocol AppRootViewDataPolicy: ObservableObject {
 	func gotoHome()
 }
 
-extension AppRootViewModel: AppRootViewDataPolicy {
-	var mail: String {
-		get { email }
-		set { email = newValue }
-	}
-	
-	func gotoHome() {
-		coordinator.gotoHome()
-	}
-}
-
 // MARK: - ================================= View Layout =================================
 struct AppRootView<VM: AppRootViewDataPolicy>: View, ViewRule where VM: ViewModelRule {
 	// MARK: Properties
@@ -40,14 +29,13 @@ struct AppRootView<VM: AppRootViewDataPolicy>: View, ViewRule where VM: ViewMode
 	
 	// MARK: Layout
 	var body: some View {
-//		Text(viewModel.email)
-//		AppTextField(text: $viewModel.mail,
-//					 textPlaceholder: "Text")
-//		.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
-//		.padding(.horizontal, 40)
-//		.keyboardType(.emailAddress)
-//		.padding(.bottom, 10)
-		
+		Text(viewModel.email)
+		AppTextField(text: $viewModel.mail,
+					 textPlaceholder: "Text")
+		.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
+		.padding(.horizontal, 40)
+		.keyboardType(.emailAddress)
+		.padding(.bottom, 10)
 		Button("Go to Home") {
 			viewModel.gotoHome()
 		}

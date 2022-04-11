@@ -53,3 +53,15 @@ class AppRootViewModel: ViewModelRule {
 		return await changeStateAfter2Seconds()
 	}
 }
+
+// View support
+extension AppRootViewModel: AppRootViewDataPolicy {
+	var mail: String {
+		get { email }
+		set { email = newValue }
+	}
+	
+	func gotoHome() {
+		coordinator.gotoHome()
+	}
+}
