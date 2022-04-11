@@ -9,11 +9,7 @@ import SwiftUI
 
 class DefaultNavigation: NavigationProvider {
 	private var navigator: NavigationAdapter? {
-		guard let window = window else {
-			return nil
-		}
-		
-		return NavigationAdapter(window: window)
+		return NavigationAdapter()
 	}
 	private weak var window: UIWindow?
 	
@@ -40,12 +36,16 @@ extension DefaultNavigation {
 	func popToPrevious(animated: Bool, completion: @escaping () -> Void) {
 		navigator?.popToPrevious(animated: animated, completion: completion)
 	}
+	
+	func resetRootNavigation<Content:View>(views:[Content], animated:Bool) {
+		navigator?.resetRootNavigation(views: views, animated: animated)
+	}
 }
 
 // Support SwiftUI and UIKit
 extension DefaultNavigation {
 	var topVC: UIViewController? {
-		return navigator?.topViewController
+		return navigator?.topVC
 	}
 	
 	func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -62,6 +62,10 @@ extension DefaultNavigation {
 	
 	func switchRootViewController(rootViewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
 		navigator?.switchRootViewController(rootViewController: rootViewController, animated: animated, completion: completion)
+	}
+	
+	func resetRootNavigation(vcs: [UIViewController], animated: Bool) {
+		navigator?.resetRootNavigation(vcs: vcs, animated: animated)
 	}
 	
 	// MARK: Modal

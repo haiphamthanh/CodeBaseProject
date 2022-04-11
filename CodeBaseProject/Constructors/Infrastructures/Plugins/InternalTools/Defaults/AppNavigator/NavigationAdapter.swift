@@ -15,18 +15,19 @@ import SwiftUI
 ///
 
 class NavigationAdapter: ObservableObject {
-	private let window: UIWindow
-	
-	init(window: UIWindow) {
-		self.window = window
+	private var window: UIWindow? {
+		AppProvider.shared.window
+	}
+	private var navigationVC: UINavigationController? {
+		AppProvider.shared.navigationVC
 	}
 	
-	var topViewController: UIViewController? {
-		let first = window.rootViewController?.children.first
+	var topVC: UIViewController? {
+		let first = window?.rootViewController?.children.first
 		if let nvc = first as? UINavigationController, let nav = nvc.navigationController {
 			return nav
 		}
-		
+
 		return first
 	}
 }
@@ -51,32 +52,35 @@ extension NavigationAdapter {
 	func popToPrevious(animated: Bool = true, completion: @escaping () -> Void) {
 		popViewController(animated: animated, completion: completion)
 	}
+	
+	func resetRootNavigation<Content:View>(views: [Content], animated:Bool) {
+		let controllers =  views.compactMap { UIHostingController(rootView: $0) }
+		resetRootNavigation(vcs: controllers, animated: animated)
+	}
 }
 
 // Support SwiftUI and UIKit
 extension NavigationAdapter {
 	func pushViewController(_ viewController: UIViewController, animated: Bool = true) {
-		let navigation = NavigationUtil.navigation()
-//		let nvc = navigation as? UINavigationController
-		navigation?.pushViewController(viewController, animated: animated)
+		navigationVC?.pushViewController(viewController, animated: animated)
 	}
 	
 	func popToRootViewController(animated: Bool = true, completion: @escaping () -> Void) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.popToRootViewController(animated: animated, completion: completion)
+		navigationVC?.popToRootViewController(animated: animated, completion: completion)
 	}
 	
 	func popViewController(animated: Bool = true, completion: @escaping () -> Void) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.popViewController(animated: animated, completion: completion)
+		navigationVC?.popViewController(animated: animated, completion: completion)
 	}
 	
 	func switchRootViewController(rootViewController: UIViewController, animated: Bool = true, completion: (() -> Void)?) {
+		guard let window = window else { return }
+		
 		if animated {
 			UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
 				let oldState: Bool = UIView.areAnimationsEnabled
 				UIView.setAnimationsEnabled(false)
-				self.window.rootViewController = rootViewController
+				window.rootViewController = rootViewController
 				UIView.setAnimationsEnabled(oldState)
 			}, completion: { (finished: Bool) -> () in
 				if (completion != nil) {
@@ -88,44 +92,15 @@ extension NavigationAdapter {
 		}
 	}
 	
+	func resetRootNavigation(vcs: [UIViewController], animated: Bool = true) {
+		navigationVC?.setViewControllers(vcs, animated: animated)
+	}
+	
 	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.present(viewController, animated: animated, completion: completion)
+		navigationVC?.present(viewController, animated: animated, completion: completion)
 	}
 	
 	func dismiss(animated: Bool, completion: (() -> Void)?) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.dismiss(animated: animated, completion: completion)
-	}
-}
-
-
-/// The way to fine navigation
-///
-///https://www.cuvenx.com/post/swiftui-pop-to-root-view
-struct NavigationUtil {
-	static func popToRootView() {
-		findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)?
-			.popToRootViewController(animated: true)
-	}
-	
-	static func navigation() -> UINavigationController? {
-		return findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)
-	}
-
-	static func findNavigationController(viewController: UIViewController?) -> UINavigationController? {
-		guard let viewController = viewController else {
-			return nil
-		}
-
-		if let navigationController = viewController as? UINavigationController {
-			return navigationController
-		}
-
-		for childViewController in viewController.children {
-			return findNavigationController(viewController: childViewController)
-		}
-
-		return nil
+		navigationVC?.dismiss(animated: animated, completion: completion)
 	}
 }
