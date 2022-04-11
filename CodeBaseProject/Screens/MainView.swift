@@ -21,7 +21,8 @@ struct MainView: View {
 	}
 	
 	func rootViewConstructor<VM>() -> AppRootView<VM>? {
-		let coordinator = AppRootCoordinator()
+		let navigator = DefaultNavigation(from: AppProvider.shared.window)
+		let coordinator = AppRootCoordinator(navigator: navigator)
 		guard let rootViewModel = AppRootViewModel(coordinator: coordinator) as? VM else {
 			return nil
 		}

@@ -8,4 +8,6 @@
 import Foundation
 
 protocol CoordinatorRule {
+	associatedtype N
+	var navigator: N { get }
 }

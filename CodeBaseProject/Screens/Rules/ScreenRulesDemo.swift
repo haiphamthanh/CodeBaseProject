@@ -14,6 +14,11 @@ import SwiftUI
 
 // COORDINATOR
 private class SampleCoor: CoordinatorRule {
+	typealias N = NavigationProvider
+	let navigator: N
+	init(navigator: NavigationProvider) {
+		self.navigator = navigator
+	}
 }
 
 // VIEWMODEL
@@ -58,7 +63,8 @@ private struct SampleView<VM: SampleViewDataPolicy>: View, ViewRule where VM: Vi
 // HOW TO USE IT???
 private class DemoPreview {
 	func execute() {
-		let coordinator = SampleCoor()
+		let navigator = DefaultNavigation(from: AppProvider.shared.window)
+		let coordinator = SampleCoor(navigator: navigator)
 		let viewModel = SampleViewModel(coordinator: coordinator)
 		let contentView = SampleView(viewModel: viewModel)
 		print(contentView)

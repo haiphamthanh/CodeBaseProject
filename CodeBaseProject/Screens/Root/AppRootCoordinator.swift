@@ -8,6 +8,12 @@
 import SwiftUI
 
 class AppRootCoordinator: CoordinatorRule {
+	typealias N = NavigationProvider
+	let navigator: N
+	init(navigator: NavigationProvider) {
+		self.navigator = navigator
+	}
+	
 	func gotoHome() {
 		print("Go to home")
 	}

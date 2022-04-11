@@ -8,4 +8,9 @@
 import Foundation
 
 class IntroCoordinator: CoordinatorRule {
+	typealias N = NavigationProvider
+	let navigator: N
+	init(navigator: NavigationProvider) {
+		self.navigator = navigator
+	}
 }
