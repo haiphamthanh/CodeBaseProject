@@ -5,57 +5,12 @@
 //  Created by HaiKaito on 25/03/2022.
 //
 
-import Swinject
-import IQKeyboardManagerSwift
+import UIKit
 
-class DefaultAppDelegate {
-	//+++ Internal ============
-	private var window: UIWindow?
-	private lazy var container = Container()
-	
-	// MARK: - ++++++ Can override functions =================================
-	// 1. Register
-	func setupSwinject(container: Container, window: UIWindow?) {
-		// 1. Setup system register
-		SwinjectSystem(container: container, window: window).startSettingUp()
-		
-		// 2. Setup others
-		let appConnect = AppConnect(container: container, window: window)
-		appConnect.setting
-			.settingInternalTools()
-			.settingExternalTools()
-			.done()
-		appConnect.notification
-			.setting1()
-			.setting2()
-			.done()
-		appConnect.background
-			.setting1()
-			.setting2()
-			.done()
-		appConnect.color
-			.setting1()
-			.setting2()
-			.done()
-		appConnect.theme
-			.setting1()
-			.setting2()
-			.done()
-	}
-	
-	// 2. initialize
-	func initialize(with container: Container) {
-	}
-}
-
-extension DefaultAppDelegate: AppDelegateProvider {
+class DefaultAppDelegate: AppDelegateProvider {
 	// MARK: - ================================= =================================
 	func app(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		let window = UIWindow()
-		self.window = window
-		
-		initSystem(container: container, window: window)
 		return true
 	}
 	
@@ -91,60 +46,4 @@ extension DefaultAppDelegate: AppDelegateProvider {
 		// no equiv. notification. return NO if the application can't open for some reason
 		return false
 	}
-	
 }
-
-// MARK: - ================================= Private =================================
-private extension DefaultAppDelegate {
-	func initSystem(container: Container, window: UIWindow) {
-		self.window = UIWindow()
-		
-		setupSwinjectTask(container: container, window: window)
-		initTask(with: container)
-		configTask(with: container)
-		return completionTask(with: container)
-	}
-	
-	// Register Task ----------
-	func setupSwinjectTask(container: Container, window: UIWindow?) {
-		return setupSwinject(container: container, window: window)
-	}
-	
-	// Init Task ----------
-	func initTask(with container: Container) {
-		return initialize(with: container)
-	}
-	
-	// Setup Task ----------
-	func configTask(with container: Container) {
-		configKeyboard()
-		return configNetwork()
-	}
-	
-	// Completion Task ----------
-	func completionTask(with container: Container) {
-		let appThem = container.sureResolve(AppThemeProvider.self)
-		type(of: appThem.self).applyAppearanceDefaults()
-		
-		//TODO: Transfer to app after done all
-//		appCoordinator.startProcess()
-//			.subscribe()
-//			.disposed(by: disposeBag)
-	}
-}
-
-// MARK: - ================================= Other tasks =================================
-private extension DefaultAppDelegate {
-	// All sub Tasks --------------------------------------------------
-	func configKeyboard() {
-		IQKeyboardManager.shared.enable = true
-		IQKeyboardManager.shared.enableAutoToolbar = false
-		IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-		IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
-	}
-	
-	func configNetwork() {
-		//		LoadingManager.shared.startInternetTracking()
-	}
-}
-

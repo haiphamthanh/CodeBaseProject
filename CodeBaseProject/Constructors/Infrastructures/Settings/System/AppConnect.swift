@@ -8,8 +8,8 @@
 import Swinject
 
 class AppConnect: AppConnectProvider {
-	private let container: Container?
-	private let window: UIWindow?
+	private weak var container: Container?
+	private weak var window: UIWindow?
 	
 	// MARK: - ================================= Initialize =================================
 	//+++ DependencyService =======

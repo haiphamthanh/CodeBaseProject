@@ -5,14 +5,9 @@
 //  Created by HaiKaito on 09/04/2022.
 //
 
-import SwiftUI
+import Swinject
 
 class DefaultAppSceneDelegate: AppSceneDelegateProvider {
-	private var window: UIWindow?
-	init(window: UIWindow?) {
-		self.window = window
-	}
-	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
 		// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -20,12 +15,15 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 		guard let _ = (scene as? UIWindowScene) else { return }
 		
 		let contentView = MainView()
-		// Use a UIHostingController as window root view controller.
 		if let windowScene = scene as? UIWindowScene {
 			let window = UIWindow(windowScene: windowScene)
-			window.rootViewController = UIHostingController(rootView: contentView)
-			self.window = window
+			let container = Container()
+			
+			// Use a UIKitAdapter(UIHostingController) as window root view controller.
+			window.rootViewController = UIKitAdapter(rootView: contentView)
 			window.makeKeyAndVisible()
+			
+			SystemConstructor(container: container, window: window).start()
 		}
 	}
 	
