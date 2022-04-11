@@ -12,12 +12,19 @@ protocol AppRootViewDataPolicy: ObservableObject {
 	var authState: AuthState { get }
 	var email: String { get set }
 	var mail: String { get set }
+	
+	// Action
+	func gotoHome()
 }
 
 extension AppRootViewModel: AppRootViewDataPolicy {
 	var mail: String {
 		get { email }
 		set { email = newValue }
+	}
+	
+	func gotoHome() {
+		coordinator.gotoHome()
 	}
 }
 
@@ -40,6 +47,10 @@ struct AppRootView<VM: AppRootViewDataPolicy>: View, ViewRule where VM: ViewMode
 		.padding(.horizontal, 40)
 		.keyboardType(.emailAddress)
 		.padding(.bottom, 10)
+		
+		Button("Go to Home") {
+			viewModel.gotoHome()
+		}
 		//		Group {
 		//			switch viewData.appState {
 		//			case .authorized:

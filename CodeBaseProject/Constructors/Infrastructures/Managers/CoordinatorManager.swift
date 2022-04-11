@@ -1,5 +1,5 @@
 //
-//  Navigation.swift
+//  CoordinatorManager.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 19/07/2021.
@@ -8,127 +8,7 @@
 
 import SwiftUI
 
-struct NavigationBarTitleConfiguration {
-	let title: String
-	let displayMode: NavigationBarItem.TitleDisplayMode
-}
-
-protocol DestinationView {
-	var navigationBarTitleConfiguration: NavigationBarTitleConfiguration { get }
-}
-
-class DestinationHostingController<T: View>: UIHostingController<T> {
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		let rootMirror = Mirror(reflecting: rootView)
-		
-		let storageMirror = rootView is AnyView ? rootMirror : Mirror(reflecting: rootMirror.descendant("content")!)
-		let navigationTitleConfiguration = extractNavigationTitleConfiguration(storageMirror: storageMirror)
-		
-		if let navigationTitleConfiguration = navigationTitleConfiguration {
-			navigationItem.title = navigationTitleConfiguration.title
-			//            navigationItem.largeTitleDisplayMode = navigationTitleConfiguration.displayMode
-		}
-	}
-	
-	private func extractNavigationTitleConfiguration(storageMirror: Mirror) -> NavigationBarTitleConfiguration? {
-		guard let storage = storageMirror.descendant("storage") else { return nil }
-		let storageMirror = Mirror(reflecting: storage)
-		
-		guard let swiftUIView = storageMirror.descendant("view") else { return nil }
-		if let view = swiftUIView as? DestinationView {
-			return view.navigationBarTitleConfiguration
-		}
-		
-		return nil
-	}
-}
-
-class Navigation: ObservableObject {
-	let window: UIWindow
-	
-	init(window: UIWindow) {
-		self.window = window
-	}
-	
-	func pushView(_ view: AnyView, animated: Bool = true) {
-		let controller = DestinationHostingController(rootView: view.environmentObject(self))
-		pushViewController(controller, animated: animated)
-	}
-	
-	func popToRoot(animated: Bool = true, completion: @escaping () -> Void) {
-		popToRootViewController(animated: animated, completion: completion)
-	}
-	
-	func popToRootAndPushTo(_ view: AnyView, animated: Bool = true) {
-		popToRoot(animated: animated) {
-			self.pushView(view, animated: animated)
-		}
-	}
-	
-	func popToPrevious(animated: Bool = true, completion: @escaping () -> Void) {
-		popViewController(animated: animated, completion: completion)
-	}
-}
-
-private extension Navigation {
-	func pushViewController(_ viewController: UIViewController, animated: Bool = true) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.pushViewController(viewController, animated: animated)
-	}
-	
-	func popToRootViewController(animated: Bool = true, completion: @escaping () -> Void) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.popToRootViewController(animated: animated, completion: completion)
-	}
-	
-	func popViewController(animated: Bool = true, completion: @escaping () -> Void) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.popViewController(animated: animated, completion: completion)
-	}
-	
-	func switchRootViewController(rootViewController: UIViewController, animated: Bool = true, completion: (() -> Void)?) {
-		if animated {
-			UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
-				let oldState: Bool = UIView.areAnimationsEnabled
-				UIView.setAnimationsEnabled(false)
-				self.window.rootViewController = rootViewController
-				UIView.setAnimationsEnabled(oldState)
-			}, completion: { (finished: Bool) -> () in
-				if (completion != nil) {
-					completion!()
-				}
-			})
-		} else {
-			window.rootViewController = rootViewController
-		}
-	}
-}
-
-extension UINavigationController {
-	func pushViewController(_ viewController: UIViewController, animated: Bool = true, completion: @escaping () -> Void) {
-		CATransaction.begin()
-		CATransaction.setCompletionBlock(completion)
-		pushViewController(viewController, animated: animated)
-		CATransaction.commit()
-	}
-	
-	func popViewController(animated: Bool = true, completion: @escaping () -> Void) {
-		CATransaction.begin()
-		CATransaction.setCompletionBlock(completion)
-		popViewController(animated: animated)
-		CATransaction.commit()
-	}
-	
-	func popToRootViewController(animated: Bool = true, completion: @escaping () -> Void) {
-		CATransaction.begin()
-		CATransaction.setCompletionBlock(completion)
-		popToRootViewController(animated: animated)
-		CATransaction.commit()
-	}
-}
-
-class BaseCoordinator {
+class CoordinatorManager {
 //	var navigator: Navigation? {
 //		guard let window = self.currentWindow() else {
 //			return nil
