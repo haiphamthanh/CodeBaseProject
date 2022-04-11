@@ -6,6 +6,7 @@
 //
 
 import UIKit
+/*
 
 protocol NavigationProvider {
 	// MARK: Properties
@@ -39,3 +40,4 @@ protocol NavigationProvider {
 	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
 	func dismiss(animated: Bool, completion: (() -> Void)?)
 }
+*/

@@ -20,6 +20,15 @@ class NavigationAdapter: ObservableObject {
 	init(window: UIWindow) {
 		self.window = window
 	}
+	
+	var topViewController: UIViewController? {
+		let first = window.rootViewController?.children.first
+		if let nvc = first as? UINavigationController, let nav = nvc.navigationController {
+			return nav
+		}
+		
+		return first
+	}
 }
 
 // Support SwiftUI only
@@ -76,5 +85,15 @@ extension NavigationAdapter {
 		} else {
 			window.rootViewController = rootViewController
 		}
+	}
+	
+	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+		let nvc = window.rootViewController?.children.first as? UINavigationController
+		nvc?.present(viewController, animated: animated, completion: completion)
+	}
+	
+	func dismiss(animated: Bool, completion: (() -> Void)?) {
+		let nvc = window.rootViewController?.children.first as? UINavigationController
+		nvc?.dismiss(animated: animated, completion: completion)
 	}
 }

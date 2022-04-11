@@ -17,12 +17,7 @@ class DefaultToast {
 extension DefaultToast: ToastProvider {
 	// MARK: - ================================= Usage =================================
 	func show(message: String) {
-		if let nav = self.navigation.topViewController?.navigationController {
-			nav.view.makeToast(message)
-			return
-		}
-		
-		self.navigation.topViewController?.view.makeToast(message)
+		self.navigation.topVC?.view.makeToast(message)
 	}
 	
 	func show(message: String, type: ToastType) {

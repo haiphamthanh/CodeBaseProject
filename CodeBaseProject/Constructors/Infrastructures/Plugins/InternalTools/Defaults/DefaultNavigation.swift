@@ -6,6 +6,7 @@
 //
 
 import UIKit
+/*
 
 class DefaultNavigation: NavigationProvider {
 	// MARK: Initialization
@@ -135,3 +136,4 @@ private extension UINavigationController {
 	}
 }
 
+*/

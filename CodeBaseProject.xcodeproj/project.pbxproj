@@ -1017,7 +1017,6 @@
 		8685B25128012CB70076B3AC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				869BBEC6280418FC003D87E6 /* AppNavigator */,
 				8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */,
 				8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */,
 				869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */,
@@ -1030,7 +1029,6 @@
 			children = (
 				8685B21028005A180076B3AC /* AppDelegateProvider.swift */,
 				8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */,
-				869BBEC0280417A4003D87E6 /* AppNavigatorProvider.swift */,
 			);
 			path = CommonProvider;
 			sourceTree = "<group>";
@@ -1084,6 +1082,7 @@
 			isa = PBXGroup;
 			children = (
 				8685B28228016CA30076B3AC /* DefaultNavigation.swift */,
+				869BBEC6280418FC003D87E6 /* AppNavigator */,
 				8685B28428016CAF0076B3AC /* DefaultImage.swift */,
 				8685B28628016CBB0076B3AC /* DefaultToast.swift */,
 				8685B28828016CC50076B3AC /* DefaultAlert.swift */,
@@ -1121,6 +1120,7 @@
 		8685B28128016C320076B3AC /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				869BBEC0280417A4003D87E6 /* AppNavigatorProvider.swift */,
 				8685B2632801600A0076B3AC /* NavigationProvider.swift */,
 				8685B2742801639B0076B3AC /* AlertProvider.swift */,
 				8685B27C2801676E0076B3AC /* ToastProvider.swift */,

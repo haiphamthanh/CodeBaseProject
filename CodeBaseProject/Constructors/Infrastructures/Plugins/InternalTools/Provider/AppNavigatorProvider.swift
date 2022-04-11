@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-protocol AppNavigatorProvider {
+protocol NavigationProvider {
+	// Getter
+	var topVC: UIViewController? { get }
+	
 	// Support SwiftUI only
 	func pushView(_ view: AnyView, animated: Bool)
 	func popToRoot(animated: Bool, completion: @escaping () -> Void)
@@ -19,4 +22,8 @@ protocol AppNavigatorProvider {
 	func popToRootViewController(animated: Bool, completion: @escaping () -> Void)
 	func popViewController(animated: Bool, completion: @escaping () -> Void)
 	func switchRootViewController(rootViewController: UIViewController, animated: Bool, completion: (() -> Void)?)
+	
+	// MARK: Modal
+	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
+	func dismiss(animated: Bool, completion: (() -> Void)?)
 }

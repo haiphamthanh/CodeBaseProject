@@ -7,18 +7,24 @@
 
 import SwiftUI
 
-class AppNavigator: AppNavigatorProvider {
+class DefaultNavigation: NavigationProvider {
 	private var navigator: NavigationAdapter? {
-		guard let window = AppProvider.shared.window else {
+		guard let window = window else {
 			return nil
 		}
 		
 		return NavigationAdapter(window: window)
 	}
+	private weak var window: UIWindow?
+	
+	// MARK: - ================================= Initialize =================================
+	init(from window: UIWindow?) {
+		self.window = window
+	}
 }
 
 // Support SwiftUI only
-extension AppNavigator {
+extension DefaultNavigation {
 	func pushView(_ view: AnyView, animated: Bool) {
 		navigator?.pushView(view, animated: animated)
 	}
@@ -37,7 +43,11 @@ extension AppNavigator {
 }
 
 // Support SwiftUI and UIKit
-extension AppNavigator {
+extension DefaultNavigation {
+	var topVC: UIViewController? {
+		return navigator?.topViewController
+	}
+	
 	func pushViewController(_ viewController: UIViewController, animated: Bool) {
 		navigator?.pushViewController(viewController, animated: animated)
 	}
@@ -52,5 +62,14 @@ extension AppNavigator {
 	
 	func switchRootViewController(rootViewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
 		navigator?.switchRootViewController(rootViewController: rootViewController, animated: animated, completion: completion)
+	}
+	
+	// MARK: Modal
+	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+		navigator?.present(viewController: viewController, animated: animated, completion: completion)
+	}
+	
+	func dismiss(animated: Bool, completion: (() -> Void)?) {
+		navigator?.dismiss(animated: animated, completion: completion)
 	}
 }
