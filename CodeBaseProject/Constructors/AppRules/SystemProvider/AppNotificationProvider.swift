@@ -8,4 +8,8 @@
 import Foundation
 
 protocol AppNotificationProvider {
+	// MARK: - Setup
+	func setting1() -> Self
+	func setting2() -> Self
+	func done()
 }

@@ -1,6 +1,7 @@
 PODS:
   - DynamicBlurView (4.1.0)
   - Introspect (0.1.4)
+  - IQKeyboardManagerSwift (6.5.9)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - SwiftDate (6.3.1)
@@ -34,6 +35,7 @@ PODS:
 
 DEPENDENCIES:
   - Introspect
+  - IQKeyboardManagerSwift
   - PopupDialog
   - SwiftDate
   - SwifterSwift
@@ -44,6 +46,7 @@ SPEC REPOS:
   trunk:
     - DynamicBlurView
     - Introspect
+    - IQKeyboardManagerSwift
     - PopupDialog
     - SwiftDate
     - SwifterSwift
@@ -53,12 +56,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 5acc08e878f0a9ef5005fd22fae1ddae10fa789b
+PODFILE CHECKSUM: 64378562c990c579a70b901b421fab38ae2686af
 
 COCOAPODS: 1.10.2

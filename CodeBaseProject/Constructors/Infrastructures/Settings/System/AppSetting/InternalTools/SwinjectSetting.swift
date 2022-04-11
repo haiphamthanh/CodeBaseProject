@@ -10,53 +10,52 @@ import Swinject
 // MARK: - ================================= All Service is provided =================================
 class SwinjectSetting {
 	// MARK: - ================================= Private Properties =================================
-	private weak var container: Container!
-	private weak var window: UIWindow!
+	private let container: Container
+	private let window: UIWindow
 	
 	// MARK: - ================================= Initialize =================================
 	//+++ DependencyService =======
 	init(container: Container, window: UIWindow) {
 		self.container = container
 		self.window = window
-		
-		// Register
-		self.registerTo(container: container, window: window)
 	}
-}
-
-// MARK: - ================================= Private =================================
-private extension SwinjectSetting {
-	func registerTo(container: Container, window: UIWindow) {
+	
+	func startSettingUp() {
 		// 1.
-		registerMainServiceTo(container: container, window: window)
+		registerPrimaryTools()
 		// 2.
-		registerUsageServiceTo(container: container)
+		registerUtilTools()
 		// 3.
-//		registerGUITo(container: container, window: window)
+//		registerUserInterface()
 	}
 }
 
 // MARK: - ================================= Register =================================
 private extension SwinjectSetting {
-	func registerMainServiceTo(container: Container, window: UIWindow) {
-		container.register(NavigationProvider.self) { _ in
-			return DefaultNavigation.init(from: window)
+	func registerPrimaryTools() {
+		container.register(NavigationProvider.self) { [weak self] _ in
+			DefaultNavigation(from: self?.window)
+		}
+		
+		// Network
+		container.register(NetworkProvider.self) { _ in NetworkProviderImpl() }
+		container.register(LocalProvider.self) { _ in LocalProviderImpl() }
+		container.register(RepoProvider.self) { r in
+			let networkProvider = r.sureResolve(NetworkProvider.self)
+			let localProvider = r.sureResolve(LocalProvider.self)
+			return RepoProviderImpl(networkProvider, localProvider)
+		}
+		container.register(UseCaseProvider.self) { r in
+			let repoProvider = r.sureResolve(RepoProvider.self)
+			return UseCaseProviderImpl(repoProvider)
+		}
+		container.register(UseCases.self) { r in
+			let useCaseProvider = r.sureResolve(UseCaseProvider.self)
+			return UseCasesImpl(usecaseProvider: useCaseProvider)
 		}
 	}
 	
-	func registerUsageServiceTo(container: Container) {
-//		container.register(NetUseCaseProviderProtocol.self) { _ in NetUseCaseProvider() }
-//		container.register(NetworkServiceProtocol.self) { r in
-//			let useCaseProvider = r.sureResolve(NetUseCaseProviderProtocol.self)
-//			return NetworkService(useCaseProvider: useCaseProvider)
-//		}
-		
-//		container.register(DataStoreUseCaseProviderProtocol.self) { _ in DataStoreUseCaseProvider() }
-//		container.register(DataStoreServiceProtocol.self) { r in
-//			let useCaseProvider = r.sureResolve(DataStoreUseCaseProviderProtocol.self)
-//			return DataStoreService(useCaseProvider: useCaseProvider)
-//		}
-		
+	func registerUtilTools() {
 		container.register(AlertProvider.self) { r in
 			let navigation = r.sureResolve(NavigationProvider.self)
 			return DefaultAlert(navigation: navigation)
@@ -70,7 +69,7 @@ private extension SwinjectSetting {
 		container.register(ImageProvider.self) { _ in DefaultImage() }
 	}
 	
-//	func registerGUITo(container: Container, window: UIWindow) {
+//	func registerUserInterface() {
 //		//MARK: ------------------------------------ APPLICATION ------------------------------------
 //		container.register(AppCoordinatorProtocol.self) { _ in BaseAppCoordinator() }
 //

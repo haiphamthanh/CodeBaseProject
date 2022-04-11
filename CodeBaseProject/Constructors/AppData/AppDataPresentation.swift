@@ -8,6 +8,6 @@
 import Foundation
 
 protocol AppDataPresentation {
-	associatedtype AppModelType
-	func asAppModel() -> AppModelType
+	associatedtype AppDataType
+	func asAppData() -> AppDataType
 }

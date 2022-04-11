@@ -19,14 +19,14 @@ class AuthManager: ObservableObject {
 	
 	//MARK: - Instance
 	static let shared = AuthManager()
-	private let networkService: NetworkServiceProtocol
+//	private let networkService: NetworkServiceProtocol
 	private var runningTask: Task<(), Never>?
 	private init() {
 		// TODO: Make DI
 		// TODO: Check allocate many times
-		let networkProvider = NetProvider()
-		let useCaseProvider = NetUseCaseProvider(networkProvider)
-		self.networkService = NetworkService(usecaseProvider: useCaseProvider)
+//		let networkProvider = NetProvider()
+//		let useCaseProvider = NetUseCaseProvider(networkProvider)
+//		self.networkService = NetworkService(usecaseProvider: useCaseProvider)
 	}
 	
 	//MARK: - Outputs
@@ -42,15 +42,15 @@ class AuthManager: ObservableObject {
 	//MARK: - Actions
 	func loadUserInfo() {
 		runningTask = Task { [weak self] in
-			let result = await networkService.user.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
-			
-			switch result {
-			case .success(let userData):
-				updateUserInformation(from: userData)
-			case .failure(let error):
-				//TODO: Handle load error
-				print(error)
-			}
+//			let result = await networkService.user.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
+//
+//			switch result {
+//			case .success(let userData):
+//				updateUserInformation(from: userData)
+//			case .failure(let error):
+//				//TODO: Handle load error
+//				print(error)
+//			}
 			
 			self?.runningTask = nil
 		}
@@ -68,12 +68,12 @@ class AuthManager: ObservableObject {
 
 private extension AuthManager {
 	private func updateUserInformation(from userData: UserData?) {
-		guard let userData = userData, let infoData = userData.info?.asAppModel() else {
+		guard let userData = userData, let infoData = userData.info?.asAppData() else {
 			return
 		}
 		
 		//TODO: Translate to AppUserModel
-		let emailData = userData.email?.asAppModel()
+		let emailData = userData.email?.asAppData()
 		let appUserData = AppUserData(id: "", info: infoData, email: emailData)
 		self.appUserData = appUserData
 	}

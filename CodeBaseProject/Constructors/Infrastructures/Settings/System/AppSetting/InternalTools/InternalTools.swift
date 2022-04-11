@@ -8,15 +8,15 @@
 import Swinject
 
 enum InternalTools {
-	case container(Container)
+	case container(Container, UIWindow)
 }
 
 class InternalToolsBuilder {
 	typealias T = (success: Bool, error: Error?)
 	private var error: Error?
 	
-	init() {
-		fatalError("This type cannot be constructed directly, use static var 'builder' instead.")
+	private init() {
+		//fatalError("This type cannot be constructed directly, use static var 'builder' instead.")
 	}
 	
 	static var builder: InternalToolsBuilder {
@@ -27,9 +27,8 @@ class InternalToolsBuilder {
 extension InternalToolsBuilder {
 	func setupInternalTool(_ tool: InternalTools) -> Self {
 		switch tool {
-		case .container(let container):
-			//TODO: Setting up for container
-			break
+		case .container(let container, let window):
+			SwinjectSetting(container: container, window: window).startSettingUp()
 		}
 		
 		return self

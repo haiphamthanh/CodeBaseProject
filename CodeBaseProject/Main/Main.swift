@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 class Main: UIResponder {
-	private lazy var delegator: AppDelegateProvider = AppCommonProvider.appDelegate
+	private lazy var delegator: AppDelegateProvider = AppProvider.appDelegate
 	// MARK: UISceneSession Lifecycle
 
 	func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

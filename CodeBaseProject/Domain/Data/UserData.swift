@@ -35,7 +35,7 @@ struct UserData {
 }
 
 // MARK: Translation supporting
-extension UserEntity: DataPresentation {
+extension UserEntity: DataConvertible {
 	typealias DataType = UserData.Info
 	
 	func asData() -> DataType {
@@ -49,7 +49,7 @@ extension UserEntity: DataPresentation {
 }
 
 
-extension UserEmailEntity: DataPresentation {
+extension UserEmailEntity: DataConvertible {
 	typealias DataType = UserData.Email
 	
 	func asData() -> DataType {

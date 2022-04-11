@@ -44,6 +44,8 @@ def shared_pods
 	pod 'PopupDialog'
 	# Toast
 	pod 'Toast-Swift'
+	# keyboard
+	pod 'IQKeyboardManagerSwift'
 	
 end
 
