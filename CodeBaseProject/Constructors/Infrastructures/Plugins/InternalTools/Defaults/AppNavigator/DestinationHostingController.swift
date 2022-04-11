@@ -12,7 +12,7 @@ struct NavigationBarTitleConfiguration {
 	let displayMode: NavigationBarItem.TitleDisplayMode
 }
 
-protocol NavigationView {
+protocol NavigationUIView {
 	var navigationBarTitleConfiguration: NavigationBarTitleConfiguration { get }
 }
 
@@ -35,7 +35,7 @@ class NavigationHostingController<T: View>: UIHostingController<T> {
 		let storageMirror = Mirror(reflecting: storage)
 		
 		guard let swiftUIView = storageMirror.descendant("view") else { return nil }
-		if let view = swiftUIView as? NavigationView {
+		if let view = swiftUIView as? NavigationUIView {
 			return view.navigationBarTitleConfiguration
 		}
 		

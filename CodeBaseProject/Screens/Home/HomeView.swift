@@ -11,6 +11,9 @@ import SwiftUI
 protocol HomeViewDataPolicy: ObservableObject {
 }
 
+extension HomeViewModel: HomeViewDataPolicy {
+}
+
 // MARK: - ================================= View Layout =================================
 struct HomeView<VM: HomeViewDataPolicy>: View, ViewRule where VM: ViewModelRule {
 	// MARK: Properties

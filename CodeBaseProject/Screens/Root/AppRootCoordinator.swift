@@ -15,25 +15,30 @@ class AppRootCoordinator: CoordinatorRule {
 	}
 	
 	func gotoHome() {
-		print("Go to home")
+		guard let view = homeView() else {
+			return
+		}
+		
+		navigator.pushView(view, animated: true)
 	}
 	
-//	func rootView() -> AnyView? {
-//		guard let view: AppRootView<AppRootViewModel> = rootViewConstructor() else {
-//			return nil
-//		}
-//		
-//		return AnyView(view)
-//	}
-//	
-//	func rootViewConstructor<VM>() -> AppRootView<VM>? {
-//		let coordinator = AppRootCoordinator()
-//		guard let rootViewModel = AppRootViewModel(coordinator: coordinator) as? VM else {
-//			return nil
-//		}
-//		
-//		return AppRootView<VM>(viewModel: rootViewModel)
-//	}
+	func homeView() -> AnyView? {
+		guard let view: HomeView<HomeViewModel> = homeViewConstructor() else {
+			return nil
+		}
+		
+		return AnyView(view)
+	}
+	
+	func homeViewConstructor<VM>() -> HomeView<VM>? {
+		let navigator = DefaultNavigation(from: AppProvider.shared.window)
+		let coordinator = HomeCoordinator(navigator: navigator)
+		guard let homeViewModel = HomeViewModel(coordinator: coordinator) as? VM else {
+			return nil
+		}
+		
+		return HomeView<VM>(viewModel: homeViewModel)
+	}
 }
 
 //extension AppRootCoordinator {

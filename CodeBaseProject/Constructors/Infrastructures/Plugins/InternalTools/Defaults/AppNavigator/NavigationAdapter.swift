@@ -56,8 +56,9 @@ extension NavigationAdapter {
 // Support SwiftUI and UIKit
 extension NavigationAdapter {
 	func pushViewController(_ viewController: UIViewController, animated: Bool = true) {
-		let nvc = window.rootViewController?.children.first as? UINavigationController
-		nvc?.pushViewController(viewController, animated: animated)
+		let navigation = NavigationUtil.navigation()
+//		let nvc = navigation as? UINavigationController
+		navigation?.pushViewController(viewController, animated: animated)
 	}
 	
 	func popToRootViewController(animated: Bool = true, completion: @escaping () -> Void) {
@@ -95,5 +96,36 @@ extension NavigationAdapter {
 	func dismiss(animated: Bool, completion: (() -> Void)?) {
 		let nvc = window.rootViewController?.children.first as? UINavigationController
 		nvc?.dismiss(animated: animated, completion: completion)
+	}
+}
+
+
+/// The way to fine navigation
+///
+///https://www.cuvenx.com/post/swiftui-pop-to-root-view
+struct NavigationUtil {
+	static func popToRootView() {
+		findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)?
+			.popToRootViewController(animated: true)
+	}
+	
+	static func navigation() -> UINavigationController? {
+		return findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)
+	}
+
+	static func findNavigationController(viewController: UIViewController?) -> UINavigationController? {
+		guard let viewController = viewController else {
+			return nil
+		}
+
+		if let navigationController = viewController as? UINavigationController {
+			return navigationController
+		}
+
+		for childViewController in viewController.children {
+			return findNavigationController(viewController: childViewController)
+		}
+
+		return nil
 	}
 }
