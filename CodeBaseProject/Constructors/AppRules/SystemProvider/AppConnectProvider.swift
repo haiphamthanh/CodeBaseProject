@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AppConnectProvider {
-	var setting: AppSettingProvider { get }
+//	var setting: AppSettingProvider { get }
 	var notification: AppNotificationProvider { get }
 	var background: AppBackgroundProvider { get }
 	var color: AppColorProvider { get }

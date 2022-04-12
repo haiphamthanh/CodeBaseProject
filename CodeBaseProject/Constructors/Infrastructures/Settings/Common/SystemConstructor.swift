@@ -11,26 +11,28 @@ import IQKeyboardManagerSwift
 class SystemConstructor {
 	// MARK: - ================================= Private Properties =================================
 	private weak var container: Container?
-	private weak var window: UIWindow?
 	
 	// MARK: - ================================= Initialize =================================
-	init(container: Container?, window: UIWindow?) {
+	init(container: Container?) {
 		self.container = container
-		self.window = window
 	}
 	
 	// MARK: - ++++++ Can override functions =================================
 	// 1. Register
-	func setupExternals(container: Container, window: UIWindow?) {
-		// 1. Setup system register
-//		SwinjectSystem(container: container, window: window).startSettingUp()
+	func setupExternals(container: Container) {
+		let _ = InternalToolsBuilder.builder
+			.setupInternalTool(.container(container))
+			.finish()
 		
-		// 2. Setup others
-		let appConnect = AppConnect(container: container, window: window)
-		appConnect.setting
-			.settingInternalTools()
-			.settingExternalTools()
-			.done()
+		let _ = ExternalToolsBuilder.builder
+			.useExternalService(.facebook)
+			.finish()
+		
+		let appConnect = AppConnect(container: container)
+//		appConnect.setting
+//			.settingInternalTools()
+//			.settingExternalTools()
+//			.done()
 		appConnect.notification
 			.setting1()
 			.setting2()
@@ -62,9 +64,8 @@ extension SystemConstructor {
 		}
 		
 		registerSystemProvider(container: container)
-		initSystem(container: container, window: window)
+		initSystem(container: container)
 		
-		AppProvider.shared.holdWindow(window)
 		AppProvider.shared.holdDIContainer(container)
 	}
 }
@@ -73,10 +74,10 @@ extension SystemConstructor {
 private extension SystemConstructor {
 	func registerSystemProvider(container: Container) {
 		//MARK: ------------------------------------ Provider ------------------------------------
-		container.register(AppConnectProvider.self) { [weak self] _ in AppConnect(container: self?.container, window: self?.window) }
+		container.register(AppConnectProvider.self) { [weak self] _ in AppConnect(container: self?.container) }
 		
 		//MARK: ------------------------------------ System ------------------------------------
-		container.register(AppSettingProvider.self) { [weak self] _ in AppSetting(container: self?.container, window: self?.window) }
+//		container.register(AppSettingProvider.self) { [weak self] _ in AppSetting(container: self?.container) }
 		container.register(AppNotificationProvider.self) { _ in AppNotification() }
 		container.register(AppBackgroundProvider.self) { _ in AppBackground() }
 		container.register(AppColorProvider.self) { _ in AppColor() }
@@ -86,16 +87,17 @@ private extension SystemConstructor {
 
 // MARK: - ================================= Private =================================
 private extension SystemConstructor {
-	func initSystem(container: Container, window: UIWindow?) {
-		setupSwinjectTask(container: container, window: window)
+	func initSystem(container: Container) {
+		setupSwinjectTask(container: container)
 		initTask(with: container)
 		configTask(with: container)
+		
 		return completionTask(with: container)
 	}
 	
 	// Register Task ----------
-	func setupSwinjectTask(container: Container, window: UIWindow?) {
-		return setupExternals(container: container, window: window)
+	func setupSwinjectTask(container: Container) {
+		return setupExternals(container: container)
 	}
 	
 	// Init Task ----------
@@ -103,7 +105,7 @@ private extension SystemConstructor {
 		return initialize(with: container)
 	}
 	
-	// Setup Task ----------
+	// Config Task ----------
 	func configTask(with container: Container) {
 		configKeyboard()
 		return configNetwork()
@@ -135,4 +137,3 @@ private extension SystemConstructor {
 		//		LoadingManager.shared.startInternetTracking()
 	}
 }
-

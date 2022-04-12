@@ -8,7 +8,8 @@
 import Swinject
 
 enum InternalTools {
-	case container(Container, UIWindow)
+	case container(Container)
+	case window(UIWindow, Container)
 }
 
 class InternalToolsBuilder {
@@ -27,8 +28,10 @@ class InternalToolsBuilder {
 extension InternalToolsBuilder {
 	func setupInternalTool(_ tool: InternalTools) -> Self {
 		switch tool {
-		case .container(let container, let window):
-			SwinjectSetting(container: container, window: window).startSettingUp()
+		case .container(let container):
+			SwinjectSetting(container: container).startSettingUp()
+		case .window(let window, let container):
+			SwinjectScreenSetting(window: window, container: container).startSettingUp()
 		}
 		
 		return self

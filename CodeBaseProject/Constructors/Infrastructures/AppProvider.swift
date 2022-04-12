@@ -19,14 +19,11 @@ class AppProvider {
 	
 	final func holdWindow(_ window: UIWindow?) {
 		self.window = window
+		self.navigationVC = NavigationUtil.navigation()
 	}
 	
 	final func holdDIContainer(_ container: Container) {
 		self.container = container
-	}
-	
-	final func holdNavigation() {
-		self.navigationVC = NavigationUtil.navigation()
 	}
 	
 	///

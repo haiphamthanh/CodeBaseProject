@@ -167,6 +167,8 @@
 		869BBEC82804199F003D87E6 /* NavigationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC72804199F003D87E6 /* NavigationAdapter.swift */; };
 		869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0028046408003D87E6 /* AppRootViewFactory.swift */; };
 		869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */; };
+		869BBF0528049AF9003D87E6 /* WindowConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0428049AF9003D87E6 /* WindowConstructor.swift */; };
+		869BBF0728049C49003D87E6 /* SwinjectScreenSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0628049C49003D87E6 /* SwinjectScreenSetting.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -353,6 +355,8 @@
 		869BBEC72804199F003D87E6 /* NavigationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAdapter.swift; sourceTree = "<group>"; };
 		869BBF0028046408003D87E6 /* AppRootViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewFactory.swift; sourceTree = "<group>"; };
 		869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasRootNavigationController.swift; sourceTree = "<group>"; };
+		869BBF0428049AF9003D87E6 /* WindowConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowConstructor.swift; sourceTree = "<group>"; };
+		869BBF0628049C49003D87E6 /* SwinjectScreenSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectScreenSetting.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -1025,6 +1029,7 @@
 				8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */,
 				8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */,
 				869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */,
+				869BBF0428049AF9003D87E6 /* WindowConstructor.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1139,6 +1144,7 @@
 			children = (
 				8685B25C280154B40076B3AC /* InternalTools.swift */,
 				8685B26028015DE50076B3AC /* SwinjectSetting.swift */,
+				869BBF0628049C49003D87E6 /* SwinjectScreenSetting.swift */,
 			);
 			path = InternalTools;
 			sourceTree = "<group>";
@@ -1505,6 +1511,7 @@
 				8685B21128005A180076B3AC /* AppDelegateProvider.swift in Sources */,
 				8685B27B280166FB0076B3AC /* Swinject+.swift in Sources */,
 				8632D4182802041200141EDC /* UserRepositoryImpl.swift in Sources */,
+				869BBF0728049C49003D87E6 /* SwinjectScreenSetting.swift in Sources */,
 				8685B26E2801614D0076B3AC /* AnimationDelegate.swift in Sources */,
 				8685B24C28012A190076B3AC /* AppBackground.swift in Sources */,
 				8632D420280213A100141EDC /* NetworkProviderImpl.swift in Sources */,
@@ -1560,6 +1567,7 @@
 				869BBEB82802A994003D87E6 /* AppConnect.swift in Sources */,
 				861E858C27FB5BB20032C4F5 /* View+.swift in Sources */,
 				8685B27D2801676E0076B3AC /* ToastProvider.swift in Sources */,
+				869BBF0528049AF9003D87E6 /* WindowConstructor.swift in Sources */,
 				869BBEC3280417D8003D87E6 /* Navigator.swift in Sources */,
 				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
 				8685B25D280154B40076B3AC /* InternalTools.swift in Sources */,

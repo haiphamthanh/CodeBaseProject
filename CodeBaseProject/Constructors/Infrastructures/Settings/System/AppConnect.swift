@@ -9,18 +9,15 @@ import Swinject
 
 class AppConnect: AppConnectProvider {
 	private weak var container: Container?
-	private weak var window: UIWindow?
 	
 	// MARK: - ================================= Initialize =================================
-	//+++ DependencyService =======
-	init(container: Container?, window: UIWindow?) {
+	init(container: Container?) {
 		self.container = container
-		self.window = window
 	}
 	
-	var setting: AppSettingProvider {
-		return AppSetting(container: container, window: window)
-	}
+//	var setting: AppSettingProvider {
+//		return AppSetting(container: container)
+//	}
 	
 	var notification: AppNotificationProvider {
 		return AppNotification()

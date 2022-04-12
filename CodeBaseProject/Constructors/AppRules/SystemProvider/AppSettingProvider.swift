@@ -7,9 +7,10 @@
 
 import Foundation
 
-protocol AppSettingProvider {
-	// MARK: - Setup
-	func settingInternalTools() -> Self
-	func settingExternalTools() -> Self
-	func done()
-}
+//protocol AppSettingProvider {
+//	// MARK: - Setup
+//	func settingInternalTools() -> Self
+//	func settingUITools() -> Self
+//	func settingExternalTools() -> Self
+//	func done()
+//}

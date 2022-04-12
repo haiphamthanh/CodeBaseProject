@@ -8,6 +8,9 @@
 import Swinject
 
 class DefaultAppSceneDelegate: AppSceneDelegateProvider {
+	private lazy var container = Container()
+	private var window: UIWindow?
+	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
 		// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -17,13 +20,15 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 		
 		let contentView = MainView()
 		let window = UIWindow(windowScene: windowScene)
-		let container = Container()
+//		let container = Container()
 		
 		// Use a UIKitAdapter(UIHostingController) as window root view controller.
 		window.rootViewController = UIKitAdapter(rootView: contentView)
 		window.makeKeyAndVisible()
 		
-		SystemConstructor(container: container, window: window).start()
+		SystemConstructor(container: container).start()
+		self.window = window
+		self.container = container
 	}
 	
 	func sceneDidDisconnect(_ scene: UIScene) {
@@ -36,7 +41,7 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 	func sceneDidBecomeActive(_ scene: UIScene) {
 		// Called when the scene has moved from an inactive state to an active state.
 		// Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-		AppProvider.shared.holdNavigation()
+		WindowConstructor(container: container, window: window).start()
 	}
 	
 	func sceneWillResignActive(_ scene: UIScene) {
