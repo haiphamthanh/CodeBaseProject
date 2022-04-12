@@ -1,5 +1,5 @@
 //
-//  ExternalTools.swift
+//  ExternalPlugin.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 09/04/2022.
@@ -15,7 +15,7 @@ enum ExternalServices {
 	case appSecurity
 }
 
-class ExternalToolsBuilder {
+class ExternalPluginsBuilder {
 	typealias T = (success: Bool, error: Error?)
 	private var error: Error?
 	
@@ -23,12 +23,12 @@ class ExternalToolsBuilder {
 //		fatalError("This type cannot be constructed directly, use static var 'builder' instead.")
 	}
 	
-	static var builder: ExternalToolsBuilder {
-		return ExternalToolsBuilder()
+	static var builder: ExternalPluginsBuilder {
+		return ExternalPluginsBuilder()
 	}
 }
 
-extension ExternalToolsBuilder {
+extension ExternalPluginsBuilder {
 	func useExternalService(_ service: ExternalServices) -> Self {
 		switch service {
 		case .facebook:
@@ -52,7 +52,7 @@ extension ExternalToolsBuilder {
 }
 
 // MARK: - ================================= Usage =================================
-extension ExternalToolsBuilder {
+extension ExternalPluginsBuilder {
 	func finish() -> T {
 		return (error != nil, error)
 	}

@@ -11,12 +11,6 @@ class DefaultNavigation: NavigationProvider {
 	private var navigator: NavigationAdapter? {
 		return NavigationAdapter()
 	}
-	private weak var window: UIWindow?
-	
-	// MARK: - ================================= Initialize =================================
-	init(from window: UIWindow?) {
-		self.window = window
-	}
 }
 
 // Support SwiftUI only

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-	
 	var body: some View {
-		
 			Group {
 				NavigationView {
 					  VStack(spacing: 30) {
@@ -25,13 +23,6 @@ struct MainView: View {
 			}
 	}
 	
-//	var body: some View {
-//		NavigationView {
-//			rootView()
-//		}
-//		.navigationViewStyle(StackNavigationViewStyle())
-//	}
-	
 	func rootView() -> AnyView? {
 		guard let view: AppRootView<AppRootViewModel> = rootViewConstructor() else {
 			return nil
@@ -41,7 +32,7 @@ struct MainView: View {
 	}
 	
 	func rootViewConstructor<VM>() -> AppRootView<VM>? {
-		let navigator = DefaultNavigation(from: AppProvider.shared.window)
+		let navigator = DefaultNavigation()
 		let coordinator = AppRootCoordinator(navigator: navigator)
 		guard let rootViewModel = AppRootViewModel(coordinator: coordinator) as? VM else {
 			return nil

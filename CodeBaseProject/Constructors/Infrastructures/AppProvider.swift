@@ -19,12 +19,24 @@ class AppProvider {
 	
 	final func holdWindow(_ window: UIWindow?) {
 		self.window = window
-		self.navigationVC = NavigationUtil.navigation()
 	}
 	
 	final func holdDIContainer(_ container: Container) {
 		self.container = container
 	}
+	
+	final func setupSystem() {
+		SystemConstructor(container: container).start()
+	}
+	
+	final func resetNavigationVC() {
+		self.navigationVC = NavigationUtil.navigation()
+	}
+	
+	
+//	private func construct(window: UIWindow?) {
+//		WindowConstructor(container: container, window: window).start()
+//	}
 	
 	///
 	/// Use for make root by UINavigationController

@@ -7,11 +7,6 @@
 
 import Swinject
 
-enum InternalTools {
-	case container(Container)
-	case window(UIWindow, Container)
-}
-
 class InternalToolsBuilder {
 	typealias T = (success: Bool, error: Error?)
 	private var error: Error?
@@ -26,14 +21,13 @@ class InternalToolsBuilder {
 }
 
 extension InternalToolsBuilder {
-	func setupInternalTool(_ tool: InternalTools) -> Self {
-		switch tool {
-		case .container(let container):
-			SwinjectSetting(container: container).startSettingUp()
-		case .window(let window, let container):
-			SwinjectScreenSetting(window: window, container: container).startSettingUp()
-		}
-		
+	func setupSceneHelper(container: Container) -> Self {
+		UIToolsRegister(container: container).start()
+		return self
+	}
+	
+	func setupScreens(container: Container) -> Self {
+		UIRegister(container: container).start()
 		return self
 	}
 }

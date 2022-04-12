@@ -31,7 +31,7 @@ class AppRootCoordinator: CoordinatorRule {
 	}
 	
 	func homeViewConstructor<VM>() -> HomeView<VM>? {
-		let navigator = DefaultNavigation(from: AppProvider.shared.window)
+		let navigator = DefaultNavigation()
 		let coordinator = HomeCoordinator(navigator: navigator)
 		guard let homeViewModel = HomeViewModel(coordinator: coordinator) as? VM else {
 			return nil

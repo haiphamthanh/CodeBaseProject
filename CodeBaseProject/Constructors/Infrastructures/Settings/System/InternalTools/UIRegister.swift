@@ -1,5 +1,5 @@
 //
-//  SwinjectScreenSetting.swift
+//  UIRegister.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 12/04/2022.
@@ -7,34 +7,23 @@
 
 import Swinject
 
-class SwinjectScreenSetting {
+class UIRegister {
 	// MARK: - ================================= Private Properties =================================
 	private let container: Container
-	private let window: UIWindow
 	
 	// MARK: - ================================= Initialize =================================
 	//+++ DependencyService =======
-	init(window: UIWindow, container: Container) {
+	init(container: Container) {
 		self.container = container
-		self.window = window
 	}
 	
-	func startSettingUp() {
-		// 1.
-		registerPrimaryTools()
-		// 2.
-//		registerUserInterface()
+	func start() {
+//		return registerUserInterface()
 	}
 }
 
 // MARK: - ================================= Register =================================
-private extension SwinjectScreenSetting {
-	func registerPrimaryTools() {
-		container.register(NavigationProvider.self) { [weak self] _ in
-			DefaultNavigation(from: self?.window)
-		}
-	}
-	
+private extension UIRegister {
 //	func registerUserInterface() {
 //		//MARK: ------------------------------------ APPLICATION ------------------------------------
 //		container.register(AppCoordinatorProtocol.self) { _ in BaseAppCoordinator() }

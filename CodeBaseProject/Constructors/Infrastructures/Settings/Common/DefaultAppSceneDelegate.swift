@@ -41,7 +41,8 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 	func sceneDidBecomeActive(_ scene: UIScene) {
 		// Called when the scene has moved from an inactive state to an active state.
 		// Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-		WindowConstructor(container: container, window: window).start()
+//		WindowConstructor(container: container, window: window).start()
+		AppProvider.shared.resetNavigationVC()
 	}
 	
 	func sceneWillResignActive(_ scene: UIScene) {

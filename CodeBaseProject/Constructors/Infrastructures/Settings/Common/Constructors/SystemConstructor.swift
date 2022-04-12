@@ -17,43 +17,43 @@ class SystemConstructor {
 		self.container = container
 	}
 	
-	// MARK: - ++++++ Can override functions =================================
-	// 1. Register
-	func setupExternals(container: Container) {
-		let _ = InternalToolsBuilder.builder
-			.setupInternalTool(.container(container))
-			.finish()
-		
-		let _ = ExternalToolsBuilder.builder
-			.useExternalService(.facebook)
-			.finish()
-		
-		let appConnect = AppConnect(container: container)
-//		appConnect.setting
-//			.settingInternalTools()
-//			.settingExternalTools()
+//	// MARK: - ++++++ Can override functions =================================
+//	// 1. Register
+//	func setupExternals(container: Container) {
+//		let _ = InternalToolsBuilder.builder
+//			.setupInternalTool(.container(container))
+//			.finish()
+//
+//		let _ = ExternalToolsBuilder.builder
+//			.useExternalService(.facebook)
+//			.finish()
+//
+//		let appConnect = AppConnect(container: container)
+////		appConnect.setting
+////			.settingInternalTools()
+////			.settingExternalTools()
+////			.done()
+//		appConnect.notification
+//			.setting1()
+//			.setting2()
 //			.done()
-		appConnect.notification
-			.setting1()
-			.setting2()
-			.done()
-		appConnect.background
-			.setting1()
-			.setting2()
-			.done()
-		appConnect.color
-			.setting1()
-			.setting2()
-			.done()
-		appConnect.theme
-			.setting1()
-			.setting2()
-			.done()
-	}
-	
-	// 2. initialize
-	func initialize(with container: Container) {
-	}
+//		appConnect.background
+//			.setting1()
+//			.setting2()
+//			.done()
+//		appConnect.color
+//			.setting1()
+//			.setting2()
+//			.done()
+//		appConnect.theme
+//			.setting1()
+//			.setting2()
+//			.done()
+//	}
+//
+//	// 2. initialize
+//	func initialize(with container: Container) {
+//	}
 }
 
 // MARK: - ================================= Usage =================================
@@ -64,19 +64,15 @@ extension SystemConstructor {
 		}
 		
 		registerSystemProvider(container: container)
-		initSystem(container: container)
-		
-		AppProvider.shared.holdDIContainer(container)
+		setupTools(container: container)
+		setupAppConnect(container: container)
 	}
 }
 
 // MARK: - ================================= Register =================================
 private extension SystemConstructor {
 	func registerSystemProvider(container: Container) {
-		//MARK: ------------------------------------ Provider ------------------------------------
 		container.register(AppConnectProvider.self) { [weak self] _ in AppConnect(container: self?.container) }
-		
-		//MARK: ------------------------------------ System ------------------------------------
 //		container.register(AppSettingProvider.self) { [weak self] _ in AppSetting(container: self?.container) }
 		container.register(AppNotificationProvider.self) { _ in AppNotification() }
 		container.register(AppBackgroundProvider.self) { _ in AppBackground() }
@@ -85,31 +81,53 @@ private extension SystemConstructor {
 	}
 }
 
+// MARK: - ================================= Setup =================================
+private extension SystemConstructor {
+	func setupTools(container: Container) {
+		let _ = InternalToolsBuilder.builder
+			.setupSceneHelper(container: container)
+			.setupScreens(container: container)
+			.finish()
+		
+		let _ = ExternalPluginsBuilder.builder
+			.useExternalService(.facebook)
+			.finish()
+	}
+	
+	func setupAppConnect(container: Container) {
+		let appConnect = AppConnect(container: container)
+		appConnect.notification.setting1().setting2().done()
+		appConnect.background.setting1().setting2().done()
+		appConnect.color.setting1().setting2().done()
+		appConnect.theme.setting1().setting2().done()
+	}
+}
+
 // MARK: - ================================= Private =================================
 private extension SystemConstructor {
-	func initSystem(container: Container) {
-		setupSwinjectTask(container: container)
-		initTask(with: container)
-		configTask(with: container)
-		
-		return completionTask(with: container)
-	}
-	
-	// Register Task ----------
-	func setupSwinjectTask(container: Container) {
-		return setupExternals(container: container)
-	}
-	
-	// Init Task ----------
-	func initTask(with container: Container) {
-		return initialize(with: container)
-	}
-	
-	// Config Task ----------
-	func configTask(with container: Container) {
-		configKeyboard()
-		return configNetwork()
-	}
+//	func initSystem(container: Container) {
+//		setupSwinjectTask(container: container)
+//		initTask(with: container)
+//		configTask(with: container)
+//
+//		return completionTask(with: container)
+//	}
+//
+//	// Register Task ----------
+//	func setupSwinjectTask(container: Container) {
+//		return setupExternals(container: container)
+//	}
+//
+//	// Init Task ----------
+//	func initTask(with container: Container) {
+//		return initialize(with: container)
+//	}
+//
+//	// Config Task ----------
+//	func configTask(with container: Container) {
+//		configKeyboard()
+//		return configNetwork()
+//	}
 	
 	// Completion Task ----------
 	func completionTask(with container: Container) {

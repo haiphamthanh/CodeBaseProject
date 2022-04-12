@@ -63,7 +63,7 @@ private struct SampleView<VM: SampleViewDataPolicy>: View, ViewRule where VM: Vi
 // HOW TO USE IT???
 private class DemoPreview {
 	func execute() {
-		let navigator = DefaultNavigation(from: AppProvider.shared.window)
+		let navigator = DefaultNavigation()
 		let coordinator = SampleCoor(navigator: navigator)
 		let viewModel = SampleViewModel(coordinator: coordinator)
 		let contentView = SampleView(viewModel: viewModel)

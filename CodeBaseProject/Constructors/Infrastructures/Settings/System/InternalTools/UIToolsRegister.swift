@@ -1,5 +1,5 @@
 //
-//  SwinjectSetting.swift
+//  UIToolsRegister.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 09/04/2022.
@@ -7,7 +7,7 @@
 
 import Swinject
 
-class SwinjectSetting {
+class UIToolsRegister {
 	// MARK: - ================================= Private Properties =================================
 	private let container: Container
 	
@@ -17,7 +17,7 @@ class SwinjectSetting {
 		self.container = container
 	}
 	
-	func startSettingUp() {
+	func start() {
 		// 1.
 		registerPrimaryTools()
 		// 2.
@@ -26,8 +26,11 @@ class SwinjectSetting {
 }
 
 // MARK: - ================================= Register =================================
-private extension SwinjectSetting {
+private extension UIToolsRegister {
 	func registerPrimaryTools() {
+		// Navigation
+		container.register(NavigationProvider.self) { _ in DefaultNavigation() }
+		
 		// Network
 		container.register(NetworkProvider.self) { _ in NetworkProviderImpl() }
 		container.register(LocalProvider.self) { _ in LocalProviderImpl() }
