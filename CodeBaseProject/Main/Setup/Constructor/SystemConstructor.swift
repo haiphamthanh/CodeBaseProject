@@ -16,44 +16,6 @@ class SystemConstructor {
 	init(container: Container?) {
 		self.container = container
 	}
-	
-//	// MARK: - ++++++ Can override functions =================================
-//	// 1. Register
-//	func setupExternals(container: Container) {
-//		let _ = InternalToolsBuilder.builder
-//			.setupInternalTool(.container(container))
-//			.finish()
-//
-//		let _ = ExternalToolsBuilder.builder
-//			.useExternalService(.facebook)
-//			.finish()
-//
-//		let appConnect = AppConnect(container: container)
-////		appConnect.setting
-////			.settingInternalTools()
-////			.settingExternalTools()
-////			.done()
-//		appConnect.notification
-//			.setting1()
-//			.setting2()
-//			.done()
-//		appConnect.background
-//			.setting1()
-//			.setting2()
-//			.done()
-//		appConnect.color
-//			.setting1()
-//			.setting2()
-//			.done()
-//		appConnect.theme
-//			.setting1()
-//			.setting2()
-//			.done()
-//	}
-//
-//	// 2. initialize
-//	func initialize(with container: Container) {
-//	}
 }
 
 // MARK: - ================================= Usage =================================

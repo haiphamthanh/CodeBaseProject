@@ -8,9 +8,6 @@
 import Swinject
 
 class DefaultAppSceneDelegate: AppSceneDelegateProvider {
-	private lazy var container = Container()
-	private var window: UIWindow?
-	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
 		// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -26,9 +23,10 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 		window.rootViewController = UIKitAdapter(rootView: contentView)
 		window.makeKeyAndVisible()
 		
-		SystemConstructor(container: container).start()
-		self.window = window
-		self.container = container
+//		SystemConstructor(container: container).start()
+//		self.window = window
+//		self.container = container
+		AppProvider.shared.holdWindow(window)
 	}
 	
 	func sceneDidDisconnect(_ scene: UIScene) {

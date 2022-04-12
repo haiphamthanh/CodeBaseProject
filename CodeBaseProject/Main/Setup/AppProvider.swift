@@ -12,7 +12,7 @@ class AppProvider {
 	//+++ Singleton ============
 	static let shared = AppProvider()
 	private(set) var window: UIWindow?
-	private(set) var container: Container?
+	private(set) lazy var container = Container()
 	private(set) var navigationVC: UINavigationController?
 
 	private init() {}
@@ -21,9 +21,9 @@ class AppProvider {
 		self.window = window
 	}
 	
-	final func holdDIContainer(_ container: Container) {
-		self.container = container
-	}
+//	final func holdDIContainer(_ container: Container) {
+//		self.container = container
+//	}
 	
 	final func setupSystem() {
 		SystemConstructor(container: container).start()

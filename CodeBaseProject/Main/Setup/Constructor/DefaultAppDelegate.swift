@@ -11,6 +11,7 @@ class DefaultAppDelegate: AppDelegateProvider {
 	// MARK: - ================================= =================================
 	func app(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		AppProvider.shared.setupSystem()
 		return true
 	}
 	

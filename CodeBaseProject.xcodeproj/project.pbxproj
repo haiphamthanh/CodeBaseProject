@@ -665,11 +665,10 @@
 		861E857627FB4CA10032C4F5 /* Infrastructures */ = {
 			isa = PBXGroup;
 			children = (
-				8685B255280149C50076B3AC /* AppProvider.swift */,
 				8604236427EDF2F00056EF17 /* Managers */,
 				86FA503D2805CCAE00FFB057 /* Tools */,
 				8604236A27EDF4F00056EF17 /* Plugins */,
-				8685B1FA280055D00076B3AC /* Settings */,
+				8685B1FA280055D00076B3AC /* SettingRuless */,
 				8604235327EDEFF10056EF17 /* Resources */,
 			);
 			path = Infrastructures;
@@ -954,13 +953,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		8685B1FA280055D00076B3AC /* Settings */ = {
+		8685B1FA280055D00076B3AC /* SettingRuless */ = {
 			isa = PBXGroup;
 			children = (
-				8685B25128012CB70076B3AC /* Common */,
-				8685B25328012CE80076B3AC /* System */,
+				8685B28B28016EAD0076B3AC /* InternalTools */,
+				8685B28E28016F700076B3AC /* ExternalPlugins */,
+				86FA50392805C32200FFB057 /* AppConnect */,
 			);
-			path = Settings;
+			path = SettingRuless;
 			sourceTree = "<group>";
 		};
 		8685B2012800568B0076B3AC /* Migration+ */ = {
@@ -982,16 +982,7 @@
 			path = "Tool+";
 			sourceTree = "<group>";
 		};
-		8685B20C280058320076B3AC /* AppRules */ = {
-			isa = PBXGroup;
-			children = (
-				8685B25228012CDD0076B3AC /* CommonProvider */,
-				8685B20F28005A070076B3AC /* SystemProvider */,
-			);
-			path = AppRules;
-			sourceTree = "<group>";
-		};
-		8685B20F28005A070076B3AC /* SystemProvider */ = {
+		8685B20C280058320076B3AC /* SettingRuless */ = {
 			isa = PBXGroup;
 			children = (
 				8685B20D2800587D0076B3AC /* AppConnectProvider.swift */,
@@ -1001,7 +992,7 @@
 				8685B21A28005A5D0076B3AC /* AppThemeProvider.swift */,
 				8685B21628005A4C0076B3AC /* AppBackgroundProvider.swift */,
 			);
-			path = SystemProvider;
+			path = SettingRuless;
 			sourceTree = "<group>";
 		};
 		8685B23428007C480076B3AC /* Rules */ = {
@@ -1025,40 +1016,30 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
-		8685B25128012CB70076B3AC /* Common */ = {
+		8685B25128012CB70076B3AC /* Constructor */ = {
 			isa = PBXGroup;
 			children = (
 				869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */,
 				8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */,
 				8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */,
 			);
-			path = Common;
+			path = Constructor;
 			sourceTree = "<group>";
 		};
-		8685B25228012CDD0076B3AC /* CommonProvider */ = {
+		8685B25228012CDD0076B3AC /* Provider */ = {
 			isa = PBXGroup;
 			children = (
 				8685B21028005A180076B3AC /* AppDelegateProvider.swift */,
 				8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */,
 			);
-			path = CommonProvider;
-			sourceTree = "<group>";
-		};
-		8685B25328012CE80076B3AC /* System */ = {
-			isa = PBXGroup;
-			children = (
-				8685B28B28016EAD0076B3AC /* InternalTools */,
-				8685B28E28016F700076B3AC /* ExternalPlugins */,
-				86FA50392805C32200FFB057 /* AppConnect */,
-			);
-			path = System;
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		8685B254280149A00076B3AC /* Constructors */ = {
 			isa = PBXGroup;
 			children = (
 				862EF22927F9791D0051A3A0 /* AppData */,
-				8685B20C280058320076B3AC /* AppRules */,
+				8685B20C280058320076B3AC /* SettingRuless */,
 				861E857627FB4CA10032C4F5 /* Infrastructures */,
 			);
 			path = Constructors;
@@ -1067,6 +1048,7 @@
 		8685B25828014B800076B3AC /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				86FA50402805E0F300FFB057 /* Setup */,
 				86FE295027DC8E6000EF2C70 /* Main.swift */,
 				8685B231280073550076B3AC /* MainSceneDelegate.swift */,
 				86FE295627DC8E6300EF2C70 /* Preview Content */,
@@ -1183,6 +1165,16 @@
 				8685B262280160000076B3AC /* Defaults */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		86FA50402805E0F300FFB057 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				8685B255280149C50076B3AC /* AppProvider.swift */,
+				8685B25228012CDD0076B3AC /* Provider */,
+				8685B25128012CB70076B3AC /* Constructor */,
+			);
+			path = Setup;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
