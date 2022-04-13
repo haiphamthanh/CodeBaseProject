@@ -666,9 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				8604236427EDF2F00056EF17 /* Managers */,
-				86FA503D2805CCAE00FFB057 /* Tools */,
-				8604236A27EDF4F00056EF17 /* Plugins */,
-				8685B1FA280055D00076B3AC /* SettingRuless */,
+				8685B1FA280055D00076B3AC /* Settings */,
 				8604235327EDEFF10056EF17 /* Resources */,
 			);
 			path = Infrastructures;
@@ -953,14 +951,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		8685B1FA280055D00076B3AC /* SettingRuless */ = {
+		8685B1FA280055D00076B3AC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				8685B28B28016EAD0076B3AC /* InternalTools */,
 				8685B28E28016F700076B3AC /* ExternalPlugins */,
 				86FA50392805C32200FFB057 /* AppConnect */,
 			);
-			path = SettingRuless;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		8685B2012800568B0076B3AC /* Migration+ */ = {
@@ -982,17 +980,13 @@
 			path = "Tool+";
 			sourceTree = "<group>";
 		};
-		8685B20C280058320076B3AC /* SettingRuless */ = {
+		8685B20C280058320076B3AC /* Provider */ = {
 			isa = PBXGroup;
 			children = (
 				8685B20D2800587D0076B3AC /* AppConnectProvider.swift */,
-				8685B21228005A2D0076B3AC /* AppSettingProvider.swift */,
-				8685B21828005A550076B3AC /* AppColorProvider.swift */,
-				8685B21428005A360076B3AC /* AppNotificationProvider.swift */,
-				8685B21A28005A5D0076B3AC /* AppThemeProvider.swift */,
-				8685B21628005A4C0076B3AC /* AppBackgroundProvider.swift */,
+				86FA50422805E51D00FFB057 /* Elements */,
 			);
-			path = SettingRuless;
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		8685B23428007C480076B3AC /* Rules */ = {
@@ -1039,7 +1033,6 @@
 			isa = PBXGroup;
 			children = (
 				862EF22927F9791D0051A3A0 /* AppData */,
-				8685B20C280058320076B3AC /* SettingRuless */,
 				861E857627FB4CA10032C4F5 /* Infrastructures */,
 			);
 			path = Constructors;
@@ -1048,9 +1041,9 @@
 		8685B25828014B800076B3AC /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				86FA50402805E0F300FFB057 /* Setup */,
 				86FE295027DC8E6000EF2C70 /* Main.swift */,
 				8685B231280073550076B3AC /* MainSceneDelegate.swift */,
+				86FA50402805E0F300FFB057 /* Setup */,
 				86FE295627DC8E6300EF2C70 /* Preview Content */,
 			);
 			path = Main;
@@ -1112,6 +1105,7 @@
 				8685B25C280154B40076B3AC /* InternalTools.swift */,
 				8685B26028015DE50076B3AC /* UIToolsRegister.swift */,
 				869BBF0628049C49003D87E6 /* UIRegister.swift */,
+				86FA503D2805CCAE00FFB057 /* Tools */,
 			);
 			path = InternalTools;
 			sourceTree = "<group>";
@@ -1120,6 +1114,7 @@
 			isa = PBXGroup;
 			children = (
 				8685B25E280154C50076B3AC /* ExternalPlugins.swift */,
+				8604236A27EDF4F00056EF17 /* Plugins */,
 			);
 			path = ExternalPlugins;
 			sourceTree = "<group>";
@@ -1147,13 +1142,8 @@
 		86FA50392805C32200FFB057 /* AppConnect */ = {
 			isa = PBXGroup;
 			children = (
-				869BBEB72802A994003D87E6 /* AppConnect.swift */,
-				861E857F27FB5A580032C4F5 /* AppColor.swift */,
-				8685B1FB280055F90076B3AC /* AppNotification.swift */,
-				8685B1FD2800560C0076B3AC /* FirstLoading.swift */,
-				8685B1FF2800561A0076B3AC /* AppTheme.swift */,
-				8685B24B28012A190076B3AC /* AppBackground.swift */,
-				869BBEC2280417D8003D87E6 /* Navigator.swift */,
+				8685B20C280058320076B3AC /* Provider */,
+				86FA50412805E4A900FFB057 /* Defaults */,
 			);
 			path = AppConnect;
 			sourceTree = "<group>";
@@ -1175,6 +1165,40 @@
 				8685B25128012CB70076B3AC /* Constructor */,
 			);
 			path = Setup;
+			sourceTree = "<group>";
+		};
+		86FA50412805E4A900FFB057 /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				869BBEB72802A994003D87E6 /* AppConnect.swift */,
+				86FA50432805E53900FFB057 /* Elements */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
+		86FA50422805E51D00FFB057 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				8685B21228005A2D0076B3AC /* AppSettingProvider.swift */,
+				8685B21828005A550076B3AC /* AppColorProvider.swift */,
+				8685B21428005A360076B3AC /* AppNotificationProvider.swift */,
+				8685B21A28005A5D0076B3AC /* AppThemeProvider.swift */,
+				8685B21628005A4C0076B3AC /* AppBackgroundProvider.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		86FA50432805E53900FFB057 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				861E857F27FB5A580032C4F5 /* AppColor.swift */,
+				8685B1FB280055F90076B3AC /* AppNotification.swift */,
+				8685B1FD2800560C0076B3AC /* FirstLoading.swift */,
+				8685B1FF2800561A0076B3AC /* AppTheme.swift */,
+				8685B24B28012A190076B3AC /* AppBackground.swift */,
+				869BBEC2280417D8003D87E6 /* Navigator.swift */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {

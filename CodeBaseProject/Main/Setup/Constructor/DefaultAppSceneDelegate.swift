@@ -17,15 +17,11 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 		
 		let contentView = MainView()
 		let window = UIWindow(windowScene: windowScene)
-//		let container = Container()
 		
 		// Use a UIKitAdapter(UIHostingController) as window root view controller.
 		window.rootViewController = UIKitAdapter(rootView: contentView)
 		window.makeKeyAndVisible()
 		
-//		SystemConstructor(container: container).start()
-//		self.window = window
-//		self.container = container
 		AppProvider.shared.holdWindow(window)
 	}
 	
@@ -39,8 +35,6 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 	func sceneDidBecomeActive(_ scene: UIScene) {
 		// Called when the scene has moved from an inactive state to an active state.
 		// Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-//		WindowConstructor(container: container, window: window).start()
-		AppProvider.shared.resetNavigationVC()
 	}
 	
 	func sceneWillResignActive(_ scene: UIScene) {

@@ -19,7 +19,7 @@ struct MainView: View {
 						  }
 					  }
 					  .navigationTitle("Navigation")
-				  }
+				}
 			}
 	}
 	
