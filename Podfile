@@ -37,7 +37,11 @@ def shared_pods
 	# Pods for Design pattern
 	# Dependency injection
 	pod 'Swinject'
+	pod 'RxSwift'
 	
+	# Pods for Network
+	# Checking
+	pod 'ReachabilitySwift'
 	
 	# Pods for presentation
 	# Dialog

@@ -4,6 +4,8 @@ PODS:
   - IQKeyboardManagerSwift (6.5.9)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
+  - ReachabilitySwift (5.0.0)
+  - RxSwift (6.5.0)
   - SwiftDate (6.3.1)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
@@ -37,6 +39,8 @@ DEPENDENCIES:
   - Introspect
   - IQKeyboardManagerSwift
   - PopupDialog
+  - ReachabilitySwift
+  - RxSwift
   - SwiftDate
   - SwifterSwift
   - Swinject
@@ -48,6 +52,8 @@ SPEC REPOS:
     - Introspect
     - IQKeyboardManagerSwift
     - PopupDialog
+    - ReachabilitySwift
+    - RxSwift
     - SwiftDate
     - SwifterSwift
     - Swinject
@@ -58,11 +64,13 @@ SPEC CHECKSUMS:
   Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 64378562c990c579a70b901b421fab38ae2686af
+PODFILE CHECKSUM: a5219c956e7a22eda073f948a75a36ee35a454ef
 
 COCOAPODS: 1.10.2
