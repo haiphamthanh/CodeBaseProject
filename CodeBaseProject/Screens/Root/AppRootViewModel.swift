@@ -13,10 +13,12 @@ enum AuthState {
 	case unAuthorized
 }
 
-class AppRootViewModel: ViewModelRule {
-	typealias C = AppRootCoordinator
-	let coordinator: C
-	
+protocol AppRootViewModelProtocol {
+	var authState: AuthState { get }
+	var email: String { get set }
+}
+
+class AppRootViewModel: ViewModelRule, AppRootViewModelProtocol {
 	@Published private(set) var authState: AuthState = .unAuthorized
 	@Published private(set) var actionState: AuthStateManager.ActionState = .free
 	@Published var email: String = ""
@@ -28,10 +30,7 @@ class AppRootViewModel: ViewModelRule {
 	private var listActionId = [String]()
 	private var counting = 0
 	
-	
-	init(coordinator: C) {
-		self.coordinator = coordinator
-		
+	init() {
 		load()
 	}
 	
@@ -54,14 +53,14 @@ class AppRootViewModel: ViewModelRule {
 	}
 }
 
-// View support
-extension AppRootViewModel: AppRootViewDataPolicy {
-	var mail: String {
-		get { email }
-		set { email = newValue }
-	}
-	
-	func gotoHome() {
-		coordinator.gotoHome()
-	}
-}
+//// View support
+//extension AppRootViewModel: AppRootViewDataPolicy {
+//	var mail: String {
+//		get { email }
+//		set { email = newValue }
+//	}
+//	
+//	func gotoHome() {
+//		coordinator.gotoHome()
+//	}
+//}

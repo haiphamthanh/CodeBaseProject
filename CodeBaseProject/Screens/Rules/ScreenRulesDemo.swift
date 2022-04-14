@@ -12,47 +12,48 @@
 ///
 import SwiftUI
 
-// COORDINATOR
-private class SampleCoor: CoordinatorRule {
-	typealias N = NavigationProvider
-	let navigator: N
-	init(navigator: NavigationProvider) {
-		self.navigator = navigator
-	}
+// VIEWMODEL
+protocol SampleViewModel: ViewModelRule {
+	var title: String { get set }
+	func go()
 }
 
-// VIEWMODEL
-private class SampleViewModel: ViewModelRule {
-	@Published var title: String = ""
-	
-	typealias C = SampleCoor
-	let coordinator: C
-	init(coordinator: C) {
-		self.coordinator = coordinator
+private class SampleViewModelImp: SampleViewModel {
+	func go() {
+		print("Go some where")
 	}
+	
+	@Published var title: String = ""
 }
 
 // VIEW
-private protocol SampleViewDataPolicy: ObservableObject {
-	var title: String { get }
+private protocol SampleViewPros: ObservableObject {
+	var title: String { get set }
 	
-	// Allow to add new properties
-	var email2: String { get set }
+	func go()
 }
 
-extension SampleViewModel: SampleViewDataPolicy {
-	var email2: String {
-		get { title }
-		set { title = newValue }
+class SampleViewModelAdapter: SampleViewPros {
+	var title: String {
+		get { viewModel.title }
+		set { viewModel.title = newValue }
+	}
+	
+	func go() {
+		viewModel.go()
+	}
+	
+	private var viewModel: SampleViewModel
+	init(viewModel: SampleViewModel) {
+		self.viewModel = viewModel
 	}
 }
 
-//struct AppRootView<VM: AppRootViewDataPolicy>: ViewRule where VM: ViewModelRule {
-private struct SampleView<VM: SampleViewDataPolicy>: View, ViewRule where VM: ViewModelRule {
-	@ObservedObject var viewModel: VM
+private struct SampleView<IPros: SampleViewPros>: View, ViewRule {
+	@ObservedObject var pros: IPros
 	
-	init(viewModel: VM) {
-		self.viewModel = viewModel
+	init(pros: IPros) {
+		self.pros = pros
 	}
 	
 	var body: some View {
@@ -60,14 +61,42 @@ private struct SampleView<VM: SampleViewDataPolicy>: View, ViewRule where VM: Vi
 	}
 }
 
-// HOW TO USE IT???
-private class DemoPreview {
-	func execute() {
-		let navigator = DefaultNavigation()
-		let coordinator = SampleCoor(navigator: navigator)
-		let viewModel = SampleViewModel(coordinator: coordinator)
-		let contentView = SampleView(viewModel: viewModel)
-		print(contentView)
+// COORDINATOR
+private protocol SampleCoor {
+}
+
+private class SampleCoorImpl: CoordinatorRule, SampleCoor {
+	typealias ViewModel = SampleViewModel
+	typealias Navigator = NavigationProvider
+	let navigator: Navigator
+	let viewModel: ViewModel
+	let view: AnyView
+	
+	init(navigator: Navigator, viewModel: ViewModel, view: AnyView) {
+		self.navigator = navigator
+		self.viewModel = viewModel
+		self.view = view
 	}
 }
 
+import Swinject
+
+// HOW TO USE IT???
+private class DemoPreview {
+	func execute() {
+//		let viewModel: SampleViewModel = SampleViewModelImp()
+//		let viewModelAdapter = SampleViewModelAdapter(viewModel: viewModel)
+//		let view = AnyView(SampleView(pros: viewModelAdapter, act: viewModelAdapter))
+//		let navigator = DefaultNavigation()
+//		let coordinator: SampleCoor = SampleCoorImpl(navigator: navigator, viewModel: viewModel, view: view)
+		
+		let container = Container()
+		let viewModel: SampleViewModel = container.sureResolve(SampleViewModel.self)
+		let viewModelAdapter = SampleViewModelAdapter(viewModel: viewModel)
+		let view = AnyView(SampleView(pros: viewModelAdapter))
+		let navigator = container.sureResolve(NavigationProvider.self)
+		let coordinator: SampleCoor = SampleCoorImpl(navigator: navigator, viewModel: viewModel, view: view)
+		
+		print(coordinator)
+	}
+}

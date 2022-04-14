@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ViewRule {
-	associatedtype VM where VM: ViewModelRule
-	var viewModel: VM { get }
+	associatedtype IPros// where VM: ViewModelRule
+	var pros: IPros { get }
 }

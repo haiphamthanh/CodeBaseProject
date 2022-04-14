@@ -167,6 +167,7 @@
 		869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0028046408003D87E6 /* AppRootViewFactory.swift */; };
 		869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */; };
 		869BBF0728049C49003D87E6 /* UIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0628049C49003D87E6 /* UIRegister.swift */; };
+		86B892CF2807005500AD99B2 /* CoordinatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B892CE2807005500AD99B2 /* CoordinatorHelper.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -353,6 +354,7 @@
 		869BBF0028046408003D87E6 /* AppRootViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewFactory.swift; sourceTree = "<group>"; };
 		869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasRootNavigationController.swift; sourceTree = "<group>"; };
 		869BBF0628049C49003D87E6 /* UIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRegister.swift; sourceTree = "<group>"; };
+		86B892CE2807005500AD99B2 /* CoordinatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorHelper.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 				8604236427EDF2F00056EF17 /* Managers */,
 				8685B1FA280055D00076B3AC /* Settings */,
 				8604235327EDEFF10056EF17 /* Resources */,
+				86B892CD2807004000AD99B2 /* Helper */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -1139,6 +1142,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		86B892CD2807004000AD99B2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				86B892CE2807005500AD99B2 /* CoordinatorHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		86FA50392805C32200FFB057 /* AppConnect */ = {
 			isa = PBXGroup;
 			children = (
@@ -1572,6 +1583,7 @@
 				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
 				8685B25D280154B40076B3AC /* InternalTools.swift in Sources */,
 				8632D42D28021EC200141EDC /* LocalProviderImpl.swift in Sources */,
+				86B892CF2807005500AD99B2 /* CoordinatorHelper.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */,
 				8685B22A28005D3D0076B3AC /* NetworkSecurityPlugin.swift in Sources */,

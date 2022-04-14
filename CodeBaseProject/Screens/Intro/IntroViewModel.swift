@@ -7,11 +7,11 @@
 
 import Combine
 
-class IntroViewModel: ViewModelRule {
-	typealias C = IntroCoordinator
-	let coordinator: C
-	
-	init(coordinator: C) {
-		self.coordinator = coordinator
-	}
-}
+//class IntroViewModel: ViewModelRule {
+//	typealias C = IntroCoordinator
+//	let coordinator: C
+//	
+//	init(coordinator: C) {
+//		self.coordinator = coordinator
+//	}
+//}

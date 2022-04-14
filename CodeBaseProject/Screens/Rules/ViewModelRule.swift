@@ -8,6 +8,4 @@
 import Foundation
 
 protocol ViewModelRule {
-	associatedtype C where C: CoordinatorRule
-	var coordinator: C { get }
 }

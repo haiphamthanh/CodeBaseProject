@@ -7,11 +7,11 @@
 
 import Foundation
 
-class HomeCoordinator: CoordinatorRule {
-	typealias N = NavigationProvider
-	let navigator: N
-	init(navigator: NavigationProvider) {
-		self.navigator = navigator
-	}
-}
+//class HomeCoordinator: CoordinatorRule {
+//	typealias N = NavigationProvider
+//	let navigator: N
+//	init(navigator: NavigationProvider) {
+//		self.navigator = navigator
+//	}
+//}
 

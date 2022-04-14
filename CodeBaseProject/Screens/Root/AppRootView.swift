@@ -8,37 +8,74 @@
 import SwiftUI
 
 // MARK: - ================================= View input requirements =================================
-protocol AppRootViewDataPolicy: ObservableObject {
-	var authState: AuthState { get }
-	var email: String { get set }
-	var mail: String { get set }
+//protocol AppRootViewDataPolicy {
+////	var authState: AuthState { get }
+////	var email: String { get set }
+////	var mail: String { get set }
+////
+////	// Action
+////	func gotoHome()
+//}
+//
+////protocol AppRootViewProtocol {
+////}
+
+class AppRootPros: ObservableObject {
+	var authState: AuthState {
+		return viewModel.authState
+	}
 	
-	// Action
-	func gotoHome()
+	var email: String {
+		get { viewModel.email }
+		set { viewModel.email = newValue }
+	}
+	
+	var mail: String {
+		get { viewModel.email }
+		set { viewModel.email = newValue }
+	}
+	
+	func gotoHome() {
+		//
+	}
+	
+	var viewModel: AppRootViewModelProtocol
+	
+	init(viewModel: AppRootViewModelProtocol) {
+		self.viewModel = viewModel
+	}
+}
+
+class AppRootAction {
+	
 }
 
 // MARK: - ================================= View Layout =================================
-struct AppRootView<VM: AppRootViewDataPolicy>: View, ViewRule where VM: ViewModelRule {
+struct AppRootView<Pros>: View, ViewRule where Pros: AppRootPros {
+	
 	// MARK: Properties
-	@ObservedObject var viewModel: VM
+	@ObservedObject var pros: Pros
+	typealias Act = AppRootAction
+	private(set) var act: Act
 	
 	// MARK: Init
-	init(viewModel: VM) {
-		self.viewModel = viewModel
+	init(pros: Pros, act: Act = AppRootAction()) {
+		self.pros = pros
+		self.act = act
 	}
 	
 	// MARK: Layout
 	var body: some View {
 		VStack {
-			Text(viewModel.email)
-			AppTextField(text: $viewModel.mail,
+			Text(pros.email)
+			AppTextField(text: $pros.mail,
 						 textPlaceholder: "Text")
 			.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 			.padding(.horizontal, 40)
 			.keyboardType(.emailAddress)
 			.padding(.bottom, 10)
 			Button("Go to Home") {
-				viewModel.gotoHome()
+				pros.gotoHome()
 			}
 			.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 			.background(Color.red)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Swinject
 
 struct MainView: View {
 	var body: some View {
@@ -24,21 +25,63 @@ struct MainView: View {
 	}
 	
 	func rootView() -> AnyView? {
-		guard let view: AppRootView<AppRootViewModel> = rootViewConstructor() else {
-			return nil
-		}
-		
-		return AnyView(view)
+//		guard let view: AppRootView<AppRootViewModel> = rootViewConstructor() else {
+//			return nil
+//		}
+//
+//		return AnyView(view)
+		return nil
 	}
+//
+//	func rootViewConstructor<VM>() -> AppRootView<VM>? {
+//		let navigator = DefaultNavigation()
+//		let coordinator = AppRootCoordinator(navigator: navigator)
+//		guard let rootViewModel = AppRootViewModel(coordinator: coordinator) as? VM else {
+//			return nil
+//		}
+//
+//		return AppRootView<VM>(viewModel: rootViewModel)
+//	}
 	
-	func rootViewConstructor<VM>() -> AppRootView<VM>? {
-		let navigator = DefaultNavigation()
-		let coordinator = AppRootCoordinator(navigator: navigator)
-		guard let rootViewModel = AppRootViewModel(coordinator: coordinator) as? VM else {
-			return nil
+	func sample() {
+		let containter = Container()
+		containter.register(AppRootCoordinatorProtocol.self) { r in
+			let navigator = containter.sureResolve(NavigationProvider.self)
+			let viewModel = containter.sureResolve(AppRootViewModelProtocol.self)
+//			let rootViewModel = containter.sureResolve(AppRootViewModelProtocol.self)
+//			guard let rootViewModel = containter.sureResolve(AppRootViewModelProtocol.self) as? ViewModelRule,
+//			rootViewModel is AppRootViewModelProtocol else {
+//				fatalError("")
+//			}
+			
+//			let viewR = containter.sureResolve(AppRootViewProtocol.self)
+			
+//			guard let rootViewModel = containter.sureResolve(AppRootViewModelProtocol.self) as? ViewModelRule else {
+//				fatalError("")
+//			}
+			
+//			let viewR = containter.sureResolve(AppRootViewDataPolicy.self)
+			
+//			guard let viewR1 = containter.sureResolve(AppRootViewDataPolicy.self) as? UIViewController else {
+//				fatalError("")
+//			}
+			
+			
+			
+//			guard let viewR = containter.sureResolve(AppRootViewDataPolicy.self) as? AnyView else {
+//				fatalError("")
+//			}
+			
+//			guard let viewModel = ViewModelWrapper(data: rootViewModel as! AppRootViewModelProtocol) as? AppRootViewModelProtocol else {
+//				fatalError("")
+//			}
+			let pros = AppRootPros(viewModel: viewModel)
+			let viewR = AppRootView(pros: pros)
+
+			let coor = AppRootCoordinator(view: AnyView(viewR), viewModel: viewModel, navigator: navigator)
+
+			return coor
 		}
-		
-		return AppRootView<VM>(viewModel: rootViewModel)
 	}
 }
 struct MainView_Previews: PreviewProvider {

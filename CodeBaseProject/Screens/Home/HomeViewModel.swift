@@ -6,12 +6,12 @@
 //
 
 import Combine
-
-class HomeViewModel: ViewModelRule {
-	typealias C = HomeCoordinator
-	let coordinator: C
-	
-	init(coordinator: C) {
-		self.coordinator = coordinator
-	}
-}
+//
+//class HomeViewModel: ViewModelRule {
+//	typealias C = HomeCoordinator
+//	let coordinator: C
+//	
+//	init(coordinator: C) {
+//		self.coordinator = coordinator
+//	}
+//}

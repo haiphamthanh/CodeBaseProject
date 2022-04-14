@@ -5,9 +5,14 @@
 //  Created by HaiKaito on 08/04/2022.
 //
 
-import Foundation
+import SwiftUI
 
 protocol CoordinatorRule {
-	associatedtype N
-	var navigator: N { get }
+	associatedtype Navigator
+	var navigator: Navigator { get }
+	
+	associatedtype ViewModel
+	var viewModel: ViewModel { get }
+	
+	var view: AnyView { get }
 }
