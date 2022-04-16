@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import RxSwift
+
+enum PresentType: Int {
+	case push
+	case present
+	case updateRoot
+}
 
 protocol CoordinatorRule {
-	associatedtype Navigator
-	var navigator: Navigator { get }
+	associatedtype IndividualViewModel
+	var indViewModel: IndividualViewModel { get }
 	
-	associatedtype ViewModel
-	var viewModel: ViewModel { get }
-	
-	var view: AnyView { get }
+	func startProcess(on presentType: PresentType) -> Observable<Void>
 }

@@ -5,22 +5,20 @@
 //  Created by HaiKaito on 13/07/2021.
 //
 
+/*
 import SwiftUI
 
 // MARK: - ================================= View input requirements =================================
-//protocol AppRootViewDataPolicy {
-////	var authState: AuthState { get }
-////	var email: String { get set }
-////	var mail: String { get set }
-////
-////	// Action
-////	func gotoHome()
-//}
-//
-////protocol AppRootViewProtocol {
-////}
+protocol AppRootViewPros: ObservableObject {
+	var authState: AuthState { get }
+	var email: String { get set }
+	var mail: String { get set }
+	
+	// Action
+	func gotoSomeWhere()
+}
 
-class AppRootPros: ObservableObject {
+class AppRootViewModelAdapter: AppRootViewPros {
 	var authState: AuthState {
 		return viewModel.authState
 	}
@@ -35,33 +33,26 @@ class AppRootPros: ObservableObject {
 		set { viewModel.email = newValue }
 	}
 	
-	func gotoHome() {
-		//
+	func gotoSomeWhere() {
+		viewModel.gotoSomeWhere()
 	}
 	
-	var viewModel: AppRootViewModelProtocol
-	
-	init(viewModel: AppRootViewModelProtocol) {
+	private var viewModel: AppRootViewModel
+	init(viewModel: AppRootViewModel) {
 		self.viewModel = viewModel
 	}
 }
 
-class AppRootAction {
-	
-}
-
 // MARK: - ================================= View Layout =================================
-struct AppRootView<Pros>: View, ViewRule where Pros: AppRootPros {
+//struct AppRootView<Pros>: View, ViewRule where Pros: AppRootPros {
+struct AppRootView<IPros: AppRootViewPros>: View, ViewRule {
 	
 	// MARK: Properties
-	@ObservedObject var pros: Pros
-	typealias Act = AppRootAction
-	private(set) var act: Act
+	@ObservedObject var pros: IPros
 	
 	// MARK: Init
-	init(pros: Pros, act: Act = AppRootAction()) {
+	init(pros: IPros) {
 		self.pros = pros
-		self.act = act
 	}
 	
 	// MARK: Layout
@@ -75,7 +66,7 @@ struct AppRootView<Pros>: View, ViewRule where Pros: AppRootPros {
 			.keyboardType(.emailAddress)
 			.padding(.bottom, 10)
 			Button("Go to Home") {
-				pros.gotoHome()
+				pros.gotoSomeWhere()
 			}
 			.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 			.background(Color.red)
@@ -151,6 +142,58 @@ struct ClearButton: ViewModifier {
 				}
 				.padding(.trailing, 8)
 				.buttonStyle(PlainButtonStyle())
+			}
+		}
+	}
+}
+*/
+
+
+
+
+import SwiftUI
+
+// ViewModel ===> View
+protocol RootViewModelViewSupport {
+	var authState: AuthState { get }
+	var counting: String { get }
+}
+
+struct RootView {
+	private init() { }
+	
+	// Properties is used for View
+	class IPros: ObservableObject {
+		typealias IndividualViewModel = RootViewModelViewSupport
+		private let indViewModel: IndividualViewModel
+		init(viewModel: ViewModelRule) {
+			guard let indViewModel = viewModel as? IndividualViewModel else {
+				fatalError("View model need to support coordinator")
+			}
+
+			self.indViewModel = indViewModel
+		}
+		
+		// Adapter
+		var authState: AuthState {
+			return indViewModel.authState
+		}
+		
+		var counting: String {
+			indViewModel.counting
+		}
+	}
+	
+	// MARK: - ================================= View Layout =================================
+	struct IView: View, ViewRule {
+		// MARK: Properties
+		@ObservedObject var pros: IPros
+		
+		// MARK: Layout
+		var body: some View {
+			VStack {
+				Text("Loading... Please wait for a minutes")
+				Text(pros.counting)
 			}
 		}
 	}

@@ -24,6 +24,21 @@ struct MainView: View {
 			}
 	}
 	
+	func gotoSomeWhere() {
+		let viewModel: AppRootViewModel = AppRootViewModelImpl()
+		let viewModelAdapter = AppRootViewModelAdapter(viewModel: viewModel)
+		let view = AnyView(AppRootView(pros: viewModelAdapter))
+		let navigator = DefaultNavigation()
+		
+		guard let viewModelWithCoorSupport = viewModel as? AppRootViewModelCoorSupport else {
+			return
+		}
+		
+		let coordinator: AppRootCoordinator = AppRootCoordinatorImpl(navigator: navigator,
+																	 viewModel: viewModelWithCoorSupport,
+																	 view: view)
+	}
+	
 	func rootView() -> AnyView? {
 //		guard let view: AppRootView<AppRootViewModel> = rootViewConstructor() else {
 //			return nil
@@ -43,11 +58,11 @@ struct MainView: View {
 //		return AppRootView<VM>(viewModel: rootViewModel)
 //	}
 	
-	func sample() {
-		let containter = Container()
-		containter.register(AppRootCoordinatorProtocol.self) { r in
-			let navigator = containter.sureResolve(NavigationProvider.self)
-			let viewModel = containter.sureResolve(AppRootViewModelProtocol.self)
+//	func sample() {
+//		let containter = Container()
+//		containter.register(AppRootCoordinatorProtocol.self) { r in
+//			let navigator = containter.sureResolve(NavigationProvider.self)
+//			let viewModel = containter.sureResolve(AppRootViewModelProtocol.self)
 //			let rootViewModel = containter.sureResolve(AppRootViewModelProtocol.self)
 //			guard let rootViewModel = containter.sureResolve(AppRootViewModelProtocol.self) as? ViewModelRule,
 //			rootViewModel is AppRootViewModelProtocol else {
@@ -75,14 +90,14 @@ struct MainView: View {
 //			guard let viewModel = ViewModelWrapper(data: rootViewModel as! AppRootViewModelProtocol) as? AppRootViewModelProtocol else {
 //				fatalError("")
 //			}
-			let pros = AppRootPros(viewModel: viewModel)
-			let viewR = AppRootView(pros: pros)
-
-			let coor = AppRootCoordinator(view: AnyView(viewR), viewModel: viewModel, navigator: navigator)
-
-			return coor
-		}
-	}
+//			let pros = AppRootPros(viewModel: viewModel)
+//			let viewR = AppRootView(pros: pros)
+//
+//			let coor = AppRootCoordinator(view: AnyView(viewR), viewModel: viewModel, navigator: navigator)
+//
+//			return coor
+//		}
+//	}
 }
 struct MainView_Previews: PreviewProvider {
 	static var previews: some View {

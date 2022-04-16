@@ -5,20 +5,31 @@
 //  Created by HaiKaito on 06/04/2022.
 //
 
+/*
+
 ///
 ///
 ///	EVERY CREATED SCREEN MUST BE CONFIRMED TO THESE PROTOCOLS
 ///
 ///
 import SwiftUI
+import RxSwift
 
 // VIEWMODEL
-protocol SampleViewModel: ViewModelRule {
+protocol DemoViewModel {
 	var title: String { get set }
 	func go()
 }
 
-private class SampleViewModelImp: SampleViewModel {
+protocol DemoViewModelCoorSupport {
+	// MARK: Coordinator - Outputs
+	var transitSomeWhere: Observable<Void> { get }
+}
+
+class DemoViewModelImp: ViewModelRule, DemoViewModel {
+	// Rxswif support
+	private let _somewhere = PublishSubject<Void>()
+	
 	func go() {
 		print("Go some where")
 	}
@@ -26,14 +37,21 @@ private class SampleViewModelImp: SampleViewModel {
 	@Published var title: String = ""
 }
 
+// MARK: - ================================= Coordinator - Outputs =================================
+extension DemoViewModelImp: DemoViewModelCoorSupport {
+	var transitSomeWhere: Observable<Void> {
+		return _somewhere.asObserver()
+	}
+}
+
 // VIEW
-private protocol SampleViewPros: ObservableObject {
+protocol DemoViewPros: ObservableObject {
 	var title: String { get set }
 	
 	func go()
 }
 
-class SampleViewModelAdapter: SampleViewPros {
+class DemoViewModelAdapter: DemoViewPros {
 	var title: String {
 		get { viewModel.title }
 		set { viewModel.title = newValue }
@@ -43,13 +61,13 @@ class SampleViewModelAdapter: SampleViewPros {
 		viewModel.go()
 	}
 	
-	private var viewModel: SampleViewModel
-	init(viewModel: SampleViewModel) {
+	private var viewModel: DemoViewModel
+	init(viewModel: DemoViewModel) {
 		self.viewModel = viewModel
 	}
 }
 
-private struct SampleView<IPros: SampleViewPros>: View, ViewRule {
+struct DemoView<IPros: DemoViewPros>: View, ViewRule {
 	@ObservedObject var pros: IPros
 	
 	init(pros: IPros) {
@@ -62,20 +80,31 @@ private struct SampleView<IPros: SampleViewPros>: View, ViewRule {
 }
 
 // COORDINATOR
-private protocol SampleCoor {
+protocol DemoCoor {
 }
 
-private class SampleCoorImpl: CoordinatorRule, SampleCoor {
-	typealias ViewModel = SampleViewModel
+class DemoCoorImpl: CoordinatorAdapter<Void>, CoordinatorRule, DemoCoor {
+	typealias ViewModel = DemoViewModelCoorSupport
 	typealias Navigator = NavigationProvider
 	let navigator: Navigator
 	let viewModel: ViewModel
 	let view: AnyView
 	
 	init(navigator: Navigator, viewModel: ViewModel, view: AnyView) {
+		guard let validViewModel = viewModel as? ViewModelRule else {
+			fatalError("Invalid view model")
+		}
+		
 		self.navigator = navigator
 		self.viewModel = viewModel
 		self.view = view
+		super.init(viewModel: validViewModel)
+	}
+}
+
+extension DemoCoorImpl {
+	static func registerStory() -> DemoCoorImpl {
+		return DemoCoorImpl()
 	}
 }
 
@@ -91,12 +120,20 @@ private class DemoPreview {
 //		let coordinator: SampleCoor = SampleCoorImpl(navigator: navigator, viewModel: viewModel, view: view)
 		
 		let container = Container()
-		let viewModel: SampleViewModel = container.sureResolve(SampleViewModel.self)
-		let viewModelAdapter = SampleViewModelAdapter(viewModel: viewModel)
-		let view = AnyView(SampleView(pros: viewModelAdapter))
+		let viewModel: DemoViewModel = container.sureResolve(DemoViewModel.self)
+		let viewModelAdapter = DemoViewModelAdapter(viewModel: viewModel)
+		let view = AnyView(DemoView(pros: viewModelAdapter))
 		let navigator = container.sureResolve(NavigationProvider.self)
-		let coordinator: SampleCoor = SampleCoorImpl(navigator: navigator, viewModel: viewModel, view: view)
+		
+		guard let viewModelWithCoorSupport = viewModel as? DemoViewModelCoorSupport else {
+			return
+		}
+		
+		let coordinator: DemoCoor = DemoCoorImpl(navigator: navigator,
+													 viewModel: viewModelWithCoorSupport,
+													 view: view)
 		
 		print(coordinator)
 	}
 }
+*/

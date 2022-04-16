@@ -1,5 +1,5 @@
 //
-//  CoordinatorHelper.swift
+//  DefaultCoordinator.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 13/04/2022.
@@ -9,18 +9,17 @@ import RxSwift
 import Swinject
 import SwiftUI
 
-enum PresentType: Int {
-	case push
-	case present
-	case updateRoot
-}
-
 /// Base abstract coordinator generic over the return type of the `start` method.
-class CoordinatorAdapter<VM, ResultType> where VM: ViewModelRule{
+class DefaultCoordinator<ResultType> {
 	private(set) var result: ResultType!
-	private let viewModel: VM
-	init(viewModel: VM) {
+	private let view: AnyView
+	private let viewModel: ViewModelRule
+	private let navigator: NavigationProvider
+	
+	init(view: AnyView, viewModel: ViewModelRule, navigator: NavigationProvider) {
+		self.view = view
 		self.viewModel = viewModel
+		self.navigator = navigator
 	}
 	
 	/// Typealias which will allows to access a ResultType of the Coordainator by `CoordinatorName.CoordinationResult`.
@@ -42,14 +41,14 @@ class CoordinatorAdapter<VM, ResultType> where VM: ViewModelRule{
 	/// Stores coordinator to the `childCoordinators` dictionary.
 	///
 	/// - Parameter coordinator: Child coordinator to store.
-	private func store<T>(coordinator: CoordinatorAdapter<VM, T>) {
+	private func store<T>(coordinator: DefaultCoordinator<T>) {
 		childCoordinators[coordinator.identifier] = coordinator
 	}
 	
 	/// Release coordinator from the `childCoordinators` dictionary.
 	///
 	/// - Parameter coordinator: Coordinator to release.
-	private func free<T>(coordinator: CoordinatorAdapter<VM, T>) {
+	private func free<T>(coordinator: DefaultCoordinator<T>) {
 		childCoordinators[coordinator.identifier] = nil
 	}
 	
@@ -59,9 +58,9 @@ class CoordinatorAdapter<VM, ResultType> where VM: ViewModelRule{
 	///
 	/// - Parameter coordinator: Coordinator to start.
 	/// - Returns: Result of `start()` method.
-	func coordinate<T>(to coordinator: CoordinatorAdapter<VM, T>) -> Observable<T> {
+	func coordinate<T>(to coordinator: DefaultCoordinator<T>, on presentType: PresentType = .push) -> Observable<T> {
 		store(coordinator: coordinator)
-		return coordinator.start(viewModel: viewModel)
+		return coordinator.start(on: presentType)
 			.do(onNext: { [weak self] _ in
 				self?.free(coordinator: coordinator)
 			})
@@ -84,14 +83,14 @@ class CoordinatorAdapter<VM, ResultType> where VM: ViewModelRule{
 	/// Starts job of the coordinator.
 	///
 	/// - Returns: Result of coordinator job.
-	final func startProcess() -> Observable<Void> {
-		return start(viewModel: viewModel)
+	final func startProcess(on presentType: PresentType = .push) -> Observable<Void> {
+		return start(on: presentType)
 			.map({ [weak self] result in
 				self?.result = result
 			})
 	}
 	
-	func start(viewModel: VM) -> Observable<ResultType> {
+	func start(viewModel: ViewModelRule) -> Observable<ResultType> {
 		fatalError("Start method should be implemented.")
 	}
 	
@@ -101,11 +100,11 @@ class CoordinatorAdapter<VM, ResultType> where VM: ViewModelRule{
 }
 
 // MARK: - ########################## PUBLIC FUNCTION LIST ##########################
-extension CoordinatorAdapter {
-//	//MARK: Getters
-//	static var container: Container {
-//		return AppDelegate.shared().container
-//	}
+extension DefaultCoordinator {
+	//MARK: Getters
+	static var container: Container {
+		return AppProvider.shared.container
+	}
 //
 //	var viewController: UIViewController {
 //		guard let vc = coorBag?.view as? UIViewController else {
@@ -145,7 +144,7 @@ extension CoordinatorAdapter {
 }
 
 // MARK: - ########################## ONLY USE FOR BASE CONFIG ##########################
-extension CoordinatorAdapter {
+extension DefaultCoordinator {
 	/// Starts job of the coordinator.
 	///
 	/// - Returns: Result of coordinator job.
@@ -231,3 +230,17 @@ extension CoordinatorAdapter {
 //	}
 //}
 
+private extension DefaultCoordinator {
+	func start(on presentType: PresentType = .push) -> Observable<ResultType> {
+//		switch presentType {
+//		case .push:
+//			return coorBag.navService.push(viewController: vc, animated: true)
+//		case .present:
+//			return coorBag.navService.present(viewController: vc, animated: true, completion: nil)
+//		case .updateRoot:
+//			return coorBag.navService.resetStack(by: [vc], animated: true)
+//		}
+		
+		return start(viewModel: viewModel)
+	}
+}

@@ -32,9 +32,9 @@
 		8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604234727ED01B00056EF17 /* RequestFactory.swift */; };
 		8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604234927ED07F00056EF17 /* BaseNetwork.swift */; };
 		8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604234B27ED08AD0056EF17 /* DateExtensions.swift */; };
-		8604235927EDF0E30056EF17 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235627EDF0E30056EF17 /* AppRootView.swift */; };
-		8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235727EDF0E30056EF17 /* AppRootViewModel.swift */; };
-		8604235B27EDF0E30056EF17 /* AppRootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */; };
+		8604235927EDF0E30056EF17 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235627EDF0E30056EF17 /* RootView.swift */; };
+		8604235A27EDF0E30056EF17 /* RootViewModel+Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235727EDF0E30056EF17 /* RootViewModel+Trash.swift */; };
+		8604235B27EDF0E30056EF17 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235827EDF0E30056EF17 /* RootCoordinator.swift */; };
 		8604235E27EDF1530056EF17 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235D27EDF1530056EF17 /* HomeView.swift */; };
 		8604236027EDF17B0056EF17 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */; };
 		8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236127EDF1850056EF17 /* HomeViewModel.swift */; };
@@ -102,6 +102,17 @@
 		8632D42A28021E5300141EDC /* UserLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42928021E5300141EDC /* UserLocal.swift */; };
 		8632D42D28021EC200141EDC /* LocalProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42C28021EC200141EDC /* LocalProviderImpl.swift */; };
 		8632D43028021EDB00141EDC /* UserLocalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42F28021EDB00141EDC /* UserLocalImpl.swift */; };
+		8640C1922808EEF7002448AC /* IntroStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1912808EEF7002448AC /* IntroStory.swift */; };
+		8640C1942808F701002448AC /* DefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1932808F701002448AC /* DefaultViewModel.swift */; };
+		8640C1972809A753002448AC /* HomeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1962809A753002448AC /* HomeStory.swift */; };
+		8640C19D280A6268002448AC /* AppStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C19C280A6268002448AC /* AppStory.swift */; };
+		8640C19F280A62EF002448AC /* CoordMover+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C19E280A62EF002448AC /* CoordMover+.swift */; };
+		8640C1A1280A6409002448AC /* CoordInstance+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1A0280A6409002448AC /* CoordInstance+.swift */; };
+		8640C1A4280A759F002448AC /* DefaultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1A3280A759F002448AC /* DefaultCoordinator.swift */; };
+		8640C1A8280A9E8A002448AC /* IntroViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1A7280A9E8A002448AC /* IntroViewModel+Supports.swift */; };
+		8640C1AB280A9F90002448AC /* HomeViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AA280A9F90002448AC /* HomeViewModel+Supports.swift */; };
+		8640C1AE280AA88F002448AC /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AD280AA88F002448AC /* RootViewModel.swift */; };
+		8640C1B0280AA8CC002448AC /* RootViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */; };
 		8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FB280055F90076B3AC /* AppNotification.swift */; };
 		8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FD2800560C0076B3AC /* FirstLoading.swift */; };
 		8685B2002800561A0076B3AC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FF2800561A0076B3AC /* AppTheme.swift */; };
@@ -167,7 +178,7 @@
 		869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0028046408003D87E6 /* AppRootViewFactory.swift */; };
 		869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */; };
 		869BBF0728049C49003D87E6 /* UIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0628049C49003D87E6 /* UIRegister.swift */; };
-		86B892CF2807005500AD99B2 /* CoordinatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B892CE2807005500AD99B2 /* CoordinatorHelper.swift */; };
+		86B892D12808904300AD99B2 /* Others++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B892D02808904300AD99B2 /* Others++.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -219,9 +230,9 @@
 		8604234727ED01B00056EF17 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		8604234927ED07F00056EF17 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
 		8604234B27ED08AD0056EF17 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		8604235627EDF0E30056EF17 /* AppRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
-		8604235727EDF0E30056EF17 /* AppRootViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootViewModel.swift; sourceTree = "<group>"; };
-		8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootCoordinator.swift; sourceTree = "<group>"; };
+		8604235627EDF0E30056EF17 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		8604235727EDF0E30056EF17 /* RootViewModel+Trash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RootViewModel+Trash.swift"; sourceTree = "<group>"; };
+		8604235827EDF0E30056EF17 /* RootCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		8604235D27EDF1530056EF17 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8604236127EDF1850056EF17 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +300,17 @@
 		8632D42928021E5300141EDC /* UserLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocal.swift; sourceTree = "<group>"; };
 		8632D42C28021EC200141EDC /* LocalProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProviderImpl.swift; sourceTree = "<group>"; };
 		8632D42F28021EDB00141EDC /* UserLocalImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalImpl.swift; sourceTree = "<group>"; };
+		8640C1912808EEF7002448AC /* IntroStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroStory.swift; sourceTree = "<group>"; };
+		8640C1932808F701002448AC /* DefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewModel.swift; sourceTree = "<group>"; };
+		8640C1962809A753002448AC /* HomeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStory.swift; sourceTree = "<group>"; };
+		8640C19C280A6268002448AC /* AppStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStory.swift; sourceTree = "<group>"; };
+		8640C19E280A62EF002448AC /* CoordMover+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoordMover+.swift"; sourceTree = "<group>"; };
+		8640C1A0280A6409002448AC /* CoordInstance+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoordInstance+.swift"; sourceTree = "<group>"; };
+		8640C1A3280A759F002448AC /* DefaultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoordinator.swift; sourceTree = "<group>"; };
+		8640C1A7280A9E8A002448AC /* IntroViewModel+Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntroViewModel+Supports.swift"; sourceTree = "<group>"; };
+		8640C1AA280A9F90002448AC /* HomeViewModel+Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel+Supports.swift"; sourceTree = "<group>"; };
+		8640C1AD280AA88F002448AC /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewModel+Supports.swift"; sourceTree = "<group>"; };
 		8685B1FB280055F90076B3AC /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		8685B1FD2800560C0076B3AC /* FirstLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoading.swift; sourceTree = "<group>"; };
 		8685B1FF2800561A0076B3AC /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -354,7 +376,7 @@
 		869BBF0028046408003D87E6 /* AppRootViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewFactory.swift; sourceTree = "<group>"; };
 		869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasRootNavigationController.swift; sourceTree = "<group>"; };
 		869BBF0628049C49003D87E6 /* UIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRegister.swift; sourceTree = "<group>"; };
-		86B892CE2807005500AD99B2 /* CoordinatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorHelper.swift; sourceTree = "<group>"; };
+		86B892D02808904300AD99B2 /* Others++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Others++.swift"; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -515,10 +537,12 @@
 			isa = PBXGroup;
 			children = (
 				86FE295227DC8E6000EF2C70 /* MainView.swift */,
+				8640C1932808F701002448AC /* DefaultViewModel.swift */,
+				8640C1A3280A759F002448AC /* DefaultCoordinator.swift */,
 				8685B23428007C480076B3AC /* Rules */,
 				8604236D27EDF5B50056EF17 /* Root */,
-				8685B23D28007DB20076B3AC /* Intro */,
-				8604235C27EDF1160056EF17 /* Home */,
+				8640C1952809A73B002448AC /* Intro */,
+				8640C1982809A757002448AC /* Home */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -551,16 +575,6 @@
 				8604236627EDF3C40056EF17 /* Local */,
 			);
 			path = Repository;
-			sourceTree = "<group>";
-		};
-		8604235C27EDF1160056EF17 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				8604235D27EDF1530056EF17 /* HomeView.swift */,
-				8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */,
-				8604236127EDF1850056EF17 /* HomeViewModel.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		8604236427EDF2F00056EF17 /* Managers */ = {
@@ -616,10 +630,11 @@
 		8604236D27EDF5B50056EF17 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				8604235727EDF0E30056EF17 /* RootViewModel+Trash.swift */,
 				869BBEFF28045D5A003D87E6 /* Subviews */,
-				8604235627EDF0E30056EF17 /* AppRootView.swift */,
-				8604235727EDF0E30056EF17 /* AppRootViewModel.swift */,
-				8604235827EDF0E30056EF17 /* AppRootCoordinator.swift */,
+				8640C1AC280AA87A002448AC /* ViewModel */,
+				8604235627EDF0E30056EF17 /* RootView.swift */,
+				8604235827EDF0E30056EF17 /* RootCoordinator.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -670,7 +685,6 @@
 				8604236427EDF2F00056EF17 /* Managers */,
 				8685B1FA280055D00076B3AC /* Settings */,
 				8604235327EDEFF10056EF17 /* Resources */,
-				86B892CD2807004000AD99B2 /* Helper */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -760,6 +774,7 @@
 				861E858327FB5BB20032C4F5 /* View+.swift */,
 				861E85AF27FB71090032C4F5 /* UIKit+.swift */,
 				8685B27A280166FB0076B3AC /* Swinject+.swift */,
+				86B892D02808904300AD99B2 /* Others++.swift */,
 			);
 			path = "Extension+";
 			sourceTree = "<group>";
@@ -954,6 +969,73 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		8640C1952809A73B002448AC /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				8640C1A5280A9E56002448AC /* ViewModel */,
+				8685B23E28007DD80076B3AC /* IntroView.swift */,
+				8685B24028007DE50076B3AC /* IntroCoordinator.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		8640C1982809A757002448AC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8640C1A9280A9F71002448AC /* ViewModel */,
+				8604235D27EDF1530056EF17 /* HomeView.swift */,
+				8604235F27EDF17B0056EF17 /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8640C199280A61E6002448AC /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				8640C19C280A6268002448AC /* AppStory.swift */,
+				8640C1912808EEF7002448AC /* IntroStory.swift */,
+				8640C1962809A753002448AC /* HomeStory.swift */,
+				8640C19A280A6204002448AC /* Providers */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		8640C19A280A6204002448AC /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				8640C19E280A62EF002448AC /* CoordMover+.swift */,
+				8640C1A0280A6409002448AC /* CoordInstance+.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		8640C1A5280A9E56002448AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8685B24228007DF10076B3AC /* IntroViewModel.swift */,
+				8640C1A7280A9E8A002448AC /* IntroViewModel+Supports.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8640C1A9280A9F71002448AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8604236127EDF1850056EF17 /* HomeViewModel.swift */,
+				8640C1AA280A9F90002448AC /* HomeViewModel+Supports.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8640C1AC280AA87A002448AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8640C1AD280AA88F002448AC /* RootViewModel.swift */,
+				8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8685B1FA280055D00076B3AC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,16 +1083,6 @@
 				861E85B327FDB6990032C4F5 /* ScreenRulesDemo.swift */,
 			);
 			path = Rules;
-			sourceTree = "<group>";
-		};
-		8685B23D28007DB20076B3AC /* Intro */ = {
-			isa = PBXGroup;
-			children = (
-				8685B23E28007DD80076B3AC /* IntroView.swift */,
-				8685B24228007DF10076B3AC /* IntroViewModel.swift */,
-				8685B24028007DE50076B3AC /* IntroCoordinator.swift */,
-			);
-			path = Intro;
 			sourceTree = "<group>";
 		};
 		8685B25128012CB70076B3AC /* Constructor */ = {
@@ -1142,14 +1214,6 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		86B892CD2807004000AD99B2 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				86B892CE2807005500AD99B2 /* CoordinatorHelper.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		86FA50392805C32200FFB057 /* AppConnect */ = {
 			isa = PBXGroup;
 			children = (
@@ -1239,6 +1303,7 @@
 			children = (
 				8685B25828014B800076B3AC /* Main */,
 				8685B254280149A00076B3AC /* Constructors */,
+				8640C199280A61E6002448AC /* Stories */,
 				8604235127EDEEF30056EF17 /* Screens */,
 				8604234F27EDEE9F0056EF17 /* Domain */,
 				861E857527FB4AAF0032C4F5 /* Library */,
@@ -1453,9 +1518,11 @@
 				8604232D27EB8AB40056EF17 /* Endpoint.swift in Sources */,
 				8685B21B28005A5D0076B3AC /* AppThemeProvider.swift in Sources */,
 				8685B279280164FC0076B3AC /* UsefulColors.swift in Sources */,
+				8640C19D280A6268002448AC /* AppStory.swift in Sources */,
 				862EF20927F84E7C0051A3A0 /* UseCaseProvider.swift in Sources */,
 				862EF20027F848E40051A3A0 /* RepoProvider.swift in Sources */,
 				861E85A927FB6DAD0032C4F5 /* FillAllInput.swift in Sources */,
+				8640C19F280A62EF002448AC /* CoordMover+.swift in Sources */,
 				861E859E27FB6AAB0032C4F5 /* TextFieldAlertVC.swift in Sources */,
 				8685B24328007DF10076B3AC /* IntroViewModel.swift in Sources */,
 				8685B21728005A4C0076B3AC /* AppBackgroundProvider.swift in Sources */,
@@ -1482,37 +1549,44 @@
 				861E857B27FB504A0032C4F5 /* SingleViewInput.swift in Sources */,
 				8685B2732801623B0076B3AC /* CustomizeNavigation.swift in Sources */,
 				8685B23828007C720076B3AC /* ViewModelRule.swift in Sources */,
+				8640C1B0280AA8CC002448AC /* RootViewModel+Supports.swift in Sources */,
 				8685B25028012CAE0076B3AC /* DefaultAppSceneDelegate.swift in Sources */,
 				8604238427EE2F550056EF17 /* DependencyInjector.swift in Sources */,
 				8604232327EA37780056EF17 /* DataLoader.swift in Sources */,
 				862EF1EA27F4A8860051A3A0 /* CharacterSetEx.swift in Sources */,
 				8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */,
 				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
+				8640C1942808F701002448AC /* DefaultViewModel.swift in Sources */,
 				8632D42728021DF600141EDC /* LocalProvider.swift in Sources */,
 				8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */,
 				861E859D27FB6AA70032C4F5 /* TextFieldAlertInput.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */,
 				8632D41D280211C000141EDC /* NetworkProvider.swift in Sources */,
 				861E85A827FB6DAA0032C4F5 /* FillAll.swift in Sources */,
+				8640C1A1280A6409002448AC /* CoordInstance+.swift in Sources */,
 				8632D412280202C500141EDC /* RepoProviderImpl.swift in Sources */,
 				8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */,
 				861E85B427FDB6990032C4F5 /* ScreenRulesDemo.swift in Sources */,
 				8685B22628005CA90076B3AC /* FirebasePlugin.swift in Sources */,
 				862EF22427F9636E0051A3A0 /* DataConvertible.swift in Sources */,
 				8685B22C28005D480076B3AC /* AppSecurityPlugin.swift in Sources */,
+				86B892D12808904300AD99B2 /* Others++.swift in Sources */,
 				861E85A127FB6B6B0032C4F5 /* SectionHeaderViewModifier.swift in Sources */,
 				861E85AB27FB6F090032C4F5 /* BackBarButtonItem.swift in Sources */,
+				8640C1AE280AA88F002448AC /* RootViewModel.swift in Sources */,
 				8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */,
-				8604235927EDF0E30056EF17 /* AppRootView.swift in Sources */,
+				8604235927EDF0E30056EF17 /* RootView.swift in Sources */,
 				8604234427ECBAA50056EF17 /* Plugin.swift in Sources */,
 				8604232627EA38300056EF17 /* OperationQueue+MaxNumber.swift in Sources */,
 				862EF21027F8B28E0051A3A0 /* UseCases.swift in Sources */,
 				8604231427E32FEB0056EF17 /* Request.swift in Sources */,
 				862EF23327FA6C2F0051A3A0 /* AppStateManager.swift in Sources */,
 				8685B21F28005C190076B3AC /* RegistationManager.swift in Sources */,
+				8640C1AB280A9F90002448AC /* HomeViewModel+Supports.swift in Sources */,
 				8604231F27EA36DB0056EF17 /* Common.swift in Sources */,
 				8604234027ECB42C0056EF17 /* NetworkingType.swift in Sources */,
-				8604235B27EDF0E30056EF17 /* AppRootCoordinator.swift in Sources */,
+				8604235B27EDF0E30056EF17 /* RootCoordinator.swift in Sources */,
+				8640C1A8280A9E8A002448AC /* IntroViewModel+Supports.swift in Sources */,
 				8685B20B280057B90076B3AC /* CryptoManager.swift in Sources */,
 				8685B24E28012BA10076B3AC /* AppSceneDelegateProvider.swift in Sources */,
 				8604233D27ECB2DF0056EF17 /* UserNetwork.swift in Sources */,
@@ -1535,6 +1609,7 @@
 				8685B205280056D10076B3AC /* Migration+Cell.swift in Sources */,
 				8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */,
 				8685B23A28007C870076B3AC /* CoordinatorRule.swift in Sources */,
+				8640C1A4280A759F002448AC /* DefaultCoordinator.swift in Sources */,
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
 				862EF23127F997FD0051A3A0 /* Constants.swift in Sources */,
 				8604237227EDF6E30056EF17 /* SingleView.swift in Sources */,
@@ -1551,10 +1626,11 @@
 				862EF22B27F9796A0051A3A0 /* AppUserData.swift in Sources */,
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
 				8685B277280164850076B3AC /* AlertButton.swift in Sources */,
+				8640C1922808EEF7002448AC /* IntroStory.swift in Sources */,
 				862EF21927F958400051A3A0 /* UseCasesImpl.swift in Sources */,
 				8632D423280213FA00141EDC /* UserNetworkImpl.swift in Sources */,
 				8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */,
-				8604235A27EDF0E30056EF17 /* AppRootViewModel.swift in Sources */,
+				8604235A27EDF0E30056EF17 /* RootViewModel+Trash.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,
 				8685B20E2800587D0076B3AC /* AppConnectProvider.swift in Sources */,
 				8685B26128015DE50076B3AC /* UIToolsRegister.swift in Sources */,
@@ -1583,7 +1659,7 @@
 				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
 				8685B25D280154B40076B3AC /* InternalTools.swift in Sources */,
 				8632D42D28021EC200141EDC /* LocalProviderImpl.swift in Sources */,
-				86B892CF2807005500AD99B2 /* CoordinatorHelper.swift in Sources */,
+				8640C1972809A753002448AC /* HomeStory.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */,
 				8685B22A28005D3D0076B3AC /* NetworkSecurityPlugin.swift in Sources */,
