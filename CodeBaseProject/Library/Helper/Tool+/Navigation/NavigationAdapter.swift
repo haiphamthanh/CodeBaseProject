@@ -5,7 +5,6 @@
 //  Created by HaiKaito on 11/04/2022.
 //
 
-import SwiftUI
 ///
 /// This is navigator helper, don't use directly
 /// Please use AppNavigator
@@ -13,15 +12,9 @@ import SwiftUI
 ///
 /// Don't use this object directly
 ///
+import SwiftUI
 
 class NavigationAdapter: ObservableObject {
-//	private var window: UIWindow? {
-//		AppProvider.shared.window
-//	}
-//	private var navigationVC: UINavigationController? {
-//		AppProvider.shared.navigationVC
-//	}
-	
 	private let window: UIWindow?
 	private var navigationVC: UINavigationController?
 	init(window: UIWindow?, navigationVC: UINavigationController?) {

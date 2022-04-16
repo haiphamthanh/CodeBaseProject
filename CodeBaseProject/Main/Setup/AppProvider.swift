@@ -77,7 +77,7 @@ extension AppProvider {
 			.disposed(by: disposeBag)
 	}
 	
-	func makeWindowVisible(on view: AnyView) {
+	func makeWindowVisible(on view: AnyView, onNavigation: Bool = true) {
 		window?.rootViewController = UIKitAdapter(rootView: view)
 		window?.makeKeyAndVisible()
 	}

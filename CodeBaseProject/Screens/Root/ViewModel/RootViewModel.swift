@@ -19,10 +19,9 @@ protocol RootViewModel {
 }
 
 class RootViewModelImpl: DefaultViewModel, ViewModelRule, RootViewModel {
-//	@Published private(set) var counting: String = "0"
-//	@Published private(set) var authState: AuthState = .unAuthorized
 	let _counting = PublishSubject<Int>()
 	let _authState = PublishSubject<AuthState>()
+	let _home = PublishSubject<Void>()
 	
 	private var counter = 0
 	
@@ -40,8 +39,6 @@ class RootViewModelImpl: DefaultViewModel, ViewModelRule, RootViewModel {
 	
 	@MainActor
 	private func changeStateAfter2Seconds() async -> AuthState{
-		// Delay of 7.5 seconds (1 second = 1_000_000_000 nanoseconds)
-		//		try? await Task.sleep(nanoseconds: 7_500_000_000)
 		try? await Task.sleep(nanoseconds: 2_000_000_000)
 		counter += 1
 		_counting.onNext(counter)

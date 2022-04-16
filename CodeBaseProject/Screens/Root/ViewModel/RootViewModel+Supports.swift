@@ -22,5 +22,13 @@ extension RootViewModelImpl: RootViewModelViewSupport {
 		_counting.asObservable()
 	}
 	
+	var goHome: Observable<Void> {
+		return _home
+			.asObservable()
+	}
+	
+	func gotoHome() {
+		_home.onNext(Void())
+	}
 }
 

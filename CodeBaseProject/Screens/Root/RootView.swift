@@ -158,6 +158,9 @@ import RxSwift
 protocol RootViewModelViewSupport {
 	var authState: Observable<AuthState> { get }
 	var counting: Observable<Int> { get }
+	
+	// Actions
+	func gotoHome()
 }
 
 struct RootView {
@@ -166,6 +169,7 @@ struct RootView {
 	// Properties is used for View
 	class IPros: ObservableObject {
 		typealias IndividualViewModel = RootViewModelViewSupport
+		private let indViewModel: IndividualViewModel
 		private let disposeBag = DisposeBag()
 		@Published private(set) var counting: String = "0"
 		@Published private(set) var authState: AuthState = .unAuthorized
@@ -174,6 +178,8 @@ struct RootView {
 			guard let indViewModel = viewModel as? IndividualViewModel else {
 				fatalError("View model need to support coordinator")
 			}
+			
+			self.indViewModel = indViewModel
 			
 			// Adapter
 			indViewModel.authState
@@ -191,6 +197,11 @@ struct RootView {
 		private func countChanged(_ number: Int) {
 			counting = "\(number)"
 		}
+		
+		// Actions
+		func gotoHome() {
+			indViewModel.gotoHome()
+		}
 	}
 	
 	// MARK: - ================================= View Layout =================================
@@ -199,10 +210,56 @@ struct RootView {
 		@ObservedObject var pros: IPros
 		
 		// MARK: Layout
-		var body: some View {
+		var containView: some View {
 			VStack {
 				Text("Loading... Please wait for a minutes")
 				Text(pros.counting)
+				Button("Go home") {
+					pros.gotoHome()
+				}
+			}
+		}
+		
+		var body: some View {
+			NavigationViewWrapper(containView: AnyView(containView))
+		}
+	}
+}
+
+
+/// Provideds a static func to build a SwiftUI view for a specific AppState
+class NavigationViewFactory {
+	static func viewForState(authState: AuthState, counting: Binding<String>) -> some View {
+		@ViewBuilder var renderedView: some View {
+			switch authState {
+			case .authorized:
+				AuthorizedView()
+			case .unAuthorized:
+				UnAuthorizedView(counting: counting)
+			}
+		}
+		
+		return renderedView
+	}
+}
+
+
+struct AuthorizedView: View {
+	var body: some View {
+		Text("Authorized")
+	}
+}
+
+
+struct UnAuthorizedView: View {
+//	@Binding var pros: RootView.IPros
+	@Binding var counting: String
+	var body: some View {
+		VStack {
+			Text("Loading... Please wait for a minutes")
+			Text("\(counting)")
+			Button("Go home") {
+//				pros.gotoHome()
 			}
 		}
 	}
