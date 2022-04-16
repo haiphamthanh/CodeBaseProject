@@ -19,8 +19,12 @@ struct CoordInstance {
 // MARK: - ########################## Stories ##########################
 extension CoordInstance {
 	class Story {
-		static func introStory(params: Dictionary<String, Any>? = nil) -> IntroStory {
+		static func intro(params: Dictionary<String, Any>? = nil) -> IntroStory {
 			return IntroStory()
+		}
+		
+		static func home(params: Dictionary<String, Any>? = nil) -> HomeStory {
+			return HomeStory()
 		}
 	}
 }
@@ -28,34 +32,20 @@ extension CoordInstance {
 // MARK: - ########################## Atomics ##########################
 extension CoordInstance {
 	class Atomic {
-		static func intro(_ params: Dictionary<String, Any>? = nil) -> IntroCoordinator {
-			let coordinator = container.sureResolve(IntroCoordinator.self)
-			//		coordinator.push(params: params)
+		static func intro(_ params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
+			guard let coordinator = container.sureResolve(IntroCoordinator.self) as? DefaultCoordinator<Void> else {
+				fatalError("Coordinator need based on DefaultCoordinator")
+			}
+			
 			return coordinator
 		}
 		
-		static func home(params: Dictionary<String, Any>? = nil) -> HomeCoordinator {
-			let coordinator = container.sureResolve(HomeCoordinator.self)
+		static func home(params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
+			guard let coordinator = container.sureResolve(HomeCoordinator.self) as? DefaultCoordinator<Void> else {
+				fatalError("Coordinator need based on DefaultCoordinator")
+			}
+			
 			return coordinator
 		}
-	}
-}
-
-
-// MARK: - ########################## PROVIDERS ##########################
-//// MARK: Manager ------------------
-//extension HomeStory {
-//	static func introStory(params: Dictionary<String, Any>? = nil) -> IntroStory {
-//		return IntroStory()
-//	}
-//}
-
-extension CoordinatorAdapter {
-	func bringMeToHome(params: Dictionary<String, Any>? = nil) -> Observable<Void> {
-		guard let coordinator = HomeStory.homeCoordinator(params: params) as? CoordinatorAdapter<Void> else {
-			return Observable.never()
-		}
-		
-		return coordinate(to: coordinator)
 	}
 }

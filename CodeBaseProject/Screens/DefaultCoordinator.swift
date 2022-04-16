@@ -14,12 +14,10 @@ class DefaultCoordinator<ResultType> {
 	private(set) var result: ResultType!
 	private let view: AnyView
 	private let viewModel: ViewModelRule
-	private let navigator: NavigationProvider
 	
-	init(view: AnyView, viewModel: ViewModelRule, navigator: NavigationProvider) {
+	init(view: AnyView, viewModel: ViewModelRule) {
 		self.view = view
 		self.viewModel = viewModel
-		self.navigator = navigator
 	}
 	
 	/// Typealias which will allows to access a ResultType of the Coordainator by `CoordinatorName.CoordinationResult`.
@@ -90,7 +88,7 @@ class DefaultCoordinator<ResultType> {
 			})
 	}
 	
-	func start(viewModel: ViewModelRule) -> Observable<ResultType> {
+	func doActionAfterMove(on viewModel: ViewModelRule) -> Observable<ResultType> {
 		fatalError("Start method should be implemented.")
 	}
 	
@@ -102,8 +100,12 @@ class DefaultCoordinator<ResultType> {
 // MARK: - ########################## PUBLIC FUNCTION LIST ##########################
 extension DefaultCoordinator {
 	//MARK: Getters
-	static var container: Container {
+	var container: Container {
 		return AppProvider.shared.container
+	}
+	
+	var navigator: NavigationProvider? {
+		return AppProvider.shared.navigator
 	}
 //
 //	var viewController: UIViewController {
@@ -232,15 +234,19 @@ extension DefaultCoordinator {
 
 private extension DefaultCoordinator {
 	func start(on presentType: PresentType = .push) -> Observable<ResultType> {
-//		switch presentType {
-//		case .push:
-//			return coorBag.navService.push(viewController: vc, animated: true)
-//		case .present:
-//			return coorBag.navService.present(viewController: vc, animated: true, completion: nil)
-//		case .updateRoot:
-//			return coorBag.navService.resetStack(by: [vc], animated: true)
-//		}
+		switch presentType {
+		case .`init`:
+			AppProvider.shared.makeWindowVisible(on: view)
+		case .push:
+			navigator?.pushView(view, animated: true)
+		case .present:
+			navigator?.pushView(view, animated: true)
+		case .resetStack:
+			navigator?.resetStack(by: [view], animated: true)
+		case .none:
+			break
+		}
 		
-		return start(viewModel: viewModel)
+		return doActionAfterMove(on: viewModel)
 	}
 }

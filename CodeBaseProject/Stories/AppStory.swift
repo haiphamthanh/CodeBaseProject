@@ -8,9 +8,9 @@
 import Swinject
 import RxSwift
 
-class AppStory: CoordinatorAdapter<Void> {
+class AppStory {
 	// MARK: - ================================= Proxy action =================================
-	override func start(viewModel: ViewModelRule) -> Observable<Void> {
+	func start() -> Observable<Void> {
 		return proxyCoordinator()
 	}
 }
@@ -27,32 +27,34 @@ private extension AppStory {
 	
 	// Driver
 	func driverCoordinator() -> Observable<Void> {
-		let storyCompletion = { [weak self] (_: Void) in
-			guard let strongSelf = self else { return }
-			strongSelf.driverCoordinator()
-				.subscribe()
-				.disposed(by: strongSelf.disposeBag)
+//		let storyCompletion = { [weak self] (_: Void) in
+//			guard let strongSelf = self else { return }
+//			strongSelf.driverCoordinator()
+//				.subscribe()
+//				.disposed(by: strongSelf.disposeBag)
+//		}
+		let storyCompletion = {
+			// Do something after all
 		}
 		
 		// Goto intro for fist time install application
 		let isFirstInstall = !UserDefaults.standard.bool(forKey: "INSTALLED_BEFORE")
 		if isFirstInstall {
 			UserDefaults.standard.set(true, forKey: "INSTALLED_BEFORE")
-			return introStory(storyCompletion)
+			return startIntroStory(storyCompletion)
 		}
 		
-		return oauthStory(storyCompletion)
+		return startHomeStory(storyCompletion)
 	}
 	
 	// Stories
-	func introStory(_ storyCompletion: @escaping (() -> Void)) -> Observable<Void> {
-		return startIntroStory()
-			.do(onNext: storyCompletion)
+	func startIntroStory(_ storyCompletion: @escaping (() -> Void)) -> Observable<Void> {
+		return CoordInstance.Story.intro().start()
 	}
 	
-	func oauthStory(_ storyCompletion: @escaping (() -> Void)) -> Observable<Void> {
-		return startOauthStory()
-			.do(onNext: storyCompletion)
+	// Home
+	func startHomeStory(_ storyCompletion: @escaping (() -> Void)) -> Observable<Void> {
+		return CoordInstance.Story.home().start()
 	}
 	
 	// TODO: Check app for secure

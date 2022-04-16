@@ -7,8 +7,8 @@
 
 /// ViewModel Out
 /// ViewModel Identify
-protocol HomeViewModel {
+protocol IntroViewModel {
 }
 
-class HomeViewModelImpl: DefaultViewModel, ViewModelRule, HomeViewModel {
+class IntroViewModelImpl: DefaultViewModel, ViewModelRule, IntroViewModel {
 }

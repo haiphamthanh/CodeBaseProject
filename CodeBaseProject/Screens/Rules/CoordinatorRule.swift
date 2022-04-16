@@ -9,9 +9,11 @@ import SwiftUI
 import RxSwift
 
 enum PresentType: Int {
+	case `init`
 	case push
 	case present
-	case updateRoot
+	case resetStack
+	case none
 }
 
 protocol CoordinatorRule {

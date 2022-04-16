@@ -1,5 +1,5 @@
 //
-//  AppNavigator.swift
+//  DefaultNavigation.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 11/04/2022.
@@ -8,8 +8,11 @@
 import SwiftUI
 
 class DefaultNavigation: NavigationProvider {
-	private var navigator: NavigationAdapter? {
-		return NavigationAdapter()
+	private let navigator: NavigationAdapter?
+	init() {
+		let window = AppProvider.shared.window
+		let navigationVC = AppProvider.shared.navigationVC
+		self.navigator = NavigationAdapter(window: window, navigationVC: navigationVC)
 	}
 }
 
@@ -31,8 +34,8 @@ extension DefaultNavigation {
 		navigator?.popToPrevious(animated: animated, completion: completion)
 	}
 	
-	func resetRootNavigation<Content:View>(views:[Content], animated:Bool) {
-		navigator?.resetRootNavigation(views: views, animated: animated)
+	func resetStack<Content:View>(by views:[Content], animated:Bool) {
+		navigator?.resetStack(by: views, animated: animated)
 	}
 }
 
@@ -58,8 +61,8 @@ extension DefaultNavigation {
 		navigator?.switchRootViewController(rootViewController: rootViewController, animated: animated, completion: completion)
 	}
 	
-	func resetRootNavigation(vcs: [UIViewController], animated: Bool) {
-		navigator?.resetRootNavigation(vcs: vcs, animated: animated)
+	func resetStack(by vcs: [UIViewController], animated: Bool) {
+		navigator?.resetStack(by: vcs, animated: animated)
 	}
 	
 	// MARK: Modal

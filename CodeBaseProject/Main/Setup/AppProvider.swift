@@ -5,8 +5,10 @@
 //  Created by HaiKaito on 09/04/2022.
 //
 
+import RxSwift
 import Swinject
 import os
+import SwiftUI
 
 class AppProvider {
 	// MARK: - ================================= Properties =================================
@@ -18,6 +20,8 @@ class AppProvider {
 	
 	private(set) var window: UIWindow?
 	private(set) lazy var container = Container()
+	private(set) lazy var appStory = AppStory()
+	private let disposeBag = DisposeBag()
 }
 
 // MARK: - ================================= Usage =================================
@@ -34,12 +38,20 @@ extension AppProvider {
 		return pNavigationVC
 	}
 	
+	var navigator: NavigationProvider? {
+#if DEBUG
+			print("\(#function) is called")
+#endif
+		return container.resolve(NavigationProvider.self)
+	}
+	
 	func holdWindow(_ window: UIWindow?) {
 #if DEBUG
 			print("\(#function) is called")
 #endif
-		self.window = window
 		self.needResetNavigation = true
+		self.window = window
+		self.startToShowWindow()
 	}
 	
 	func setupSystem() {
@@ -47,6 +59,27 @@ extension AppProvider {
 				print("\(#function) is called")
 	#endif
 		SystemConstructor(container: container).start()
+	}
+	
+	
+	private func startToShowWindow() {
+	#if DEBUG
+				print("\(#function) is called")
+	#endif
+		// Use a UIKitAdapter(UIHostingController) as window root view controller.
+//		let contentView = MainView()
+//		window?.rootViewController = UIKitAdapter(rootView: contentView)
+//		window?.makeKeyAndVisible()
+		
+		//TODO: Transfer to app after done all
+		appStory.start()
+			.subscribe()
+			.disposed(by: disposeBag)
+	}
+	
+	func makeWindowVisible(on view: AnyView) {
+		window?.rootViewController = UIKitAdapter(rootView: view)
+		window?.makeKeyAndVisible()
 	}
 	
 	///

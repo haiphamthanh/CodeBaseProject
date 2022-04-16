@@ -22,16 +22,16 @@ class HomeCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, HomeCoordi
 	typealias IndividualViewModel = HomeViewModelCoordSupport
 	let indViewModel: IndividualViewModel
 	
-	init(view: AnyView, viewModel: IndividualViewModel, navigator: NavigationProvider) {
-		guard let validViewModel = viewModel as? ViewModelRule else {
-			fatalError("Invalid view model")
+	override init(view: AnyView, viewModel: ViewModelRule) {
+		guard let indViewModel = viewModel as? IndividualViewModel else {
+			fatalError("View model need to support coordinator")
 		}
-		
-		self.indViewModel = viewModel
-		super.init(view: view, viewModel: validViewModel, navigator: navigator)
+
+		self.indViewModel = indViewModel
+		super.init(view: view, viewModel: viewModel)
 	}
 	
-	override func start(viewModel: ViewModelRule) -> Observable<Void> {
+	override func doActionAfterMove(on viewModel: ViewModelRule) -> Observable<Void> {
 		return viewModel.didDone
 			.take(1)
 			.do(onNext: { _ in })

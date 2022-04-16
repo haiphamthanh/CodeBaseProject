@@ -12,7 +12,6 @@ import IQKeyboardManagerSwift
 class SystemConstructor {
 	// MARK: - ================================= Private Properties =================================
 	private weak var container: Container?
-	private let disposeBag = DisposeBag()
 	
 	// MARK: - ================================= Initialize =================================
 	init(container: Container?) {
@@ -99,29 +98,29 @@ private extension SystemConstructor {
 		type(of: appThem.self).applyAppearanceDefaults()
 		
 		//TODO: Transfer to app after done all
-		let appCoordinator = appCoordinator()
-		appCoordinator?.startProcess()
-			.subscribe()
-			.disposed(by: disposeBag)
+//		let appCoordinator = appCoordinator()
+//		appCoordinator?.startProcess()
+//			.subscribe()
+//			.disposed(by: disposeBag)
 	}
 	
 	
 	
-	func appCoordinator() -> AppRootCoordinator? {
-		let viewModel: AppRootViewModel = AppRootViewModelImpl()
-		let viewModelAdapter = AppRootViewModelAdapter(viewModel: viewModel)
-		let view = AnyView(AppRootView(pros: viewModelAdapter))
-		let navigator = DefaultNavigation()
-		
-		guard let viewModelWithCoorSupport = viewModel as? AppRootViewModelCoorSupport else {
-			return nil
-		}
-		
-		let coordinator: AppRootCoordinator = AppRootCoordinatorImpl(navigator: navigator,
-																	 viewModel: viewModelWithCoorSupport,
-																	 view: view)
-		return coordinator
-	}
+//	func appCoordinator() -> AppRootCoordinator? {
+//		let viewModel: AppRootViewModel = AppRootViewModelImpl()
+//		let viewModelAdapter = AppRootViewModelAdapter(viewModel: viewModel)
+//		let view = AnyView(AppRootView(pros: viewModelAdapter))
+//		let navigator = DefaultNavigation()
+//
+//		guard let viewModelWithCoorSupport = viewModel as? AppRootViewModelCoorSupport else {
+//			return nil
+//		}
+//
+//		let coordinator: AppRootCoordinator = AppRootCoordinatorImpl(navigator: navigator,
+//																	 viewModel: viewModelWithCoorSupport,
+//																	 view: view)
+//		return coordinator
+//	}
 }
 
 // MARK: - ================================= Other tasks =================================

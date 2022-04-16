@@ -15,13 +15,7 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 		
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 		
-		let contentView = MainView()
 		let window = UIWindow(windowScene: windowScene)
-		
-		// Use a UIKitAdapter(UIHostingController) as window root view controller.
-		window.rootViewController = UIKitAdapter(rootView: contentView)
-		window.makeKeyAndVisible()
-		
 		AppProvider.shared.holdWindow(window)
 	}
 	

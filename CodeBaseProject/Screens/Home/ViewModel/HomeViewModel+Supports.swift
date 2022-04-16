@@ -9,11 +9,11 @@ import RxSwift
 import Combine
 
 // MARK: - ================================= Coordinator support =================================
-extension IntroViewModelImpl: IntroViewModelCoordSupport {
+extension HomeViewModelImpl: HomeViewModelCoordSupport {
 }
 
 // MARK: - ================================= View support =================================
-extension IntroViewModelImpl: IntroViewModelViewSupport {
+extension HomeViewModelImpl: HomeViewModelViewSupport {
 	func gotoSomeWhere() {
 		// go some where
 	}

@@ -113,6 +113,7 @@
 		8640C1AB280A9F90002448AC /* HomeViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AA280A9F90002448AC /* HomeViewModel+Supports.swift */; };
 		8640C1AE280AA88F002448AC /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AD280AA88F002448AC /* RootViewModel.swift */; };
 		8640C1B0280AA8CC002448AC /* RootViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */; };
+		86609EDC280B286400EAD104 /* ViewInstance+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EDB280B286400EAD104 /* ViewInstance+.swift */; };
 		8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FB280055F90076B3AC /* AppNotification.swift */; };
 		8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FD2800560C0076B3AC /* FirstLoading.swift */; };
 		8685B2002800561A0076B3AC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FF2800561A0076B3AC /* AppTheme.swift */; };
@@ -164,7 +165,7 @@
 		8685B27B280166FB0076B3AC /* Swinject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27A280166FB0076B3AC /* Swinject+.swift */; };
 		8685B27D2801676E0076B3AC /* ToastProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27C2801676E0076B3AC /* ToastProvider.swift */; };
 		8685B27F2801685F0076B3AC /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B27E2801685F0076B3AC /* ImageProvider.swift */; };
-		8685B28328016CA30076B3AC /* DefaultNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28228016CA30076B3AC /* DefaultNavigation.swift */; };
+		8685B28328016CA30076B3AC /* DefaultNavigation+Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28228016CA30076B3AC /* DefaultNavigation+Trash.swift */; };
 		8685B28528016CAF0076B3AC /* DefaultImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28428016CAF0076B3AC /* DefaultImage.swift */; };
 		8685B28728016CBB0076B3AC /* DefaultToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28628016CBB0076B3AC /* DefaultToast.swift */; };
 		8685B28928016CC50076B3AC /* DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B28828016CC50076B3AC /* DefaultAlert.swift */; };
@@ -173,7 +174,7 @@
 		869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEBD28041280003D87E6 /* DestinationHostingController.swift */; };
 		869BBEC1280417A4003D87E6 /* AppNavigatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC0280417A4003D87E6 /* AppNavigatorProvider.swift */; };
 		869BBEC3280417D8003D87E6 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC2280417D8003D87E6 /* Navigator.swift */; };
-		869BBEC52804186A003D87E6 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC42804186A003D87E6 /* AppNavigator.swift */; };
+		869BBEC52804186A003D87E6 /* DefaultNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC42804186A003D87E6 /* DefaultNavigation.swift */; };
 		869BBEC82804199F003D87E6 /* NavigationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC72804199F003D87E6 /* NavigationAdapter.swift */; };
 		869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0028046408003D87E6 /* AppRootViewFactory.swift */; };
 		869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */; };
@@ -311,6 +312,7 @@
 		8640C1AA280A9F90002448AC /* HomeViewModel+Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel+Supports.swift"; sourceTree = "<group>"; };
 		8640C1AD280AA88F002448AC /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewModel+Supports.swift"; sourceTree = "<group>"; };
+		86609EDB280B286400EAD104 /* ViewInstance+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewInstance+.swift"; sourceTree = "<group>"; };
 		8685B1FB280055F90076B3AC /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		8685B1FD2800560C0076B3AC /* FirstLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoading.swift; sourceTree = "<group>"; };
 		8685B1FF2800561A0076B3AC /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -362,7 +364,7 @@
 		8685B27A280166FB0076B3AC /* Swinject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+.swift"; sourceTree = "<group>"; };
 		8685B27C2801676E0076B3AC /* ToastProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastProvider.swift; sourceTree = "<group>"; };
 		8685B27E2801685F0076B3AC /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
-		8685B28228016CA30076B3AC /* DefaultNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigation.swift; sourceTree = "<group>"; };
+		8685B28228016CA30076B3AC /* DefaultNavigation+Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultNavigation+Trash.swift"; sourceTree = "<group>"; };
 		8685B28428016CAF0076B3AC /* DefaultImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImage.swift; sourceTree = "<group>"; };
 		8685B28628016CBB0076B3AC /* DefaultToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultToast.swift; sourceTree = "<group>"; };
 		8685B28828016CC50076B3AC /* DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlert.swift; sourceTree = "<group>"; };
@@ -371,7 +373,7 @@
 		869BBEBD28041280003D87E6 /* DestinationHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationHostingController.swift; sourceTree = "<group>"; };
 		869BBEC0280417A4003D87E6 /* AppNavigatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigatorProvider.swift; sourceTree = "<group>"; };
 		869BBEC2280417D8003D87E6 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
-		869BBEC42804186A003D87E6 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
+		869BBEC42804186A003D87E6 /* DefaultNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigation.swift; sourceTree = "<group>"; };
 		869BBEC72804199F003D87E6 /* NavigationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAdapter.swift; sourceTree = "<group>"; };
 		869BBF0028046408003D87E6 /* AppRootViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewFactory.swift; sourceTree = "<group>"; };
 		869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasRootNavigationController.swift; sourceTree = "<group>"; };
@@ -1005,6 +1007,7 @@
 			children = (
 				8640C19E280A62EF002448AC /* CoordMover+.swift */,
 				8640C1A0280A6409002448AC /* CoordInstance+.swift */,
+				86609EDB280B286400EAD104 /* ViewInstance+.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -1034,6 +1037,16 @@
 				8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8640C1B1280B127D002448AC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8685B28228016CA30076B3AC /* DefaultNavigation+Trash.swift */,
+				869BBEC72804199F003D87E6 /* NavigationAdapter.swift */,
+				869BBEBD28041280003D87E6 /* DestinationHostingController.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		8685B1FA280055D00076B3AC /* Settings */ = {
@@ -1127,7 +1140,8 @@
 		8685B262280160000076B3AC /* Defaults */ = {
 			isa = PBXGroup;
 			children = (
-				869BBEC6280418FC003D87E6 /* AppNavigator */,
+				8640C1B1280B127D002448AC /* Helper */,
+				869BBEC42804186A003D87E6 /* DefaultNavigation.swift */,
 				8685B28428016CAF0076B3AC /* DefaultImage.swift */,
 				8685B28628016CBB0076B3AC /* DefaultToast.swift */,
 				8685B28828016CC50076B3AC /* DefaultAlert.swift */,
@@ -1192,17 +1206,6 @@
 				8604236A27EDF4F00056EF17 /* Plugins */,
 			);
 			path = ExternalPlugins;
-			sourceTree = "<group>";
-		};
-		869BBEC6280418FC003D87E6 /* AppNavigator */ = {
-			isa = PBXGroup;
-			children = (
-				8685B28228016CA30076B3AC /* DefaultNavigation.swift */,
-				869BBEC42804186A003D87E6 /* AppNavigator.swift */,
-				869BBEBD28041280003D87E6 /* DestinationHostingController.swift */,
-				869BBEC72804199F003D87E6 /* NavigationAdapter.swift */,
-			);
-			path = AppNavigator;
 			sourceTree = "<group>";
 		};
 		869BBEFF28045D5A003D87E6 /* Subviews */ = {
@@ -1537,7 +1540,7 @@
 				8685B2002800561A0076B3AC /* AppTheme.swift in Sources */,
 				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				8685B22428005C9C0076B3AC /* GooglePlugin.swift in Sources */,
-				869BBEC52804186A003D87E6 /* AppNavigator.swift in Sources */,
+				869BBEC52804186A003D87E6 /* DefaultNavigation.swift in Sources */,
 				8685B23628007C5E0076B3AC /* ViewRule.swift in Sources */,
 				861E859427FB5BB20032C4F5 /* Font+.swift in Sources */,
 				861E859627FB5C120032C4F5 /* AppAlertData.swift in Sources */,
@@ -1619,7 +1622,7 @@
 				861E858D27FB5BB20032C4F5 /* PullToRefresh.swift in Sources */,
 				862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */,
 				8685B21528005A360076B3AC /* AppNotificationProvider.swift in Sources */,
-				8685B28328016CA30076B3AC /* DefaultNavigation.swift in Sources */,
+				8685B28328016CA30076B3AC /* DefaultNavigation+Trash.swift in Sources */,
 				861E857827FB4D570032C4F5 /* ViewType.swift in Sources */,
 				8685B26F2801614D0076B3AC /* CircularRevealAnimator.swift in Sources */,
 				8685B22E280061420076B3AC /* LocalizationManager.swift in Sources */,
@@ -1629,6 +1632,7 @@
 				8640C1922808EEF7002448AC /* IntroStory.swift in Sources */,
 				862EF21927F958400051A3A0 /* UseCasesImpl.swift in Sources */,
 				8632D423280213FA00141EDC /* UserNetworkImpl.swift in Sources */,
+				86609EDC280B286400EAD104 /* ViewInstance+.swift in Sources */,
 				8604234827ED01B00056EF17 /* RequestFactory.swift in Sources */,
 				8604235A27EDF0E30056EF17 /* RootViewModel+Trash.swift in Sources */,
 				8604231827E8E2270056EF17 /* URLSessionProxyDelegate.swift in Sources */,

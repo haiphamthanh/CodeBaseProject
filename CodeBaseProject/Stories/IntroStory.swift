@@ -5,26 +5,19 @@
 //  Created by HaiKaito on 15/04/2022.
 //
 
-import Swinject
 import RxSwift
 
-class IntroStory: CoordinatorAdapter<Void> {
-	// MARK: - ================================= Proxy action =================================
-	override func start(viewModel: ViewModelRule) -> Observable<Void> {
-		return driverCoordinator()
+class IntroStory {
+	func start() -> Observable<Void> {
+		return introduceApp()
 	}
 }
 
 // MARK: - ########################## Intro Story Manager ##########################
 private extension IntroStory {
-	// Driver
-	func driverCoordinator() -> Observable<Void> {
-		return introduceApp()
-	}
-	
-	// Tasks
 	func introduceApp() -> Observable<Void> {
-		return bringMeToIntro()
+		CoordInstance.Atomic.intro()
+			.startProcess(on: .`init`)
 			.do(onNext: { _ in })
 	}
 }

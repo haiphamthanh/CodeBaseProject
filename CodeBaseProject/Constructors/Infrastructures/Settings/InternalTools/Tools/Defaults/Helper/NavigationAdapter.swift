@@ -15,11 +15,18 @@ import SwiftUI
 ///
 
 class NavigationAdapter: ObservableObject {
-	private var window: UIWindow? {
-		AppProvider.shared.window
-	}
-	private var navigationVC: UINavigationController? {
-		AppProvider.shared.navigationVC
+//	private var window: UIWindow? {
+//		AppProvider.shared.window
+//	}
+//	private var navigationVC: UINavigationController? {
+//		AppProvider.shared.navigationVC
+//	}
+	
+	private let window: UIWindow?
+	private var navigationVC: UINavigationController?
+	init(window: UIWindow?, navigationVC: UINavigationController?) {
+		self.window = window
+		self.navigationVC = navigationVC
 	}
 	
 	var topVC: UIViewController? {
@@ -53,9 +60,9 @@ extension NavigationAdapter {
 		popViewController(animated: animated, completion: completion)
 	}
 	
-	func resetRootNavigation<Content:View>(views: [Content], animated:Bool) {
+	func resetStack<Content:View>(by views: [Content], animated:Bool) {
 		let controllers =  views.compactMap { UIHostingController(rootView: $0) }
-		resetRootNavigation(vcs: controllers, animated: animated)
+		resetStack(by: controllers, animated: animated)
 	}
 }
 
@@ -76,23 +83,23 @@ extension NavigationAdapter {
 	func switchRootViewController(rootViewController: UIViewController, animated: Bool = true, completion: (() -> Void)?) {
 		guard let window = window else { return }
 		
-		if animated {
-			UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
-				let oldState: Bool = UIView.areAnimationsEnabled
-				UIView.setAnimationsEnabled(false)
-				window.rootViewController = rootViewController
-				UIView.setAnimationsEnabled(oldState)
-			}, completion: { (finished: Bool) -> () in
-				if (completion != nil) {
-					completion!()
-				}
-			})
-		} else {
-			window.rootViewController = rootViewController
+		if !animated {
+			return window.rootViewController = rootViewController
 		}
+		
+		UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+			let oldState: Bool = UIView.areAnimationsEnabled
+			UIView.setAnimationsEnabled(false)
+			window.rootViewController = rootViewController
+			UIView.setAnimationsEnabled(oldState)
+		}, completion: { (finished: Bool) -> () in
+			if (completion != nil) {
+				completion!()
+			}
+		})
 	}
 	
-	func resetRootNavigation(vcs: [UIViewController], animated: Bool = true) {
+	func resetStack(by vcs: [UIViewController], animated: Bool = true) {
 		navigationVC?.setViewControllers(vcs, animated: animated)
 	}
 	

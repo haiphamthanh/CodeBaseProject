@@ -29,7 +29,7 @@ class UIToolsRegister {
 private extension UIToolsRegister {
 	func registerPrimaryTools() {
 		// Navigation
-		container.register(NavigationProvider.self) { _ in DefaultNavigation() }
+		container.register(NavigationProvider.self) { r in DefaultNavigation() }
 		
 		// Network
 		container.register(NetworkProvider.self) { _ in NetworkProviderImpl() }

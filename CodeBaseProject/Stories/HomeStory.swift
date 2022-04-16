@@ -5,29 +5,24 @@
 //  Created by HaiKaito on 15/04/2022.
 //
 
-import Swinject
 import RxSwift
 
-// MARK: - ########################## STORY ##########################
-class HomeStory: CoordinatorAdapter<Void> {
-	// MARK: - ================================= Proxy action =================================
-	override func start(viewModel: ViewModelRule) -> Observable<Void> {
+class HomeStory {
+	func start() -> Observable<Void> {
 		return driverCoordinator()
 	}
 }
 
-// MARK: - ########################## Home Story Manager ##########################
+// MARK: - ########################## Intro Story Manager ##########################
 private extension HomeStory {
 	// Driver
 	func driverCoordinator() -> Observable<Void> {
-		return introduceApp()
+		return enterHome()
 	}
 	
-	// Tasks
-	func introduceApp() -> Observable<Void> {
-		return CoordMover(self)
-			.transitToIntro()
+	func enterHome() -> Observable<Void> {
+		CoordInstance.Atomic.home()
+			.startProcess(on: .`init`)
 			.do(onNext: { _ in })
 	}
 }
-

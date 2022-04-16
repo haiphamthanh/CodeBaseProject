@@ -18,13 +18,35 @@ class UIRegister {
 	}
 	
 	func start() {
-//		return registerUserInterface()
+		return registerUserInterface()
 	}
 }
 
 // MARK: - ================================= Register =================================
 private extension UIRegister {
-//	func registerUserInterface() {
+	func registerUserInterface() {
+		//MARK: ------------------------------------ INTRODUCTION ------------------------------------
+		container.register(IntroViewModel.self) { _ in IntroViewModelImpl() }
+		container.register(IntroCoordinator.self) { r in
+			guard let viewModel = r.sureResolve(IntroViewModel.self) as? ViewModelRule else {
+				fatalError("View model need to confirm to ViewModelRule")
+			}
+			
+			let view = ViewInstance.introView(viewModel: viewModel)
+			return IntroCoordinatorImpl(view: view, viewModel: viewModel)
+		}
+		
+		//MARK: ------------------------------------ HOME ------------------------------------
+		container.register(HomeViewModel.self) { _ in HomeViewModelImpl() }
+		container.register(HomeCoordinator.self) { r in
+			guard let viewModel = r.sureResolve(HomeViewModel.self) as? ViewModelRule else {
+				fatalError("View model need to confirm to ViewModelRule")
+			}
+			
+			let view = ViewInstance.homeView(viewModel: viewModel)
+			return HomeCoordinatorImpl(view: view, viewModel: viewModel)
+		}
+		
 //		//MARK: ------------------------------------ APPLICATION ------------------------------------
 //		container.register(AppCoordinatorProtocol.self) { _ in BaseAppCoordinator() }
 //
@@ -50,7 +72,7 @@ private extension UIRegister {
 //
 //			return r.promiseCoordinator(view: view, viewModel: viewModel, coordinator: coordinator)
 //		}
-//
+
 //		//MARK: ------------------------------------ HOME ------------------------------------
 //		container.register(HomeModelProtocol.self) { _ in HomeModel() }
 //		container.register(HomeViewModelProtocol.self) { r in
@@ -73,5 +95,5 @@ private extension UIRegister {
 //
 //			return r.promiseCoordinator(view: view, viewModel: viewModel, coordinator: coordinator, window: window)
 //		}
-//	}
+	}
 }
