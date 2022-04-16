@@ -14,5 +14,13 @@ extension RootViewModelImpl: RootViewModelCoordSupport {
 
 // MARK: - ================================= View support =================================
 extension RootViewModelImpl: RootViewModelViewSupport {
+	var authState: Observable<AuthState> {
+		_authState.asObservable()
+	}
+	
+	var counting: Observable<Int> {
+		_counting.asObservable()
+	}
+	
 }
 

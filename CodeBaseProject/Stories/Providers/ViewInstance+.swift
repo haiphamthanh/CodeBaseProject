@@ -18,6 +18,11 @@ extension ViewInstance {
 		return AnyView(IntroView.IView(pros: pros))
 	}
 	
+	static func rootView(viewModel: ViewModelRule) -> AnyView {
+		let pros = RootView.IPros(viewModel: viewModel)
+		return AnyView(RootView.IView(pros: pros))
+	}
+	
 	static func homeView(viewModel: ViewModelRule) -> AnyView {
 		let pros = HomeView.IPros(viewModel: viewModel)
 		return AnyView(HomeView.IView(pros: pros))

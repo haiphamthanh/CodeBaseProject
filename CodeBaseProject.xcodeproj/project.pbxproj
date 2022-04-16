@@ -114,6 +114,10 @@
 		8640C1AE280AA88F002448AC /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AD280AA88F002448AC /* RootViewModel.swift */; };
 		8640C1B0280AA8CC002448AC /* RootViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */; };
 		86609EDC280B286400EAD104 /* ViewInstance+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EDB280B286400EAD104 /* ViewInstance+.swift */; };
+		86609EDE280B34D300EAD104 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EDD280B34D300EAD104 /* StartView.swift */; };
+		86609EE0280B355300EAD104 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EDF280B355300EAD104 /* ProgressView.swift */; };
+		86609EE2280B357200EAD104 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EE1280B357200EAD104 /* SuccessView.swift */; };
+		86609EE4280B363500EAD104 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EE3280B363500EAD104 /* ContainerView.swift */; };
 		8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FB280055F90076B3AC /* AppNotification.swift */; };
 		8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FD2800560C0076B3AC /* FirstLoading.swift */; };
 		8685B2002800561A0076B3AC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FF2800561A0076B3AC /* AppTheme.swift */; };
@@ -313,6 +317,10 @@
 		8640C1AD280AA88F002448AC /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewModel+Supports.swift"; sourceTree = "<group>"; };
 		86609EDB280B286400EAD104 /* ViewInstance+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewInstance+.swift"; sourceTree = "<group>"; };
+		86609EDD280B34D300EAD104 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		86609EDF280B355300EAD104 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		86609EE1280B357200EAD104 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		86609EE3280B363500EAD104 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		8685B1FB280055F90076B3AC /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		8685B1FD2800560C0076B3AC /* FirstLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoading.swift; sourceTree = "<group>"; };
 		8685B1FF2800561A0076B3AC /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -632,10 +640,11 @@
 		8604236D27EDF5B50056EF17 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				8604235727EDF0E30056EF17 /* RootViewModel+Trash.swift */,
 				869BBEFF28045D5A003D87E6 /* Subviews */,
+				8604235727EDF0E30056EF17 /* RootViewModel+Trash.swift */,
 				8640C1AC280AA87A002448AC /* ViewModel */,
 				8604235627EDF0E30056EF17 /* RootView.swift */,
+				869BBF0028046408003D87E6 /* AppRootViewFactory.swift */,
 				8604235827EDF0E30056EF17 /* RootCoordinator.swift */,
 			);
 			path = Root;
@@ -1072,6 +1081,7 @@
 		8685B2092800573D0076B3AC /* Tool+ */ = {
 			isa = PBXGroup;
 			children = (
+				869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */,
 				8604238327EE2F550056EF17 /* DependencyInjector.swift */,
 				8685B278280164FC0076B3AC /* UsefulColors.swift */,
 			);
@@ -1211,8 +1221,10 @@
 		869BBEFF28045D5A003D87E6 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				869BBF0028046408003D87E6 /* AppRootViewFactory.swift */,
-				869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */,
+				86609EE3280B363500EAD104 /* ContainerView.swift */,
+				86609EDD280B34D300EAD104 /* StartView.swift */,
+				86609EDF280B355300EAD104 /* ProgressView.swift */,
+				86609EE1280B357200EAD104 /* SuccessView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1639,9 +1651,11 @@
 				8685B20E2800587D0076B3AC /* AppConnectProvider.swift in Sources */,
 				8685B26128015DE50076B3AC /* UIToolsRegister.swift in Sources */,
 				8604233A27ECADBD0056EF17 /* UserAPI.swift in Sources */,
+				86609EE4280B363500EAD104 /* ContainerView.swift in Sources */,
 				862EF21F27F962E10051A3A0 /* UserData.swift in Sources */,
 				869BBEC1280417A4003D87E6 /* AppNavigatorProvider.swift in Sources */,
 				861E859027FB5BB20032C4F5 /* Date+.swift in Sources */,
+				86609EE2280B357200EAD104 /* SuccessView.swift in Sources */,
 				8685B232280073550076B3AC /* MainSceneDelegate.swift in Sources */,
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
 				862EF22F27F990590051A3A0 /* AppNotificationData.swift in Sources */,
@@ -1651,6 +1665,7 @@
 				861E858E27FB5BB20032C4F5 /* Int+.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
 				869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */,
+				86609EE0280B355300EAD104 /* ProgressView.swift in Sources */,
 				862EF20227F849A70051A3A0 /* UseCaseProviderImpl.swift in Sources */,
 				8685B2702801614D0076B3AC /* CircularRevealTransitionAnimator.swift in Sources */,
 				861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */,
@@ -1673,6 +1688,7 @@
 				862EF1E827F4A2EB0051A3A0 /* Convertible.swift in Sources */,
 				8604236927EDF4680056EF17 /* Repository.swift in Sources */,
 				8685B22228005C910076B3AC /* FacebookPlugin.swift in Sources */,
+				86609EDE280B34D300EAD104 /* StartView.swift in Sources */,
 				8685B24128007DE50076B3AC /* IntroCoordinator.swift in Sources */,
 				8604231A27E8E47D0056EF17 /* Response.swift in Sources */,
 				862EF22827F978250051A3A0 /* AuthManager.swift in Sources */,

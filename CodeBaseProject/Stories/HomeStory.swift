@@ -21,7 +21,7 @@ private extension HomeStory {
 	}
 	
 	func enterHome() -> Observable<Void> {
-		CoordInstance.Atomic.home()
+		CoordInstance.Atomic.root()
 			.startProcess(on: .`init`)
 			.do(onNext: { _ in })
 	}

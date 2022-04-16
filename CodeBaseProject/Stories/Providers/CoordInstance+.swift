@@ -40,6 +40,14 @@ extension CoordInstance {
 			return coordinator
 		}
 		
+		static func root(_ params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
+			guard let coordinator = container.sureResolve(RootCoordinator.self) as? DefaultCoordinator<Void> else {
+				fatalError("Coordinator need based on DefaultCoordinator")
+			}
+			
+			return coordinator
+		}
+		
 		static func home(params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
 			guard let coordinator = container.sureResolve(HomeCoordinator.self) as? DefaultCoordinator<Void> else {
 				fatalError("Coordinator need based on DefaultCoordinator")

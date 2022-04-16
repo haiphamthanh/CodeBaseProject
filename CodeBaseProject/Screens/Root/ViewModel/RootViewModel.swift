@@ -6,6 +6,7 @@
 //
 
 import Combine
+import RxSwift
 
 enum AuthState {
 	case authorized
@@ -18,8 +19,11 @@ protocol RootViewModel {
 }
 
 class RootViewModelImpl: DefaultViewModel, ViewModelRule, RootViewModel {
-	@Published private(set) var counting: String = ""
-	@Published private(set) var authState: AuthState = .unAuthorized
+//	@Published private(set) var counting: String = "0"
+//	@Published private(set) var authState: AuthState = .unAuthorized
+	let _counting = PublishSubject<Int>()
+	let _authState = PublishSubject<AuthState>()
+	
 	private var counter = 0
 	
 	required init() {
@@ -40,7 +44,7 @@ class RootViewModelImpl: DefaultViewModel, ViewModelRule, RootViewModel {
 		//		try? await Task.sleep(nanoseconds: 7_500_000_000)
 		try? await Task.sleep(nanoseconds: 2_000_000_000)
 		counter += 1
-		counting = "\(counting)"
+		_counting.onNext(counter)
 		return await changeStateAfter2Seconds()
 	}
 }
