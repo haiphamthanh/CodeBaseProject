@@ -9,9 +9,9 @@ import Swinject
 import RxSwift
 
 struct CoordMover<ResultType> {
-	private let current: DefaultCoordinator<ResultType>
+	private weak var current: DefaultCoordinator<ResultType>?
 	
-	init(_ current: DefaultCoordinator<ResultType>) {
+	init(_ current: DefaultCoordinator<ResultType>?) {
 		self.current = current
 	}
 }
@@ -23,7 +23,7 @@ Move to any screen in stories
 extension CoordMover {
 	// MARK: Introduction ------------------
 	func transitToIntro(params: Dictionary<String, Any>? = nil) -> Observable<ResultType> {
-		guard let coordinator = CoordInstance.Atomic.intro(params) as? DefaultCoordinator<ResultType> else {
+		guard let current = current, let coordinator = CoordInstance.Atomic.intro(params) as? DefaultCoordinator<ResultType> else {
 			return Observable.never()
 		}
 		
@@ -32,7 +32,7 @@ extension CoordMover {
 	
 	// MARK: Introduction ------------------
 	func transitToHome(params: Dictionary<String, Any>? = nil) -> Observable<ResultType> {
-		guard let coordinator = CoordInstance.Atomic.home(params: params) as? DefaultCoordinator<ResultType> else {
+		guard let current = current, let coordinator = CoordInstance.Atomic.home(params: params) as? DefaultCoordinator<ResultType> else {
 			return Observable.never()
 		}
 		

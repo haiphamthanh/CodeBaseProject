@@ -141,7 +141,7 @@ class RootCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, RootCoordi
 		//			.flatMap(bringMeToForgotPassword)
 		//			.subscribe()
 		let home = indViewModel.goHome
-			.flatMap({ _ in
+			.flatMap({ [weak self] _ in
 				CoordMover(self).transitToHome()
 			})
 			.subscribe()

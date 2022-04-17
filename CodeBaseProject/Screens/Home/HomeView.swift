@@ -30,6 +30,10 @@ struct HomeView {
 		func gotoSomeWhere() {
 			indViewModel.gotoSomeWhere()
 		}
+		
+		deinit {
+			print("\(self) is deinit")
+		}
 	}
 	
 	// MARK: - ================================= View Layout =================================

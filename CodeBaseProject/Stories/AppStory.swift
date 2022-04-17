@@ -13,6 +13,10 @@ class AppStory {
 	func start() -> Observable<Void> {
 		return proxyCoordinator()
 	}
+	
+	deinit {
+		print("\(self) is deinit")
+	}
 }
 
 private extension AppStory {

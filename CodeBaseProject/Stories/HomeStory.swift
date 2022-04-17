@@ -11,6 +11,10 @@ class HomeStory {
 	func start() -> Observable<Void> {
 		return driverCoordinator()
 	}
+	
+	deinit {
+		print("\(self) is deinit")
+	}
 }
 
 // MARK: - ########################## Intro Story Manager ##########################
