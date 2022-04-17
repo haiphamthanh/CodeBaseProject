@@ -122,7 +122,7 @@ class RootCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, RootCoordi
 	typealias IndividualViewModel = RootViewModelCoordSupport
 	let indViewModel: IndividualViewModel
 	
-	override init(view: AnyView, viewModel: ViewModelRule) {
+	override init(view: AnyView?, viewModel: ViewModelRule?) {
 		guard let indViewModel = viewModel as? IndividualViewModel else {
 			fatalError("View model need to support coordinator")
 		}
@@ -131,8 +131,8 @@ class RootCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, RootCoordi
 		super.init(view: view, viewModel: viewModel)
 	}
 	
-	override func doActionAfterMove(on viewModel: ViewModelRule) -> Observable<Void> {
-		guard let indViewModel = viewModel as? IndividualViewModel else {
+	override func doActionAfterMove(on viewModel: ViewModelRule?) -> Observable<Void> {
+		guard let viewModel = viewModel, let indViewModel = viewModel as? IndividualViewModel else {
 			fatalError("View model need to support coordinator")
 		}
 		

@@ -22,7 +22,7 @@ class HomeCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, HomeCoordi
 	typealias IndividualViewModel = HomeViewModelCoordSupport
 	let indViewModel: IndividualViewModel
 	
-	override init(view: AnyView, viewModel: ViewModelRule) {
+	override init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
 		guard let indViewModel = viewModel as? IndividualViewModel else {
 			fatalError("View model need to support coordinator")
 		}
@@ -31,7 +31,11 @@ class HomeCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, HomeCoordi
 		super.init(view: view, viewModel: viewModel)
 	}
 	
-	override func doActionAfterMove(on viewModel: ViewModelRule) -> Observable<Void> {
+	override func doActionAfterMove(on viewModel: ViewModelRule?) -> Observable<Void> {
+		guard let viewModel = viewModel else {
+			fatalError("View model need to available")
+		}
+
 		return viewModel.didDone
 			.take(1)
 			.do(onNext: { _ in })

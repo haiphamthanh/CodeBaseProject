@@ -12,10 +12,10 @@ import SwiftUI
 /// Base abstract coordinator generic over the return type of the `start` method.
 class DefaultCoordinator<ResultType> {
 	private(set) var result: ResultType!
-	private let view: AnyView
-	private let viewModel: ViewModelRule
+	private let view: AnyView?
+	private let viewModel: ViewModelRule?
 	
-	init(view: AnyView, viewModel: ViewModelRule) {
+	init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
 		self.view = view
 		self.viewModel = viewModel
 	}
@@ -88,7 +88,7 @@ class DefaultCoordinator<ResultType> {
 			})
 	}
 	
-	func doActionAfterMove(on viewModel: ViewModelRule) -> Observable<ResultType> {
+	func doActionAfterMove(on viewModel: ViewModelRule?) -> Observable<ResultType> {
 		fatalError("Start method should be implemented.")
 	}
 	
@@ -234,17 +234,19 @@ extension DefaultCoordinator {
 
 private extension DefaultCoordinator {
 	func start(on presentType: PresentType = .push) -> Observable<ResultType> {
-		switch presentType {
-		case .`init`:
-			AppProvider.shared.makeWindowVisible(on: view)
-		case .push:
-			navigator?.pushView(view, animated: true)
-		case .present:
-			navigator?.pushView(view, animated: true)
-		case .resetStack:
-			navigator?.resetStack(by: [view], animated: true)
-		case .none:
-			break
+		if let view = view {
+			switch presentType {
+			case .`init`:
+				AppProvider.shared.makeWindowVisible(on: view)
+			case .push:
+				navigator?.pushView(view, animated: true)
+			case .present:
+				navigator?.pushView(view, animated: true)
+			case .resetStack:
+				navigator?.resetStack(by: [view], animated: true)
+			case .none:
+				break
+			}
 		}
 		
 		return doActionAfterMove(on: viewModel)

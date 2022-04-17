@@ -20,9 +20,7 @@ class IntroStory {
 // MARK: - ########################## Intro Story Manager ##########################
 private extension IntroStory {
 	func introduceApp() -> Observable<Void> {
-		let inStart = CoordInstance.Atomic.intro()
-		array.append(inStart)
-		return inStart
+		return CoordInstance.Atomic.intro()
 			.startProcess(on: .`init`)
 			.do(onNext: { _ in })
 	}
