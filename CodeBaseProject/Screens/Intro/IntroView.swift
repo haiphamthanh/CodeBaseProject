@@ -16,19 +16,9 @@ struct IntroView {
 	private init() { }
 	
 	// Properties is used for View
-	class IPros: ObservableObject {
-		typealias IndividualViewModel = IntroViewModelViewSupport
-		private let indViewModel: IndividualViewModel
-		init(viewModel: ViewModelRule) {
-			guard let indViewModel = viewModel as? IndividualViewModel else {
-				fatalError("View model need to support coordinator")
-			}
-
-			self.indViewModel = indViewModel
-		}
-		
+	class IPros: DefaultIPros<IntroViewModelViewSupport>, ObservableObject {
 		func gotoSomeWhere() {
-			indViewModel.gotoSomeWhere()
+			indViewModel?.gotoSomeWhere()
 		}
 	}
 	
@@ -46,6 +36,8 @@ struct IntroView {
 				}
 				.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 				.background(Color.red)
+			}.onDisappear {
+				self.pros.invalidate()     // << here !!
 			}
 		}
 	}

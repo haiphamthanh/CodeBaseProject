@@ -8,10 +8,10 @@
 import Foundation
 
 class UseCasesImpl {
-	private let usecaseProvider: UseCaseProvider
+	@Inject private var usecaseProvider: UseCaseProvider
 	
-	init(usecaseProvider: UseCaseProvider) {
-		self.usecaseProvider = usecaseProvider
+	deinit {
+		print("\(self) deinit")
 	}
 }
 

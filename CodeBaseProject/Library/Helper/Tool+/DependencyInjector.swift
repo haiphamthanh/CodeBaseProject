@@ -5,6 +5,7 @@
 //  Created by HaiKaito on 26/03/2022.
 //
 
+/*
 import Foundation
 
 struct DependencyInjector {
@@ -29,3 +30,4 @@ struct DependencyInjector {
 		self.wrappedValue = DependencyInjector.resolve()
 	}
 }
+*/

@@ -14,24 +14,24 @@ protocol HomeCoordinator {
 }
 
 // ViewModel ===> Coordinator
-protocol HomeViewModelCoordSupport {
+protocol HomeViewModelCoordSupport: AnyObject {
 }
 
 // Implementation
 class HomeCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, HomeCoordinator {
 	typealias IndividualViewModel = HomeViewModelCoordSupport
-	let indViewModel: IndividualViewModel
+	weak var indViewModel: IndividualViewModel?
 	
 	override init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
-		guard let indViewModel = viewModel as? IndividualViewModel else {
-			fatalError("View model need to support coordinator")
-		}
-
-		self.indViewModel = indViewModel
 		super.init(view: view, viewModel: viewModel)
+		
+		if let indViewModel = viewModel as? IndividualViewModel {
+			self.indViewModel = indViewModel
+		}
 	}
 	
-	override func doActionAfterMove(on viewModel: ViewModelRule?) -> Observable<Void> {
+	override func customAction(on viewModel: ViewModelRule?,
+							   view: AnyView?) -> Observable<Void> {
 		guard let viewModel = viewModel else {
 			fatalError("View model need to available")
 		}

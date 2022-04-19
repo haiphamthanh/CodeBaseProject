@@ -8,7 +8,7 @@
 import SwiftUI
 
 // ViewModel ===> View
-protocol HomeViewModelViewSupport {
+protocol HomeViewModelViewSupport: AnyObject {
 	func gotoSomeWhere()
 }
 
@@ -16,23 +16,9 @@ struct HomeView {
 	private init() { }
 	
 	// Properties is used for View
-	class IPros: ObservableObject {
-		typealias IndividualViewModel = HomeViewModelViewSupport
-		private let indViewModel: IndividualViewModel
-		init(viewModel: ViewModelRule) {
-			guard let indViewModel = viewModel as? IndividualViewModel else {
-				fatalError("View model need to support coordinator")
-			}
-
-			self.indViewModel = indViewModel
-		}
-		
+	class IPros: DefaultIPros<HomeViewModelViewSupport>, ObservableObject {
 		func gotoSomeWhere() {
-			indViewModel.gotoSomeWhere()
-		}
-		
-		deinit {
-			print("\(self) is deinit")
+			indViewModel?.gotoSomeWhere()
 		}
 	}
 	
@@ -50,6 +36,8 @@ struct HomeView {
 				}
 				.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 				.background(Color.red)
+			}.onDisappear {
+				self.pros.invalidate()     // << here !!
 			}
 		}
 	}

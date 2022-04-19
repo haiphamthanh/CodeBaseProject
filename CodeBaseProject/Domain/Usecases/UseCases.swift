@@ -14,11 +14,12 @@ protocol UseCases {
 
 private class DemoPreview {
 	func execute() async throws {
-		let networkProvider = NetworkProviderImpl()
-		let localProvider = LocalProviderImpl()
-		let repoProvider = RepoProviderImpl(networkProvider, localProvider)
-		let useCaseProvider = UseCaseProviderImpl(repoProvider)
-		let usecase = UseCasesImpl(usecaseProvider: useCaseProvider)
+		// Use DI instead
+//		let networkProvider = NetworkProviderImpl()
+//		let localProvider = LocalProviderImpl()
+//		let repoProvider = RepoProviderImpl()
+//		let useCaseProvider = UseCaseProviderImpl()
+		let usecase = UseCasesImpl()
 		
 		let result = await usecase.user.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))
 		switch result {

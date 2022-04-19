@@ -8,10 +8,10 @@
 import Foundation
 
 final class UseCaseProviderImpl: UseCaseProvider {
-	private let repoProvider: RepoProvider
+	@Inject private var repoProvider: RepoProvider
 	
-	init(_ repoProvider: RepoProvider) {
-		self.repoProvider = repoProvider
+	deinit {
+		print("\(self) deinit")
 	}
 }
 

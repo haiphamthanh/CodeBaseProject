@@ -8,12 +8,11 @@
 import Foundation
 
 class RepoProviderImpl: RepoProvider {
-	private let networkProvider: NetworkProvider
-	private let localProvider: LocalProvider
+	@Inject private var networkProvider: NetworkProvider
+	@Inject private var localProvider: LocalProvider
 	
-	init(_ networkProvider: NetworkProvider, _ localProvider: LocalProvider) {
-		self.networkProvider = networkProvider
-		self.localProvider = localProvider
+	deinit {
+		print("\(self) deinit")
 	}
 	
 	var userRepo: UserRepository {

@@ -18,7 +18,7 @@ enum PresentType: Int {
 
 protocol CoordinatorRule {
 	associatedtype IndividualViewModel
-	var indViewModel: IndividualViewModel { get }
+	var indViewModel: IndividualViewModel? { get }
 	
 	func startProcess(on presentType: PresentType) -> Observable<Void>
 }

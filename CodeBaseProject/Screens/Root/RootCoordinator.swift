@@ -113,37 +113,31 @@ protocol RootCoordinator {
 }
 
 // ViewModel ===> Coordinator
-protocol RootViewModelCoordSupport {
+protocol RootViewModelCoordSupport: AnyObject {
 	var goHome: Observable<Void> { get }
 }
 
 // Implementation
 class RootCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, RootCoordinator {
 	typealias IndividualViewModel = RootViewModelCoordSupport
-	let indViewModel: IndividualViewModel
+	weak var indViewModel: IndividualViewModel?
 	
-	override init(view: AnyView?, viewModel: ViewModelRule?) {
-		guard let indViewModel = viewModel as? IndividualViewModel else {
-			fatalError("View model need to support coordinator")
-		}
-		
-		self.indViewModel = indViewModel
+	override init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
 		super.init(view: view, viewModel: viewModel)
+		
+		if let indViewModel = viewModel as? IndividualViewModel {
+			self.indViewModel = indViewModel
+		}
 	}
 	
-	override func doActionAfterMove(on viewModel: ViewModelRule?) -> Observable<Void> {
+	override func customAction(on viewModel: ViewModelRule?,
+							   view: AnyView?) -> Observable<Void> {
 		guard let viewModel = viewModel, let indViewModel = viewModel as? IndividualViewModel else {
-			fatalError("View model need to support coordinator")
+			fatalError("View model need to support \(IndividualViewModel.self)")
 		}
 		
-		// Login
-		//		let home = viewModel.didForgotPassword
-		//			.flatMap(bringMeToForgotPassword)
-		//			.subscribe()
 		let home = indViewModel.goHome
-			.flatMap({ [weak self] _ in
-				CoordMover(self).transitToHome()
-			})
+			.flatMap(toHome)
 			.subscribe()
 		
 		return viewModel.didDone
@@ -154,3 +148,9 @@ class RootCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, RootCoordi
 	}
 }
 
+// Bridge
+private extension RootCoordinatorImpl {
+	func toHome() -> Observable<Void> {
+		CoordTransiter(self).toHome()
+	}
+}
