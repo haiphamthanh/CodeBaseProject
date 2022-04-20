@@ -1,5 +1,5 @@
 //
-//  StoryDefault.swift
+//  DefaultStory.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 18/04/2022.
@@ -7,7 +7,7 @@
 
 import RxSwift
 
-class StoryDefault<ResultType>: DefaultCoordinator<ResultType> {
+class DefaultStory<ResultType>: DefaultCoordinator<ResultType> {
 	func finishStory() -> Observable<Void> {
 		let rootVC = AppProvider.shared.navigationVC
 		if let rootNav = rootVC {
@@ -21,7 +21,7 @@ class StoryDefault<ResultType>: DefaultCoordinator<ResultType> {
 	}
 }
 
-extension StoryDefault {
+extension DefaultStory {
 	func forwardToIntroStory(_ completion: @escaping (() -> Void)) -> Observable<Void> {
 		let introStory = CoordInstance.Story.intro()
 		return coordinate(to: introStory)

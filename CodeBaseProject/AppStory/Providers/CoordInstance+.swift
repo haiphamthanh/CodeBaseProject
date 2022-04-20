@@ -8,14 +8,10 @@
 import Swinject
 
 struct CoordInstance {
-//	private static var container: Container {
-//		return AppProvider.shared.container
-//	}
-//	
 	private init() { }
 }
 
-private extension CoordInstance.Atomic {
+private extension CoordInstance {
 	private static func defaultCoordinator<ResultType>(_ coordinator: Any) -> DefaultCoordinator<ResultType> {
 		guard let coordinator = coordinator as? DefaultCoordinator<ResultType> else {
 			fatalError("Coordinator need based on DefaultCoordinator")
@@ -28,12 +24,14 @@ private extension CoordInstance.Atomic {
 // MARK: - ########################## Stories ##########################
 extension CoordInstance {
 	class Story {
-		static func intro(params: Dictionary<String, Any>? = nil) -> IntroStory {
-			return IntroStory()
+		static func intro(params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
+			@Inject var coordinator: IntroStory
+			return defaultCoordinator(coordinator)
 		}
 		
-		static func home(params: Dictionary<String, Any>? = nil) -> HomeStory {
-			return HomeStory()
+		static func home(params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
+			@Inject var coordinator: HomeStory
+			return defaultCoordinator(coordinator)
 		}
 	}
 }

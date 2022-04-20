@@ -8,19 +8,40 @@
 import RxSwift
 import SwiftUI
 
-class AppStory: StoryDefault<Void> {
+/// Coordinator Out
+/// Coordinator Identify
+protocol AppStory {
+	func run() -> Observable<Void>
+}
+
+// ViewModel ===> Story
+protocol AppStoryViewModelStorySupport: AnyObject {
+}
+
+class AppStoryImpl: DefaultStory<Void>, AppStory {
+	typealias IndividualViewModel = AppStoryViewModelStorySupport
+	var indViewModel: IndividualViewModel?
+	
+	override init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
+		super.init(view: view, viewModel: viewModel)
+		
+		if let indViewModel = viewModel as? IndividualViewModel {
+			self.indViewModel = indViewModel
+		}
+	}
+	
 	// MARK: - ================================= Proxy action =================================
 	override func customAction(on viewModel: ViewModelRule?, view: AnyView?) -> Observable<Void> {
 		return proxyApp(by: viewModel)
 	}
 	
-	deinit {
-		print("\(self) is deinit")
+	func run() -> Observable<Void> {
+		return startProcess()
 	}
 }
 
 // MARK: - ########################## DRIVER
-private extension AppStory {
+private extension AppStoryImpl {
 	func proxyApp(by viewModel: ViewModelRule?) -> Observable<Void> {
 		let isValidApp = true // Check by model
 		if !isValidApp {

@@ -16,7 +16,6 @@ class AppProvider {
 	
 	private(set) var window: UIWindow?
 	private(set) lazy var container = Container()
-	private(set) lazy var appStory = AppStory()
 	private var pNavigationVC: UINavigationController?
 	private let disposeBag = DisposeBag()
 }
@@ -77,7 +76,9 @@ extension AppProvider {
 /////https://www.cuvenx.com/post/swiftui-pop-to-root-view
 private extension AppProvider {
 	func startAppStory() {
-		return appStory.startProcess()
+		@Inject var appStory: AppStory
+		return appStory
+			.run()
 			.subscribe()
 			.disposed(by: disposeBag)
 	}

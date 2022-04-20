@@ -23,6 +23,7 @@ extension SystemConstructor {
 		let _ = InternalToolsBuilder.builder
 			.registerUIToolsHelper(to: container)
 			.registerUI(to: container)
+			.registerStory(to: container)
 			.finish()
 		
 		let _ = ExternalPluginsBuilder.builder

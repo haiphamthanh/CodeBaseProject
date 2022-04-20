@@ -8,8 +8,8 @@
 import Swinject
 
 class UIRegister {
-	private let container: Container
-	init(container: Container) {
+	private weak var container: Container!
+	init(_ container: Container) {
 		self.container = container
 	}
 	
@@ -18,7 +18,6 @@ class UIRegister {
 	}
 }
 
-// MARK: - ================================= Register =================================
 private extension UIRegister {
 	func registerUserInterface() {
 		//MARK: ------------------------------------ INTRODUCTION ------------------------------------

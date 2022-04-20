@@ -22,12 +22,17 @@ class InternalToolsBuilder {
 
 extension InternalToolsBuilder {
 	func registerUIToolsHelper(to container: Container) -> Self {
-		UIToolsRegister(container: container).start()
+		UIToolsRegister(container).start()
+		return self
+	}
+	
+	func registerStory(to container: Container) -> Self {
+		StoryRegister(container).start()
 		return self
 	}
 	
 	func registerUI(to container: Container) -> Self {
-		UIRegister(container: container).start()
+		UIRegister(container).start()
 		return self
 	}
 }

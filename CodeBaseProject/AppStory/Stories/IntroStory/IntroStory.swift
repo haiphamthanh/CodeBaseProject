@@ -8,19 +8,35 @@
 import RxSwift
 import SwiftUI
 
-class IntroStory: StoryDefault<Void> {
+/// Coordinator Out
+/// Coordinator Identify
+protocol IntroStory {
+}
+
+// ViewModel ===> Story
+protocol IntroStoryViewModelStorySupport: AnyObject {
+}
+
+class IntroStoryImpl: DefaultStory<Void>, IntroStory {
+	typealias IndividualViewModel = IntroStoryViewModelStorySupport
+	weak var indViewModel: IndividualViewModel?
+	
+	override init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
+		super.init(view: view, viewModel: viewModel)
+		
+		if let indViewModel = viewModel as? IndividualViewModel {
+			self.indViewModel = indViewModel
+		}
+	}
+	
 	override func customAction(on viewModel: ViewModelRule?,
 							   view: AnyView?) -> Observable<Void> {
 		return forward(by: viewModel)
 	}
-	
-	deinit {
-		print("\(self) is deinit")
-	}
 }
 
 // MARK: - ########################## FORWARD FLOW
-private extension IntroStory {
+private extension IntroStoryImpl {
 	func forward(by viewModel: ViewModelRule?) -> Observable<Void> {
 		return toIntro()
 			.do(onNext: { })
@@ -28,7 +44,7 @@ private extension IntroStory {
 }
 
 // Bridge
-private extension IntroStory {
+private extension IntroStoryImpl {
 	func toIntro() -> Observable<Void> {
 		return CoordTransiter(self)
 			.toIntro(on: .`init`)

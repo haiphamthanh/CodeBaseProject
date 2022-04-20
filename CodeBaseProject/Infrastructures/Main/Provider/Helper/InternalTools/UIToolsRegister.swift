@@ -8,8 +8,8 @@
 import Swinject
 
 class UIToolsRegister {
-	private let container: Container
-	init(container: Container) {
+	private weak var container: Container!
+	init(_ container: Container) {
 		self.container = container
 	}
 	
@@ -21,7 +21,6 @@ class UIToolsRegister {
 	}
 }
 
-// MARK: - ================================= Register =================================
 private extension UIToolsRegister {
 	func registerPrimaryTools() {
 		// Navigation
