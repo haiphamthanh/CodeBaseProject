@@ -714,7 +714,6 @@
 			isa = PBXGroup;
 			children = (
 				8685B25828014B800076B3AC /* Main */,
-				8604236427EDF2F00056EF17 /* Managers */,
 				8604235327EDEFF10056EF17 /* Resources */,
 			);
 			path = Infrastructures;
@@ -1386,6 +1385,7 @@
 		86FE294F27DC8E6000EF2C70 /* CodeBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				8604236427EDF2F00056EF17 /* Managers */,
 				861E857627FB4CA10032C4F5 /* Infrastructures */,
 				862EF22927F9791D0051A3A0 /* AppData */,
 				8640C199280A61E6002448AC /* AppStory */,
