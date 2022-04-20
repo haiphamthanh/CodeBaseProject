@@ -124,6 +124,7 @@ struct SideMenu: View {
 					}
 				}
 				.padding([.horizontal, .top], 15)
+				.foregroundColor(.primary)
 			}
 		}
 		.padding(.top)

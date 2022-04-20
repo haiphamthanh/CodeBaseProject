@@ -19,6 +19,10 @@ struct BaseView: View {
 	
 	@State var currentTab = "Home"
 	
+	// Offset for both drag gesture and showing menu
+	@State var offset: CGFloat = 0
+	@State var lastStoresOffset: CGFloat = 0
+	
 	var body: some View {
 		
 		let sideBarWidth = currentRect().width - 90
@@ -32,7 +36,7 @@ struct BaseView: View {
 				// Main tab View
 				VStack(spacing: 0) {
 					TabView(selection: $currentTab) {
-						Text("Home")
+						Home(showMenu: $showMenu)
 							.navigationBarTitleDisplayMode(.inline)
 							.navigationBarHidden(true)
 							.tag("ic_home")
@@ -70,14 +74,41 @@ struct BaseView: View {
 					
 				}
 				.frame(width: currentRect().width)
+				// BG when menu is showing...
+				.overlay(
+					Rectangle()
+						.fill(
+							Color.primary
+								.opacity(Double(offset / sideBarWidth) / 5)
+						)
+						.ignoresSafeArea(.container, edges: .vertical)
+						.onTapGesture {
+							withAnimation {
+								showMenu.toggle()
+							}
+						}
+				)
 			}
 			// max Size...
 			.frame(width: currentRect().width + sideBarWidth)
 			.offset(x: -sideBarWidth / 2)
+			.offset(x: offset)
 			// No navigation bar title
 			// Hidding navigation bar
 			.navigationBarTitleDisplayMode(.inline)
 			.navigationBarHidden(true)
+		}
+		.animation(.easeOut, value: offset == 0)
+		.onChange(of: showMenu) { newValue in
+			if showMenu && offset == 0 {
+				offset = sideBarWidth
+				lastStoresOffset = offset
+			}
+			
+			if !showMenu && offset == sideBarWidth {
+				offset = 0
+				lastStoresOffset = 0
+			}
 		}
 	}
 	
