@@ -21,7 +21,7 @@ protocol AppStoryViewModelStorySupport: AnyObject {
 
 class AppStoryImpl: DefaultStory<Void>, AppStory {
 	typealias IndividualViewModel = AppStoryViewModelStorySupport
-	var indViewModel: IndividualViewModel?
+	weak var indViewModel: IndividualViewModel?
 	
 	override init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
 		super.init(view: view, viewModel: viewModel)
