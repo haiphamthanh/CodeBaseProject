@@ -1140,19 +1140,19 @@
 				8636E876280C91C000AE73E1 /* DefaultStory.swift */,
 				8636E878280CA40100AE73E1 /* AppStory */,
 				8636E875280C7ECA00AE73E1 /* Stories */,
-				8640C19A280A6204002448AC /* Providers */,
+				8640C19A280A6204002448AC /* Helper */,
 			);
 			path = AppStory;
 			sourceTree = "<group>";
 		};
-		8640C19A280A6204002448AC /* Providers */ = {
+		8640C19A280A6204002448AC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				8640C19E280A62EF002448AC /* CoordTransiter+.swift */,
 				8640C1A0280A6409002448AC /* CoordInstance+.swift */,
 				86609EDB280B286400EAD104 /* ViewInstance+.swift */,
 			);
-			path = Providers;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		8640C1A5280A9E56002448AC /* ViewModel */ = {
@@ -1263,7 +1263,7 @@
 			children = (
 				86FE295027DC8E6000EF2C70 /* Main.swift */,
 				8685B231280073550076B3AC /* MainSceneDelegate.swift */,
-				86FA50402805E0F300FFB057 /* Provider */,
+				86FA50402805E0F300FFB057 /* AppProvider */,
 				86FE295627DC8E6300EF2C70 /* Preview Content */,
 			);
 			path = Main;
@@ -1349,7 +1349,7 @@
 			path = InternalTools;
 			sourceTree = "<group>";
 		};
-		86FA50402805E0F300FFB057 /* Provider */ = {
+		86FA50402805E0F300FFB057 /* AppProvider */ = {
 			isa = PBXGroup;
 			children = (
 				8685B255280149C50076B3AC /* AppProvider.swift */,
@@ -1357,7 +1357,7 @@
 				8685B25128012CB70076B3AC /* Defaults */,
 				861FCD50280F1BB6007564A3 /* Helper */,
 			);
-			path = Provider;
+			path = AppProvider;
 			sourceTree = "<group>";
 		};
 		86FE294427DC8E6000EF2C70 = {
