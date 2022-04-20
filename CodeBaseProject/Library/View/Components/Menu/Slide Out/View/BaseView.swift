@@ -23,6 +23,9 @@ struct BaseView: View {
 	@State var offset: CGFloat = 0
 	@State var lastStoresOffset: CGFloat = 0
 	
+	// Gesture offser
+	@GestureState var gestureOffset: CGFloat = 0
+	
 	var body: some View {
 		
 		let sideBarWidth = currentRect().width - 90
@@ -92,7 +95,15 @@ struct BaseView: View {
 			// max Size...
 			.frame(width: currentRect().width + sideBarWidth)
 			.offset(x: -sideBarWidth / 2)
-			.offset(x: offset)
+			.offset(x: offset > 0 ? offset : 0)
+			// Gesture...
+			.gesture(
+				DragGesture()
+					.updating($gestureOffset, body: { value, out, _ in
+						out = value.translation.width
+					})
+					.onEnded(onEnd(value:))
+			)
 			// No navigation bar title
 			// Hidding navigation bar
 			.navigationBarTitleDisplayMode(.inline)
@@ -110,6 +121,55 @@ struct BaseView: View {
 				lastStoresOffset = 0
 			}
 		}
+		.onChange(of: gestureOffset) { newValue in
+			onChange()
+		}
+	}
+	
+	func onChange() {
+		let sideBarWidth = currentRect().width - 90
+		offset = (gestureOffset != 0) ? (gestureOffset + lastStoresOffset < sideBarWidth ? gestureOffset + lastStoresOffset : offset) : offset
+	}
+	
+	func onEnd(value: DragGesture.Value) {
+		let sideBarWidth = currentRect().width - 90
+		
+		let transition  = value.translation.width
+		
+		withAnimation {
+			// Chekcing...
+			if transition > 0 {
+				if transition > (sideBarWidth / 2) {
+					// show menu
+					offset = sideBarWidth
+					showMenu = true
+				} else {
+					// Extra case...
+					if offset == sideBarWidth {
+						return
+					}
+					
+					offset = 0
+					showMenu = false
+				}
+			} else {
+				if -transition > (sideBarWidth / 2) {
+					offset = 0
+					showMenu = false
+				} else {
+					// Extra case...
+					if offset == 0 || !showMenu {
+						return
+					}
+					
+					offset = sideBarWidth
+					showMenu = true
+				}
+			}
+		}
+		
+		// storing lass offser...
+		lastStoresOffset = offset
 	}
 	
 	@ViewBuilder
