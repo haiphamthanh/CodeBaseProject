@@ -142,8 +142,9 @@ struct SideMenu: View {
 	
 	@ViewBuilder
 	func TabButton(title: String, image: String) -> some View {
-		Button {
-			
+		NavigationLink {
+			Text("\(title) View")
+				.navigationTitle(title)
 		} label: {
 			HStack(spacing: 14) {
 				Image(image)
