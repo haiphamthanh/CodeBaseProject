@@ -14,7 +14,6 @@ extension SystemConstructor {
 		container.register(AppBackgroundProvider.self) { _ in AppBackground() }
 		container.register(AppColorProvider.self) { _ in AppColor() }
 		container.register(AppThemeProvider.self) { _ in AppTheme() }
-		container.register(AppConnectProvider.self) { _ in AppConnect() }
 		
 		return self
 	}

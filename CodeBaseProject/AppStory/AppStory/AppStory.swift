@@ -16,6 +16,7 @@ protocol AppStory {
 
 // ViewModel ===> Story
 protocol AppStoryViewModelStorySupport: AnyObject {
+	var isAppValid: Observable<Bool> { get }
 }
 
 class AppStoryImpl: DefaultStory<Void>, AppStory {
@@ -32,7 +33,7 @@ class AppStoryImpl: DefaultStory<Void>, AppStory {
 	
 	// MARK: - ================================= Proxy action =================================
 	override func customAction(on viewModel: ViewModelRule?, view: AnyView?) -> Observable<Void> {
-		return proxyApp(by: viewModel)
+		return validateStory(by: viewModel)
 	}
 	
 	func run() -> Observable<Void> {
@@ -42,22 +43,17 @@ class AppStoryImpl: DefaultStory<Void>, AppStory {
 
 // MARK: - ########################## DRIVER
 private extension AppStoryImpl {
-	func proxyApp(by viewModel: ViewModelRule?) -> Observable<Void> {
-		let isValidApp = true // Check by model
-		if !isValidApp {
-			return finishStory()
-		}
+	func validateStory(by viewModel: ViewModelRule?) -> Observable<Void> {
+		_ = indViewModel?.isAppValid
+			.filter({ !$0 })
+			.map({ _ in })
+			.flatMap(toInvalidAppScreen)
+			.subscribe()
 		
-		return forwardStories(by: viewModel)
+		return forwardStory(by: viewModel)
 	}
 	
-	func forwardStories(by viewModel: ViewModelRule?) -> Observable<Void> {
-		//		let storyCompletion = { [weak self] (_: Void) in
-		//			guard let strongSelf = self else { return }
-		//			strongSelf.driverCoordinator()
-		//				.subscribe()
-		//				.disposed(by: strongSelf.disposeBag)
-		//		}
+	func forwardStory(by viewModel: ViewModelRule?) -> Observable<Void> {
 		let storyCompletion = {
 			// Do something after all
 		}
@@ -69,6 +65,15 @@ private extension AppStoryImpl {
 			return forwardToIntroStory(storyCompletion)
 		}
 		
-		return forwardToHomeStory(storyCompletion)
+		return forwardToProxyStory(storyCompletion)
 	}
 }
+
+// Proxy
+private extension AppStoryImpl {
+	func toInvalidAppScreen() -> Observable<Void> {
+		// TODO: Move to proxy scene
+		CoordTransiter(self).toIntro(on: .`init`)
+	}
+}
+

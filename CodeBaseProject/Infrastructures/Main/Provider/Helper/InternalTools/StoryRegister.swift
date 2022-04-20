@@ -31,6 +31,17 @@ private extension StoryRegister {
 			return AppStoryImpl(viewModel: viewModel)
 		}
 		
+		//MARK: Proxy
+		container.register(ProxyStoryViewModel.self) { _ in ProxyStoryViewModelImpl() }
+		container.register(ProxyStory.self) { r in
+			@Inject var viewModel: ProxyStoryViewModel
+			guard let viewModel = viewModel as? ViewModelRule else {
+				fatalError("View model need to confirm to ViewModelRule")
+			}
+			
+			return ProxyStoryImpl(viewModel: viewModel)
+		}
+		
 		//MARK: Introduction
 		container.register(IntroStoryViewModel.self) { _ in IntroStoryViewModelImpl() }
 		container.register(IntroStory.self) { r in

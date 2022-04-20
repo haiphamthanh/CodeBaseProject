@@ -24,6 +24,11 @@ private extension CoordInstance {
 // MARK: - ########################## Stories ##########################
 extension CoordInstance {
 	class Story {
+		static func proxy(params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
+			@Inject var coordinator: ProxyStory
+			return defaultCoordinator(coordinator)
+		}
+		
 		static func intro(params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<Void> {
 			@Inject var coordinator: IntroStory
 			return defaultCoordinator(coordinator)

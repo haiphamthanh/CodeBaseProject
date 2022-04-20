@@ -17,8 +17,7 @@ enum MyTheme: Int {
 
 protocol AppThemeProvider {
 	// MARK: - Setup
-	func setting1() -> Self
-	func setting2() -> Self
+	func useDefaultSetting(_ type: MyThemeSetting) -> Self
 	func done() -> Bool
 	
 	static func switchTo(theme: MyTheme)
@@ -30,6 +29,4 @@ protocol AppThemeProvider {
 	// MARK: - Save & Restore
 	static func restoreLastTheme()
 	static func saveLastTheme()
-	
-	static func applyAppearanceDefaults()
 }

@@ -22,7 +22,6 @@ extension SystemConstructor {
 		
 		return register(to: container)
 			.setupAppConnect()
-			.applyAppTheme()
 			.done()
 	}
 }

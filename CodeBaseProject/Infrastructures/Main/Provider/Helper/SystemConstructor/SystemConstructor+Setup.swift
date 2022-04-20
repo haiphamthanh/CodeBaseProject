@@ -7,45 +7,41 @@
 
 extension SystemConstructor {
 	func setupAppConnect() -> Self {
-		@Inject var appConnect: AppConnectProvider
+		@Inject var appSetting: AppSettingProvider
+		@Inject var notification: AppNotificationProvider
+		@Inject var background: AppBackgroundProvider
+		@Inject var color: AppColorProvider
+		@Inject var theme: AppThemeProvider
 		
-		let notification = appConnect.notification
+		var isSuccess = true
+		isSuccess = isSuccess && notification
 			.setting1()
 			.setting2()
 			.done()
 		
-		let background = appConnect.background
+		isSuccess = isSuccess && background
 			.setting1()
 			.setting2()
 			.done()
 		
-		let color = appConnect.color
+		isSuccess = isSuccess && color
 			.setting1()
 			.setting2()
 			.done()
 		
-		let theme = appConnect.theme
-			.setting1()
-			.setting2()
+		isSuccess = isSuccess && theme
+			.useDefaultSetting(.textfield)
+			.useDefaultSetting(.naviBar)
 			.done()
 		
-		let appSetting = appConnect.appSetting
+		isSuccess = isSuccess && appSetting
 			.setupKeyboard()
 			.trackingNetwork()
 			.done()
 		
-		let isSuccess = notification && background && color && theme && appSetting
-		
 		if !isSuccess {
 			print("There're something wrong at setting up \(self)")
 		}
-		
-		return self
-	}
-	
-	func applyAppTheme() -> Self {
-		@Inject var appThem: AppThemeProvider
-		type(of: appThem.self).applyAppearanceDefaults()
 		
 		return self
 	}

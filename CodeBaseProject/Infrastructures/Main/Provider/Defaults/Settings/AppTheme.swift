@@ -8,9 +8,6 @@
 import UIKit
 
 class AppTheme {
-	class func appearanceDefaults() {
-		return MyTheme.applyAppearanceDefaults()
-	}
 }
 
 // MARK: - ########################## Final ##########################
@@ -40,17 +37,14 @@ extension AppTheme: AppThemeProvider {
 		//		MyThemes.saveLastTheme()
 	}
 	
-	static func applyAppearanceDefaults() {
-		return appearanceDefaults()
-	}
-	
-	func setting1() -> Self {
-		//TODO: Implement later
-		return self
-	}
-	
-	func setting2() -> Self {
-		//TODO: Implement later
+	func useDefaultSetting(_ type: MyThemeSetting) -> Self {
+		switch type {
+		case .textfield:
+			MyTheme.applyAppearanceTextFieldDefaults()
+		case .naviBar:
+			MyTheme.applyAppearanceNavigationBarDefaults()
+		}
+		
 		return self
 	}
 	
@@ -60,12 +54,19 @@ extension AppTheme: AppThemeProvider {
 	}
 }
 
-extension MyTheme {
-	static func applyAppearanceDefaults() {
+enum MyThemeSetting {
+	case textfield
+	case naviBar
+}
+
+private extension MyTheme {
+	static func applyAppearanceTextFieldDefaults() {
 		UITextField.appearance().keyboardAppearance = .dark
 		UITextField.appearance().textColor = .black
 		UITextField.appearance().backgroundColor = .darkGray
-		
+	}
+	
+	static func applyAppearanceNavigationBarDefaults() {
 		UINavigationBar.appearance().barStyle = .black
 		UINavigationBar.appearance().barTintColor = .textColor
 		UINavigationBar.appearance().tintColor = FlatColor.Blue.BlueWhale
@@ -76,9 +77,9 @@ extension MyTheme {
 		UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
 	}
 	
-	static private func emptyView(withBackground color: UIColor) -> UIView {
-		let view = UIView()
-		view.backgroundColor = color
-		return view
-	}
+//	static private func emptyView(withBackground color: UIColor) -> UIView {
+//		let view = UIView()
+//		view.backgroundColor = color
+//		return view
+//	}
 }

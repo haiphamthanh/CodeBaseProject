@@ -1,5 +1,5 @@
 //
-//  HomeStory.swift
+//  ProxyStory.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 15/04/2022.
@@ -10,14 +10,14 @@ import SwiftUI
 
 /// Coordinator Out
 /// Coordinator Identify
-protocol HomeStory {
+protocol ProxyStory {
 }
 
 // ViewModel ===> Story
-protocol HomeStoryViewModelStorySupport: AnyObject {
+protocol ProxyStoryViewModelStorySupport: AnyObject {
 }
 
-class HomeStoryImpl: DefaultStory<Void>, HomeStory {
+class ProxyStoryImpl: DefaultStory<Void>, ProxyStory {
 	typealias IndividualViewModel = HomeStoryViewModelStorySupport
 	weak var indViewModel: IndividualViewModel?
 	
@@ -35,17 +35,17 @@ class HomeStoryImpl: DefaultStory<Void>, HomeStory {
 }
 
 // MARK: - ########################## DRIVER
-private extension HomeStoryImpl {
+private extension ProxyStoryImpl {
 	func driver(by viewModel: ViewModelRule?) -> Observable<Void> {
-		return toHome()
+		return toRoot()
 			.do(onNext: { })
 	}
 }
 
 // Bridge
-private extension HomeStoryImpl {
-	func toHome() -> Observable<Void> {
+private extension ProxyStoryImpl {
+	func toRoot() -> Observable<Void> {
 		return CoordTransiter(self)
-			.toHome(on: .`init`)
+			.toRoot(on: .`init`)
 	}
 }

@@ -8,6 +8,7 @@
 import RxSwift
 
 class DefaultStory<ResultType>: DefaultCoordinator<ResultType> {
+	// TODO: Make it work, it's still not working
 	func finishStory() -> Observable<Void> {
 		let rootVC = AppProvider.shared.navigationVC
 		if let rootNav = rootVC {
@@ -22,6 +23,12 @@ class DefaultStory<ResultType>: DefaultCoordinator<ResultType> {
 }
 
 extension DefaultStory {
+	func forwardToProxyStory(_ completion: @escaping (() -> Void)) -> Observable<Void> {
+		let proxyStory = CoordInstance.Story.proxy()
+		return coordinate(to: proxyStory)
+			.do(onNext: completion)
+	}
+	
 	func forwardToIntroStory(_ completion: @escaping (() -> Void)) -> Observable<Void> {
 		let introStory = CoordInstance.Story.intro()
 		return coordinate(to: introStory)
