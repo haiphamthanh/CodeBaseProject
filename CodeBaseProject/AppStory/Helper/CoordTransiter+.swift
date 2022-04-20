@@ -7,7 +7,7 @@
 
 import RxSwift
 
-enum TransitScene {
+enum SceneName {
 	case root(Dictionary<String, Any>? = nil, PresentType = .push)
 	case home(Dictionary<String, Any>? = nil, PresentType = .push)
 	case intro(Dictionary<String, Any>? = nil, PresentType = .push)
@@ -23,8 +23,8 @@ struct CoordTransiter<ResultType> {
 
 // MARK: - ########################## Usage
 extension CoordTransiter {
-	func move(to transitScene: TransitScene) -> Observable<ResultType> {
-		switch transitScene {
+	func move(to scene: SceneName) -> Observable<ResultType> {
+		switch scene {
 		case .root(let params, let presentType):
 			return toRoot(with: params, on: presentType)
 		case .home(let params, let presentType):
@@ -32,17 +32,6 @@ extension CoordTransiter {
 		case .intro(let params, let presentType):
 			return toIntro(with: params, on: presentType)
 		}
-	}
-}
-
-private extension CoordTransiter {
-	func move(to coordinator: DefaultCoordinator<ResultType>?,
-			  on presentType: PresentType = .push) -> Observable<ResultType> {
-		guard let current = current, let coordinator = coordinator else {
-			return Observable.never()
-		}
-		
-		return current.coordinate(to: coordinator, on: presentType)
 	}
 }
 
@@ -74,5 +63,17 @@ private extension CoordTransiter {
 				on presentType: PresentType = .push) -> Observable<ResultType> {
 		let coordinator = CoordInstance.Atomic.home(params) as? DefaultCoordinator<ResultType>
 		return move(to: coordinator, on: presentType)
+	}
+}
+
+// MARK: ########################## Helper
+private extension CoordTransiter {
+	func move(to coordinator: DefaultCoordinator<ResultType>?,
+			  on presentType: PresentType = .push) -> Observable<ResultType> {
+		guard let current = current, let coordinator = coordinator else {
+			return Observable.never()
+		}
+		
+		return current.coordinate(to: coordinator, on: presentType)
 	}
 }

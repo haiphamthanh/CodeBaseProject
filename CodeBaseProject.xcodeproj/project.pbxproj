@@ -136,7 +136,6 @@
 		8685B21728005A4C0076B3AC /* AppBackgroundProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B21628005A4C0076B3AC /* AppBackgroundProvider.swift */; };
 		8685B21928005A550076B3AC /* AppColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B21828005A550076B3AC /* AppColorProvider.swift */; };
 		8685B21B28005A5D0076B3AC /* AppThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B21A28005A5D0076B3AC /* AppThemeProvider.swift */; };
-		8685B21F28005C190076B3AC /* RegistationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B21E28005C190076B3AC /* RegistationManager.swift */; };
 		8685B22228005C910076B3AC /* FacebookPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B22128005C910076B3AC /* FacebookPlugin.swift */; };
 		8685B22428005C9C0076B3AC /* GooglePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B22328005C9C0076B3AC /* GooglePlugin.swift */; };
 		8685B22628005CA90076B3AC /* FirebasePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B22528005CA90076B3AC /* FirebasePlugin.swift */; };
@@ -156,7 +155,6 @@
 		8685B24E28012BA10076B3AC /* AppSceneDelegateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */; };
 		8685B25028012CAE0076B3AC /* DefaultAppSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */; };
 		8685B256280149C50076B3AC /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B255280149C50076B3AC /* AppProvider.swift */; };
-		8685B25A28014CE60076B3AC /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25928014CE60076B3AC /* PluginManager.swift */; };
 		8685B25D280154B40076B3AC /* AppRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25C280154B40076B3AC /* AppRegister.swift */; };
 		8685B25F280154C50076B3AC /* ExternalPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25E280154C50076B3AC /* ExternalPlugins.swift */; };
 		8685B26128015DE50076B3AC /* UIToolsRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26028015DE50076B3AC /* UIToolsRegister.swift */; };
@@ -340,7 +338,6 @@
 		8685B21628005A4C0076B3AC /* AppBackgroundProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundProvider.swift; sourceTree = "<group>"; };
 		8685B21828005A550076B3AC /* AppColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorProvider.swift; sourceTree = "<group>"; };
 		8685B21A28005A5D0076B3AC /* AppThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeProvider.swift; sourceTree = "<group>"; };
-		8685B21E28005C190076B3AC /* RegistationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistationManager.swift; sourceTree = "<group>"; };
 		8685B22128005C910076B3AC /* FacebookPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPlugin.swift; sourceTree = "<group>"; };
 		8685B22328005C9C0076B3AC /* GooglePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlugin.swift; sourceTree = "<group>"; };
 		8685B22528005CA90076B3AC /* FirebasePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePlugin.swift; sourceTree = "<group>"; };
@@ -360,7 +357,6 @@
 		8685B24D28012BA10076B3AC /* AppSceneDelegateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSceneDelegateProvider.swift; sourceTree = "<group>"; };
 		8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppSceneDelegate.swift; sourceTree = "<group>"; };
 		8685B255280149C50076B3AC /* AppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProvider.swift; sourceTree = "<group>"; };
-		8685B25928014CE60076B3AC /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
 		8685B25C280154B40076B3AC /* AppRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRegister.swift; sourceTree = "<group>"; };
 		8685B25E280154C50076B3AC /* ExternalPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalPlugins.swift; sourceTree = "<group>"; };
 		8685B26028015DE50076B3AC /* UIToolsRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToolsRegister.swift; sourceTree = "<group>"; };
@@ -597,9 +593,7 @@
 				862EF23227FA6C2F0051A3A0 /* AppStateManager.swift */,
 				862EF22727F978250051A3A0 /* AuthManager.swift */,
 				8685B20A280057B90076B3AC /* CryptoManager.swift */,
-				8685B21E28005C190076B3AC /* RegistationManager.swift */,
 				8685B22D280061420076B3AC /* LocalizationManager.swift */,
-				8685B25928014CE60076B3AC /* PluginManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1643,7 +1637,6 @@
 				862EF21027F8B28E0051A3A0 /* UseCases.swift in Sources */,
 				8604231427E32FEB0056EF17 /* Request.swift in Sources */,
 				862EF23327FA6C2F0051A3A0 /* AppStateManager.swift in Sources */,
-				8685B21F28005C190076B3AC /* RegistationManager.swift in Sources */,
 				8640C1AB280A9F90002448AC /* HomeViewModel+Supports.swift in Sources */,
 				8604231F27EA36DB0056EF17 /* Common.swift in Sources */,
 				8604234027ECB42C0056EF17 /* NetworkingType.swift in Sources */,
@@ -1727,7 +1720,6 @@
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */,
 				8685B22A28005D3D0076B3AC /* NetworkSecurityPlugin.swift in Sources */,
-				8685B25A28014CE60076B3AC /* PluginManager.swift in Sources */,
 				8604232127EA375B0056EF17 /* URLRequestEx.swift in Sources */,
 				8685B21928005A550076B3AC /* AppColorProvider.swift in Sources */,
 				862EF1E827F4A2EB0051A3A0 /* Convertible.swift in Sources */,

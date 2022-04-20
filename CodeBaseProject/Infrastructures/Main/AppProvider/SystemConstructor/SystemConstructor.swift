@@ -50,7 +50,7 @@ private extension SystemConstructor {
 	
 	func registerExternalServices(to container: Container) -> Self {
 		let result = ExternalPluginsBuilder.builder
-			.useExternalService(.facebook)
+			.useExternalServices([.facebook, .google, .firebase, .webSocket])
 			.finish()
 		
 		if !result.success {

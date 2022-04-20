@@ -5,7 +5,6 @@
 //  Created by HaiKaito on 25/03/2022.
 //
 
-import Foundation
 import SwiftUI
 import Combine
 

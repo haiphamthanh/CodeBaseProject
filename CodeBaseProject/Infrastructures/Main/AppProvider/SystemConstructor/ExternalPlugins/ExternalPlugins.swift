@@ -29,22 +29,24 @@ class ExternalPluginsBuilder {
 }
 
 extension ExternalPluginsBuilder {
-	func useExternalService(_ service: ExternalServices) -> Self {
-		switch service {
-		case .facebook:
-			PluginManager.shared.facebook.setup()
-		case .google:
-			PluginManager.shared.google.setup()
-		case .firebase:
-			PluginManager.shared.firebase.setup()
-		case .networkLog:
-			PluginManager.shared.networkLog.setup()
-		case .webSocket:
-			PluginManager.shared.webSocket.setup()
-		case .networkSecurity:
-			PluginManager.shared.networkSecurity.setup()
-		case .appSecurity:
-			PluginManager.shared.appSecurity.setup()
+	func useExternalServices(_ services: [ExternalServices]) -> Self {
+		for service in services {
+			switch service {
+			case .facebook:
+				FacebookPlugin().setup()
+			case .google:
+				GooglePlugin().setup()
+			case .firebase:
+				FirebasePlugin().setup()
+			case .networkLog:
+				NetworkLogPlugin().setup()
+			case .webSocket:
+				WebSocketPlugin().setup()
+			case .networkSecurity:
+				NetworkSecurityPlugin().setup()
+			case .appSecurity:
+				AppSecurityPlugin().setup()
+			}
 		}
 		
 		return self
