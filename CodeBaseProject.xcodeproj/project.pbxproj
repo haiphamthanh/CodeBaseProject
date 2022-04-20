@@ -39,7 +39,6 @@
 		8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236127EDF1850056EF17 /* HomeViewModel.swift */; };
 		8604236927EDF4680056EF17 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236827EDF4680056EF17 /* Repository.swift */; };
 		8604236C27EDF5060056EF17 /* DefaultAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */; };
-		8604236F27EDF5C80056EF17 /* CoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604236E27EDF5C80056EF17 /* CoordinatorManager.swift */; };
 		8604237227EDF6E30056EF17 /* SingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237127EDF6E20056EF17 /* SingleView.swift */; };
 		8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237627EDF83A0056EF17 /* TextShimmer.swift */; };
 		8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604237827EDF9B50056EF17 /* NotificationManager.swift */; };
@@ -66,8 +65,6 @@
 		861E85AB27FB6F090032C4F5 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85AA27FB6F090032C4F5 /* BackBarButtonItem.swift */; };
 		861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85AF27FB71090032C4F5 /* UIKit+.swift */; };
 		861E85B427FDB6990032C4F5 /* ScreenRulesDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E85B327FDB6990032C4F5 /* ScreenRulesDemo.swift */; };
-		861FCD52280F1BEF007564A3 /* SystemConstructor+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD51280F1BEF007564A3 /* SystemConstructor+Register.swift */; };
-		861FCD54280F1C1B007564A3 /* SystemConstructor+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD53280F1C1B007564A3 /* SystemConstructor+Setup.swift */; };
 		861FCD56280F2066007564A3 /* AppSettingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD55280F2066007564A3 /* AppSettingProvider.swift */; };
 		861FCD58280F208E007564A3 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD57280F208E007564A3 /* AppSetting.swift */; };
 		861FCD5A280F3498007564A3 /* StoryRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD59280F3498007564A3 /* StoryRegister.swift */; };
@@ -77,6 +74,8 @@
 		861FCD6D280FA1AE007564A3 /* ProxyStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD6A280FA1AE007564A3 /* ProxyStoryViewModel.swift */; };
 		861FCD6E280FA1AE007564A3 /* ProxyStoryViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD6B280FA1AE007564A3 /* ProxyStoryViewModel+Supports.swift */; };
 		861FCD6F280FA1AE007564A3 /* ProxyStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD6C280FA1AE007564A3 /* ProxyStory.swift */; };
+		861FCD71280FD46E007564A3 /* DomainRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD70280FD46E007564A3 /* DomainRegister.swift */; };
+		861FCD74280FE0FF007564A3 /* SystemRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FCD73280FE0FF007564A3 /* SystemRegister.swift */; };
 		862EF1E027F273E10051A3A0 /* OfflineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1DF27F273E10051A3A0 /* OfflineAction.swift */; };
 		862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1E127F35FAB0051A3A0 /* UserRequestBuilder.swift */; };
 		862EF1E427F38A3E0051A3A0 /* Encodable+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1E327F38A3E0051A3A0 /* Encodable+Dict.swift */; };
@@ -86,10 +85,7 @@
 		862EF1F327F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1F227F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift */; };
 		862EF1F927F83ADB0051A3A0 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1F827F83ADB0051A3A0 /* UserEntity.swift */; };
 		862EF1FC27F8470D0051A3A0 /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1FB27F8470D0051A3A0 /* UserInput.swift */; };
-		862EF20027F848E40051A3A0 /* RepoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF1FF27F848E40051A3A0 /* RepoProvider.swift */; };
-		862EF20227F849A70051A3A0 /* UseCaseProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20127F849A70051A3A0 /* UseCaseProviderImpl.swift */; };
 		862EF20527F84A130051A3A0 /* UserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20427F84A130051A3A0 /* UserAdapter.swift */; };
-		862EF20927F84E7C0051A3A0 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20827F84E7C0051A3A0 /* UseCaseProvider.swift */; };
 		862EF21027F8B28E0051A3A0 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF20F27F8B28E0051A3A0 /* UseCases.swift */; };
 		862EF21527F926680051A3A0 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21427F926680051A3A0 /* DomainError.swift */; };
 		862EF21927F958400051A3A0 /* UseCasesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF21827F958400051A3A0 /* UseCasesImpl.swift */; };
@@ -102,15 +98,10 @@
 		862EF22F27F990590051A3A0 /* AppNotificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF22E27F990590051A3A0 /* AppNotificationData.swift */; };
 		862EF23127F997FD0051A3A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF23027F997FD0051A3A0 /* Constants.swift */; };
 		862EF23327FA6C2F0051A3A0 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF23227FA6C2F0051A3A0 /* AppStateManager.swift */; };
-		8632D412280202C500141EDC /* RepoProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D411280202C500141EDC /* RepoProviderImpl.swift */; };
 		8632D416280203E800141EDC /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D415280203E800141EDC /* UserRepository.swift */; };
 		8632D4182802041200141EDC /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D4172802041200141EDC /* UserRepositoryImpl.swift */; };
-		8632D41D280211C000141EDC /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D41C280211C000141EDC /* NetworkProvider.swift */; };
-		8632D420280213A100141EDC /* NetworkProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D41F280213A100141EDC /* NetworkProviderImpl.swift */; };
 		8632D423280213FA00141EDC /* UserNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D422280213FA00141EDC /* UserNetworkImpl.swift */; };
-		8632D42728021DF600141EDC /* LocalProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42628021DF600141EDC /* LocalProvider.swift */; };
 		8632D42A28021E5300141EDC /* UserLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42928021E5300141EDC /* UserLocal.swift */; };
-		8632D42D28021EC200141EDC /* LocalProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42C28021EC200141EDC /* LocalProviderImpl.swift */; };
 		8632D43028021EDB00141EDC /* UserLocalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42F28021EDB00141EDC /* UserLocalImpl.swift */; };
 		8636E877280C91C000AE73E1 /* DefaultStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E876280C91C000AE73E1 /* DefaultStory.swift */; };
 		8636E87A280CA42600AE73E1 /* AppStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E879280CA42600AE73E1 /* AppStoryViewModel.swift */; };
@@ -166,7 +157,7 @@
 		8685B25028012CAE0076B3AC /* DefaultAppSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */; };
 		8685B256280149C50076B3AC /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B255280149C50076B3AC /* AppProvider.swift */; };
 		8685B25A28014CE60076B3AC /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25928014CE60076B3AC /* PluginManager.swift */; };
-		8685B25D280154B40076B3AC /* InternalTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25C280154B40076B3AC /* InternalTools.swift */; };
+		8685B25D280154B40076B3AC /* AppRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25C280154B40076B3AC /* AppRegister.swift */; };
 		8685B25F280154C50076B3AC /* ExternalPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B25E280154C50076B3AC /* ExternalPlugins.swift */; };
 		8685B26128015DE50076B3AC /* UIToolsRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B26028015DE50076B3AC /* UIToolsRegister.swift */; };
 		8685B2642801600A0076B3AC /* NavigationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B2632801600A0076B3AC /* NavigationProvider.swift */; };
@@ -252,7 +243,6 @@
 		8604236127EDF1850056EF17 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8604236827EDF4680056EF17 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8604236B27EDF5060056EF17 /* DefaultAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppDelegate.swift; sourceTree = "<group>"; };
-		8604236E27EDF5C80056EF17 /* CoordinatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorManager.swift; sourceTree = "<group>"; };
 		8604237127EDF6E20056EF17 /* SingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleView.swift; sourceTree = "<group>"; };
 		8604237627EDF83A0056EF17 /* TextShimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextShimmer.swift; sourceTree = "<group>"; };
 		8604237827EDF9B50056EF17 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -279,8 +269,6 @@
 		861E85AA27FB6F090032C4F5 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
 		861E85AF27FB71090032C4F5 /* UIKit+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+.swift"; sourceTree = "<group>"; };
 		861E85B327FDB6990032C4F5 /* ScreenRulesDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRulesDemo.swift; sourceTree = "<group>"; };
-		861FCD51280F1BEF007564A3 /* SystemConstructor+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SystemConstructor+Register.swift"; sourceTree = "<group>"; };
-		861FCD53280F1C1B007564A3 /* SystemConstructor+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SystemConstructor+Setup.swift"; sourceTree = "<group>"; };
 		861FCD55280F2066007564A3 /* AppSettingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingProvider.swift; sourceTree = "<group>"; };
 		861FCD57280F208E007564A3 /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		861FCD59280F3498007564A3 /* StoryRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRegister.swift; sourceTree = "<group>"; };
@@ -290,6 +278,8 @@
 		861FCD6A280FA1AE007564A3 /* ProxyStoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyStoryViewModel.swift; sourceTree = "<group>"; };
 		861FCD6B280FA1AE007564A3 /* ProxyStoryViewModel+Supports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProxyStoryViewModel+Supports.swift"; sourceTree = "<group>"; };
 		861FCD6C280FA1AE007564A3 /* ProxyStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyStory.swift; sourceTree = "<group>"; };
+		861FCD70280FD46E007564A3 /* DomainRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainRegister.swift; sourceTree = "<group>"; };
+		861FCD73280FE0FF007564A3 /* SystemRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemRegister.swift; sourceTree = "<group>"; };
 		862EF1DF27F273E10051A3A0 /* OfflineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineAction.swift; sourceTree = "<group>"; };
 		862EF1E127F35FAB0051A3A0 /* UserRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestBuilder.swift; sourceTree = "<group>"; };
 		862EF1E327F38A3E0051A3A0 /* Encodable+Dict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dict.swift"; sourceTree = "<group>"; };
@@ -299,10 +289,7 @@
 		862EF1F227F7C5C90051A3A0 /* UserUpdateRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateRequestBuilder.swift; sourceTree = "<group>"; };
 		862EF1F827F83ADB0051A3A0 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		862EF1FB27F8470D0051A3A0 /* UserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInput.swift; sourceTree = "<group>"; };
-		862EF1FF27F848E40051A3A0 /* RepoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoProvider.swift; sourceTree = "<group>"; };
-		862EF20127F849A70051A3A0 /* UseCaseProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProviderImpl.swift; sourceTree = "<group>"; };
 		862EF20427F84A130051A3A0 /* UserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdapter.swift; sourceTree = "<group>"; };
-		862EF20827F84E7C0051A3A0 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		862EF20F27F8B28E0051A3A0 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
 		862EF21427F926680051A3A0 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		862EF21827F958400051A3A0 /* UseCasesImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesImpl.swift; sourceTree = "<group>"; };
@@ -315,15 +302,10 @@
 		862EF22E27F990590051A3A0 /* AppNotificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationData.swift; sourceTree = "<group>"; };
 		862EF23027F997FD0051A3A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		862EF23227FA6C2F0051A3A0 /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
-		8632D411280202C500141EDC /* RepoProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoProviderImpl.swift; sourceTree = "<group>"; };
 		8632D415280203E800141EDC /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8632D4172802041200141EDC /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
-		8632D41C280211C000141EDC /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		8632D41F280213A100141EDC /* NetworkProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderImpl.swift; sourceTree = "<group>"; };
 		8632D422280213FA00141EDC /* UserNetworkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkImpl.swift; sourceTree = "<group>"; };
-		8632D42628021DF600141EDC /* LocalProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProvider.swift; sourceTree = "<group>"; };
 		8632D42928021E5300141EDC /* UserLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocal.swift; sourceTree = "<group>"; };
-		8632D42C28021EC200141EDC /* LocalProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProviderImpl.swift; sourceTree = "<group>"; };
 		8632D42F28021EDB00141EDC /* UserLocalImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalImpl.swift; sourceTree = "<group>"; };
 		8636E876280C91C000AE73E1 /* DefaultStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStory.swift; sourceTree = "<group>"; };
 		8636E879280CA42600AE73E1 /* AppStoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryViewModel.swift; sourceTree = "<group>"; };
@@ -379,7 +361,7 @@
 		8685B24F28012CAE0076B3AC /* DefaultAppSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppSceneDelegate.swift; sourceTree = "<group>"; };
 		8685B255280149C50076B3AC /* AppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProvider.swift; sourceTree = "<group>"; };
 		8685B25928014CE60076B3AC /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
-		8685B25C280154B40076B3AC /* InternalTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalTools.swift; sourceTree = "<group>"; };
+		8685B25C280154B40076B3AC /* AppRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRegister.swift; sourceTree = "<group>"; };
 		8685B25E280154C50076B3AC /* ExternalPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalPlugins.swift; sourceTree = "<group>"; };
 		8685B26028015DE50076B3AC /* UIToolsRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToolsRegister.swift; sourceTree = "<group>"; };
 		8685B2632801600A0076B3AC /* NavigationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProvider.swift; sourceTree = "<group>"; };
@@ -591,7 +573,6 @@
 			isa = PBXGroup;
 			children = (
 				862EF21827F958400051A3A0 /* UseCasesImpl.swift */,
-				862EF20127F849A70051A3A0 /* UseCaseProviderImpl.swift */,
 				8632D41B2802072200141EDC /* Elements */,
 			);
 			path = Implements;
@@ -614,7 +595,6 @@
 				862EF23027F997FD0051A3A0 /* Constants.swift */,
 				8604237827EDF9B50056EF17 /* NotificationManager.swift */,
 				862EF23227FA6C2F0051A3A0 /* AppStateManager.swift */,
-				8604236E27EDF5C80056EF17 /* CoordinatorManager.swift */,
 				862EF22727F978250051A3A0 /* AuthManager.swift */,
 				8685B20A280057B90076B3AC /* CryptoManager.swift */,
 				8685B21E28005C190076B3AC /* RegistationManager.swift */,
@@ -809,22 +789,12 @@
 			path = "Extension+";
 			sourceTree = "<group>";
 		};
-		861FCD50280F1BB6007564A3 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				861FCD5B280F9804007564A3 /* SystemConstructor */,
-				8685B28B28016EAD0076B3AC /* InternalTools */,
-				8685B28E28016F700076B3AC /* ExternalPlugins */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		861FCD5B280F9804007564A3 /* SystemConstructor */ = {
+		861FCD50280F1BB6007564A3 /* SystemConstructor */ = {
 			isa = PBXGroup;
 			children = (
 				869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */,
-				861FCD51280F1BEF007564A3 /* SystemConstructor+Register.swift */,
-				861FCD53280F1C1B007564A3 /* SystemConstructor+Setup.swift */,
+				8685B28B28016EAD0076B3AC /* AppRegister */,
+				8685B28E28016F700076B3AC /* ExternalPlugins */,
 			);
 			path = SystemConstructor;
 			sourceTree = "<group>";
@@ -832,10 +802,10 @@
 		861FCD5C280F987F007564A3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8685B1FD2800560C0076B3AC /* FirstLoading.swift */,
 				861FCD57280F208E007564A3 /* AppSetting.swift */,
 				861E857F27FB5A580032C4F5 /* AppColor.swift */,
 				8685B1FB280055F90076B3AC /* AppNotification.swift */,
-				8685B1FD2800560C0076B3AC /* FirstLoading.swift */,
 				8685B1FF2800561A0076B3AC /* AppTheme.swift */,
 				8685B24B28012A190076B3AC /* AppBackground.swift */,
 			);
@@ -887,6 +857,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		861FCD72280FDBF8007564A3 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				861FCD73280FE0FF007564A3 /* SystemRegister.swift */,
+				861FCD59280F3498007564A3 /* StoryRegister.swift */,
+				8685B26028015DE50076B3AC /* UIToolsRegister.swift */,
+				869BBF0628049C49003D87E6 /* UIRegister.swift */,
+				861FCD70280FD46E007564A3 /* DomainRegister.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		862EF1E527F4A2000051A3A0 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,7 +913,6 @@
 		862EF1F727F8389C0051A3A0 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				8632D41C280211C000141EDC /* NetworkProvider.swift */,
 				862EF1FA27F83ADF0051A3A0 /* User */,
 			);
 			path = Provider;
@@ -970,7 +951,6 @@
 			isa = PBXGroup;
 			children = (
 				862EF20F27F8B28E0051A3A0 /* UseCases.swift */,
-				862EF20827F84E7C0051A3A0 /* UseCaseProvider.swift */,
 				8632D4102802017100141EDC /* Elements */,
 			);
 			path = Usecases;
@@ -987,7 +967,6 @@
 		8632D413280202F600141EDC /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				862EF1FF27F848E40051A3A0 /* RepoProvider.swift */,
 				8632D414280203BB00141EDC /* User */,
 			);
 			path = Provider;
@@ -1004,7 +983,6 @@
 		8632D419280204DE00141EDC /* Implements */ = {
 			isa = PBXGroup;
 			children = (
-				8632D411280202C500141EDC /* RepoProviderImpl.swift */,
 				8632D41A2802050100141EDC /* User */,
 			);
 			path = Implements;
@@ -1029,7 +1007,6 @@
 		8632D41E2802135000141EDC /* Implements */ = {
 			isa = PBXGroup;
 			children = (
-				8632D41F280213A100141EDC /* NetworkProviderImpl.swift */,
 				8632D421280213E200141EDC /* User */,
 			);
 			path = Implements;
@@ -1046,7 +1023,6 @@
 		8632D42528021DE400141EDC /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				8632D42628021DF600141EDC /* LocalProvider.swift */,
 				8632D42828021E4100141EDC /* User */,
 			);
 			path = Provider;
@@ -1063,7 +1039,6 @@
 		8632D42B28021E9D00141EDC /* Implements */ = {
 			isa = PBXGroup;
 			children = (
-				8632D42C28021EC200141EDC /* LocalProviderImpl.swift */,
 				8632D42E28021EC900141EDC /* User */,
 			);
 			path = Implements;
@@ -1307,15 +1282,13 @@
 			path = InternalTools;
 			sourceTree = "<group>";
 		};
-		8685B28B28016EAD0076B3AC /* InternalTools */ = {
+		8685B28B28016EAD0076B3AC /* AppRegister */ = {
 			isa = PBXGroup;
 			children = (
-				8685B25C280154B40076B3AC /* InternalTools.swift */,
-				861FCD59280F3498007564A3 /* StoryRegister.swift */,
-				8685B26028015DE50076B3AC /* UIToolsRegister.swift */,
-				869BBF0628049C49003D87E6 /* UIRegister.swift */,
+				8685B25C280154B40076B3AC /* AppRegister.swift */,
+				861FCD72280FDBF8007564A3 /* Elements */,
 			);
-			path = InternalTools;
+			path = AppRegister;
 			sourceTree = "<group>";
 		};
 		8685B28E28016F700076B3AC /* ExternalPlugins */ = {
@@ -1355,7 +1328,7 @@
 				8685B255280149C50076B3AC /* AppProvider.swift */,
 				8685B25228012CDD0076B3AC /* Provider */,
 				8685B25128012CB70076B3AC /* Defaults */,
-				861FCD50280F1BB6007564A3 /* Helper */,
+				861FCD50280F1BB6007564A3 /* SystemConstructor */,
 			);
 			path = AppProvider;
 			sourceTree = "<group>";
@@ -1605,8 +1578,6 @@
 				8685B21B28005A5D0076B3AC /* AppThemeProvider.swift in Sources */,
 				8685B279280164FC0076B3AC /* UsefulColors.swift in Sources */,
 				8640C19D280A6268002448AC /* AppStory.swift in Sources */,
-				862EF20927F84E7C0051A3A0 /* UseCaseProvider.swift in Sources */,
-				862EF20027F848E40051A3A0 /* RepoProvider.swift in Sources */,
 				861E85A927FB6DAD0032C4F5 /* FillAllInput.swift in Sources */,
 				8636E880280CA4F600AE73E1 /* HomeStoryViewModel.swift in Sources */,
 				8640C19F280A62EF002448AC /* CoordTransiter+.swift in Sources */,
@@ -1645,19 +1616,16 @@
 				862EF1EA27F4A8860051A3A0 /* CharacterSetEx.swift in Sources */,
 				8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */,
 				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
+				861FCD74280FE0FF007564A3 /* SystemRegister.swift in Sources */,
 				8640C1942808F701002448AC /* DefaultViewModel.swift in Sources */,
 				861FCD64280F9F3F007564A3 /* IntroStoryViewModel+Supports.swift in Sources */,
-				8632D42728021DF600141EDC /* LocalProvider.swift in Sources */,
 				861FCD6F280FA1AE007564A3 /* ProxyStory.swift in Sources */,
 				8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */,
 				861E859D27FB6AA70032C4F5 /* TextFieldAlertInput.swift in Sources */,
 				861FCD60280F9C21007564A3 /* AppStoryViewModel+Supports.swift in Sources */,
 				86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */,
-				8632D41D280211C000141EDC /* NetworkProvider.swift in Sources */,
 				861E85A827FB6DAA0032C4F5 /* FillAll.swift in Sources */,
-				861FCD52280F1BEF007564A3 /* SystemConstructor+Register.swift in Sources */,
 				8640C1A1280A6409002448AC /* CoordInstance+.swift in Sources */,
-				8632D412280202C500141EDC /* RepoProviderImpl.swift in Sources */,
 				8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */,
 				861E85B427FDB6990032C4F5 /* ScreenRulesDemo.swift in Sources */,
 				8685B22628005CA90076B3AC /* FirebasePlugin.swift in Sources */,
@@ -1696,8 +1664,6 @@
 				869BBF0728049C49003D87E6 /* UIRegister.swift in Sources */,
 				8685B26E2801614D0076B3AC /* AnimationDelegate.swift in Sources */,
 				8685B24C28012A190076B3AC /* AppBackground.swift in Sources */,
-				8632D420280213A100141EDC /* NetworkProviderImpl.swift in Sources */,
-				8604236F27EDF5C80056EF17 /* CoordinatorManager.swift in Sources */,
 				862EF1F927F83ADB0051A3A0 /* UserEntity.swift in Sources */,
 				862EF1E427F38A3E0051A3A0 /* Encodable+Dict.swift in Sources */,
 				862EF22627F963A70051A3A0 /* LocalConvertable.swift in Sources */,
@@ -1708,7 +1674,6 @@
 				8640C1A4280A759F002448AC /* DefaultCoordinator.swift in Sources */,
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
 				862EF23127F997FD0051A3A0 /* Constants.swift in Sources */,
-				861FCD54280F1C1B007564A3 /* SystemConstructor+Setup.swift in Sources */,
 				8604237227EDF6E30056EF17 /* SingleView.swift in Sources */,
 				8604238127EDFCE80056EF17 /* NetworkLogPlugin.swift in Sources */,
 				8604233827EBAE5D0056EF17 /* Task.swift in Sources */,
@@ -1720,6 +1685,7 @@
 				861E857827FB4D570032C4F5 /* ViewType.swift in Sources */,
 				8685B26F2801614D0076B3AC /* CircularRevealAnimator.swift in Sources */,
 				8685B22E280061420076B3AC /* LocalizationManager.swift in Sources */,
+				861FCD71280FD46E007564A3 /* DomainRegister.swift in Sources */,
 				862EF22B27F9796A0051A3A0 /* AppUserData.swift in Sources */,
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
 				8685B277280164850076B3AC /* AlertButton.swift in Sources */,
@@ -1749,7 +1715,6 @@
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
 				869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */,
 				86609EE0280B355300EAD104 /* ProgressView.swift in Sources */,
-				862EF20227F849A70051A3A0 /* UseCaseProviderImpl.swift in Sources */,
 				8685B2702801614D0076B3AC /* CircularRevealTransitionAnimator.swift in Sources */,
 				861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */,
 				8604237D27EDFC710056EF17 /* UserUseCase.swift in Sources */,
@@ -1757,8 +1722,7 @@
 				861E858C27FB5BB20032C4F5 /* View+.swift in Sources */,
 				8685B27D2801676E0076B3AC /* ToastProvider.swift in Sources */,
 				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
-				8685B25D280154B40076B3AC /* InternalTools.swift in Sources */,
-				8632D42D28021EC200141EDC /* LocalProviderImpl.swift in Sources */,
+				8685B25D280154B40076B3AC /* AppRegister.swift in Sources */,
 				8640C1972809A753002448AC /* HomeStory.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */,

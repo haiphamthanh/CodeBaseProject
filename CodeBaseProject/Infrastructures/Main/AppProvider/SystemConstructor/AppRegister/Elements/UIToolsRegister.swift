@@ -14,9 +14,7 @@ class UIToolsRegister {
 	}
 	
 	func start() {
-		// 1.
 		registerPrimaryTools()
-		// 2.
 		registerUtilTools()
 	}
 }
@@ -25,17 +23,6 @@ private extension UIToolsRegister {
 	func registerPrimaryTools() {
 		// Navigation
 		container.register(NavigationProvider.self) { r in DefaultNavigation() }
-		
-		// Network
-		container.register(NetworkProvider.self) { _ in NetworkProviderImpl() }
-		container.register(LocalProvider.self) { _ in LocalProviderImpl() }
-		
-		// Repository
-		container.register(RepoProvider.self) { r in return RepoProviderImpl() }
-		
-		// Usecase
-		container.register(UseCaseProvider.self) { _ in UseCaseProviderImpl() }
-		container.register(UseCases.self) { _ in UseCasesImpl() }
 	}
 	
 	func registerUtilTools() {

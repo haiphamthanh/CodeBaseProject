@@ -7,11 +7,31 @@
 
 import RxSwift
 
+enum TransitScene {
+	case root(Dictionary<String, Any>? = nil, PresentType = .push)
+	case home(Dictionary<String, Any>? = nil, PresentType = .push)
+	case intro(Dictionary<String, Any>? = nil, PresentType = .push)
+}
+
 struct CoordTransiter<ResultType> {
 	private weak var current: DefaultCoordinator<ResultType>?
 	
 	init(_ current: DefaultCoordinator<ResultType>?) {
 		self.current = current
+	}
+}
+
+// MARK: - ########################## Usage
+extension CoordTransiter {
+	func move(to transitScene: TransitScene) -> Observable<ResultType> {
+		switch transitScene {
+		case .root(let params, let presentType):
+			return toRoot(with: params, on: presentType)
+		case .home(let params, let presentType):
+			return toHome(with: params, on: presentType)
+		case .intro(let params, let presentType):
+			return toIntro(with: params, on: presentType)
+		}
 	}
 }
 
@@ -30,7 +50,7 @@ private extension CoordTransiter {
  Move to any screen in stories
  - parameter params: INPUT for push view controller, manage by NavigationParameters
  */
-extension CoordTransiter {
+private extension CoordTransiter {
 	// MARK: Introduction ------------------
 	func toIntro(with params: Dictionary<String, Any>? = nil,
 				 on presentType: PresentType = .push) -> Observable<ResultType> {

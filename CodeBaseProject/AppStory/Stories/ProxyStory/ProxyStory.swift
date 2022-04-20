@@ -46,6 +46,6 @@ private extension ProxyStoryImpl {
 private extension ProxyStoryImpl {
 	func toRoot() -> Observable<Void> {
 		return CoordTransiter(self)
-			.toRoot(on: .`init`)
+			.move(to: .root(nil, .`init`))
 	}
 }

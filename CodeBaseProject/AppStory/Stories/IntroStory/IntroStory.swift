@@ -47,6 +47,6 @@ private extension IntroStoryImpl {
 private extension IntroStoryImpl {
 	func toIntro() -> Observable<Void> {
 		return CoordTransiter(self)
-			.toIntro(on: .`init`)
+			.move(to: .intro(nil, .`init`))
 	}
 }

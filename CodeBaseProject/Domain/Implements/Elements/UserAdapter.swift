@@ -11,11 +11,8 @@
 import Foundation
 
 final class UserAdapter: UserUseCase {
-	private let userRepo: UserRepository
+	@Inject private var userRepo: UserRepository
 	
-	init(userRepo: UserRepository) {
-		self.userRepo = userRepo
-	}
 	// GET
 	func userInfo(inputUrl: UrlInputUserInfo) async -> DataResult<UserData> {
 		let infoResult =  await userRepo.userInfo(inputUrl: inputUrl)

@@ -16,7 +16,7 @@ enum ExternalServices {
 }
 
 class ExternalPluginsBuilder {
-	typealias T = (success: Bool, error: Error?)
+	typealias Result = (success: Bool, error: Error?)
 	private var error: Error?
 	
 	private init() {
@@ -53,7 +53,7 @@ extension ExternalPluginsBuilder {
 
 // MARK: - ================================= Usage =================================
 extension ExternalPluginsBuilder {
-	func finish() -> T {
-		return (error != nil, error)
+	func finish() -> Result {
+		return (error == nil, error)
 	}
 }

@@ -151,6 +151,7 @@ class RootCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, RootCoordi
 // Bridge
 private extension RootCoordinatorImpl {
 	func toHome() -> Observable<Void> {
-		CoordTransiter(self).toHome()
+		CoordTransiter(self)
+			.move(to: .home())
 	}
 }

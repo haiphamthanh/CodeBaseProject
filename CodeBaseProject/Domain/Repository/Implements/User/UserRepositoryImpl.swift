@@ -8,26 +8,22 @@
 import Foundation
 
 class UserRepositoryImpl: UserRepository {
-	var userNetwork: UserNetwork
-	var userLocal: UserLocal // TODO: Hanlde to save data
-	init(userNetwork: UserNetwork, userLocal: UserLocal) {
-		self.userNetwork = userNetwork
-		self.userLocal = userLocal
-	}
+	@Inject private var network: UserNetwork
+	@Inject private var local: UserLocal // TODO: Hanlde to save data
 	
 	func userInfo(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEntity> {
-		return await userNetwork.userInfo(inputUrl: inputUrl)
+		return await network.userInfo(inputUrl: inputUrl)
 	}
 	
 	func userEmail(inputUrl: UrlInputUserInfo) async -> FinalResult<UserEmailEntity> {
-		return await userNetwork.userEmail(inputUrl: inputUrl)
+		return await network.userEmail(inputUrl: inputUrl)
 	}
 	
 	func register(inputBody: BodyInputUserInfo) async -> FinalResult<Bool> {
-		return await userNetwork.register(inputBody: inputBody)
+		return await network.register(inputBody: inputBody)
 	}
 	
 	func update(inputUrl: UrlInputUserInfo, inputBody: BodyInputUserInfo) async -> FinalResult<Bool> {
-		return await userNetwork.update(inputUrl: inputUrl, inputBody: inputBody)
+		return await network.update(inputUrl: inputUrl, inputBody: inputBody)
 	}
 }

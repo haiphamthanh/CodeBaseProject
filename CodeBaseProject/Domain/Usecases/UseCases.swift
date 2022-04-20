@@ -15,10 +15,6 @@ protocol UseCases {
 private class DemoPreview {
 	func execute() async throws {
 		// Use DI instead
-//		let networkProvider = NetworkProviderImpl()
-//		let localProvider = LocalProviderImpl()
-//		let repoProvider = RepoProviderImpl()
-//		let useCaseProvider = UseCaseProviderImpl()
 		let usecase = UseCasesImpl()
 		
 		let result = await usecase.user.userInfo(inputUrl: UrlInputUserInfo(userId: "123", gender: nil))

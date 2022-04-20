@@ -5,19 +5,10 @@
 //  Created by HaiKaito on 03/04/2022.
 //
 
-import Foundation
-
-class UseCasesImpl {
-	@Inject private var usecaseProvider: UseCaseProvider
+class UseCasesImpl: UseCases {
+	@Inject var user: UserUseCase
 	
 	deinit {
 		print("\(self) deinit")
 	}
 }
-
-extension UseCasesImpl: UseCases {
-	var user: UserUseCase {
-		usecaseProvider.user
-	}
-}
-

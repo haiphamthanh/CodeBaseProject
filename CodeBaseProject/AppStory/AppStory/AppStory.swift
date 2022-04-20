@@ -73,7 +73,8 @@ private extension AppStoryImpl {
 private extension AppStoryImpl {
 	func toInvalidAppScreen() -> Observable<Void> {
 		// TODO: Move to proxy scene
-		CoordTransiter(self).toIntro(on: .`init`)
+		CoordTransiter(self)
+			.move(to: .intro(nil, .`init`))
 	}
 }
 

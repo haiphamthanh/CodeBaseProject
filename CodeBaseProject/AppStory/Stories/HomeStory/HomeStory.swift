@@ -46,6 +46,6 @@ private extension HomeStoryImpl {
 private extension HomeStoryImpl {
 	func toHome() -> Observable<Void> {
 		return CoordTransiter(self)
-			.toHome(on: .`init`)
+			.move(to: .home(nil, .`init`))
 	}
 }
