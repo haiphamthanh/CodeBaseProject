@@ -184,6 +184,8 @@
 		86B892D12808904300AD99B2 /* Others++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B892D02808904300AD99B2 /* Others++.swift */; };
 		86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AC28103AA30059BAF0 /* DrawerMenu.swift */; };
 		86D084B028103BB60059BAF0 /* SlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */; };
+		86D084B328104F8B0059BAF0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084B228104F8B0059BAF0 /* BaseView.swift */; };
+		86D084B5281051590059BAF0 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084B4281051590059BAF0 /* SideMenu.swift */; };
 		86E9455C280C2EEE00C58CCD /* DefaultIPros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9455B280C2EEE00C58CCD /* DefaultIPros.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
@@ -388,6 +390,8 @@
 		86B892D02808904300AD99B2 /* Others++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Others++.swift"; sourceTree = "<group>"; };
 		86D084AC28103AA30059BAF0 /* DrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenu.swift; sourceTree = "<group>"; };
 		86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutMenu.swift; sourceTree = "<group>"; };
+		86D084B228104F8B0059BAF0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		86D084B4281051590059BAF0 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		86E9455B280C2EEE00C58CCD /* DefaultIPros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIPros.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -1330,9 +1334,19 @@
 		86D084AE28103BAA0059BAF0 /* Slide Out */ = {
 			isa = PBXGroup;
 			children = (
+				86D084B128104F7E0059BAF0 /* View */,
 				86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */,
 			);
 			path = "Slide Out";
+			sourceTree = "<group>";
+		};
+		86D084B128104F7E0059BAF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86D084B228104F8B0059BAF0 /* BaseView.swift */,
+				86D084B4281051590059BAF0 /* SideMenu.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		86FA503D2805CCAE00FFB057 /* InternalTools */ = {
@@ -1628,6 +1642,7 @@
 				861E858F27FB5BB20032C4F5 /* Color+.swift in Sources */,
 				8685B2642801600A0076B3AC /* NavigationProvider.swift in Sources */,
 				8685B23F28007DD80076B3AC /* IntroView.swift in Sources */,
+				86D084B328104F8B0059BAF0 /* BaseView.swift in Sources */,
 				861FCD56280F2066007564A3 /* AppSettingProvider.swift in Sources */,
 				8685B26D2801614D0076B3AC /* AnimationManager.swift in Sources */,
 				861E857B27FB504A0032C4F5 /* SingleViewInput.swift in Sources */,
@@ -1739,6 +1754,7 @@
 				86E9455C280C2EEE00C58CCD /* DefaultIPros.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,
 				869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */,
+				86D084B5281051590059BAF0 /* SideMenu.swift in Sources */,
 				86609EE0280B355300EAD104 /* ProgressView.swift in Sources */,
 				8685B2702801614D0076B3AC /* CircularRevealTransitionAnimator.swift in Sources */,
 				861E85B027FB71090032C4F5 /* UIKit+.swift in Sources */,

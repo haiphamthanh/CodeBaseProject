@@ -10,3 +10,17 @@
 ///
 
 import Foundation
+import SwiftUI
+
+struct SlideOutMenu: View {
+	var body: some View {
+		BaseView()
+	}
+}
+
+struct SlideOutMenu_Previews: PreviewProvider {
+	static var previews: some View {
+		SlideOutMenu()
+	}
+}
+

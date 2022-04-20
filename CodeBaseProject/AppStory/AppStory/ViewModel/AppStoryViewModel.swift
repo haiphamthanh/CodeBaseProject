@@ -18,7 +18,7 @@ class AppStoryViewModelImpl: DefaultViewModel, ViewModelRule, AppStoryViewModel 
 	required init() {
 		super.init()
 
-		load()
+//		load()
 	}
 
 	func load() {
