@@ -5,4 +5,39 @@
 //  Created by HaiKaito on 25/03/2022.
 //
 
-import Foundation
+import SwiftUI
+import RxSwift
+
+/// Coordinator Out
+/// Coordinator Identify
+protocol HomeCoordinator {
+}
+
+// ViewModel ===> Coordinator
+protocol HomeViewModelCoordSupport: AnyObject {
+}
+
+// Implementation
+class HomeCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, HomeCoordinator {
+	typealias IndividualViewModel = HomeViewModelCoordSupport
+	weak var indViewModel: IndividualViewModel?
+	
+	override init(view: AnyView? = nil, viewModel: ViewModelRule? = nil) {
+		super.init(view: view, viewModel: viewModel)
+		
+		if let indViewModel = viewModel as? IndividualViewModel {
+			self.indViewModel = indViewModel
+		}
+	}
+	
+	override func customAction(on viewModel: ViewModelRule?,
+							   view: AnyView?) -> Observable<Void> {
+		guard let viewModel = viewModel else {
+			fatalError("View model need to available")
+		}
+
+		return viewModel.didDone
+			.take(1)
+			.do(onNext: { _ in })
+	}
+}

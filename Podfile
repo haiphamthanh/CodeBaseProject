@@ -34,6 +34,23 @@ def shared_pods
 	pod 'SwiftDate' # The best way to deal with Dates & Time Zones in Swift
 	pod 'Introspect'
 	
+	# Pods for Design pattern
+	# Dependency injection
+	pod 'Swinject'
+	pod 'RxSwift'
+	
+	# Pods for Network
+	# Checking
+	pod 'ReachabilitySwift'
+	
+	# Pods for presentation
+	# Dialog
+	pod 'PopupDialog'
+	# Toast
+	pod 'Toast-Swift'
+	# keyboard
+	pod 'IQKeyboardManagerSwift'
+	
 end
 
 target "CodeBaseProject" do

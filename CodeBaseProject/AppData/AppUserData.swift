@@ -49,9 +49,9 @@ struct AppUserData: Identifiable {
 
 // MARK: Translation supporting
 extension UserData.Info: AppDataPresentation {
-	typealias AppModelType = AppUserData.Info
+	typealias AppDataType = AppUserData.Info
 	
-	func asAppModel() -> AppModelType {
+	func asAppData() -> AppDataType {
 		return AppUserData.Info(id: "\(id)",
 								 actived: actived,
 								 name: name,
@@ -64,9 +64,9 @@ extension UserData.Info: AppDataPresentation {
 
 
 extension UserData.Email: AppDataPresentation {
-	typealias AppModelType = AppUserData.Email
+	typealias AppDataType = AppUserData.Email
 	
-	func asAppModel() -> AppModelType {
+	func asAppData() -> AppDataType {
 		return AppUserData.Email(id: "id",
 								  email: email,
 								  verified: verified,
