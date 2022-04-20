@@ -182,6 +182,8 @@
 		869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */; };
 		869BBF0728049C49003D87E6 /* UIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0628049C49003D87E6 /* UIRegister.swift */; };
 		86B892D12808904300AD99B2 /* Others++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B892D02808904300AD99B2 /* Others++.swift */; };
+		86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AC28103AA30059BAF0 /* DrawerMenu.swift */; };
+		86D084B028103BB60059BAF0 /* SlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */; };
 		86E9455C280C2EEE00C58CCD /* DefaultIPros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9455B280C2EEE00C58CCD /* DefaultIPros.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
@@ -384,6 +386,8 @@
 		869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasRootNavigationController.swift; sourceTree = "<group>"; };
 		869BBF0628049C49003D87E6 /* UIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRegister.swift; sourceTree = "<group>"; };
 		86B892D02808904300AD99B2 /* Others++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Others++.swift"; sourceTree = "<group>"; };
+		86D084AC28103AA30059BAF0 /* DrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenu.swift; sourceTree = "<group>"; };
+		86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutMenu.swift; sourceTree = "<group>"; };
 		86E9455B280C2EEE00C58CCD /* DefaultIPros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIPros.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -669,6 +673,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				86D084AA28103A720059BAF0 /* Menu */,
 				8685B2712801621B0076B3AC /* Navigation */,
 				861E857927FB4FE90032C4F5 /* SingleView */,
 			);
@@ -1305,6 +1310,31 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		86D084AA28103A720059BAF0 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				86D084AE28103BAA0059BAF0 /* Slide Out */,
+				86D084AB28103A850059BAF0 /* Drawer */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		86D084AB28103A850059BAF0 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				86D084AC28103AA30059BAF0 /* DrawerMenu.swift */,
+			);
+			path = Drawer;
+			sourceTree = "<group>";
+		};
+		86D084AE28103BAA0059BAF0 /* Slide Out */ = {
+			isa = PBXGroup;
+			children = (
+				86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */,
+			);
+			path = "Slide Out";
+			sourceTree = "<group>";
+		};
 		86FA503D2805CCAE00FFB057 /* InternalTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -1668,12 +1698,14 @@
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
 				862EF23127F997FD0051A3A0 /* Constants.swift in Sources */,
 				8604237227EDF6E30056EF17 /* SingleView.swift in Sources */,
+				86D084B028103BB60059BAF0 /* SlideOutMenu.swift in Sources */,
 				8604238127EDFCE80056EF17 /* NetworkLogPlugin.swift in Sources */,
 				8604233827EBAE5D0056EF17 /* Task.swift in Sources */,
 				862EF1FC27F8470D0051A3A0 /* UserInput.swift in Sources */,
 				861E858D27FB5BB20032C4F5 /* PullToRefresh.swift in Sources */,
 				861FCD5A280F3498007564A3 /* StoryRegister.swift in Sources */,
 				862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */,
+				86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */,
 				8685B21528005A360076B3AC /* AppNotificationProvider.swift in Sources */,
 				861E857827FB4D570032C4F5 /* ViewType.swift in Sources */,
 				8685B26F2801614D0076B3AC /* CircularRevealAnimator.swift in Sources */,
