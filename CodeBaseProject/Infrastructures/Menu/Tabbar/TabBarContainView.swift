@@ -7,17 +7,25 @@
 
 import SwiftUI
 
-// TODO: move to common functions
-var isBottomIndicatorAvailable: Bool {
-	if #available(iOS 11.0, *),
-	   let keyWindow = AppProvider.shared.window,
-	   keyWindow.safeAreaInsets.bottom > 0 {
-		return true
-	}
+enum TabbarType: String {
+	case home
+	case search
+	case noti
+	case video
 	
-	return false
+	var info: (image: String, tag: String, name: String) {
+		switch self {
+		case .home:
+			return (image: "ic_home", tag: "home", name: "Home")
+		case .search:
+			return (image: "ic_camera", tag: "search", name: "Search")
+		case .noti:
+			return (image: "ic_setting", tag: "notification", name: "Notifications")
+		case .video:
+			return (image: "ic_cart", tag: "message", name: "Messages")
+		}
+	}
 }
-let bottomPadding: CGFloat = isBottomIndicatorAvailable ? 0 : 10
 
 struct TabBarContainView: View {
 	@Binding var showMenu: Bool
@@ -30,23 +38,22 @@ struct TabBarContainView: View {
 				TopHomeView(isAvatarPressed: $showMenu)
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
-					.tag("ic_home")
+					.tag(TabbarType.home.info.tag)
 				
-				
-				Text("Search")
+				TopSearchView()
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
-					.tag("ic_camera")
+					.tag(TabbarType.search.info.tag)
 				
-				Text("Notifications")
+				TopNotificationView()
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
-					.tag("ic_setting")
+					.tag(TabbarType.noti.info.tag)
 				
-				Text("Messages")
+				TopVideoView()
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
-					.tag("ic_cart")
+					.tag(TabbarType.video.info.tag)
 			}
 			
 			// Custom tab bar...
@@ -55,13 +62,13 @@ struct TabBarContainView: View {
 				
 				HStack(spacing: 0) {
 					// Tab bar button
-					TabButton(image: "ic_home")
-					TabButton(image: "ic_camera")
-					TabButton(image: "ic_setting")
-					TabButton(image: "ic_cart")
+					TabbarButton(.home)
+					TabbarButton(.search)
+					TabbarButton(.noti)
+					TabbarButton(.video)
 				}
 				.padding([.top], 15)
-				.padding(.bottom, bottomPadding)
+				.padding(.bottom, appBottomPadding)
 			}
 		}
 	}
@@ -70,16 +77,20 @@ struct TabBarContainView: View {
 // MARK: - >>>>>>>>>>>> View Builder
 private extension TabBarContainView {
 	@ViewBuilder
-	func TabButton(image: String) -> some View {
+	func TabbarButton(_ tabbarType: TabbarType) -> some View {
+		let tabbarInfo = tabbarType.info
+		let image = tabbarInfo.image
+		let identify = tabbarInfo.tag
+		
 		Button {
-			withAnimation{ currentTab = image }
+			withAnimation{ currentTab = identify }
 		} label: {
 			Image(image)
 				.resizable()
 				.renderingMode(.template)
 				.aspectRatio(contentMode: .fit)
 				.frame(width: 23, height: 22)
-				.foregroundColor(currentTab == image ? .primary : .gray)
+				.foregroundColor(currentTab == identify ? .primary : .gray)
 				.frame(maxWidth: .infinity)
 		}
 	}

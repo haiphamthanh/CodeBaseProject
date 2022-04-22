@@ -9,12 +9,17 @@ import SwiftUI
 
 struct TopVideoView: View {
 	var body: some View {
-		Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		VStack {
+			Text(TabbarType.video.info.name)
+			Spacer()
+		}
 	}
 }
 
+#if DEBUG
 struct TopVideoView_Previews: PreviewProvider {
 	static var previews: some View {
 		TopVideoView()
 	}
 }
+#endif

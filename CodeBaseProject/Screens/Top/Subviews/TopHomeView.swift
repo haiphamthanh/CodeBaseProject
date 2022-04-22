@@ -18,8 +18,10 @@ struct TopHomeView: View {
 	}
 }
 
+#if DEBUG
 struct TopHomeView_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu()
+		TopHomeView(isAvatarPressed: .constant(true))
 	}
 }
+#endif

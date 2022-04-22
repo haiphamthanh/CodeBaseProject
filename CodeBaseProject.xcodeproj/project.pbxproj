@@ -1411,8 +1411,8 @@
 			isa = PBXGroup;
 			children = (
 				86D084BA281079930059BAF0 /* TopHomeView.swift */,
-				86D084DF2812F2DC0059BAF0 /* TopNotificationView.swift */,
 				86D084E12812F2E80059BAF0 /* TopSearchView.swift */,
+				86D084DF2812F2DC0059BAF0 /* TopNotificationView.swift */,
 				86D084E32812F3330059BAF0 /* TopVideoView.swift */,
 			);
 			path = Subviews;

@@ -74,7 +74,6 @@ struct TopView {
 		
 		var body: some View {
 			SlideOutMenu()
-//			NavigationViewWrapper(containView: AnyView(containView))
 		}
 	}
 }

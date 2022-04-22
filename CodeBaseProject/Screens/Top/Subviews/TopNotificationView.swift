@@ -9,12 +9,17 @@ import SwiftUI
 
 struct TopNotificationView: View {
 	var body: some View {
-		Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		VStack {
+			Text(TabbarType.noti.info.name)
+			Spacer()
+		}
 	}
 }
 
+#if DEBUG
 struct TopNotificationView_Previews: PreviewProvider {
 	static var previews: some View {
 		TopNotificationView()
 	}
 }
+#endif

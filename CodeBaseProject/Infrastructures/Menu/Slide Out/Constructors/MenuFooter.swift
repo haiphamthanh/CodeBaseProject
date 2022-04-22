@@ -36,7 +36,7 @@ struct MenuFooter: View {
 				}
 			}
 			.padding([.horizontal, .top], 15)
-			.padding(.bottom, bottomPadding)
+			.padding(.bottom, appBottomPadding)
 			.foregroundColor(.primary)
 		}
 	}
