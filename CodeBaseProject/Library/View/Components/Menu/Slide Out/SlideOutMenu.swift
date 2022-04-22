@@ -9,12 +9,11 @@
 ///
 ///
 
-import Foundation
 import SwiftUI
 
 struct SlideOutMenu: View {
 	var body: some View {
-		BaseView()
+		SlideOutContainView()
 	}
 }
 
