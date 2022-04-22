@@ -42,7 +42,7 @@ struct SlideOutContainView: View {
 					.overlay(
 						Rectangle()
 							.fill(
-								Color.primary.opacity(Double(offset / sideBarWidth) / 5)
+								Color.red.opacity(Double(offset / sideBarWidth) / 5)
 							)
 							.ignoresSafeArea(.container, edges: .vertical)
 							.onTapGesture {
@@ -70,11 +70,6 @@ struct SlideOutContainView: View {
 			// Hidding navigation bar
 			.navigationBarTitleDisplayMode(.inline)
 			.navigationBarHidden(true)
-			.padding(.bottom, isBottomIndicatorAvailable ? 0 : 10)
-//			.padding(.bottom, self.safe safeAreaInsets.bottom > 0 ? 10 : 0)
-//			if self.safeAreaInsets.bottom > 0 {
-//				.padding(.bottom, 10)
-//			}
 		}
 		.animation(.easeOut, value: offset == 0)
 		.onChange(of: showMenu) { _ in

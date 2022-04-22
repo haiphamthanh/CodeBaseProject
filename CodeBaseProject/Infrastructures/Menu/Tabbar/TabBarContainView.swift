@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+// TODO: move to common functions
+var isBottomIndicatorAvailable: Bool {
+	if #available(iOS 11.0, *),
+	   let keyWindow = AppProvider.shared.window,
+	   keyWindow.safeAreaInsets.bottom > 0 {
+		return true
+	}
+	
+	return false
+}
+let bottomPadding: CGFloat = isBottomIndicatorAvailable ? 0 : 10
+
 struct TabBarContainView: View {
 	@Binding var showMenu: Bool
 	@Binding var currentTab: String
@@ -49,8 +61,8 @@ struct TabBarContainView: View {
 					TabButton(image: "ic_cart")
 				}
 				.padding([.top], 15)
+				.padding(.bottom, bottomPadding)
 			}
-			
 		}
 	}
 }

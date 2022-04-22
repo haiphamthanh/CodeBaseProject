@@ -60,14 +60,4 @@ extension View {
 	func currentScreenRect() -> CGRect {
 		return UIScreen.main.bounds
 	}
-	
-	var isBottomIndicatorAvailable: Bool {
-		if #available(iOS 11.0, *),
-		   let keyWindow = AppProvider.shared.window,
-		   keyWindow.safeAreaInsets.bottom > 0 {
-			return true
-		}
-		
-		return false
-	}
 }
