@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExNavigationBarView: View {
-	@Binding var showMenu: Bool
+	@Binding var isAvatarPressed: Bool
 	
 	@ViewBuilder
 	var body: some View {
@@ -16,7 +16,7 @@ struct ExNavigationBarView: View {
 			HStack {
 				Button {
 					withAnimation {
-						showMenu.toggle()
+						isAvatarPressed.toggle()
 					}
 				} label: {
 					Image("img_my_avatar")
@@ -58,7 +58,7 @@ struct ExNavigationBarView: View {
 #if DEBUG
 struct ExNavigationBarView_Previews: PreviewProvider {
 	static var previews: some View {
-		ExNavigationBarView(showMenu: .constant(true))
+		ExNavigationBarView(isAvatarPressed: .constant(true))
 	}
 }
 #endif

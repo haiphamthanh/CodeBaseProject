@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  TopHomeView.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 21/04/2022.
@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct Home: View {
-	@Binding var showMenu: Bool
+struct TopHomeView: View {
+	@Binding var isAvatarPressed: Bool
 	var body: some View {
 		VStack {
-			ExNavigationBarView(showMenu: $showMenu)
+			ExNavigationBarView(isAvatarPressed: $isAvatarPressed)
 			
 			Spacer()
 		}
 	}
 }
 
-struct Home_Previews: PreviewProvider {
+struct TopHomeView_Previews: PreviewProvider {
 	static var previews: some View {
 		SlideOutMenu()
 	}

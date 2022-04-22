@@ -26,17 +26,18 @@ struct SlideOutContainView: View {
 	}
 	
 	var body: some View {
-		let sideBarWidth = currentRect().width - 90
+		let currentScreenWidth = currentScreenRect().width
+		let sideBarWidth = currentScreenWidth - 90
 		
 		// Whole navigation view...
 		NavigationView {
 			HStack(spacing: 0) {
 				// Side menu...
-				SideMenuContainView(sideBarWidth: sideBarWidth, showMenu: $showMenu)
+				SideMenuView(sideBarWidth: sideBarWidth, showMenu: $showMenu)
 				
 				// Main tab View
 				TabBarContainView(showMenu: $showMenu, currentTab: $currentTab)
-					.frame(width: currentRect().width)
+					.frame(width: currentScreenWidth)
 				// BG when menu is showing...
 					.overlay(
 						Rectangle()
@@ -52,7 +53,7 @@ struct SlideOutContainView: View {
 					)
 			}
 			// max Size...
-			.frame(width: currentRect().width + sideBarWidth)
+			.frame(width: currentScreenWidth + sideBarWidth)
 			.offset(x: -sideBarWidth / 2)
 			.offset(x: offset > 0 ? offset : 0)
 			// Gesture...
@@ -69,6 +70,11 @@ struct SlideOutContainView: View {
 			// Hidding navigation bar
 			.navigationBarTitleDisplayMode(.inline)
 			.navigationBarHidden(true)
+			.padding(.bottom, isBottomIndicatorAvailable ? 0 : 10)
+//			.padding(.bottom, self.safe safeAreaInsets.bottom > 0 ? 10 : 0)
+//			if self.safeAreaInsets.bottom > 0 {
+//				.padding(.bottom, 10)
+//			}
 		}
 		.animation(.easeOut, value: offset == 0)
 		.onChange(of: showMenu) { _ in
@@ -145,13 +151,6 @@ private extension SlideOutContainView {
 			offset = sideBarWidth
 			showMenu = true
 		}
-	}
-}
-
-// 2. Extending View to get Screen Rect...
-private extension View {
-	func currentRect() -> CGRect {
-		return UIScreen.main.bounds
 	}
 }
 

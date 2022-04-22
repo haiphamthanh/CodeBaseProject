@@ -1,5 +1,5 @@
 //
-//  SideMenuContainView.swift
+//  SideMenuView.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 20/04/2022.
@@ -12,7 +12,7 @@ import SwiftUI
 // TODO: Move to common
 let Menu_Background_Color = Color.primary.opacity(0.04)
 
-struct SideMenuContainView: View {
+struct SideMenuView: View {
 	let sideBarWidth: CGFloat
 	@Binding var showMenu: Bool
 	
@@ -41,7 +41,7 @@ struct SideMenuContainView: View {
 	}
 }
 
-struct SideMenuContainView_Previews: PreviewProvider {
+struct SideMenuView_Previews: PreviewProvider {
 	static var previews: some View {
 		SlideOutMenu()
 	}

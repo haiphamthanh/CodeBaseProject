@@ -15,7 +15,7 @@ struct TabBarContainView: View {
 		// Main tab View
 		VStack(spacing: 0) {
 			TabView(selection: $currentTab) {
-				Home(showMenu: $showMenu)
+				TopHomeView(isAvatarPressed: $showMenu)
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
 					.tag("ic_home")
