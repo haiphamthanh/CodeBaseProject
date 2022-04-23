@@ -1399,8 +1399,8 @@
 				86D084D62812EEB10059BAF0 /* Subviews */,
 				86D084D22812EEB10059BAF0 /* ViewModel */,
 				86D084D52812EEB10059BAF0 /* TopViewFactory.swift */,
-				86D084D72812EEB10059BAF0 /* TopCoordinator.swift */,
 				86D084D82812EEB10059BAF0 /* TopView.swift */,
+				86D084D72812EEB10059BAF0 /* TopCoordinator.swift */,
 			);
 			path = Top;
 			sourceTree = "<group>";

@@ -26,8 +26,10 @@ protocol TopViewModelViewSupport {
 
 struct TopView {
 	private init() { }
-	
-	// Properties is used for View
+}
+
+// Properties is used for View
+extension TopView {
 	class IPros: DefaultIPros<TopViewModelViewSupport>, ObservableObject {
 		private let disposeBag = DisposeBag()
 		@Published private(set) var counting: String = "0"
@@ -85,8 +87,10 @@ struct TopView {
 			}
 		}
 	}
-	
-	// MARK: - ================================= View Layout =================================
+}
+
+// MARK: - ================================= View Layout =================================
+extension TopView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
 		@ObservedObject var pros: IPros
