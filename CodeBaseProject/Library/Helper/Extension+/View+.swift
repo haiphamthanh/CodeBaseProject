@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import Combine
 
+///  Extending View to support show alert...
 extension View {
 	func alert(by alertResponse: Binding<AppAlertData?>, completion: (() -> Void)? = nil) -> some View {
 		self.alert(item: alertResponse, content: { alertResponse in
@@ -17,8 +17,13 @@ extension View {
 												 action: alertResponse.completion ?? {} ))
 		})
 	}
+	
+	func alert(isPresented: Binding<Bool>, _ content: TextFieldAlert) -> some View {
+		TextFieldWrapper(isPresented: isPresented, presentingView: self, content: content)
+	}
 }
 
+///  Extending View to support pull to request
 extension View {
 	public func pullToRefresh(isShowing: Binding<Bool>, onRefresh: @escaping () -> Void) -> some View {
 		return overlay(
@@ -28,7 +33,7 @@ extension View {
 	}
 }
 
-
+///  Extending View to support making place holder
 extension View {
 	func placeholder<Content: View>(
 		when shouldShow: Bool,
@@ -42,12 +47,6 @@ extension View {
 		}
 }
 
-extension View {
-	func alert(isPresented: Binding<Bool>, _ content: TextFieldAlert) -> some View {
-		TextFieldWrapper(isPresented: isPresented, presentingView: self, content: content)
-	}
-}
-
 #if canImport(UIKit)
 extension View {
 	func hideKeyboard() {
@@ -56,3 +55,9 @@ extension View {
 }
 #endif
 
+///  Extending View to get Screen Rect...
+extension View {
+	func currentScreenRect() -> CGRect {
+		return UIScreen.main.bounds
+	}
+}

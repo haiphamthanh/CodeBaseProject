@@ -19,8 +19,10 @@ protocol RootViewModelViewSupport {
 
 struct RootView {
 	private init() { }
-	
-	// Properties is used for View
+}
+
+// Properties is used for View
+extension RootView {
 	class IPros: DefaultIPros<RootViewModelViewSupport>, ObservableObject {
 		private let disposeBag = DisposeBag()
 		@Published private(set) var counting: String = "0"
@@ -53,8 +55,10 @@ struct RootView {
 			}
 		}
 	}
-	
-	// MARK: - ================================= View Layout =================================
+}
+
+// MARK: - ================================= View Layout =================================
+extension RootView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
 		@ObservedObject var pros: IPros
@@ -73,8 +77,7 @@ struct RootView {
 		}
 		
 		var body: some View {
-			SlideOutMenu()
-//			NavigationViewWrapper(containView: AnyView(containView))
+			NavigationViewWrapper(containView: AnyView(containView))
 		}
 	}
 }

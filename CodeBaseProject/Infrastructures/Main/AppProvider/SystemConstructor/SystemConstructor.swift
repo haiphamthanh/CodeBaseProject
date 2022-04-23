@@ -89,6 +89,7 @@ private extension SystemConstructor {
 		isSuccess = isSuccess && theme
 			.useDefaultSetting(.textfield)
 			.useDefaultSetting(.naviBar)
+			.useDefaultSetting(.tabBar)
 			.done()
 		
 		isSuccess = isSuccess && appSetting
