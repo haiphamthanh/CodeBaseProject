@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct MenuHeader: View {
-    var body: some View {
+	var body: some View {
 		ProfileView()
-    }
+	}
 }
 
+#if DEBUG
 struct MenuHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuHeader()
-    }
+	static var previews: some View {
+		MenuHeader()
+	}
 }
+#endif

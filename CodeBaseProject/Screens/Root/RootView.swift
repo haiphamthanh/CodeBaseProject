@@ -73,8 +73,7 @@ struct RootView {
 		}
 		
 		var body: some View {
-			SlideOutMenu()
-//			NavigationViewWrapper(containView: AnyView(containView))
+			NavigationViewWrapper(containView: AnyView(containView))
 		}
 	}
 }

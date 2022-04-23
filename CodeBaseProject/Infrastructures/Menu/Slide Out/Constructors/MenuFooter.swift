@@ -42,8 +42,11 @@ struct MenuFooter: View {
 	}
 }
 
+
+#if DEBUG
 struct MenuFooter_Previews: PreviewProvider {
 	static var previews: some View {
 		MenuFooter()
 	}
 }
+#endif

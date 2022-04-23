@@ -17,16 +17,16 @@ extension TopViewModelImpl: TopViewModelCoordSupport {
 
 // MARK: - ================================= View support =================================
 extension TopViewModelImpl: TopViewModelViewSupport {
-	var authState: Observable<AuthState> {
-		_authState.asObservable()
-	}
+	var authState: Observable<AuthState> { _authState.asObservable() }
+	var counting: Observable<Int> { _counting.asObservable() }
 	
-	var counting: Observable<Int> {
-		_counting.asObservable()
-	}
-	
-	func gotoHome() {
-		_home.onNext(Void())
-	}
+	func gotoHome() { _home.onNext(Void()) }
+	func gotoSearch() { print("Move to search by coordinator") }
+	func gotoNotifiction() { print("Move to notification by coordinator") }
+	func gotoVideo() { print("Move to video by coordinator") }
+	func gotoFacebook() { print("Move to facebook by coordinator") }
+	func gotoPrivacy() { print("Move to privacy by coordinator") }
+	func gotoHelp() { print("Move to help by coordinator") }
+	func gotoSetting() { print("Move to setting by coordinator") }
 }
 

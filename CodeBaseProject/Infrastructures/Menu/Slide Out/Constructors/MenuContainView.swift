@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct MenuContainView: View {
-    var body: some View {
+	@Binding var output: MenuType
+	
+	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
 			VStack(alignment: .leading, spacing: 45) {
 				// Tab buttons
-				MenuButton(title: "Home", image: "ic_home")
-				MenuButton(title: "Camera", image: "ic_camera")
-				MenuButton(title: "Cart", image: "ic_cart")
-				MenuButton(title: "Setting", image: "ic_setting")
-				MenuButton(title: "Home", image: "ic_home")
-				MenuButton(title: "Camera", image: "ic_camera")
-				MenuButton(title: "Cart", image: "ic_cart")
-				MenuButton(title: "Setting", image: "ic_setting")
+				MenuButton(MenuType.home)
+				MenuButton(MenuType.search)
+				MenuButton(MenuType.noti)
+				MenuButton(MenuType.video)
 			}
 			.padding()
 			.padding(.leading)
@@ -27,20 +25,16 @@ struct MenuContainView: View {
 			
 			Divider()
 			
-			MenuButton(title: "Facebook", image: "ic_facebook")
+			MenuButton(MenuType.facebook)
 				.padding()
 				.padding(.leading)
 			
 			Divider()
 			
 			VStack(alignment: .leading, spacing: 25) {
-				Button("Setting And Privacy") {
-					
-				}
+				MenuButton(MenuType.privacy)
 				
-				Button("Help Center") {
-					
-				}
+				MenuButton(MenuType.help)
 			}
 			.padding()
 			.padding(.leading)
@@ -48,33 +42,44 @@ struct MenuContainView: View {
 			.frame(maxWidth: .infinity, alignment: .leading)
 			.foregroundColor(.primary)
 		}
-    }
+	}
 }
 
 // MARK: - >>>>>>>>>>>> View Builder
 private extension MenuContainView {
 	@ViewBuilder
-	func MenuButton(title: String, image: String) -> some View {
-		NavigationLink {
-			Text("\(title) View")
-				.navigationTitle(title)
-		} label: {
-			HStack(spacing: 14) {
-				Image(image)
-					.resizable()
-					.renderingMode(.template)
-					.aspectRatio(contentMode: .fill)
-					.frame(width: 22, height: 22)
-				Text(title)
+	func MenuButton(_ type: MenuType) -> some View {
+		let image = type.info?.image
+		let name = type.info?.name
+		
+		if image != nil || name != nil {
+			Button {
+				withAnimation{ output = type }
+			} label: {
+				HStack(spacing: 14) {
+					if let image = image {
+						Image(image)
+							.resizable()
+							.renderingMode(.template)
+							.aspectRatio(contentMode: .fill)
+							.frame(width: 22, height: 22)
+					}
+					
+					if let name = name {
+						Text(name)
+					}
+				}
+				.foregroundColor(.primary)
+				.frame(maxWidth: .infinity, alignment: .leading)
 			}
-			.foregroundColor(.primary)
-			.frame(maxWidth: .infinity, alignment: .leading)
 		}
 	}
 }
 
+#if DEBUG
 struct MenuContainView_Previews: PreviewProvider {
-    static var previews: some View {
-		MenuContainView()
-    }
+	static var previews: some View {
+		MenuContainView(output: .constant(MenuType.none))
+	}
 }
+#endif

@@ -12,14 +12,20 @@
 import SwiftUI
 
 struct SlideOutMenu: View {
+	/// Menu handler
+	@Binding var menuOutput: MenuType
+	@Binding var actionOther: OtherType
+	
 	var body: some View {
-		SlideOutContainView()
+		SlideOutContainView(menuOutput: $menuOutput, actionOther: $actionOther)
 	}
 }
 
+#if DEBUG
 struct SlideOutMenu_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu()
+		SlideOutMenu(menuOutput: .constant(MenuType.none),
+					 actionOther: .constant(OtherType.none))
 	}
 }
-
+#endif

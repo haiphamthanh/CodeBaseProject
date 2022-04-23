@@ -43,6 +43,8 @@ extension AppTheme: AppThemeProvider {
 			MyTheme.applyAppearanceTextFieldDefaults()
 		case .naviBar:
 			MyTheme.applyAppearanceNavigationBarDefaults()
+		case .tabBar:
+			MyTheme.applyAppearanceTabBarDefaults()
 		}
 		
 		return self
@@ -57,6 +59,7 @@ extension AppTheme: AppThemeProvider {
 enum MyThemeSetting {
 	case textfield
 	case naviBar
+	case tabBar
 }
 
 private extension MyTheme {
@@ -70,11 +73,17 @@ private extension MyTheme {
 		UINavigationBar.appearance().barStyle = .black
 		UINavigationBar.appearance().barTintColor = .textColor
 		UINavigationBar.appearance().tintColor = FlatColor.Blue.BlueWhale
-		UINavigationBar.appearance().backgroundColor = FlatColor.Gray.Dark
+		UINavigationBar.appearance().backgroundColor = FlatColor.Red.Valencia
 		
 		UINavigationBar.appearance().barTintColor = FlatColor.Blue.BlueWhale
 		UINavigationBar.appearance().tintColor = UIColor.white
 		UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+		UINavigationBar.appearance().isHidden = true
+	}
+	
+	static func applyAppearanceTabBarDefaults() {
+		// Hidding native one...
+		UITabBar.appearance().isHidden = true
 	}
 	
 //	static private func emptyView(withBackground color: UIColor) -> UIView {

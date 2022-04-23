@@ -15,6 +15,7 @@ let Menu_Background_Color = Color.primary.opacity(0.04)
 struct SideMenuView: View {
 	let sideBarWidth: CGFloat
 	@Binding var showMenu: Bool
+	@Binding var output: MenuType
 	
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
@@ -23,7 +24,7 @@ struct SideMenuView: View {
 			.padding(.leading)
 			.padding(.bottom)
 			
-			MenuContainView()
+			MenuContainView(output: $output)
 			
 			MenuFooter()
 		}
@@ -41,8 +42,11 @@ struct SideMenuView: View {
 	}
 }
 
+#if DEBUG
 struct SideMenuView_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu()
+		SlideOutMenu(menuOutput: .constant(MenuType.none),
+					 actionOther: .constant(OtherType.none))
 	}
 }
+#endif

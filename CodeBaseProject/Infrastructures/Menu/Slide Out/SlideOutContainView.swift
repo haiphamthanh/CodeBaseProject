@@ -12,7 +12,9 @@ import SwiftUI
 struct SlideOutContainView: View {
 	/// Menu handler
 	@State private var showMenu: Bool = false
-	@State private var currentTab = "Home"
+	@State private var currentTab = TabbarType.home
+	@Binding var menuOutput: MenuType
+	@Binding var actionOther: OtherType
 	
 	/// Properties to support gesture
 	// Offset for both drag gesture and showing menu
@@ -20,37 +22,35 @@ struct SlideOutContainView: View {
 	@State private var lastStoresOffset: CGFloat = 0
 	@GestureState private var gestureOffset: CGFloat = 0
 	
-	// Hidding native one...
-	init() {
-		UITabBar.appearance().isHidden = true
-	}
-	
 	var body: some View {
 		let currentScreenWidth = currentScreenRect().width
 		let sideBarWidth = currentScreenWidth - 90
 		
 		// Whole navigation view...
-		NavigationView {
+		//		NavigationView {
+		VStack {
 			HStack(spacing: 0) {
 				// Side menu...
-				SideMenuView(sideBarWidth: sideBarWidth, showMenu: $showMenu)
+				SideMenuView(sideBarWidth: sideBarWidth, showMenu: $showMenu, output: $menuOutput)
 				
 				// Main tab View
-				TabBarContainView(showMenu: $showMenu, currentTab: $currentTab)
-					.frame(width: currentScreenWidth)
+				TabBarContainView(showMenu: $showMenu,
+								  currentTab: $currentTab,
+								  actionOther: $actionOther)
+				.frame(width: currentScreenWidth)
 				// BG when menu is showing...
-					.overlay(
-						Rectangle()
-							.fill(
-								Color.red.opacity(Double(offset / sideBarWidth) / 5)
-							)
-							.ignoresSafeArea(.container, edges: .vertical)
-							.onTapGesture {
-								withAnimation {
-									showMenu.toggle()
-								}
+				.overlay(
+					Rectangle()
+						.fill(
+							Color.red.opacity(Double(offset / sideBarWidth) / 5)
+						)
+						.ignoresSafeArea(.container, edges: .vertical)
+						.onTapGesture {
+							withAnimation {
+								showMenu.toggle()
 							}
-					)
+						}
+				)
 			}
 			// max Size...
 			.frame(width: currentScreenWidth + sideBarWidth)
@@ -149,13 +149,16 @@ private extension SlideOutContainView {
 	}
 }
 
+#if DEBUG
 struct SlideOutContainView_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			SlideOutContainView()
+			SlideOutContainView(menuOutput: .constant(MenuType.none),
+								actionOther: .constant(OtherType.none))
 		}
 	}
 }
+#endif
 
 /*
  // MARK: - >>>>>>>>>>>> Old

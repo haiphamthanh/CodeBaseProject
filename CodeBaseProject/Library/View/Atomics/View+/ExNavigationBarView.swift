@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ExNavigationBarView: View {
-	@Binding var isAvatarPressed: Bool
+	@Binding var touchedAvatar: Bool
+	@Binding var touchedSetting: Bool
 	
 	@ViewBuilder
 	var body: some View {
@@ -16,7 +17,7 @@ struct ExNavigationBarView: View {
 			HStack {
 				Button {
 					withAnimation {
-						isAvatarPressed.toggle()
+						touchedAvatar.toggle()
 					}
 				} label: {
 					Image("img_my_avatar")
@@ -28,12 +29,13 @@ struct ExNavigationBarView: View {
 				
 				Spacer()
 				
-				// Navigation Link...
-				NavigationLink {
-					Text("Time line view")
-						.navigationTitle("Time line")
+				
+				Button {
+					withAnimation {
+						touchedSetting.toggle()
+					}
 				} label: {
-					Image("ic_home")
+					Image("ic_setting")
 						.resizable()
 						.renderingMode(.template)
 						.aspectRatio(contentMode: .fit)
@@ -47,7 +49,7 @@ struct ExNavigationBarView: View {
 			Divider()
 		}
 		.overlay(
-			Image("ic_setting")
+			Image("ic_home")
 				.resizable()
 				.aspectRatio(contentMode: .fit)
 				.frame(width: 25, height: 25)
@@ -58,7 +60,7 @@ struct ExNavigationBarView: View {
 #if DEBUG
 struct ExNavigationBarView_Previews: PreviewProvider {
 	static var previews: some View {
-		ExNavigationBarView(isAvatarPressed: .constant(true))
+		ExNavigationBarView(touchedAvatar: .constant(false), touchedSetting: .constant(false))
 	}
 }
 #endif
