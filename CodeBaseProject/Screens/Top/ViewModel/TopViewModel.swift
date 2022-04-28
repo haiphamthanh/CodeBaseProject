@@ -17,16 +17,35 @@ class TopViewModelImpl: DefaultViewModel, ViewModelRule, TopViewModel {
 	let _counting = PublishSubject<Int>()
 	let _authState = PublishSubject<AuthState>()
 	let _home = PublishSubject<Void>()
+	let _showMenu = PublishSubject<Bool>()
 	
 	private var counter = 0
 	
 	required init() {
 		super.init()
-
-		load()
+		
+		setup()
+		firstLoading()
 	}
+	
+	final func setup() {
+		// Sub view models
+		return setupAllSubViewModels()
+	}
+	
+	final func firstLoading() {
+		return changeState()
+	}
+}
 
-	func load() {
+private extension TopViewModelImpl {
+	func setupAllSubViewModels() {
+		if (!TabBarManager.shared.delegate(to: self)) {
+			fatalError("View model need to support subviews delegate")
+		}
+	}
+	
+	func changeState() {
 		Task {
 			await self.changeStateAfter2Seconds()
 		}

@@ -11,10 +11,10 @@ import SwiftUI
 
 struct SlideOutContainView: View {
 	/// Menu handler
-	@State private var showMenu: Bool = false
-	@State private var currentTab = TabbarType.home
+	@Binding var showMenu: Bool
+	@Binding var currentTab: TabbarType
 	@Binding var menuOutput: MenuType
-	@Binding var actionOther: OtherType
+//	@Binding var actionOther: OtherType
 	
 	/// Properties to support gesture
 	// Offset for both drag gesture and showing menu
@@ -31,12 +31,12 @@ struct SlideOutContainView: View {
 		VStack {
 			HStack(spacing: 0) {
 				// Side menu...
-				SideMenuView(sideBarWidth: sideBarWidth, showMenu: $showMenu, output: $menuOutput)
+				SideMenuView(sideBarWidth: sideBarWidth,
+							 showMenu: $showMenu,
+							 output: $menuOutput)
 				
 				// Main tab View
-				TabBarContainView(showMenu: $showMenu,
-								  currentTab: $currentTab,
-								  actionOther: $actionOther)
+				TabBarContainView(currentTab: $currentTab)
 				.frame(width: currentScreenWidth)
 				// BG when menu is showing...
 				.overlay(
@@ -153,8 +153,11 @@ private extension SlideOutContainView {
 struct SlideOutContainView_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			SlideOutContainView(menuOutput: .constant(MenuType.none),
-								actionOther: .constant(OtherType.none))
+//			SlideOutContainView(menuOutput: .constant(MenuType.none),
+//								actionOther: .constant(OtherType.none))
+			SlideOutContainView(showMenu: .constant(false),
+								currentTab: .constant(TabbarType.home),
+								menuOutput: .constant(MenuType.none))
 		}
 	}
 }

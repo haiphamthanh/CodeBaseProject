@@ -13,19 +13,23 @@ import SwiftUI
 
 struct SlideOutMenu: View {
 	/// Menu handler
+	@Binding var showMenu: Bool
 	@Binding var menuOutput: MenuType
-	@Binding var actionOther: OtherType
+	@Binding var currentTab: TabbarType
 	
 	var body: some View {
-		SlideOutContainView(menuOutput: $menuOutput, actionOther: $actionOther)
+		SlideOutContainView(showMenu: $showMenu,
+							currentTab: $currentTab,
+							menuOutput: $menuOutput)
 	}
 }
 
 #if DEBUG
 struct SlideOutMenu_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu(menuOutput: .constant(MenuType.none),
-					 actionOther: .constant(OtherType.none))
+		SlideOutMenu(showMenu: .constant(true),
+					 menuOutput: .constant(MenuType.none),
+					 currentTab: .constant(TabbarType.home))
 	}
 }
 #endif

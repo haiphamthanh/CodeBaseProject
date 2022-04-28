@@ -33,3 +33,24 @@ extension ViewInstance {
 		return AnyView(HomeView.IView(pros: pros))
 	}
 }
+
+// MARK: - ########################## Atomics ##########################
+extension ViewInstance {
+	class SubView {
+		static func topHomeView(pros: TopHomeView.IPros) -> AnyView {
+			return AnyView(TopHomeView.IView(pros: pros))
+		}
+	}
+}
+
+
+struct PropsInstance {
+	private init() { }
+}
+
+// MARK: - ########################## Atomics ##########################
+extension PropsInstance {
+	static func topHomeProps(viewModel: ViewModelRule) -> TopHomeView.IPros {
+		return TopHomeView.IPros(viewModel: viewModel)
+	}
+}

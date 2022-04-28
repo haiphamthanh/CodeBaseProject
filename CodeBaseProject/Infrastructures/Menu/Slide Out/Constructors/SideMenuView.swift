@@ -45,8 +45,9 @@ struct SideMenuView: View {
 #if DEBUG
 struct SideMenuView_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu(menuOutput: .constant(MenuType.none),
-					 actionOther: .constant(OtherType.none))
+		SlideOutMenu(showMenu: .constant(false),
+					 menuOutput: .constant(MenuType.none),
+					 currentTab: .constant(TabbarType.home))
 	}
 }
 #endif

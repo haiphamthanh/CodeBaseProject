@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct TabBarContainView: View {
-	@Binding var showMenu: Bool
 	@Binding var currentTab: TabbarType
-	@Binding var actionOther: OtherType
-	@State private var touchedSetting: Bool = false
+//	@State private var currentTab: TabbarType = .home
 	
 	var body: some View {
 		// Main tab View
 		VStack(spacing: 0) {
 			TabView(selection: $currentTab) {
-				TopHomeView(touchedAvatar: $showMenu,
-							touchedSetting: $touchedSetting.onUpdate(settingButtonHandler))
+				TabBarManager.shared.topHomeView
 				.navigationBarTitleDisplayMode(.inline)
 				.navigationBarHidden(true)
 				.tag(TabbarType.home)
@@ -56,11 +53,13 @@ struct TabBarContainView: View {
 		}
 	}
 	
-	private func settingButtonHandler(_ isTouched: Bool) {
-		if isTouched {
-			actionOther = .setting
-		}
-	}
+//	TabBarViewModelManager.shared.topHomeView(touchedAvatar: $showMenu,
+//											  touchedSetting: $touchedSetting.onUpdate(settingButtonHandler))
+//	private func settingButtonHandler(_ isTouched: Bool) {
+//		if isTouched {
+//			actionOther = .setting
+//		}
+//	}
 }
 
 // MARK: - >>>>>>>>>>>> View Builder
@@ -87,8 +86,9 @@ private extension TabBarContainView {
 #if DEBUG
 struct TabBarContainView_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu(menuOutput: .constant(MenuType.none),
-					 actionOther: .constant(OtherType.none))
+		SlideOutMenu(showMenu: .constant(false),
+					 menuOutput: .constant(MenuType.none),
+					 currentTab: .constant(TabbarType.home))
 	}
 }
 #endif
