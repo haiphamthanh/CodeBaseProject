@@ -14,7 +14,7 @@ struct MenuFooter: View {
 			
 			HStack {
 				Button {
-					
+					// Button titlte
 				} label: {
 					Image("ic_home")
 						.resizable()
@@ -26,7 +26,7 @@ struct MenuFooter: View {
 				Spacer()
 				
 				Button {
-					
+					// Button titlte
 				} label: {
 					Image("ic_setting")
 						.resizable()

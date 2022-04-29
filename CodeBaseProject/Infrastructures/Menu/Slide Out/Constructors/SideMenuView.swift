@@ -20,9 +20,9 @@ struct SideMenuView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
 			MenuHeader()
-			.padding(.horizontal)
-			.padding(.leading)
-			.padding(.bottom)
+				.padding(.horizontal)
+				.padding(.leading)
+				.padding(.bottom)
 			
 			MenuContainView(output: $output)
 			

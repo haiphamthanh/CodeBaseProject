@@ -181,7 +181,7 @@
 		869BBF0128046408003D87E6 /* AppRootViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0028046408003D87E6 /* AppRootViewFactory.swift */; };
 		869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */; };
 		869BBF0728049C49003D87E6 /* UIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0628049C49003D87E6 /* UIRegister.swift */; };
-		86A8303C281AC85700D12E55 /* TopViewModel+TopHomeViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8303B281AC85700D12E55 /* TopViewModel+TopHomeViewModelDelegate.swift */; };
+		86A8303C281AC85700D12E55 /* TopViewModel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8303B281AC85700D12E55 /* TopViewModel+.swift */; };
 		86B892D12808904300AD99B2 /* Others++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B892D02808904300AD99B2 /* Others++.swift */; };
 		86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AC28103AA30059BAF0 /* DrawerMenu.swift */; };
 		86D084B028103BB60059BAF0 /* SlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */; };
@@ -409,7 +409,7 @@
 		869BBF0028046408003D87E6 /* AppRootViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewFactory.swift; sourceTree = "<group>"; };
 		869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasRootNavigationController.swift; sourceTree = "<group>"; };
 		869BBF0628049C49003D87E6 /* UIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRegister.swift; sourceTree = "<group>"; };
-		86A8303B281AC85700D12E55 /* TopViewModel+TopHomeViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopViewModel+TopHomeViewModelDelegate.swift"; sourceTree = "<group>"; };
+		86A8303B281AC85700D12E55 /* TopViewModel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopViewModel+.swift"; sourceTree = "<group>"; };
 		86B892D02808904300AD99B2 /* Others++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Others++.swift"; sourceTree = "<group>"; };
 		86D084AC28103AA30059BAF0 /* DrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenu.swift; sourceTree = "<group>"; };
 		86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutMenu.swift; sourceTree = "<group>"; };
@@ -1361,15 +1361,6 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		86A8303A281AC7F500D12E55 /* Supports */ = {
-			isa = PBXGroup;
-			children = (
-				86D084D32812EEB10059BAF0 /* TopViewModel+Supports.swift */,
-				86A8303B281AC85700D12E55 /* TopViewModel+TopHomeViewModelDelegate.swift */,
-			);
-			path = Supports;
-			sourceTree = "<group>";
-		};
 		86D084AA28103A720059BAF0 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1425,8 +1416,8 @@
 		86D084D22812EEB10059BAF0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				86A8303A281AC7F500D12E55 /* Supports */,
 				86D084D42812EEB10059BAF0 /* TopViewModel.swift */,
+				86D084D32812EEB10059BAF0 /* TopViewModel+Supports.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1473,6 +1464,7 @@
 		86D2C98A281688E90099A377 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				86A8303B281AC85700D12E55 /* TopViewModel+.swift */,
 				86D2C98B281689200099A377 /* TopHomeViewModel.swift */,
 				86D2C98D281689340099A377 /* TopHomeViewModel+Support.swift */,
 			);
@@ -1867,7 +1859,7 @@
 				86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */,
 				8685B21528005A360076B3AC /* AppNotificationProvider.swift in Sources */,
 				861E857827FB4D570032C4F5 /* ViewType.swift in Sources */,
-				86A8303C281AC85700D12E55 /* TopViewModel+TopHomeViewModelDelegate.swift in Sources */,
+				86A8303C281AC85700D12E55 /* TopViewModel+.swift in Sources */,
 				8685B26F2801614D0076B3AC /* CircularRevealAnimator.swift in Sources */,
 				8685B22E280061420076B3AC /* LocalizationManager.swift in Sources */,
 				86D084DB2812EEB10059BAF0 /* TopViewFactory.swift in Sources */,

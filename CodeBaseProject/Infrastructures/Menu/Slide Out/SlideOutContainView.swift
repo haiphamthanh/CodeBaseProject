@@ -14,7 +14,6 @@ struct SlideOutContainView: View {
 	@Binding var showMenu: Bool
 	@Binding var currentTab: TabbarType
 	@Binding var menuOutput: MenuType
-//	@Binding var actionOther: OtherType
 	
 	/// Properties to support gesture
 	// Offset for both drag gesture and showing menu
@@ -26,8 +25,7 @@ struct SlideOutContainView: View {
 		let currentScreenWidth = currentScreenRect().width
 		let sideBarWidth = currentScreenWidth - 90
 		
-		// Whole navigation view...
-		//		NavigationView {
+		// Whole navigation view... NavigationView {
 		VStack {
 			HStack(spacing: 0) {
 				// Side menu...
@@ -37,20 +35,20 @@ struct SlideOutContainView: View {
 				
 				// Main tab View
 				TabBarContainView(currentTab: $currentTab)
-				.frame(width: currentScreenWidth)
+					.frame(width: currentScreenWidth)
 				// BG when menu is showing...
-				.overlay(
-					Rectangle()
-						.fill(
-							Color.red.opacity(Double(offset / sideBarWidth) / 5)
-						)
-						.ignoresSafeArea(.container, edges: .vertical)
-						.onTapGesture {
-							withAnimation {
-								showMenu.toggle()
+					.overlay(
+						Rectangle()
+							.fill(
+								Color.red.opacity(Double(offset / sideBarWidth) / 5)
+							)
+							.ignoresSafeArea(.container, edges: .vertical)
+							.onTapGesture {
+								withAnimation {
+									showMenu.toggle()
+								}
 							}
-						}
-				)
+					)
 			}
 			// max Size...
 			.frame(width: currentScreenWidth + sideBarWidth)
@@ -105,7 +103,7 @@ private extension SlideOutContainView {
 		let transition  = gestureValue.translation.width
 		
 		withAnimation {
-			// Chekcing...
+			// Checking...
 			if transition > 0 {
 				onEndGestureWithTransitionPositive(transition, checker: sideBarWidth)
 			} else {
@@ -153,8 +151,6 @@ private extension SlideOutContainView {
 struct SlideOutContainView_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-//			SlideOutContainView(menuOutput: .constant(MenuType.none),
-//								actionOther: .constant(OtherType.none))
 			SlideOutContainView(showMenu: .constant(false),
 								currentTab: .constant(TabbarType.home),
 								menuOutput: .constant(MenuType.none))

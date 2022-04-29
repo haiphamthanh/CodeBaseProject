@@ -60,9 +60,11 @@ extension TopHomeView {
 
 
 #if DEBUG
-//struct TopHomeView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		TopHomeView(touchedAvatar: .constant(false), touchedSetting: .constant(false))
-//	}
-//}
+struct TopHomeView_Previews: PreviewProvider {
+	static var previews: some View {
+		let viewModel = TopHomeViewModelImpl()
+		let props = TopHomeView.IPros(viewModel: viewModel)
+		AnyView(TopHomeView.IView(pros: props))
+	}
+}
 #endif

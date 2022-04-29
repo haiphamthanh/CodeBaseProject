@@ -10,12 +10,10 @@ import RxSwift
 // MARK: - ================================= View support =================================
 extension TopHomeViewModelImpl: TopHomeViewModelViewSupport {
 	func avatarButtonHandler() {
-		print("Go to \(#function)")
 		delegate?.avatarButtonHandler()
 	}
 	
 	func settingButtonHandler() {
-		print("Settomg to \(#function)")
 		delegate?.settingButtonHandler()
 	}
 }

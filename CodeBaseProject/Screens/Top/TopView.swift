@@ -92,7 +92,6 @@ extension TopView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
 		@ObservedObject var pros: IPros
-		//		@State private var showMenu: Bool = false
 		@State private var menuOutput: MenuType = .none
 		@State private var currentTab: TabbarType = .home
 		
@@ -105,9 +104,9 @@ extension TopView {
 			SlideOutMenu(showMenu: $pros.showMenu,
 						 menuOutput: $menuOutput.onUpdate(menuHandler),
 						 currentTab: $pros.selectedTabbar)
-				.onDisappear {
-					self.pros.invalidate()     // << here !!
-				}
+			.onDisappear {
+				self.pros.invalidate()     // << here !!
+			}
 		}
 		
 		private func menuHandler(_ menu: MenuType) {

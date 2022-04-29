@@ -9,16 +9,15 @@ import SwiftUI
 
 struct TabBarContainView: View {
 	@Binding var currentTab: TabbarType
-//	@State private var currentTab: TabbarType = .home
 	
 	var body: some View {
 		// Main tab View
 		VStack(spacing: 0) {
 			TabView(selection: $currentTab) {
 				TabBarManager.shared.topHomeView
-				.navigationBarTitleDisplayMode(.inline)
-				.navigationBarHidden(true)
-				.tag(TabbarType.home)
+					.navigationBarTitleDisplayMode(.inline)
+					.navigationBarHidden(true)
+					.tag(TabbarType.home)
 				
 				TopSearchView()
 					.navigationBarTitleDisplayMode(.inline)
@@ -52,14 +51,6 @@ struct TabBarContainView: View {
 			}
 		}
 	}
-	
-//	TabBarViewModelManager.shared.topHomeView(touchedAvatar: $showMenu,
-//											  touchedSetting: $touchedSetting.onUpdate(settingButtonHandler))
-//	private func settingButtonHandler(_ isTouched: Bool) {
-//		if isTouched {
-//			actionOther = .setting
-//		}
-//	}
 }
 
 // MARK: - >>>>>>>>>>>> View Builder
