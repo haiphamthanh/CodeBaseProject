@@ -8,6 +8,7 @@
 import RxSwift
 
 enum SceneName {
+	case top(Dictionary<String, Any>? = nil, PresentType = .push)
 	case root(Dictionary<String, Any>? = nil, PresentType = .push)
 	case home(Dictionary<String, Any>? = nil, PresentType = .push)
 	case intro(Dictionary<String, Any>? = nil, PresentType = .push)
@@ -25,6 +26,8 @@ struct CoordTransiter<ResultType> {
 extension CoordTransiter {
 	func move(to scene: SceneName) -> Observable<ResultType> {
 		switch scene {
+		case .top(let params, let presentType):
+			return toTop(with: params, on: presentType)
 		case .root(let params, let presentType):
 			return toRoot(with: params, on: presentType)
 		case .home(let params, let presentType):
@@ -43,12 +46,15 @@ private extension CoordTransiter {
 	// MARK: Introduction ------------------
 	func toIntro(with params: Dictionary<String, Any>? = nil,
 				 on presentType: PresentType = .push) -> Observable<ResultType> {
-		guard let current = current,
-			  let coordinator = CoordInstance.Atomic.intro(params) as? DefaultCoordinator<ResultType> else {
-			return Observable.never()
-		}
-		
-		return current.coordinate(to: coordinator, on: presentType)
+		let coordinator = CoordInstance.Atomic.intro(params) as? DefaultCoordinator<ResultType>
+		return move(to: coordinator, on: presentType)
+	}
+	
+	// MARK: Top ------------------
+	func toTop(with params: Dictionary<String, Any>? = nil,
+			   on presentType: PresentType = .push) -> Observable<ResultType> {
+		let coordinator = CoordInstance.Atomic.top(params) as? DefaultCoordinator<ResultType>
+		return move(to: coordinator, on: presentType)
 	}
 	
 	// MARK: Root ------------------

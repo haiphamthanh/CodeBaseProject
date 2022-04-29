@@ -11,10 +11,14 @@ class DefaultViewModel {
 	// MARK: - ================================= Properties =================================
 	let disposeBag = DisposeBag()
 	let pDone = PublishSubject<Void>()
-	
+	private(set) weak var delegate: AnyObject?
 	
 	// MARK: - ================================= Init =================================
 	required init() { }
+	
+	final func delegate(_ sender: AnyObject?) {
+		self.delegate = sender
+	}
 	
 	deinit {
 		pDone.onNext(())
