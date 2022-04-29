@@ -9,20 +9,20 @@ import SwiftUI
 
 enum TopViewPropType {
 	case topHome(TopHomeView.IPros)
-	case topSearch
-	case topNoti
-	case topVideo
+	case topSearch(TopSearchView.IPros)
+	case topNoti(TopNotificationView.IPros)
+	case topVideo(TopVideoView.IPros)
 	
 	var viewModel: ViewModelRule {
 		switch self {
 		case .topHome(let topHomeProp):
 			return topHomeProp.ruleViewModel
-		case .topSearch:
-			fatalError("Implement later")
-		case .topNoti:
-			fatalError("Implement later")
-		case .topVideo:
-			fatalError("Implement later")
+		case .topSearch(let topSearchProp):
+			return topSearchProp.ruleViewModel
+		case .topNoti(let topNotiProp):
+			return topNotiProp.ruleViewModel
+		case .topVideo(let topVideoProp):
+			return topVideoProp.ruleViewModel
 		}
 	}
 }
@@ -32,17 +32,37 @@ class TabBarViewBuilder {
 	static let builder = TabBarViewBuilder()
 	private init() { }
 	
-	private weak var topHomeProps: TopHomeView.IPros?
+	private weak var topHomeProp: TopHomeView.IPros?
+	private weak var topSearchProp: TopSearchView.IPros?
+	private weak var topNotiProp: TopNotificationView.IPros?
+	private weak var topVideoProp: TopVideoView.IPros?
 }
 
 // Views
 extension TabBarViewBuilder {
 	var topHomeView: AnyView {
-		guard let topHomeProps = topHomeProps else {
+		guard let topHomeProp = topHomeProp else {
 			fatalError("Props can not be founded")
 		}
-		
-		return ViewInstance.SubView.topHomeView(pros: topHomeProps)
+		return ViewInstance.SubView.topHomeView(pros: topHomeProp)
+	}
+	var topSearchView: AnyView {
+		guard let topSearchProp = topSearchProp else {
+			fatalError("Props can not be founded")
+		}
+		return ViewInstance.SubView.topSearchView(pros: topSearchProp)
+	}
+	var topNotiView: AnyView {
+		guard let topNotiProp = topNotiProp else {
+			fatalError("Props can not be founded")
+		}
+		return ViewInstance.SubView.topNotiView(pros: topNotiProp)
+	}
+	var topVideoView: AnyView {
+		guard let topVideoProp = topVideoProp else {
+			fatalError("Props can not be founded")
+		}
+		return ViewInstance.SubView.topVideoView(pros: topVideoProp)
 	}
 }
 
@@ -51,13 +71,13 @@ extension TabBarViewBuilder {
 	func hold(_ prop: TopViewPropType) -> Self {
 		switch prop {
 		case .topHome(let topHomeProp):
-			self.topHomeProps = topHomeProp
-		case .topSearch:
-			break
-		case .topNoti:
-			break
-		case .topVideo:
-			break
+			self.topHomeProp = topHomeProp
+		case .topSearch(let topSearchProp):
+			self.topSearchProp = topSearchProp
+		case .topNoti(let topNotiProp):
+			self.topNotiProp = topNotiProp
+		case .topVideo(let topVideoProp):
+			self.topVideoProp = topVideoProp
 		}
 		
 		return self

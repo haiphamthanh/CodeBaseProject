@@ -19,17 +19,17 @@ struct TabBarContainView: View {
 					.navigationBarHidden(true)
 					.tag(TabbarType.home)
 				
-				TopSearchView()
+				TabBarViewBuilder.builder.topSearchView
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
 					.tag(TabbarType.search)
 				
-				TopNotificationView()
+				TabBarViewBuilder.builder.topNotiView
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
 					.tag(TabbarType.noti)
 				
-				TopVideoView()
+				TabBarViewBuilder.builder.topVideoView
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
 					.tag(TabbarType.video)

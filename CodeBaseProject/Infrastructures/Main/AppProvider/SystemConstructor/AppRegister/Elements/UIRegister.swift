@@ -56,20 +56,11 @@ private extension UIRegister {
 			return TopCoordinatorImpl(view: view, viewModel: viewModel)
 		}
 		
-		//MARK: ------------------------------------ TOPHOM ------------------------------------
+		//MARK: ------------------------------------ TOP_HOME ------------------------------------
 		container.register(TopHomeViewModel.self) { _ in TopHomeViewModelImpl() }
-//		container.register(TopHomeCoordinator.self) { r in
-//			@Inject var viewModel: TopHomeViewModel
-//			guard let viewModel = viewModel as? ViewModelRule else {
-//				fatalError("View model need to confirm to ViewModelRule")
-//			}
-//			
-//			let view = ViewInstance.topHomeView(viewModel: viewModel)
-//			return TopHomeCoordinatorImpl(view: view, viewModel: viewModel)
-//		}
-		
-		//TOPs
-		container.register(TopHomeViewModel.self) { _ in TopHomeViewModelImpl() }
+		container.register(TopSearchViewModel.self) { _ in TopSearchViewModelImpl() }
+		container.register(TopNotificationViewModel.self) { _ in TopNotificationViewModelImpl() }
+		container.register(TopVideoViewModel.self) { _ in TopVideoViewModelImpl() }
 		
 		//MARK: ------------------------------------ HOME ------------------------------------
 		container.register(HomeViewModel.self) { _ in HomeViewModelImpl() }
