@@ -18,6 +18,7 @@ class TopViewModelImpl: DefaultViewModel, ViewModelRule, TopViewModel {
 	let _authState = PublishSubject<AuthState>()
 	let _home = PublishSubject<Void>()
 	let _showMenu = PublishSubject<Bool>()
+	private lazy var tabbarManager = TabBarPropsViewModel()
 	
 	private var counter = 0
 	
@@ -29,8 +30,8 @@ class TopViewModelImpl: DefaultViewModel, ViewModelRule, TopViewModel {
 	}
 	
 	final func setup() {
-		// Sub view models
-		return setupAllSubViewModels()
+		// Tabbar setting up
+		return tabbarManager.delegate(self)
 	}
 	
 	final func firstLoading() {
@@ -39,12 +40,6 @@ class TopViewModelImpl: DefaultViewModel, ViewModelRule, TopViewModel {
 }
 
 private extension TopViewModelImpl {
-	func setupAllSubViewModels() {
-		if (!TabBarManager.shared.delegate(to: self)) {
-			fatalError("View model need to support subviews delegate")
-		}
-	}
-	
 	func changeState() {
 		Task {
 			await self.changeStateAfter2Seconds()

@@ -10,7 +10,6 @@ import RxSwift
 /// ViewModel Out
 /// ViewModel Identify
 protocol TopHomeViewModel {
-	func setDelegate(_ sender: TopHomeViewModelDelegate)
 }
 
 protocol TopHomeViewModelDelegate: AnyObject {
@@ -20,8 +19,7 @@ protocol TopHomeViewModelDelegate: AnyObject {
 
 class TopHomeViewModelImpl: DefaultViewModel, ViewModelRule, TopHomeViewModel {
 	let _home = PublishSubject<Void>()
-	weak var delegate: TopHomeViewModelDelegate?
-	func setDelegate(_ sender: TopHomeViewModelDelegate) {
-		self.delegate = sender
+	var delegator: TopHomeViewModelDelegate? {
+		return delegate as? TopHomeViewModelDelegate
 	}
 }

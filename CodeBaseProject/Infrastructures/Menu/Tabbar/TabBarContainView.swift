@@ -14,7 +14,7 @@ struct TabBarContainView: View {
 		// Main tab View
 		VStack(spacing: 0) {
 			TabView(selection: $currentTab) {
-				TabBarManager.shared.topHomeView
+				TabBarViewBuilder.builder.topHomeView
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarHidden(true)
 					.tag(TabbarType.home)

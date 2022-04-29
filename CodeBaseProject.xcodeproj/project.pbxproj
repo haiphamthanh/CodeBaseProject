@@ -182,6 +182,7 @@
 		869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */; };
 		869BBF0728049C49003D87E6 /* UIRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBF0628049C49003D87E6 /* UIRegister.swift */; };
 		86A8303C281AC85700D12E55 /* TopViewModel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8303B281AC85700D12E55 /* TopViewModel+.swift */; };
+		86A8303E281C17B700D12E55 /* TabBarViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8303D281C17B700D12E55 /* TabBarViewBuilder.swift */; };
 		86B892D12808904300AD99B2 /* Others++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B892D02808904300AD99B2 /* Others++.swift */; };
 		86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AC28103AA30059BAF0 /* DrawerMenu.swift */; };
 		86D084B028103BB60059BAF0 /* SlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */; };
@@ -207,7 +208,7 @@
 		86D084EA2813B3460059BAF0 /* TabbarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084E92813B3460059BAF0 /* TabbarType.swift */; };
 		86D2C98C281689200099A377 /* TopHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2C98B281689200099A377 /* TopHomeViewModel.swift */; };
 		86D2C98E281689340099A377 /* TopHomeViewModel+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2C98D281689340099A377 /* TopHomeViewModel+Support.swift */; };
-		86D2C9972819B0FB0099A377 /* TabBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2C9962819B0FB0099A377 /* TabBarManager.swift */; };
+		86D2C9972819B0FB0099A377 /* TabBarPropsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2C9962819B0FB0099A377 /* TabBarPropsViewModel.swift */; };
 		86E9455C280C2EEE00C58CCD /* DefaultIPros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9455B280C2EEE00C58CCD /* DefaultIPros.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
@@ -410,6 +411,7 @@
 		869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasRootNavigationController.swift; sourceTree = "<group>"; };
 		869BBF0628049C49003D87E6 /* UIRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRegister.swift; sourceTree = "<group>"; };
 		86A8303B281AC85700D12E55 /* TopViewModel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopViewModel+.swift"; sourceTree = "<group>"; };
+		86A8303D281C17B700D12E55 /* TabBarViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewBuilder.swift; sourceTree = "<group>"; };
 		86B892D02808904300AD99B2 /* Others++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Others++.swift"; sourceTree = "<group>"; };
 		86D084AC28103AA30059BAF0 /* DrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenu.swift; sourceTree = "<group>"; };
 		86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutMenu.swift; sourceTree = "<group>"; };
@@ -435,7 +437,7 @@
 		86D084E92813B3460059BAF0 /* TabbarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarType.swift; sourceTree = "<group>"; };
 		86D2C98B281689200099A377 /* TopHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHomeViewModel.swift; sourceTree = "<group>"; };
 		86D2C98D281689340099A377 /* TopHomeViewModel+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopHomeViewModel+Support.swift"; sourceTree = "<group>"; };
-		86D2C9962819B0FB0099A377 /* TabBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarManager.swift; sourceTree = "<group>"; };
+		86D2C9962819B0FB0099A377 /* TabBarPropsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPropsViewModel.swift; sourceTree = "<group>"; };
 		86E9455B280C2EEE00C58CCD /* DefaultIPros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIPros.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -1436,7 +1438,8 @@
 		86D084DE2812F1310059BAF0 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				86D2C9962819B0FB0099A377 /* TabBarManager.swift */,
+				86A8303D281C17B700D12E55 /* TabBarViewBuilder.swift */,
+				86D2C9962819B0FB0099A377 /* TabBarPropsViewModel.swift */,
 				86D084BE2812392F0059BAF0 /* TabBarContainView.swift */,
 			);
 			path = Tabbar;
@@ -1729,6 +1732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A8303E281C17B700D12E55 /* TabBarViewBuilder.swift in Sources */,
 				8685B28928016CC50076B3AC /* DefaultAlert.swift in Sources */,
 				8685B27F2801685F0076B3AC /* ImageProvider.swift in Sources */,
 				8685B22828005D0C0076B3AC /* WebSocketPlugin.swift in Sources */,
@@ -1868,7 +1872,7 @@
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
 				8685B277280164850076B3AC /* AlertButton.swift in Sources */,
 				8640C1922808EEF7002448AC /* IntroStory.swift in Sources */,
-				86D2C9972819B0FB0099A377 /* TabBarManager.swift in Sources */,
+				86D2C9972819B0FB0099A377 /* TabBarPropsViewModel.swift in Sources */,
 				8636E87D280CA49B00AE73E1 /* IntroStoryViewModel.swift in Sources */,
 				861FCD58280F208E007564A3 /* AppSetting.swift in Sources */,
 				86D084EA2813B3460059BAF0 /* TabbarType.swift in Sources */,

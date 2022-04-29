@@ -10,6 +10,7 @@ import Foundation
 class DefaultIPros<IndividualViewModel> {
 	private(set) var indViewModel: IndividualViewModel?
 	private(set) var preventInvalidated = false
+	
 	init(viewModel: ViewModelRule) {
 		guard let indViewModel = viewModel as? IndividualViewModel else {
 			fatalError("View model need to support \(IndividualViewModel.self)")
@@ -18,8 +19,14 @@ class DefaultIPros<IndividualViewModel> {
 		self.indViewModel = indViewModel
 	}
 	
+	deinit {
+		print("\(self) is deinit")
+	}
+}
+
+extension DefaultIPros {
 	// We need to invalidate all referrence after scene was dissaped if not we got leak
-	final func invalidate() {
+	func invalidate() {
 		if preventInvalidated {
 			return preventInvalidated = false
 		}
@@ -28,12 +35,12 @@ class DefaultIPros<IndividualViewModel> {
 		print("\(self) [<<] invalidated")
 	}
 	
-	final func preventInvalidateModel(completion: () -> Void) {
+	func preventInvalidateModel(completion: () -> Void) {
 		preventInvalidated = true
 		return completion()
 	}
 	
-	deinit {
-		print("\(self) is deinit")
+	var ruleViewModel: ViewModelRule {
+		return indViewModel as! ViewModelRule
 	}
 }
