@@ -10,4 +10,5 @@ import RxSwift
 protocol ViewModelRule: AnyObject {
 	// MARK: Coordinator - Outputs
 	var didDone: Observable<Void> { get }
+	func delegate(_ sender: AnyObject?)
 }

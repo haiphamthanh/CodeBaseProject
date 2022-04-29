@@ -14,15 +14,19 @@ protocol HomeViewModelViewSupport: AnyObject {
 
 struct HomeView {
 	private init() { }
-	
-	// Properties is used for View
+}
+
+// Properties is used for View
+extension HomeView {
 	class IPros: DefaultIPros<HomeViewModelViewSupport>, ObservableObject {
 		func gotoSomeWhere() {
 			indViewModel?.gotoSomeWhere()
 		}
 	}
-	
-	// MARK: - ================================= View Layout =================================
+}
+
+// MARK: - ================================= View Layout =================================
+extension HomeView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
 		@ObservedObject var pros: IPros
