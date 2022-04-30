@@ -44,7 +44,7 @@ protocol AlertProvider {
 	/// Definations
 	typealias State = AlertState
 	typealias Input = AlertInput
-	typealias Output = [String: String]
+	typealias Output = Dictionary<String, Any>?
 	
 	// Properties
 	var state: State { get }

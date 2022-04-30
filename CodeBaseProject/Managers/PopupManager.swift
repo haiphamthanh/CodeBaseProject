@@ -14,6 +14,8 @@ class PopupManager {
 	@Inject private var alert: AlertProvider
 	@Inject private var toast: ToastProvider
 	
+	private init() { }
+	
 	func showAlert(title: String? = nil, message: String) -> Observable<AlertProvider.Output> {
 		let alerInput = AlertProvider.Input(title: title, message: message)
 		return showAlert(alerInput)

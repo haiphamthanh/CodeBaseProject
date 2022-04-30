@@ -6,4 +6,7 @@
 //
 //	https://github.com/Decybel07/L10n-swift
 
-import Foundation
+class LocalizationManager {
+	static let shared = LocalizationManager()
+	private init() { }
+}

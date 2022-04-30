@@ -8,7 +8,7 @@
 import SwiftUI
 
 class MainSceneDelegate: UIResponder, UIWindowSceneDelegate {
-	private lazy var delegator = AppProvider.appSceneDelegate()
+	private lazy var delegator = AppCenter.appSceneDelegate()
 	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		return delegator.scene(scene, willConnectTo: session, options: connectionOptions)

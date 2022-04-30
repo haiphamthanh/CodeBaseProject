@@ -16,7 +16,7 @@ class DefaultAppSceneDelegate: AppSceneDelegateProvider {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 		
 		let window = UIWindow(windowScene: windowScene)
-		return AppProvider.shared.holdWindow(window)
+		return AppCenter.shared.holdWindow(window)
 	}
 	
 	func sceneDidDisconnect(_ scene: UIScene) {

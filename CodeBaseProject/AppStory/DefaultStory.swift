@@ -10,7 +10,7 @@ import RxSwift
 class DefaultStory<ResultType>: DefaultCoordinator<ResultType> {
 	// TODO: Make it work, it's still not working
 	func finishStory() -> Observable<Void> {
-		let rootVC = AppProvider.shared.navigationVC
+		let rootVC = AppCenter.shared.navigationVC
 		if let rootNav = rootVC {
 			while rootNav.viewControllers.count > 0 {
 				rootNav.viewControllers.removeLast()

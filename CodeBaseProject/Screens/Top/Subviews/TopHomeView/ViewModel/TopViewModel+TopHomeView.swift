@@ -13,13 +13,13 @@ extension TopViewModelImpl: TopHomeViewModelDelegate {
 	}
 	
 	func settingButtonHandler() {
-		//		PopupManager.shared
-		//			.showAlert(title: "Sample", message: ""This is sample Pop Up"")
-		//			.subscribe { value in
-		//				print(value)
-		//			}
-		//			.disposed(by: disposeBag)
+		AppCenter.Manager.popup
+			.showAlert(title: "Sample", message: "This is sample Pop Up")
+			.subscribe { value in
+				print(value)
+			}
+			.disposed(by: disposeBag)
 		
-		PopupManager.shared.showToast("This is sample toast")
+		AppCenter.Manager.popup.showToast("This is sample toast")
 	}
 }
