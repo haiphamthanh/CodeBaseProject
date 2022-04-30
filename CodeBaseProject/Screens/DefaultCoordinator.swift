@@ -75,7 +75,7 @@ private extension DefaultCoordinator {
 			case .push:
 				navigator?.pushView(view, animated: true)
 			case .present:
-				navigator?.pushView(view, animated: true)
+				navigator?.present(view, animated: true, completion: nil)
 			case .resetStack:
 				navigator?.resetStack(by: [view], animated: true)
 			case .none:

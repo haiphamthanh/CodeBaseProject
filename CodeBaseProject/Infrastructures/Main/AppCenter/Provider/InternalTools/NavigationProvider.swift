@@ -26,6 +26,7 @@ protocol NavigationProvider {
 	func resetStack(by vcs: [UIViewController], animated: Bool)
 	
 	// MARK: Modal
+	func present(_ view: AnyView, animated: Bool, completion: (() -> Void)?)
 	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
 	func dismiss(animated: Bool, completion: (() -> Void)?)
 }

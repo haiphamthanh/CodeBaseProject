@@ -66,6 +66,10 @@ extension DefaultNavigation {
 	}
 	
 	// MARK: Modal
+	func present(_ view: AnyView, animated: Bool, completion: (() -> Void)?) {
+		navigator?.present(view, animated: animated, completion: completion)
+	}
+	
 	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
 		navigator?.present(viewController: viewController, animated: animated, completion: completion)
 	}
