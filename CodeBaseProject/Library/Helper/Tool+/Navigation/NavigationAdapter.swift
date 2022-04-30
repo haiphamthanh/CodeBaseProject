@@ -100,6 +100,11 @@ extension NavigationAdapter {
 		navigationVC?.present(viewController, animated: animated, completion: completion)
 	}
 	
+	func present(_ view: AnyView, animated: Bool = true, completion: (() -> Void)?) {
+		let controller = NavigationHostingController(rootView: view.environmentObject(self))
+		navigationVC?.present(controller, animated: animated, completion: completion)
+	}
+	
 	func dismiss(animated: Bool, completion: (() -> Void)?) {
 		navigationVC?.dismiss(animated: animated, completion: completion)
 	}
