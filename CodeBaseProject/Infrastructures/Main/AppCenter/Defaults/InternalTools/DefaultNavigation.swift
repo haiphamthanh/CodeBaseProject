@@ -10,8 +10,8 @@ import SwiftUI
 class DefaultNavigation: NavigationProvider {
 	private let navigator: NavigationAdapter?
 	init() {
-		let window = AppProvider.shared.window
-		let navigationVC = AppProvider.shared.navigationVC
+		let window = AppCenter.shared.window
+		let navigationVC = AppCenter.shared.navigationVC
 		self.navigator = NavigationAdapter(window: window, navigationVC: navigationVC)
 	}
 }

@@ -10,7 +10,7 @@ import UIKit
 class DefaultAppDelegate: AppDelegateProvider {
 	func app(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		return AppProvider.shared.setupSystem()
+		return AppCenter.shared.setupSystem()
 	}
 	
 	func appWillResignActive(_ app: UIApplication) {

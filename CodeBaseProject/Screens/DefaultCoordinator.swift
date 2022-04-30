@@ -68,11 +68,10 @@ extension DefaultCoordinator {
 private extension DefaultCoordinator {
 	func start(on presentType: PresentType = .push) -> Observable<ResultType> {
 		@Inject var navigator: NavigationProvider?
-//		let navigator = AppProvider.shared.navigator
 		if let view = view {
 			switch presentType {
 			case .`init`:
-				AppProvider.shared.makeWindowVisible(on: view)
+				AppCenter.shared.makeWindowVisible(on: view)
 			case .push:
 				navigator?.pushView(view, animated: true)
 			case .present:

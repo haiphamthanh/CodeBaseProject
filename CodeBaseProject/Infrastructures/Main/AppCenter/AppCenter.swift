@@ -1,5 +1,5 @@
 //
-//  AppCommonProvider.swift
+//  AppCenter.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 09/04/2022.
@@ -10,8 +10,9 @@ import Swinject
 import SwiftUI
 import os
 
-class AppProvider {
-	static let shared = AppProvider()
+class AppCenter {
+	struct Manager { private init() { } }
+	static let shared = AppCenter()
 	private init() {}
 	
 	private(set) var window: UIWindow?
@@ -21,13 +22,13 @@ class AppProvider {
 }
 
 // MARK: - ================================= Usage =================================
-extension AppProvider {
+extension AppCenter {
 	var navigationVC: UINavigationController? {
 		if pNavigationVC == nil {
 #if DEBUG
 			print("\(#function) is called")
 #endif
-			pNavigationVC = findNavigationController(from: AppProvider.shared.window?.rootViewController)
+			pNavigationVC = findNavigationController(from: AppCenter.shared.window?.rootViewController)
 		}
 		
 		return pNavigationVC
@@ -70,11 +71,20 @@ extension AppProvider {
 	//	}
 }
 
+extension AppCenter.Manager {
+	static var noti: NotificationManager { return NotificationManager.shared }
+	static var appState: AppStateManager { return AppStateManager.shared }
+	static var auth: AuthManager { return AuthManager.shared }
+	static var crypto: CryptoManager { return CryptoManager.shared }
+	static var localize: LocalizationManager { return LocalizationManager.shared }
+	static var popup: PopupManager { return PopupManager.shared }
+}
+
 // MARK: - ================================= Private =================================
 ///// The way to find navigation
 /////
 /////https://www.cuvenx.com/post/swiftui-pop-to-root-view
-private extension AppProvider {
+private extension AppCenter {
 	func startAppStory() {
 		@Inject var appStory: AppStory
 		return appStory
@@ -101,7 +111,7 @@ private extension AppProvider {
 }
 
 // MARK: - ================================= System (Need to refactor later) =================================
-extension AppProvider {
+extension AppCenter {
 	static var appDelegate: AppDelegateProvider {
 		return DefaultAppDelegate()
 	}
