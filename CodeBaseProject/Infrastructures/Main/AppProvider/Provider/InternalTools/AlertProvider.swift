@@ -5,6 +5,7 @@
 //  Created by HaiKaito on 09/04/2022.
 //
 
+import RxSwift
 import PopupDialog
 
 struct AlertInput {
@@ -40,9 +41,15 @@ enum AlertState {
 }
 
 protocol AlertProvider {
-	var state: AlertState { get }
+	/// Definations
+	typealias State = AlertState
+	typealias Input = AlertInput
+	typealias Output = [String: String]
+	
+	// Properties
+	var state: State { get }
 	
 	// Action
-	func show(_ input: AlertInput)
+	func show(_ input: Input) -> Observable<Output>
 	func forceDismiss()
 }

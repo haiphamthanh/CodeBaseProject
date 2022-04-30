@@ -5,11 +5,13 @@
 //  Created by HaiKaito on 09/04/2022.
 //
 
+import RxSwift
 import PopupDialog
 
 class DefaultAlert {
 	@Inject private var navigator: NavigationProvider
 	@Published var state: AlertState = .dismiss
+	private let pDone = PublishSubject<Output>()
 	
 	deinit {
 		print("\(self) deinit")
@@ -18,7 +20,7 @@ class DefaultAlert {
 
 // MARK: - ================================= Public actions =================================
 extension DefaultAlert: AlertProvider {
-	func show(_ input: AlertInput) {
+	func show(_ input: Input) -> Observable<Output> {
 		let title = input.title
 		let message = input.message
 		let buttonAlignment = input.buttonAlignment
@@ -36,13 +38,14 @@ extension DefaultAlert: AlertProvider {
 								tapGestureDismissal: gestureDismissal,
 								panGestureDismissal: panGestureDismissal,
 								hideStatusBar: true) { [weak self] in
-									self?.didDismiss()
+			self?.didDismiss()
 		}
 		popup.addButton(doneButton)
 		
 		// Present dialog
 		navigator.present(viewController: popup, animated: true, completion: nil)
-		return state = .show
+		state = .show
+		return pDone.asObserver()
 	}
 	
 	func forceDismiss() {
@@ -55,5 +58,6 @@ extension DefaultAlert: AlertProvider {
 private extension DefaultAlert {
 	func didDismiss() {
 		state = .dismiss
+		pDone.onNext(["key": "This is data"])
 	}
 }

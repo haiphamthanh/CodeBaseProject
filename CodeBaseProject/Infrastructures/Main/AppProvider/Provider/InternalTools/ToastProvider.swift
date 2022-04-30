@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum ToastPosition {
+enum MyToastPosition {
 	case top
 	case left
 	case right
@@ -15,13 +15,10 @@ enum ToastPosition {
 	case center
 }
 
-enum ToastType {
-	case normal
-}
-
 protocol ToastProvider {
 	// MARK: - ================================= Usage =================================
 	func show(message: String)
-	func show(message: String, type: ToastType)
-	func show(message: String, type: ToastType, position: ToastPosition)
+	func show(message: String, position: MyToastPosition)
+	func makeToastActivity(_ position: MyToastPosition)
+	func makeToastActivity(_ point: CGPoint)
 }
