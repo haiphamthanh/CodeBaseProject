@@ -16,6 +16,7 @@ protocol TopCoordinator {
 // ViewModel ===> Coordinator
 protocol TopViewModelCoordSupport: AnyObject {
 	var goHome: Observable<Void> { get }
+	var goFacebook: Observable<Void> { get }
 	var goDetail: Observable<TopSearchView.FruitItem> { get }
 }
 
@@ -42,6 +43,10 @@ class TopCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, TopCoordina
 			.flatMap(toHome)
 			.subscribe()
 		
+		let facebook = indViewModel.goFacebook
+			.flatMap(presentFacebook)
+			.subscribe()
+		
 		let detail = indViewModel.goDetail
 			.flatMap(toItemDetail)
 			.subscribe()
@@ -50,6 +55,7 @@ class TopCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, TopCoordina
 			.take(1)
 			.do(onNext: { _ in
 				home.dispose()
+				facebook.dispose()
 				detail.dispose()
 			})
 	}
@@ -60,6 +66,11 @@ private extension TopCoordinatorImpl {
 	func toHome() -> Observable<Void> {
 		CoordTransiter(self)
 			.move(to: .home())
+	}
+	
+	func presentFacebook() -> Observable<Void> {
+		CoordTransiter(self)
+			.move(to: .intro(nil, .present))
 	}
 	
 	func toItemDetail(_ item: TopSearchView.FruitItem) -> Observable<Void> {

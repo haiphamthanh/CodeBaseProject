@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RxSwift
 
 // ViewModel ===> View
 protocol ItemDetailViewModelViewSupport {
 	func gotoSomeWhere()
+	var title: Observable<String> { get }
 }
 
 struct ItemDetailView {
@@ -19,8 +21,24 @@ struct ItemDetailView {
 // Properties is used for View
 extension ItemDetailView {
 	class IPros: DefaultIPros<ItemDetailViewModelViewSupport>, ObservableObject {
+		@Published private(set) var title: String = "0"
+		private let disposeBag = DisposeBag()
+		
+		override init(viewModel: ViewModelRule) {
+			super.init(viewModel: viewModel)
+			
+			// View Model Adapter to
+			indViewModel?.title
+				.subscribe(onNext: didChangedTitle)
+				.disposed(by: disposeBag)
+		}
+		
 		func gotoSomeWhere() {
 			indViewModel?.gotoSomeWhere()
+		}
+		
+		func didChangedTitle(_ title: String) {
+			self.title = title
 		}
 	}
 }
@@ -33,21 +51,27 @@ extension ItemDetailView {
 		
 		// MARK: Layout
 		var body: some View {
-			VStack {
-				Text("Detail View")
-				Button("Go to some where") {
-					pros.gotoSomeWhere()
+			ZStack {
+				Color.green.edgesIgnoringSafeArea(.all) //<-- Important!!! Add this modifier to the background Color
+				VStack {
+					Text("Detail View")
+					Button("Go to some where") {
+						pros.gotoSomeWhere()
+					}
+					.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
+					.background(Color.red)
 				}
-				.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
-				.background(Color.red)
-			}
-			.toolbar {
-				ToolbarItem(placement: .principal) {
-					HStack {
-						Image(systemName: "sun.min.fill")
-						Text("Title").font(.headline)
+				.toolbar {
+					ToolbarItem(placement: .principal) {
+						HStack {
+							Image(systemName: "sun.min.fill")
+							Text(pros.title)
+								.font(.headline)
+						}
 					}
 				}
+				.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
+				.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
 			}
 			.onDisappear {
 				self.pros.invalidate()     // << here !!

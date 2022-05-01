@@ -12,7 +12,7 @@ import RxSwift
 protocol AppStoryViewModel {
 }
 
-class AppStoryViewModelImpl: DefaultViewModel, ViewModelRule, AppStoryViewModel {
+class AppStoryViewModelImpl: DefaultViewModel<Void>, ViewModelRule, AppStoryViewModel {
 	let _isAppValid = PublishSubject<Bool>()
 	
 	required init() {

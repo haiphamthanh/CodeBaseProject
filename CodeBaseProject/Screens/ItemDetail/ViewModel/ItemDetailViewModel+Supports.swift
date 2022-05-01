@@ -14,6 +14,8 @@ extension ItemDetailViewModelImpl: ItemDetailViewModelCoordSupport {
 
 // MARK: - ================================= View support =================================
 extension ItemDetailViewModelImpl: ItemDetailViewModelViewSupport {
+	var title: Observable<String> { _title }
+	
 	func gotoSomeWhere() {
 		// go some where
 	}

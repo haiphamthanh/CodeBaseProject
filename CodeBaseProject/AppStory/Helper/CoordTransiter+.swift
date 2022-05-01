@@ -50,45 +50,46 @@ private extension CoordTransiter {
 	func toIntro(with params: Dictionary<String, Any>? = nil,
 				 on presentType: PresentType = .push) -> Observable<ResultType> {
 		let coordinator = CoordInstance.Atomic.intro(params) as? DefaultCoordinator<ResultType>
-		return move(to: coordinator, on: presentType)
+		return move(to: coordinator, input: Void(), on: presentType)
 	}
 	
 	// MARK: Top ------------------
 	func toTop(with params: Dictionary<String, Any>? = nil,
 			   on presentType: PresentType = .push) -> Observable<ResultType> {
 		let coordinator = CoordInstance.Atomic.top(params) as? DefaultCoordinator<ResultType>
-		return move(to: coordinator, on: presentType)
+		return move(to: coordinator, input: Void(), on: presentType)
 	}
 	
 	// MARK: Root ------------------
 	func toRoot(with params: Dictionary<String, Any>? = nil,
 				on presentType: PresentType = .push) -> Observable<ResultType> {
 		let coordinator = CoordInstance.Atomic.root(params) as? DefaultCoordinator<ResultType>
-		return move(to: coordinator, on: presentType)
+		return move(to: coordinator, input: Void(), on: presentType)
 	}
 	
 	// MARK: Home ------------------
 	func toHome(with params: Dictionary<String, Any>? = nil,
 				on presentType: PresentType = .push) -> Observable<ResultType> {
 		let coordinator = CoordInstance.Atomic.home(params) as? DefaultCoordinator<ResultType>
-		return move(to: coordinator, on: presentType)
+		return move(to: coordinator, input: Void(), on: presentType)
 	}
 	
 	// MARK: Detail ------------------
 	func toItemDetail(_ item: TopSearchView.FruitItem, on presentType: PresentType = .push) -> Observable<ResultType> {
 		let coordinator = CoordInstance.Atomic.itemDetail(item) as? DefaultCoordinator<ResultType>
-		return move(to: coordinator, on: presentType)
+		return move(to: coordinator, input: item, on: presentType)
 	}
 }
 
 // MARK: ########################## Helper
 private extension CoordTransiter {
-	func move(to coordinator: DefaultCoordinator<ResultType>?,
-			  on presentType: PresentType = .push) -> Observable<ResultType> {
+	func move<ViewModelResult>(to coordinator: DefaultCoordinator<ResultType>?,
+							   input: ViewModelResult,
+							   on presentType: PresentType = .push) -> Observable<ResultType> {
 		guard let current = current, let coordinator = coordinator else {
 			return Observable.never()
 		}
 		
-		return current.coordinate(to: coordinator, on: presentType)
+		return current.coordinate(to: coordinator, input: input, on: presentType)
 	}
 }

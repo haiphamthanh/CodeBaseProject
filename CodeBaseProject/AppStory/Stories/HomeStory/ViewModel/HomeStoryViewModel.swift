@@ -10,6 +10,6 @@
 protocol HomeStoryViewModel {
 }
 
-class HomeStoryViewModelImpl: DefaultViewModel, ViewModelRule, HomeStoryViewModel {
+class HomeStoryViewModelImpl: DefaultViewModel<Void>, ViewModelRule, HomeStoryViewModel {
 }
 

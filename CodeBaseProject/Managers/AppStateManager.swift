@@ -1,5 +1,5 @@
 //
-//  AuthStateManager.swift
+//  AppStateManager.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 04/04/2022.
@@ -13,7 +13,7 @@ protocol AppActions {
 	func actionWithIndicator(actionKey: String)
 }
 
-class AuthStateManager {
+class AppStateManager {
 	enum ActionState {
 		case free
 		case loading
@@ -30,12 +30,12 @@ class AuthStateManager {
 		return currentAction == .free
 	}
 	
-	static let shared = AuthStateManager()
+	static let shared = AppStateManager()
 	private init() {
 	}
 }
 
-extension AuthStateManager: AppActions {
+extension AppStateManager: AppActions {
 	func actionInBackground(actionKey: ActionKey) {
 		listActionKey.append(actionKey)
 	}

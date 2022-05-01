@@ -28,7 +28,7 @@ extension AppUserData {
 // MARK: - ================================= App commons =================================
 var isBottomIndicatorAvailable: Bool {
 	if #available(iOS 11.0, *),
-	   let keyWindow = AppProvider.shared.window,
+	   let keyWindow = AppCenter.shared.window,
 	   keyWindow.safeAreaInsets.bottom > 0 {
 		return true
 	}

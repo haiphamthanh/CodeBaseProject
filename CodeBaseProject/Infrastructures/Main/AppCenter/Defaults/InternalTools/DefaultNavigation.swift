@@ -10,8 +10,8 @@ import SwiftUI
 class DefaultNavigation: NavigationProvider {
 	private let navigator: NavigationAdapter?
 	init() {
-		let window = AppProvider.shared.window
-		let navigationVC = AppProvider.shared.navigationVC
+		let window = AppCenter.shared.window
+		let navigationVC = AppCenter.shared.navigationVC
 		self.navigator = NavigationAdapter(window: window, navigationVC: navigationVC)
 	}
 }
@@ -66,6 +66,10 @@ extension DefaultNavigation {
 	}
 	
 	// MARK: Modal
+	func present(_ view: AnyView, animated: Bool, completion: (() -> Void)?) {
+		navigator?.present(view, animated: animated, completion: completion)
+	}
+	
 	func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
 		navigator?.present(viewController: viewController, animated: animated, completion: completion)
 	}
