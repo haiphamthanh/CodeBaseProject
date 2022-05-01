@@ -13,12 +13,13 @@ import RxSwift
 protocol TopViewModel {
 }
 
-class TopViewModelImpl: DefaultViewModel, ViewModelRule, TopViewModel {
+class TopViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopViewModel {
 	let _counting = PublishSubject<Int>()
 	let _authState = PublishSubject<AuthState>()
 	let _home = PublishSubject<Void>()
 	let _intro = PublishSubject<Void>()
 	let _showMenu = PublishSubject<Bool>()
+	let _detail = PublishSubject<TopSearchView.FruitItem>()
 	private lazy var tabbarManager = TabBarPropsViewModel()
 	
 	private var counter = 0

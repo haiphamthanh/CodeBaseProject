@@ -12,7 +12,6 @@ import RxSwift
 protocol TopViewModelViewSupport {
 	var authState: Observable<AuthState> { get }
 	var counting: Observable<Int> { get }
-	var showMenu: Observable<Bool> { get }
 	
 	// Actions
 	func gotoFacebook()
@@ -30,7 +29,6 @@ extension TopView {
 		private let disposeBag = DisposeBag()
 		@Published private(set) var counting: String = "0"
 		@Published private(set) var authState: AuthState = .unAuthorized
-		@Published var showMenu: Bool = false
 		@Published var selectedTabbar: TabbarType = .home
 		
 		override init(viewModel: ViewModelRule) {
@@ -50,19 +48,10 @@ extension TopView {
 			indViewModel?.counting
 				.subscribe(onNext: onNextCounting)
 				.disposed(by: disposeBag)
-			
-			let onNextShowMenu = strongify(self, closure: { (instance, showMenu: Bool) in
-				instance.showMenu = showMenu
-			})
-			indViewModel?.showMenu
-				.subscribe(onNext: onNextShowMenu)
-				.disposed(by: disposeBag)
 		}
 		
 		// Actions
 		func action(for menu: MenuType) {
-			showMenu = false
-			
 			preventInvalidateModel {
 				switch menu {
 				case .home:
@@ -93,7 +82,6 @@ extension TopView {
 		// MARK: Properties
 		@ObservedObject var pros: IPros
 		@State private var menuOutput: MenuType = .none
-		@State private var currentTab: TabbarType = .home
 		
 		var body: some View {
 			NavigationViewWrapper(containView: AnyView(containView))
@@ -101,9 +89,8 @@ extension TopView {
 		
 		// MARK: Layout
 		var containView: some View {
-			SlideOutMenu(showMenu: $pros.showMenu,
-						 menuOutput: $menuOutput.onUpdate(menuHandler),
-						 currentTab: $pros.selectedTabbar)
+			MainContainerView_A(menuOutput: $menuOutput.onUpdate(menuHandler),
+								currentTab: $pros.selectedTabbar)
 			.onDisappear {
 				self.pros.invalidate()     // << here !!
 			}

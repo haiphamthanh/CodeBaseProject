@@ -9,11 +9,7 @@ import RxSwift
 
 // MARK: - ================================= View support =================================
 extension TopSearchViewModelImpl: TopSearchViewModelViewSupport {
-	func avatarButtonHandler() {
-		delegator?.avatarButtonHandler()
-	}
-	
-	func settingButtonHandler() {
-		delegator?.settingButtonHandler()
+	func didSelected(fruit: TopSearchView.FruitItem) {
+		delegator?.didSelected(fruit: fruit)
 	}
 }

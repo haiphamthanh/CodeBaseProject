@@ -32,6 +32,11 @@ extension ViewInstance {
 		let pros = HomeView.IPros(viewModel: viewModel)
 		return AnyView(HomeView.IView(pros: pros))
 	}
+	
+	static func itemDetailView(viewModel: ViewModelRule) -> AnyView {
+		let pros = ItemDetailView.IPros(viewModel: viewModel)
+		return AnyView(ItemDetailView.IView(pros: pros))
+	}
 }
 
 // MARK: - ########################## Atomics - SubView ##########################

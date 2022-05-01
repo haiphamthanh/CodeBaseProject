@@ -9,7 +9,8 @@ import RxSwift
 
 extension TopViewModelImpl: TopHomeViewModelDelegate {
 	func avatarButtonHandler() {
-		_showMenu.onNext(true)
+		let notification = Notification(name: AppNotificationData.didOpenMenu, object: nil, userInfo: nil)
+		NotificationCenter.default.post(notification)
 	}
 	
 	func settingButtonHandler() {

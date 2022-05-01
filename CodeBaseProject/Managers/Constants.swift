@@ -11,6 +11,9 @@ import SwiftUI
 extension AppNotificationData {
 	public static let didReceiveNotification = Notification.Name(rawValue: "org.gochickencode.notification.name.notification.didReceive")
 	public static let notificationKey = "org.gochickencode.notification.key.notification"
+	
+	public static let didOpenMenu = Notification.Name(rawValue: "org.gochickencode.notification.name.menu.open")
+	public static let didCloseMenu = Notification.Name(rawValue: "org.gochickencode.notification.name.menu.close")
 }
 
 extension AppUserData {

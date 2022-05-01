@@ -44,9 +44,11 @@ extension DefaultCoordinator {
 	///
 	/// - Parameter coordinator: Coordinator to start.
 	/// - Returns: Result of `start()` method.
-	func coordinate<T>(to coordinator: DefaultCoordinator<T>,
-					   on presentType: PresentType = .push) -> Observable<T> {
+	func coordinate<T, ViewModelResult>(to coordinator: DefaultCoordinator<T>,
+										input: ViewModelResult,
+										on presentType: PresentType = .push) -> Observable<T> {
 		store(coordinator: coordinator)
+		coordinator.push(input: input)
 		return coordinator.start(on: presentType)
 			.do(onNext: { [weak self] _ in
 				self?.free(coordinator: coordinator)
@@ -99,5 +101,13 @@ private extension DefaultCoordinator {
 	/// - Parameter coordinator: Coordinator to release.
 	private func free<T>(coordinator: DefaultCoordinator<T>) {
 		childCoordinators[coordinator.identifier] = nil
+	}
+	
+	private func push<ViewModelResult>(input: ViewModelResult) {
+		guard let viewModel = viewModel as? DefaultViewModel<ViewModelResult> else {
+			return
+		}
+		
+		viewModel.push(input: input)
 	}
 }

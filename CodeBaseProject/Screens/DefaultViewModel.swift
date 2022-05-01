@@ -7,11 +7,12 @@
 
 import RxSwift
 
-class DefaultViewModel {
+class DefaultViewModel<Input> {
 	// MARK: - ================================= Properties =================================
 	let disposeBag = DisposeBag()
-	let pDone = PublishSubject<Void>()
+	let _done = PublishSubject<Void>()
 	private(set) weak var delegate: AnyObject?
+	private(set) var input: Input?
 	
 	// MARK: - ================================= Init =================================
 	required init() { }
@@ -20,8 +21,12 @@ class DefaultViewModel {
 		self.delegate = sender
 	}
 	
+	func push(input: Input?) {
+		self.input = input
+	}
+	
 	deinit {
-		pDone.onNext(())
+		_done.onNext(())
 		print("\(self) is deinit")
 	}
 }
@@ -59,9 +64,7 @@ class DefaultViewModel {
 
 // MARK: - ================================= Outputs =================================
 extension DefaultViewModel {
-	var didDone: Observable<Void> {
-		return pDone.asObservable()
-	}
+	var didDone: Observable<Void> { return _done }
 }
 
 // MARK: - ================================= View - Outputs - Don't use directly =================================
