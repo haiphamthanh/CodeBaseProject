@@ -79,8 +79,10 @@ extension TopSearchView {
 						} label: {
 							Text(fruit.name)
 						}
+						.listRowSeparatorTint(.gray)
 					}
-					.searchable(text: $searchText) {
+					.listStyle(.plain)
+					.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always)) {
 						ForEach(searchResults) { result in
 							Text("Are you looking for \(result.name)?") .searchCompletion(result.name)
 						}

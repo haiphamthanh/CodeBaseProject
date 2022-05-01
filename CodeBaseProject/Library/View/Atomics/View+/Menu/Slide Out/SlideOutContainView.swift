@@ -38,7 +38,7 @@ struct SlideOutContainView<SideMenuContent: View, TabbarContent: View>: ViewModi
 		// Whole navigation view... NavigationView {
 		VStack {
 			HStack(spacing: 0) {
-				// Side menu...
+				// Side menu... 
 				sideMenuContent()
 				
 				// Main tab View
@@ -161,7 +161,7 @@ private extension SlideOutContainView {
 	}
 }
 
-// Export to use as utils
+//<-- Important!!! Export to use as utils
 extension View {
 	func sideMenuWithTabbar<SideMenuContent: View, TabbarContent: View>(
 		isShowingMenu: Binding<Bool>,

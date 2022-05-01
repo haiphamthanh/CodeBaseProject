@@ -31,11 +31,9 @@ struct SideMenuView: View {
 		.frame(maxWidth: .infinity, alignment: .leading)
 		// Max width
 		.frame(width: sideBarWidth)
-		// Để full màn hình mà không cần quan tâm tới các kích thước của thiết bị khác nhau. Thì ta sử dụng tham số .infinity
-		.frame(maxHeight: .infinity)
+		.frame(maxHeight: .infinity) //<-- Important!!! Để full màn hình mà không cần quan tâm tới các kích thước của thiết bị khác nhau. Thì ta sử dụng tham số .infinity
 		.background(
-			// Kéo dãn view bỏ đi các edges theo chiều dọc (vertical)
-			Menu_Background_Color.ignoresSafeArea(.container, edges: .vertical)
+			Menu_Background_Color.ignoresSafeArea(.container, edges: .vertical) //<-- Important!!! Kéo dãn view bỏ đi các edges theo chiều dọc (vertical)
 		)
 		.frame(maxWidth: .infinity, alignment: .leading) // Canh trái view
 	}
