@@ -15,7 +15,7 @@ protocol TopVideoViewModel {
 protocol TopVideoViewModelDelegate: AnyObject {
 }
 
-class TopVideoViewModelImpl: DefaultViewModel, ViewModelRule, TopVideoViewModel {
+class TopVideoViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopVideoViewModel {
 	var delegator: TopVideoViewModelDelegate? {
 		return delegate as? TopVideoViewModelDelegate
 	}

@@ -16,7 +16,7 @@ protocol TopSearchViewModelDelegate: AnyObject {
 	func didSelected(fruit: TopSearchView.FruitItem)
 }
 
-class TopSearchViewModelImpl: DefaultViewModel, ViewModelRule, TopSearchViewModel {
+class TopSearchViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopSearchViewModel {
 	var delegator: TopSearchViewModelDelegate? {
 		return delegate as? TopSearchViewModelDelegate
 	}

@@ -7,17 +7,22 @@
 
 import RxSwift
 
-class DefaultViewModel {
+class DefaultViewModel<Input> {
 	// MARK: - ================================= Properties =================================
 	let disposeBag = DisposeBag()
 	let pDone = PublishSubject<Void>()
 	private(set) weak var delegate: AnyObject?
+	private(set) var input: Input?
 	
 	// MARK: - ================================= Init =================================
 	required init() { }
 	
 	final func delegate(_ sender: AnyObject?) {
 		self.delegate = sender
+	}
+	
+	func push(input: Input?) {
+		self.input = input
 	}
 	
 	deinit {

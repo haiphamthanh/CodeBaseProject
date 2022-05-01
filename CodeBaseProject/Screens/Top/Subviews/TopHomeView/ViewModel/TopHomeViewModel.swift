@@ -17,7 +17,7 @@ protocol TopHomeViewModelDelegate: AnyObject {
 	func settingButtonHandler()
 }
 
-class TopHomeViewModelImpl: DefaultViewModel, ViewModelRule, TopHomeViewModel {
+class TopHomeViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopHomeViewModel {
 	let _home = PublishSubject<Void>()
 	var delegator: TopHomeViewModelDelegate? {
 		return delegate as? TopHomeViewModelDelegate

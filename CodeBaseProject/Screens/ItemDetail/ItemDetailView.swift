@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RxSwift
 
 // ViewModel ===> View
 protocol ItemDetailViewModelViewSupport {
 	func gotoSomeWhere()
+	var title: Observable<String> { get }
 }
 
 struct ItemDetailView {
@@ -19,8 +21,24 @@ struct ItemDetailView {
 // Properties is used for View
 extension ItemDetailView {
 	class IPros: DefaultIPros<ItemDetailViewModelViewSupport>, ObservableObject {
+		@Published private(set) var title: String = "0"
+		private let disposeBag = DisposeBag()
+		
+		override init(viewModel: ViewModelRule) {
+			super.init(viewModel: viewModel)
+			
+			// View Model Adapter to
+			indViewModel?.title
+				.subscribe(onNext: didChangedTitle)
+				.disposed(by: disposeBag)
+		}
+		
 		func gotoSomeWhere() {
 			indViewModel?.gotoSomeWhere()
+		}
+		
+		func didChangedTitle(_ title: String) {
+			self.title = title
 		}
 	}
 }
@@ -45,7 +63,8 @@ extension ItemDetailView {
 				ToolbarItem(placement: .principal) {
 					HStack {
 						Image(systemName: "sun.min.fill")
-						Text("Title").font(.headline)
+						Text(pros.title)
+							.font(.headline)
 					}
 				}
 			}

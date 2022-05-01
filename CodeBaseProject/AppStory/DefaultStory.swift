@@ -25,19 +25,19 @@ class DefaultStory<ResultType>: DefaultCoordinator<ResultType> {
 extension DefaultStory {
 	func forwardToProxyStory(_ completion: @escaping (() -> Void)) -> Observable<Void> {
 		let proxyStory = CoordInstance.Story.proxy()
-		return coordinate(to: proxyStory)
+		return coordinate(to: proxyStory, input: Void())
 			.do(onNext: completion)
 	}
 	
 	func forwardToIntroStory(_ completion: @escaping (() -> Void)) -> Observable<Void> {
 		let introStory = CoordInstance.Story.intro()
-		return coordinate(to: introStory)
+		return coordinate(to: introStory, input: Void())
 			.do(onNext: completion)
 	}
 	
 	func forwardToHomeStory(_ completion: @escaping (() -> Void)) -> Observable<Void> {
 		let homeStory = CoordInstance.Story.home()
-		return coordinate(to: homeStory)
+		return coordinate(to: homeStory, input: Void())
 			.do(onNext: completion)
 	}
 }

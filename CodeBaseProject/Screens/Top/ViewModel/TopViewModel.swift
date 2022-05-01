@@ -13,7 +13,7 @@ import RxSwift
 protocol TopViewModel {
 }
 
-class TopViewModelImpl: DefaultViewModel, ViewModelRule, TopViewModel {
+class TopViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopViewModel {
 	let _counting = PublishSubject<Int>()
 	let _authState = PublishSubject<AuthState>()
 	let _home = PublishSubject<Void>()

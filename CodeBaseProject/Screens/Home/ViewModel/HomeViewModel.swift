@@ -10,5 +10,5 @@
 protocol HomeViewModel {
 }
 
-class HomeViewModelImpl: DefaultViewModel, ViewModelRule, HomeViewModel {
+class HomeViewModelImpl: DefaultViewModel<Void>, ViewModelRule, HomeViewModel {
 }

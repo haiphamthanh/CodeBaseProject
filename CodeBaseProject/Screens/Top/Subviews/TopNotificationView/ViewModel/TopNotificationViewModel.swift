@@ -15,7 +15,7 @@ protocol TopNotificationViewModel {
 protocol TopNotificationViewModelDelegate: AnyObject {
 }
 
-class TopNotificationViewModelImpl: DefaultViewModel, ViewModelRule, TopNotificationViewModel {
+class TopNotificationViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopNotificationViewModel {
 	var delegator: TopNotificationViewModelDelegate? {
 		return delegate as? TopNotificationViewModelDelegate
 	}
