@@ -9,11 +9,13 @@
 
 import SwiftUI
 
-struct SlideOutContainView: View {
+struct SlideOutContainView<SideMenuContent: View, TabbarContent: View>: ViewModifier {
 	/// Menu handler
-	@Binding var showMenu: Bool
-	@Binding var currentTab: TabbarType
-	@Binding var menuOutput: MenuType
+	@Binding private var isShowingMenu: Bool
+	private let sideMenuContent: () -> SideMenuContent
+	private let tabbarContent: () -> TabbarContent
+	private let showMenuObserved = NotificationCenter.default.publisher(for: AppNotificationData.didOpenMenu)
+	private let closeMenuObserved = NotificationCenter.default.publisher(for: AppNotificationData.didCloseMenu)
 	
 	/// Properties to support gesture
 	// Offset for both drag gesture and showing menu
@@ -21,20 +23,26 @@ struct SlideOutContainView: View {
 	@State private var lastStoresOffset: CGFloat = 0
 	@GestureState private var gestureOffset: CGFloat = 0
 	
-	var body: some View {
-		let currentScreenWidth = currentScreenRect().width
+	public init(isShowingMenu: Binding<Bool>,
+				@ViewBuilder sideMenuContent: @escaping () -> SideMenuContent,
+				@ViewBuilder tabbarContent: @escaping () -> TabbarContent) {
+		_isShowingMenu = isShowingMenu
+		self.sideMenuContent = sideMenuContent
+		self.tabbarContent = tabbarContent
+	}
+	
+	func body(content: Content) -> some View {
+		let currentScreenWidth = content.currentScreenRect().width
 		let sideBarWidth = currentScreenWidth - 90
 		
 		// Whole navigation view... NavigationView {
 		VStack {
 			HStack(spacing: 0) {
 				// Side menu...
-				SideMenuView(sideBarWidth: sideBarWidth,
-							 showMenu: $showMenu,
-							 output: $menuOutput)
+				sideMenuContent()
 				
 				// Main tab View
-				TabBarContainView(currentTab: $currentTab)
+				tabbarContent()
 					.frame(width: currentScreenWidth)
 				// BG when menu is showing...
 					.overlay(
@@ -45,7 +53,7 @@ struct SlideOutContainView: View {
 							.ignoresSafeArea(.container, edges: .vertical)
 							.onTapGesture {
 								withAnimation {
-									showMenu.toggle()
+									isShowingMenu.toggle()
 								}
 							}
 					)
@@ -70,30 +78,36 @@ struct SlideOutContainView: View {
 			.navigationBarHidden(true)
 		}
 		.animation(.easeOut, value: offset == 0)
-		.onChange(of: showMenu) { _ in
-			on(showMenu: showMenu, sideBarWidth: sideBarWidth)
+		.onReceive(showMenuObserved) { _ in
+			self.isShowingMenu = true
+		}
+		.onReceive(closeMenuObserved) { _ in
+			self.isShowingMenu = false
+		}
+		.onChange(of: isShowingMenu) { _ in
+			onShowingMenu(isShowingMenu, sideBarWidth: sideBarWidth)
 		}
 		.onChange(of: gestureOffset) { _ in
-			updateOffset(sideBarWidth: sideBarWidth)
+			updateOffset(limitedWidth: sideBarWidth)
 		}
 	}
 }
 
 // MARK: - >>>>>>>>>>>> View Action Handler
 private extension SlideOutContainView {
-	func on(showMenu: Bool, sideBarWidth: CGFloat) {
-		if showMenu && offset == 0 {
+	func onShowingMenu(_ isShowing: Bool, sideBarWidth: CGFloat) {
+		if isShowing && offset == 0 {
 			offset = sideBarWidth
 			lastStoresOffset = offset
 		}
 		
-		if !showMenu && offset == sideBarWidth {
+		if !isShowing && offset == sideBarWidth {
 			offset = 0
 			lastStoresOffset = 0
 		}
 	}
 	
-	func updateOffset(sideBarWidth: CGFloat) {
+	func updateOffset(limitedWidth sideBarWidth: CGFloat) {
 		let currentGestureOffset = gestureOffset + lastStoresOffset
 		let validMovedOffset = currentGestureOffset >= sideBarWidth ? offset : currentGestureOffset
 		return offset = validMovedOffset
@@ -119,7 +133,7 @@ private extension SlideOutContainView {
 		if transition > (sideBarWidth / 2) {
 			// show menu
 			offset = sideBarWidth
-			showMenu = true
+			isShowingMenu = true
 		} else {
 			// Extra case...
 			if offset == sideBarWidth {
@@ -127,37 +141,38 @@ private extension SlideOutContainView {
 			}
 			
 			offset = 0
-			showMenu = false
+			isShowingMenu = false
 		}
 	}
 	
 	func onEndGestureWithTransitionNegative(_ transition: CGFloat, checker sideBarWidth: CGFloat) {
 		if -transition > (sideBarWidth / 2) {
 			offset = 0
-			showMenu = false
+			isShowingMenu = false
 		} else {
 			// Extra case...
-			if offset == 0 || !showMenu {
+			if offset == 0 || !isShowingMenu {
 				return
 			}
 			
 			offset = sideBarWidth
-			showMenu = true
+			isShowingMenu = true
 		}
 	}
 }
 
-#if DEBUG
-struct SlideOutContainView_Previews: PreviewProvider {
-	static var previews: some View {
-		Group {
-			SlideOutContainView(showMenu: .constant(false),
-								currentTab: .constant(TabbarType.home),
-								menuOutput: .constant(MenuType.none))
-		}
+// Export to use as utils
+extension View {
+	func sideMenuWithTabbar<SideMenuContent: View, TabbarContent: View>(
+		isShowingMenu: Binding<Bool>,
+		@ViewBuilder sideMenuContent: @escaping () -> SideMenuContent,
+		@ViewBuilder tabbarContent: @escaping () -> TabbarContent
+	) -> some View {
+		self.modifier(SlideOutContainView(isShowingMenu: isShowingMenu,
+										  sideMenuContent: sideMenuContent,
+										  tabbarContent: tabbarContent))
 	}
 }
-#endif
 
 /*
  // MARK: - >>>>>>>>>>>> Old
@@ -168,3 +183,4 @@ struct SlideOutContainView_Previews: PreviewProvider {
  }
  }
  */
+

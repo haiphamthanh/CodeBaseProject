@@ -24,7 +24,6 @@ extension TopViewModelImpl: TopViewModelCoordSupport {
 extension TopViewModelImpl: TopViewModelViewSupport {
 	var authState: Observable<AuthState> { _authState.asObservable() }
 	var counting: Observable<Int> { _counting.asObservable() }
-	var showMenu: Observable<Bool> { _showMenu.asObservable() }
 	
 	func gotoItemDetail(item: TopSearchView.FruitItem) { _detail.onNext(item) }
 	func gotoFacebook() { _home.onNext(Void()) }
