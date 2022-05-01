@@ -12,6 +12,7 @@ enum SceneName {
 	case root(Dictionary<String, Any>? = nil, PresentType = .push)
 	case home(Dictionary<String, Any>? = nil, PresentType = .push)
 	case intro(Dictionary<String, Any>? = nil, PresentType = .push)
+	case itemDetail(TopSearchView.FruitItem, PresentType = .push)
 }
 
 struct CoordTransiter<ResultType> {
@@ -34,6 +35,8 @@ extension CoordTransiter {
 			return toHome(with: params, on: presentType)
 		case .intro(let params, let presentType):
 			return toIntro(with: params, on: presentType)
+		case .itemDetail(let item, let presentType):
+			return toItemDetail(item, on: presentType)
 		}
 	}
 }
@@ -68,6 +71,12 @@ private extension CoordTransiter {
 	func toHome(with params: Dictionary<String, Any>? = nil,
 				on presentType: PresentType = .push) -> Observable<ResultType> {
 		let coordinator = CoordInstance.Atomic.home(params) as? DefaultCoordinator<ResultType>
+		return move(to: coordinator, on: presentType)
+	}
+	
+	// MARK: Detail ------------------
+	func toItemDetail(_ item: TopSearchView.FruitItem, on presentType: PresentType = .push) -> Observable<ResultType> {
+		let coordinator = CoordInstance.Atomic.itemDetail(item) as? DefaultCoordinator<ResultType>
 		return move(to: coordinator, on: presentType)
 	}
 }

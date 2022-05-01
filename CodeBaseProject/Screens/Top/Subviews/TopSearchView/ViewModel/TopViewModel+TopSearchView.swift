@@ -6,4 +6,7 @@
 //
 
 extension TopViewModelImpl: TopSearchViewModelDelegate {
+	func didSelected(fruit: TopSearchView.FruitItem) {
+		_detail.onNext(fruit)
+	}
 }

@@ -13,8 +13,7 @@ protocol TopSearchViewModel {
 }
 
 protocol TopSearchViewModelDelegate: AnyObject {
-	func avatarButtonHandler()
-	func settingButtonHandler()
+	func didSelected(fruit: TopSearchView.FruitItem)
 }
 
 class TopSearchViewModelImpl: DefaultViewModel, ViewModelRule, TopSearchViewModel {

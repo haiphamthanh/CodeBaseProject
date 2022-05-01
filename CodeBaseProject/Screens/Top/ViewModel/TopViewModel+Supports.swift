@@ -9,6 +9,11 @@ import RxSwift
 
 // MARK: - ================================= Coordinator support =================================
 extension TopViewModelImpl: TopViewModelCoordSupport {
+	var goDetail: Observable<TopSearchView.FruitItem> {
+		return _detail
+			.asObservable()
+	}
+	
 	var goHome: Observable<Void> {
 		return _home
 			.asObservable()
@@ -21,6 +26,7 @@ extension TopViewModelImpl: TopViewModelViewSupport {
 	var counting: Observable<Int> { _counting.asObservable() }
 	var showMenu: Observable<Bool> { _showMenu.asObservable() }
 	
+	func gotoItemDetail(item: TopSearchView.FruitItem) { _detail.onNext(item) }
 	func gotoFacebook() { _home.onNext(Void()) }
 	func gotoPrivacy() { print("Move to privacy by coordinator") }
 	func gotoHelp() { print("Move to help by coordinator") }

@@ -17,6 +17,7 @@ class TopViewModelImpl: DefaultViewModel, ViewModelRule, TopViewModel {
 	let _counting = PublishSubject<Int>()
 	let _authState = PublishSubject<AuthState>()
 	let _home = PublishSubject<Void>()
+	let _detail = PublishSubject<TopSearchView.FruitItem>()
 	let _showMenu = PublishSubject<Bool>()
 	private lazy var tabbarManager = TabBarPropsViewModel()
 	

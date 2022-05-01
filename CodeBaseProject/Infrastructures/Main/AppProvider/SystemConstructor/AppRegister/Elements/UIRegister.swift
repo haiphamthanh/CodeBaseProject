@@ -73,5 +73,17 @@ private extension UIRegister {
 			let view = ViewInstance.homeView(viewModel: viewModel)
 			return HomeCoordinatorImpl(view: view, viewModel: viewModel)
 		}
+		
+		//MARK: ------------------------------------ DETAIL ------------------------------------
+		container.register(ItemDetailViewModel.self) { _ in ItemDetailViewModelImpl() }
+		container.register(ItemDetailCoordinator.self) { r in
+			@Inject var viewModel: ItemDetailViewModel
+			guard let viewModel = viewModel as? ViewModelRule else {
+				fatalError("View model need to confirm to ViewModelRule")
+			}
+			
+			let view = ViewInstance.itemDetailView(viewModel: viewModel)
+			return ItemDetailCoordinatorImpl(view: view, viewModel: viewModel)
+		}
 	}
 }
