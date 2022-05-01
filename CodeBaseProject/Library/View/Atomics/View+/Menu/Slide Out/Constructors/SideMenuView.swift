@@ -14,7 +14,6 @@ let Menu_Background_Color = Color.primary.opacity(0.04)
 
 struct SideMenuView: View {
 	let sideBarWidth: CGFloat
-	@Binding var showMenu: Bool
 	@Binding var output: MenuType
 	
 	var body: some View {
@@ -45,9 +44,7 @@ struct SideMenuView: View {
 #if DEBUG
 struct SideMenuView_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu(showMenu: .constant(false),
-					 menuOutput: .constant(MenuType.none),
-					 currentTab: .constant(TabbarType.home))
+		SideMenuView(sideBarWidth: 500, output: .constant(MenuType.home))
 	}
 }
 #endif

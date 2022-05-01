@@ -199,7 +199,7 @@
 		86BA7518281C34FC006FD228 /* TopVideoViewModel+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA7517281C34FC006FD228 /* TopVideoViewModel+Support.swift */; };
 		86BA751C281CF99A006FD228 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA751B281CF99A006FD228 /* PopupManager.swift */; };
 		86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AC28103AA30059BAF0 /* DrawerMenu.swift */; };
-		86D084B028103BB60059BAF0 /* SlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */; };
+		86D084B028103BB60059BAF0 /* MainContainerView_A.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084AF28103BB60059BAF0 /* MainContainerView_A.swift */; };
 		86D084B328104F8B0059BAF0 /* SlideOutContainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084B228104F8B0059BAF0 /* SlideOutContainView.swift */; };
 		86D084B5281051590059BAF0 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084B4281051590059BAF0 /* SideMenuView.swift */; };
 		86D084BB281079930059BAF0 /* TopHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084BA281079930059BAF0 /* TopHomeView.swift */; };
@@ -442,7 +442,7 @@
 		86BA7517281C34FC006FD228 /* TopVideoViewModel+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopVideoViewModel+Support.swift"; sourceTree = "<group>"; };
 		86BA751B281CF99A006FD228 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		86D084AC28103AA30059BAF0 /* DrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenu.swift; sourceTree = "<group>"; };
-		86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutMenu.swift; sourceTree = "<group>"; };
+		86D084AF28103BB60059BAF0 /* MainContainerView_A.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView_A.swift; sourceTree = "<group>"; };
 		86D084B228104F8B0059BAF0 /* SlideOutContainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutContainView.swift; sourceTree = "<group>"; };
 		86D084B4281051590059BAF0 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		86D084BA281079930059BAF0 /* TopHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHomeView.swift; sourceTree = "<group>"; };
@@ -754,6 +754,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				868ADBC0281E92A400ED06A4 /* Main */,
 				8685B2712801621B0076B3AC /* Navigation */,
 				861E857927FB4FE90032C4F5 /* SingleView */,
 			);
@@ -773,7 +774,6 @@
 			isa = PBXGroup;
 			children = (
 				8685B25828014B800076B3AC /* Main */,
-				86D084AA28103A720059BAF0 /* Menu */,
 				8604235327EDEFF10056EF17 /* Resources */,
 			);
 			path = Infrastructures;
@@ -817,6 +817,7 @@
 				861E85AA27FB6F090032C4F5 /* BackBarButtonItem.swift */,
 				8685B2652801607A0076B3AC /* ExNavigationController.swift */,
 				8685B276280164850076B3AC /* AlertButton.swift */,
+				86D084AA28103A720059BAF0 /* Menu */,
 			);
 			path = "View+";
 			sourceTree = "<group>";
@@ -1401,6 +1402,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		868ADBC0281E92A400ED06A4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				86D084AF28103BB60059BAF0 /* MainContainerView_A.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		869BBEFF28045D5A003D87E6 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1492,7 +1501,6 @@
 			isa = PBXGroup;
 			children = (
 				86D084CE281266150059BAF0 /* Constructors */,
-				86D084AF28103BB60059BAF0 /* SlideOutMenu.swift */,
 				86D084B228104F8B0059BAF0 /* SlideOutContainView.swift */,
 			);
 			path = "Slide Out";
@@ -1967,7 +1975,7 @@
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
 				862EF23127F997FD0051A3A0 /* Constants.swift in Sources */,
 				8604237227EDF6E30056EF17 /* SingleView.swift in Sources */,
-				86D084B028103BB60059BAF0 /* SlideOutMenu.swift in Sources */,
+				86D084B028103BB60059BAF0 /* MainContainerView_A.swift in Sources */,
 				8604238127EDFCE80056EF17 /* NetworkLogPlugin.swift in Sources */,
 				8604233827EBAE5D0056EF17 /* Task.swift in Sources */,
 				862EF1FC27F8470D0051A3A0 /* UserInput.swift in Sources */,

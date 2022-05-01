@@ -77,9 +77,7 @@ private extension TabBarContainView {
 #if DEBUG
 struct TabBarContainView_Previews: PreviewProvider {
 	static var previews: some View {
-		SlideOutMenu(showMenu: .constant(false),
-					 menuOutput: .constant(MenuType.none),
-					 currentTab: .constant(TabbarType.home))
+		TabBarContainView(currentTab: .constant(TabbarType.home))
 	}
 }
 #endif
