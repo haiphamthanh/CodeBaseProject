@@ -50,9 +50,7 @@ extension RootView {
 		
 		// Actions
 		func gotoHome() {
-			preventInvalidateModel {
-				indViewModel?.gotoHome()
-			}
+			indViewModel?.gotoHome()
 		}
 	}
 }

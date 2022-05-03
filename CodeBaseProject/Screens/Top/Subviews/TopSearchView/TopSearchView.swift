@@ -79,8 +79,10 @@ extension TopSearchView {
 						} label: {
 							Text(fruit.name)
 						}
+						.listRowSeparatorTint(.gray)
 					}
-					.searchable(text: $searchText) {
+					.listStyle(.plain)
+					.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always)) {
 						ForEach(searchResults) { result in
 							Text("Are you looking for \(result.name)?") .searchCompletion(result.name)
 						}
@@ -101,7 +103,7 @@ extension TopSearchView {
 #if DEBUG
 struct TopSearchView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopSearchViewModelImpl()
+		let viewModel = TopViewModelImpl()
 		let props = TopSearchView.IPros(viewModel: viewModel)
 		AnyView(TopSearchView.IView(pros: props))
 	}

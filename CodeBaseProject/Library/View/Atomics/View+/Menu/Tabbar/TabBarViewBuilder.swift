@@ -13,16 +13,16 @@ enum TopViewPropType {
 	case topNoti(TopNotificationView.IPros)
 	case topVideo(TopVideoView.IPros)
 	
-	var viewModel: ViewModelRule {
+	var viewModel: ViewModelRule? {
 		switch self {
 		case .topHome(let topHomeProp):
-			return topHomeProp.ruleViewModel
+			return topHomeProp.viewModel
 		case .topSearch(let topSearchProp):
-			return topSearchProp.ruleViewModel
+			return topSearchProp.viewModel
 		case .topNoti(let topNotiProp):
-			return topNotiProp.ruleViewModel
+			return topNotiProp.viewModel
 		case .topVideo(let topVideoProp):
-			return topVideoProp.ruleViewModel
+			return topVideoProp.viewModel
 		}
 	}
 }

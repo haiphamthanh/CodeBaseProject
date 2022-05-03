@@ -8,39 +8,26 @@
 import Foundation
 
 class DefaultIPros<IndividualViewModel> {
-	private(set) var indViewModel: IndividualViewModel?
-	private(set) var preventInvalidated = false
+	private(set) var viewModel: ViewModelRule?
+	var indViewModel: IndividualViewModel? {
+		return viewModel as? IndividualViewModel
+	}
 	
 	init(viewModel: ViewModelRule) {
-		guard let indViewModel = viewModel as? IndividualViewModel else {
-			fatalError("View model need to support \(IndividualViewModel.self)")
+		self.viewModel = viewModel
+	}
+	
+	// We need to invalidate all referrence after scene was dissaped if not we got leak
+	func invalidate() {
+		if AppCenter.Manager
+			.modelId
+			.isLeafNode(id: viewModel!.id) {
+			viewModel = nil
+			print("\(self) [<<] invalidated")
 		}
-		
-		self.indViewModel = indViewModel
 	}
 	
 	deinit {
 		print("\(self) is deinit")
-	}
-}
-
-extension DefaultIPros {
-	// We need to invalidate all referrence after scene was dissaped if not we got leak
-	func invalidate() {
-		if preventInvalidated {
-			return preventInvalidated = false
-		}
-		
-		indViewModel = nil
-		print("\(self) [<<] invalidated")
-	}
-	
-	func preventInvalidateModel(completion: () -> Void) {
-		preventInvalidated = true
-		return completion()
-	}
-	
-	var ruleViewModel: ViewModelRule {
-		return indViewModel as! ViewModelRule
 	}
 }

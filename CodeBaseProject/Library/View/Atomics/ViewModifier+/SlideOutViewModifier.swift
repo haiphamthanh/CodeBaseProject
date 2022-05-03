@@ -1,5 +1,5 @@
 //
-//  SlideOutContainView.swift
+//  SlideOutViewModifier.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 20/04/2022.
@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct SlideOutContainView<SideMenuContent: View, TabbarContent: View>: ViewModifier {
+struct SlideOutViewModifier<SideMenuContent: View, TabbarContent: View>: ViewModifier {
 	/// Menu handler
 	@Binding private var isShowingMenu: Bool
 	private let sideMenuContent: () -> SideMenuContent
@@ -94,7 +94,7 @@ struct SlideOutContainView<SideMenuContent: View, TabbarContent: View>: ViewModi
 }
 
 // MARK: - >>>>>>>>>>>> View Action Handler
-private extension SlideOutContainView {
+private extension SlideOutViewModifier {
 	func onShowingMenu(_ isShowing: Bool, sideBarWidth: CGFloat) {
 		if isShowing && offset == 0 {
 			offset = sideBarWidth
@@ -161,16 +161,16 @@ private extension SlideOutContainView {
 	}
 }
 
-// Export to use as utils
+//<-- Important!!! Export to use as utils
 extension View {
 	func sideMenuWithTabbar<SideMenuContent: View, TabbarContent: View>(
 		isShowingMenu: Binding<Bool>,
 		@ViewBuilder sideMenuContent: @escaping () -> SideMenuContent,
 		@ViewBuilder tabbarContent: @escaping () -> TabbarContent
 	) -> some View {
-		self.modifier(SlideOutContainView(isShowingMenu: isShowingMenu,
-										  sideMenuContent: sideMenuContent,
-										  tabbarContent: tabbarContent))
+		self.modifier(SlideOutViewModifier(isShowingMenu: isShowingMenu,
+										   sideMenuContent: sideMenuContent,
+										   tabbarContent: tabbarContent))
 	}
 }
 

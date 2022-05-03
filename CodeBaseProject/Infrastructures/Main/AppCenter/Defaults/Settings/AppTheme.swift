@@ -64,21 +64,49 @@ enum MyThemeSetting {
 
 private extension MyTheme {
 	static func applyAppearanceTextFieldDefaults() {
-		UITextField.appearance().keyboardAppearance = .dark
-		UITextField.appearance().textColor = .black
-		UITextField.appearance().backgroundColor = .darkGray
+		//		UITextField.appearance().keyboardAppearance = .dark
+		//		UITextField.appearance().textColor = .black
+		//		UITextField.appearance().backgroundColor = .darkGray
 	}
 	
 	static func applyAppearanceNavigationBarDefaults() {
-		UINavigationBar.appearance().barStyle = .black
-		UINavigationBar.appearance().barTintColor = .textColor
-		UINavigationBar.appearance().tintColor = FlatColor.Blue.BlueWhale
-		UINavigationBar.appearance().backgroundColor = FlatColor.Red.Valencia
+		//		UINavigationBar.appearance().barStyle = .default
+		//		UINavigationBar.appearance().barTintColor = .textColor
+		//		UINavigationBar.appearance().tintColor = FlatColor.Blue.BlueWhale
+		//		UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+		//		UINavigationBar.appearance().backgroundColor = FlatColor.Red.Valencia
+		//		UINavigationBar.appearance().isHidden = true
+		//		UINavigationBar.appearance().isOpaque = true
 		
-		UINavigationBar.appearance().barTintColor = FlatColor.Blue.BlueWhale
-		UINavigationBar.appearance().tintColor = UIColor.white
-		UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-		UINavigationBar.appearance().isHidden = true
+		//		UINavigationBar.appearance().barTintColor = FlatColor.Blue.BlueWhale
+		//		UINavigationBar.appearance().tintColor = UIColor.red
+		//		UINavigationBar.appearance().isHidden = true
+		
+		//		UINavigationBar.appearance().backgroundColor = .red600
+		//		UINavigationBar.appearance().barTintColor = .gray
+		//		UINavigationBar.appearance().tintColor = .white
+		//		UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor.white]
+		//		UINavigationBar.appearance().isOpaque = true
+		
+		//		UINavigationBar.appearance().backgroundColor = .red600
+		//		UINavigationBar.appearance().barTintColor = .red600
+		//		UINavigationBar.appearance().tintColor = .white
+		//		UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor.white]
+		//		UINavigationBar.appearance().isOpaque = false
+		
+		//		UITableView.appearance().allowsSelection = false
+		//		UITableView.appearance().separatorStyle = .none
+		//		//		UITableView.appearance().backgroundColor = .clear
+		//		UILabel.appearance(whenContainedInInstancesOf: [UISegmentedControl.self]).numberOfLines = 0
+		//		UILabel.appearance(whenContainedInInstancesOf: [UISegmentedControl.self]).minimumScaleFactor = 0.7
+		//		UITableViewHeaderFooterView.appearance().tintColor = UIColor(named: "headerColor")
+		//		UITableView.appearance().tableHeaderView = UIView(frame: CGRect.zero)
+		//		if #available(iOS 14.0, *) {
+		//			// Fallback on earlier versions
+		//			UITableView.appearance().separatorColor = .clear
+		//			UITableViewCell.appearance().selectionStyle = .none
+		//			UITableViewCell.appearance().backgroundColor = .clear
+		//		}
 	}
 	
 	static func applyAppearanceTabBarDefaults() {
@@ -86,9 +114,9 @@ private extension MyTheme {
 		UITabBar.appearance().isHidden = true
 	}
 	
-//	static private func emptyView(withBackground color: UIColor) -> UIView {
-//		let view = UIView()
-//		view.backgroundColor = color
-//		return view
-//	}
+	//	static private func emptyView(withBackground color: UIColor) -> UIView {
+	//		let view = UIView()
+	//		view.backgroundColor = color
+	//		return view
+	//	}
 }

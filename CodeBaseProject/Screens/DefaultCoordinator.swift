@@ -49,6 +49,7 @@ extension DefaultCoordinator {
 										on presentType: PresentType = .push) -> Observable<T> {
 		store(coordinator: coordinator)
 		coordinator.push(input: input)
+		AppCenter.Manager.modelId.attach(coordinator.viewModel?.id, to: viewModel?.id)
 		return coordinator.start(on: presentType)
 			.do(onNext: { [weak self] _ in
 				self?.free(coordinator: coordinator)

@@ -90,6 +90,14 @@ private extension CoordTransiter {
 			return Observable.never()
 		}
 		
+//		if let currentViewModel = current.viewModel {
+//			if let destViewModel = coordinator.viewModel {
+//				ModelNodeManager.shared.attach(destViewModel.id, to: currentViewModel.id)
+//			}
+//		} else if let destViewModel = coordinator.viewModel {
+//			ModelNodeManager.shared.push(model: ModelNode(id: destViewModel.id))
+//		}
+		
 		return current.coordinate(to: coordinator, input: input, on: presentType)
 	}
 }

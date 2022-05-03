@@ -56,12 +56,6 @@ private extension UIRegister {
 			return TopCoordinatorImpl(view: view, viewModel: viewModel)
 		}
 		
-		//MARK: ------------------------------------ TOP_HOME ------------------------------------
-		container.register(TopHomeViewModel.self) { _ in TopHomeViewModelImpl() }
-		container.register(TopSearchViewModel.self) { _ in TopSearchViewModelImpl() }
-		container.register(TopNotificationViewModel.self) { _ in TopNotificationViewModelImpl() }
-		container.register(TopVideoViewModel.self) { _ in TopVideoViewModelImpl() }
-		
 		//MARK: ------------------------------------ HOME ------------------------------------
 		container.register(HomeViewModel.self) { _ in HomeViewModelImpl() }
 		container.register(HomeCoordinator.self) { r in
