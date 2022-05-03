@@ -196,6 +196,11 @@
 		868ADC6F28214E4700ED06A4 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6428214E4700ED06A4 /* LandingPage.swift */; };
 		868ADC7028214E4700ED06A4 /* CustomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6528214E4700ED06A4 /* CustomeTabBar.swift */; };
 		868ADC7128214E4800ED06A4 /* FoodHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6628214E4700ED06A4 /* FoodHomeView.swift */; };
+		868ADC812821523C00ED06A4 /* NikeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC762821523C00ED06A4 /* NikeHomeView.swift */; };
+		868ADC832821523C00ED06A4 /* NikeHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC7A2821523C00ED06A4 /* NikeHome.swift */; };
+		868ADC842821523C00ED06A4 /* SizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC7B2821523C00ED06A4 /* SizeButton.swift */; };
+		868ADC852821523C00ED06A4 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC7C2821523C00ED06A4 /* CustomShape.swift */; };
+		868ADC862821523C00ED06A4 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC7D2821523C00ED06A4 /* GenderButton.swift */; };
 		869BBEB62802A8BE003D87E6 /* SystemConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */; };
 		869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEBD28041280003D87E6 /* DestinationHostingController.swift */; };
 		869BBEC52804186A003D87E6 /* DefaultNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC42804186A003D87E6 /* DefaultNavigation.swift */; };
@@ -449,6 +454,11 @@
 		868ADC6428214E4700ED06A4 /* LandingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		868ADC6528214E4700ED06A4 /* CustomeTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeTabBar.swift; sourceTree = "<group>"; };
 		868ADC6628214E4700ED06A4 /* FoodHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodHomeView.swift; sourceTree = "<group>"; };
+		868ADC762821523C00ED06A4 /* NikeHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NikeHomeView.swift; sourceTree = "<group>"; };
+		868ADC7A2821523C00ED06A4 /* NikeHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NikeHome.swift; sourceTree = "<group>"; };
+		868ADC7B2821523C00ED06A4 /* SizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeButton.swift; sourceTree = "<group>"; };
+		868ADC7C2821523C00ED06A4 /* CustomShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
+		868ADC7D2821523C00ED06A4 /* GenderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
 		869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConstructor.swift; sourceTree = "<group>"; };
 		869BBEBD28041280003D87E6 /* DestinationHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationHostingController.swift; sourceTree = "<group>"; };
 		869BBEC42804186A003D87E6 /* DefaultNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigation.swift; sourceTree = "<group>"; };
@@ -775,6 +785,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				868ADC742821523C00ED06A4 /* NikeApp */,
 				868ADC5A28214E4700ED06A4 /* FoodUI */,
 				868ADC4328213FD100ED06A4 /* LinkedinTemplate */,
 				868ADC3E282134EE00ED06A4 /* NikeDetailView */,
@@ -1537,6 +1548,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		868ADC742821523C00ED06A4 /* NikeApp */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC762821523C00ED06A4 /* NikeHomeView.swift */,
+				868ADC792821523C00ED06A4 /* View */,
+			);
+			path = NikeApp;
+			sourceTree = "<group>";
+		};
+		868ADC792821523C00ED06A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC7A2821523C00ED06A4 /* NikeHome.swift */,
+				868ADC7B2821523C00ED06A4 /* SizeButton.swift */,
+				868ADC7C2821523C00ED06A4 /* CustomShape.swift */,
+				868ADC7D2821523C00ED06A4 /* GenderButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		869BBEFF28045D5A003D87E6 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1954,6 +1985,7 @@
 				861E859327FB5BB20032C4F5 /* String+.swift in Sources */,
 				8685B2752801639B0076B3AC /* AlertProvider.swift in Sources */,
 				8632D43028021EDB00141EDC /* UserLocalImpl.swift in Sources */,
+				868ADC862821523C00ED06A4 /* GenderButton.swift in Sources */,
 				8685B2002800561A0076B3AC /* AppTheme.swift in Sources */,
 				8604236227EDF1850056EF17 /* HomeViewModel.swift in Sources */,
 				8685B22428005C9C0076B3AC /* GooglePlugin.swift in Sources */,
@@ -2029,6 +2061,7 @@
 				8604233D27ECB2DF0056EF17 /* UserNetwork.swift in Sources */,
 				868ADC4E2821403400ED06A4 /* SearchView.swift in Sources */,
 				8604235E27EDF1530056EF17 /* HomeView.swift in Sources */,
+				868ADC832821523C00ED06A4 /* NikeHome.swift in Sources */,
 				861FCD66280F9F50007564A3 /* HomeStoryViewModel+Supports.swift in Sources */,
 				8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */,
 				8685B28528016CAF0076B3AC /* DefaultImage.swift in Sources */,
@@ -2054,6 +2087,7 @@
 				868ADC7128214E4800ED06A4 /* FoodHomeView.swift in Sources */,
 				8685B23A28007C870076B3AC /* CoordinatorRule.swift in Sources */,
 				8640C1A4280A759F002448AC /* DefaultCoordinator.swift in Sources */,
+				868ADC852821523C00ED06A4 /* CustomShape.swift in Sources */,
 				868ADBBE281E41A400ED06A4 /* ItemDetailCoordinator.swift in Sources */,
 				8604232827EAA8E70056EF17 /* APIError.swift in Sources */,
 				862EF23127F997FD0051A3A0 /* Constants.swift in Sources */,
@@ -2080,6 +2114,7 @@
 				8685B277280164850076B3AC /* AlertButton.swift in Sources */,
 				8640C1922808EEF7002448AC /* IntroStory.swift in Sources */,
 				868ADC4F2821403400ED06A4 /* LinkedinStory.swift in Sources */,
+				868ADC812821523C00ED06A4 /* NikeHomeView.swift in Sources */,
 				86D2C9972819B0FB0099A377 /* TabBarPropsViewModel.swift in Sources */,
 				8636E87D280CA49B00AE73E1 /* IntroStoryViewModel.swift in Sources */,
 				861FCD58280F208E007564A3 /* AppSetting.swift in Sources */,
@@ -2148,6 +2183,7 @@
 				8685B203280056A80076B3AC /* Migration+View.swift in Sources */,
 				869BBEC82804199F003D87E6 /* NavigationAdapter.swift in Sources */,
 				862EF1F127F4B6F50051A3A0 /* UserRegisterRequestBuilder.swift in Sources */,
+				868ADC842821523C00ED06A4 /* SizeButton.swift in Sources */,
 				86D084E82813B32F0059BAF0 /* OtherType.swift in Sources */,
 				861E858027FB5A580032C4F5 /* AppColor.swift in Sources */,
 				8604234227ECB7360056EF17 /* NetworkingConstructor.swift in Sources */,

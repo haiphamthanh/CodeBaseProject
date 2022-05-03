@@ -7,25 +7,25 @@ import SwiftUI
 var sizes = [6, 7, 8, 9, 10]
 var productImgList = ["1", "2", "3", "4"]
 
-struct SizeButton: View {
-	
-	@Binding var size: Int
-	var title: Int
-	
-	var body: some View {
-		
-		Button(action: {size = title}) {
-			
-			Text("\(title)")
-				.font(.caption)
-				.fontWeight(.bold)
-				.foregroundColor(size == title ? .white : Color.black.opacity(0.7))
-				.frame(width: 35, height: 35)
-				.background(size == title ? Color("red") : Color.white)
-				.cornerRadius(10)
-		}
-	}
-}
+//struct SizeButton: View {
+//
+//	@Binding var size: Int
+//	var title: Int
+//
+//	var body: some View {
+//
+//		Button(action: {size = title}) {
+//
+//			Text("\(title)")
+//				.font(.caption)
+//				.fontWeight(.bold)
+//				.foregroundColor(size == title ? .white : Color.black.opacity(0.7))
+//				.frame(width: 35, height: 35)
+//				.background(size == title ? Color("red") : Color.white)
+//				.cornerRadius(10)
+//		}
+//	}
+//}
 
 struct ColorButton: View {
 	

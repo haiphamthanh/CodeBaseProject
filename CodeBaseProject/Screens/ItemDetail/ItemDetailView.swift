@@ -53,7 +53,7 @@ extension ItemDetailView {
 		var body: some View {
 			ZStack {
 				Color.green.edgesIgnoringSafeArea(.all) //<-- Important!!! Add this modifier to the background Color
-				NikeDetailView()
+				NikeHomeView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
 					.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
 					.toolbar {
