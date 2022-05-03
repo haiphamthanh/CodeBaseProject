@@ -180,6 +180,8 @@
 		868ADBBF281E41A400ED06A4 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADBBB281E41A400ED06A4 /* ItemDetailView.swift */; };
 		868ADC38281F840C00ED06A4 /* ToolbarViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC37281F840C00ED06A4 /* ToolbarViewModifier.swift */; };
 		868ADC3C2821127900ED06A4 /* ModelIdTreeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC3B2821127900ED06A4 /* ModelIdTreeManager.swift */; };
+		868ADC402821350000ED06A4 /* NikeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC3F2821350000ED06A4 /* NikeDetailView.swift */; };
+		868ADC422821359A00ED06A4 /* ShoesSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC412821359A00ED06A4 /* ShoesSize.swift */; };
 		869BBEB62802A8BE003D87E6 /* SystemConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */; };
 		869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEBD28041280003D87E6 /* DestinationHostingController.swift */; };
 		869BBEC52804186A003D87E6 /* DefaultNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC42804186A003D87E6 /* DefaultNavigation.swift */; };
@@ -417,6 +419,8 @@
 		868ADBBB281E41A400ED06A4 /* ItemDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		868ADC37281F840C00ED06A4 /* ToolbarViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewModifier.swift; sourceTree = "<group>"; };
 		868ADC3B2821127900ED06A4 /* ModelIdTreeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelIdTreeManager.swift; sourceTree = "<group>"; };
+		868ADC3F2821350000ED06A4 /* NikeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NikeDetailView.swift; sourceTree = "<group>"; };
+		868ADC412821359A00ED06A4 /* ShoesSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesSize.swift; sourceTree = "<group>"; };
 		869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConstructor.swift; sourceTree = "<group>"; };
 		869BBEBD28041280003D87E6 /* DestinationHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationHostingController.swift; sourceTree = "<group>"; };
 		869BBEC42804186A003D87E6 /* DefaultNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigation.swift; sourceTree = "<group>"; };
@@ -743,6 +747,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				868ADC3E282134EE00ED06A4 /* NikeDetailView */,
 				868ADBC0281E92A400ED06A4 /* Main */,
 				8685B2712801621B0076B3AC /* Navigation */,
 				861E857927FB4FE90032C4F5 /* SingleView */,
@@ -1409,6 +1414,15 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		868ADC3E282134EE00ED06A4 /* NikeDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC412821359A00ED06A4 /* ShoesSize.swift */,
+				868ADC3F2821350000ED06A4 /* NikeDetailView.swift */,
+			);
+			path = NikeDetailView;
+			sourceTree = "<group>";
+		};
 		869BBEFF28045D5A003D87E6 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1856,6 +1870,7 @@
 				8640C1942808F701002448AC /* DefaultViewModel.swift in Sources */,
 				861FCD64280F9F3F007564A3 /* IntroStoryViewModel+Supports.swift in Sources */,
 				861FCD6F280FA1AE007564A3 /* ProxyStory.swift in Sources */,
+				868ADC402821350000ED06A4 /* NikeDetailView.swift in Sources */,
 				8604237927EDF9B50056EF17 /* NotificationManager.swift in Sources */,
 				861E859D27FB6AA70032C4F5 /* TextFieldAlertInput.swift in Sources */,
 				861FCD60280F9C21007564A3 /* AppStoryViewModel+Supports.swift in Sources */,
@@ -1888,6 +1903,7 @@
 				8604235B27EDF0E30056EF17 /* RootCoordinator.swift in Sources */,
 				8640C1A8280A9E8A002448AC /* IntroViewModel+Supports.swift in Sources */,
 				8685B20B280057B90076B3AC /* CryptoManager.swift in Sources */,
+				868ADC422821359A00ED06A4 /* ShoesSize.swift in Sources */,
 				86D084C7281263B80059BAF0 /* ProfileView.swift in Sources */,
 				86D084CB281265310059BAF0 /* MenuFooter.swift in Sources */,
 				8685B24E28012BA10076B3AC /* AppSceneDelegateProvider.swift in Sources */,

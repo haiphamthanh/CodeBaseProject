@@ -31,7 +31,6 @@ extension TopNotificationView {
 		var body: some View {
 			VStack {
 				Text(TabbarType.noti.info.name)
-				Spacer()
 			}
 		}
 	}

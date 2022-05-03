@@ -34,6 +34,10 @@ def shared_pods
 	pod 'SwiftDate' # The best way to deal with Dates & Time Zones in Swift
 	pod 'Introspect'
 	
+	#Animations
+#	https://github.com/Toni77777/awesome-swiftui-libraries#Animation
+# https://github.com/onmyway133/awesome-swiftui#animation
+	
 	# Pods for Design pattern
 	# Dependency injection
 	pod 'Swinject'

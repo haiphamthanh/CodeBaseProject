@@ -43,16 +43,40 @@ extension TopVideoView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
 		@ObservedObject var pros: IPros
+		@State private var animationAmount = 1.0
 		
 		// MARK: Layout
 		var body: some View {
 			VStack {
 				Text(TabbarType.video.info.name)
+				
 				Spacer()
 				
 				Text("Loading... Please wait for a minutes")
 				Text(pros.counting)
+				
+				Button("Tap Me") {
+					print("This is Button")
+				}
+				.padding(50)
+				.foregroundColor(.white)
+				.clipShape(Circle())
+				.overlay(
+					Circle()
+						.stroke(.red)
+						.scaleEffect(animationAmount)
+						.opacity(2 - animationAmount)
+						.animation(
+							.easeInOut(duration: 1)
+							.repeatForever(autoreverses: false),
+							value: animationAmount
+						)
+				)
+				.onAppear {
+					animationAmount = 2
+				}
 				Spacer()
+				
 			}
 		}
 	}

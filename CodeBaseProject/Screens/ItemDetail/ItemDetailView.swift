@@ -53,25 +53,18 @@ extension ItemDetailView {
 		var body: some View {
 			ZStack {
 				Color.green.edgesIgnoringSafeArea(.all) //<-- Important!!! Add this modifier to the background Color
-				VStack {
-					Text("Detail View")
-					Button("Go to some where") {
-						pros.gotoSomeWhere()
-					}
-					.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
-					.background(Color.red)
-				}
-				.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
-				.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
-				.toolbar {
-					ToolbarItem(placement: .principal) {
-						HStack {
-							Image(systemName: "sun.min.fill")
-							Text(pros.title)
-								.font(.headline)
+				NikeDetailView()
+					.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
+					.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
+					.toolbar {
+						ToolbarItem(placement: .principal) {
+							HStack {
+								Image(systemName: "sun.min.fill")
+								Text(pros.title)
+									.font(.headline)
+							}
 						}
 					}
-				}
 			}
 			.onDisappear {
 				self.pros.invalidate()     // << here !!
