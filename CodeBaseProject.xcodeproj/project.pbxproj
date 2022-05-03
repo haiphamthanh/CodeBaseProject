@@ -182,6 +182,13 @@
 		868ADC3C2821127900ED06A4 /* ModelIdTreeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC3B2821127900ED06A4 /* ModelIdTreeManager.swift */; };
 		868ADC402821350000ED06A4 /* NikeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC3F2821350000ED06A4 /* NikeDetailView.swift */; };
 		868ADC422821359A00ED06A4 /* ShoesSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC412821359A00ED06A4 /* ShoesSize.swift */; };
+		868ADC4528213FFC00ED06A4 /* LinkedInTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC4428213FFC00ED06A4 /* LinkedInTemplate.swift */; };
+		868ADC4D2821403400ED06A4 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC472821403400ED06A4 /* PostView.swift */; };
+		868ADC4E2821403400ED06A4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC492821403400ED06A4 /* SearchView.swift */; };
+		868ADC4F2821403400ED06A4 /* LinkedinStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC4B2821403400ED06A4 /* LinkedinStory.swift */; };
+		868ADC502821403400ED06A4 /* StoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC4C2821403400ED06A4 /* StoryProvider.swift */; };
+		868ADC552821407300ED06A4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC522821407300ED06A4 /* Color.swift */; };
+		868ADC562821407300ED06A4 /* ButtonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC542821407300ED06A4 /* ButtonProvider.swift */; };
 		869BBEB62802A8BE003D87E6 /* SystemConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */; };
 		869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEBD28041280003D87E6 /* DestinationHostingController.swift */; };
 		869BBEC52804186A003D87E6 /* DefaultNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC42804186A003D87E6 /* DefaultNavigation.swift */; };
@@ -421,6 +428,13 @@
 		868ADC3B2821127900ED06A4 /* ModelIdTreeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelIdTreeManager.swift; sourceTree = "<group>"; };
 		868ADC3F2821350000ED06A4 /* NikeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NikeDetailView.swift; sourceTree = "<group>"; };
 		868ADC412821359A00ED06A4 /* ShoesSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesSize.swift; sourceTree = "<group>"; };
+		868ADC4428213FFC00ED06A4 /* LinkedInTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedInTemplate.swift; sourceTree = "<group>"; };
+		868ADC472821403400ED06A4 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		868ADC492821403400ED06A4 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		868ADC4B2821403400ED06A4 /* LinkedinStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedinStory.swift; sourceTree = "<group>"; };
+		868ADC4C2821403400ED06A4 /* StoryProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryProvider.swift; sourceTree = "<group>"; };
+		868ADC522821407300ED06A4 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		868ADC542821407300ED06A4 /* ButtonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonProvider.swift; sourceTree = "<group>"; };
 		869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConstructor.swift; sourceTree = "<group>"; };
 		869BBEBD28041280003D87E6 /* DestinationHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationHostingController.swift; sourceTree = "<group>"; };
 		869BBEC42804186A003D87E6 /* DefaultNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigation.swift; sourceTree = "<group>"; };
@@ -747,6 +761,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				868ADC4328213FD100ED06A4 /* LinkedinTemplate */,
 				868ADC3E282134EE00ED06A4 /* NikeDetailView */,
 				868ADBC0281E92A400ED06A4 /* Main */,
 				8685B2712801621B0076B3AC /* Navigation */,
@@ -1423,6 +1438,60 @@
 			path = NikeDetailView;
 			sourceTree = "<group>";
 		};
+		868ADC4328213FD100ED06A4 /* LinkedinTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC532821407300ED06A4 /* ButtonProvider */,
+				868ADC512821407300ED06A4 /* Color */,
+				868ADC462821403400ED06A4 /* Post */,
+				868ADC482821403400ED06A4 /* Search */,
+				868ADC4A2821403400ED06A4 /* Story */,
+				868ADC4428213FFC00ED06A4 /* LinkedInTemplate.swift */,
+			);
+			path = LinkedinTemplate;
+			sourceTree = "<group>";
+		};
+		868ADC462821403400ED06A4 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC472821403400ED06A4 /* PostView.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		868ADC482821403400ED06A4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC492821403400ED06A4 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		868ADC4A2821403400ED06A4 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC4B2821403400ED06A4 /* LinkedinStory.swift */,
+				868ADC4C2821403400ED06A4 /* StoryProvider.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		868ADC512821407300ED06A4 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC522821407300ED06A4 /* Color.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		868ADC532821407300ED06A4 /* ButtonProvider */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC542821407300ED06A4 /* ButtonProvider.swift */,
+			);
+			path = ButtonProvider;
+			sourceTree = "<group>";
+		};
 		869BBEFF28045D5A003D87E6 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1836,6 +1905,7 @@
 				862EF20527F84A130051A3A0 /* UserAdapter.swift in Sources */,
 				869BBF03280483EC003D87E6 /* HasRootNavigationController.swift in Sources */,
 				861E857E27FB580D0032C4F5 /* TextShimmerInput.swift in Sources */,
+				868ADC552821407300ED06A4 /* Color.swift in Sources */,
 				861E859327FB5BB20032C4F5 /* String+.swift in Sources */,
 				8685B2752801639B0076B3AC /* AlertProvider.swift in Sources */,
 				8632D43028021EDB00141EDC /* UserLocalImpl.swift in Sources */,
@@ -1867,6 +1937,7 @@
 				8604234A27ED07F00056EF17 /* BaseNetwork.swift in Sources */,
 				8604233327EBA1390056EF17 /* AFError.swift in Sources */,
 				861FCD74280FE0FF007564A3 /* SystemRegister.swift in Sources */,
+				868ADC562821407300ED06A4 /* ButtonProvider.swift in Sources */,
 				8640C1942808F701002448AC /* DefaultViewModel.swift in Sources */,
 				861FCD64280F9F3F007564A3 /* IntroStoryViewModel+Supports.swift in Sources */,
 				861FCD6F280FA1AE007564A3 /* ProxyStory.swift in Sources */,
@@ -1898,6 +1969,7 @@
 				8604231427E32FEB0056EF17 /* Request.swift in Sources */,
 				862EF23327FA6C2F0051A3A0 /* AppStateManager.swift in Sources */,
 				8640C1AB280A9F90002448AC /* HomeViewModel+Supports.swift in Sources */,
+				868ADC4D2821403400ED06A4 /* PostView.swift in Sources */,
 				8604231F27EA36DB0056EF17 /* Common.swift in Sources */,
 				8604234027ECB42C0056EF17 /* NetworkingType.swift in Sources */,
 				8604235B27EDF0E30056EF17 /* RootCoordinator.swift in Sources */,
@@ -1909,6 +1981,7 @@
 				8685B24E28012BA10076B3AC /* AppSceneDelegateProvider.swift in Sources */,
 				86BA750C281C336D006FD228 /* TopViewModel+TopSearchView.swift in Sources */,
 				8604233D27ECB2DF0056EF17 /* UserNetwork.swift in Sources */,
+				868ADC4E2821403400ED06A4 /* SearchView.swift in Sources */,
 				8604235E27EDF1530056EF17 /* HomeView.swift in Sources */,
 				861FCD66280F9F50007564A3 /* HomeStoryViewModel+Supports.swift in Sources */,
 				8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */,
@@ -1941,6 +2014,7 @@
 				8604233827EBAE5D0056EF17 /* Task.swift in Sources */,
 				862EF1FC27F8470D0051A3A0 /* UserInput.swift in Sources */,
 				86D084DD2812EEB10059BAF0 /* TopView.swift in Sources */,
+				868ADC4528213FFC00ED06A4 /* LinkedInTemplate.swift in Sources */,
 				861E858D27FB5BB20032C4F5 /* PullToRefresh.swift in Sources */,
 				861FCD5A280F3498007564A3 /* StoryRegister.swift in Sources */,
 				862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */,
@@ -1956,6 +2030,7 @@
 				862EF1E227F35FAB0051A3A0 /* UserRequestBuilder.swift in Sources */,
 				8685B277280164850076B3AC /* AlertButton.swift in Sources */,
 				8640C1922808EEF7002448AC /* IntroStory.swift in Sources */,
+				868ADC4F2821403400ED06A4 /* LinkedinStory.swift in Sources */,
 				86D2C9972819B0FB0099A377 /* TabBarPropsViewModel.swift in Sources */,
 				8636E87D280CA49B00AE73E1 /* IntroStoryViewModel.swift in Sources */,
 				861FCD58280F208E007564A3 /* AppSetting.swift in Sources */,
@@ -1978,6 +2053,7 @@
 				8632D42A28021E5300141EDC /* UserLocal.swift in Sources */,
 				8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */,
 				8632D416280203E800141EDC /* UserRepository.swift in Sources */,
+				868ADC502821403400ED06A4 /* StoryProvider.swift in Sources */,
 				861E858E27FB5BB20032C4F5 /* Int+.swift in Sources */,
 				86E9455C280C2EEE00C58CCD /* DefaultIPros.swift in Sources */,
 				8604232F27EB91790056EF17 /* ValidationType.swift in Sources */,

@@ -30,7 +30,7 @@ extension TopNotificationView {
 		// MARK: Layout
 		var body: some View {
 			VStack {
-				Text(TabbarType.noti.info.name)
+				LinkedInTemplate()
 			}
 		}
 	}
