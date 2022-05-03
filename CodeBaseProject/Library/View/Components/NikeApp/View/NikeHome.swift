@@ -57,7 +57,7 @@ struct NikeHome: View {
 				.padding(.top, 25)
 			
 			// For smaller iPhones
-			ScrollView(UIScreen.main.bounds.height < 750 ? .vertical : .init(), showsIndicators: false, content: {
+			ScrollView(showsIndicators: false, content: {
 				VStack {
 					HStack {
 						Text("Nike Air Huarache For Women")
