@@ -65,6 +65,8 @@ extension TopHomeView {
 				ExNavigationBarView(touchedAvatar: $touchedAvatar.onUpdate(avatarButtonHandler),
 									touchedSetting: $touchedSetting.onUpdate(settingButtonHandler))
 				
+				FoodHomeView()
+				
 				Spacer()
 			}
 		}

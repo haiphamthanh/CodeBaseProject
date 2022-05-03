@@ -189,6 +189,13 @@
 		868ADC502821403400ED06A4 /* StoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC4C2821403400ED06A4 /* StoryProvider.swift */; };
 		868ADC552821407300ED06A4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC522821407300ED06A4 /* Color.swift */; };
 		868ADC562821407300ED06A4 /* ButtonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC542821407300ED06A4 /* ButtonProvider.swift */; };
+		868ADC6B28214E4700ED06A4 /* Popular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC5F28214E4700ED06A4 /* Popular.swift */; };
+		868ADC6C28214E4700ED06A4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6028214E4700ED06A4 /* Category.swift */; };
+		868ADC6D28214E4700ED06A4 /* PopularItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6228214E4700ED06A4 /* PopularItemRowView.swift */; };
+		868ADC6E28214E4700ED06A4 /* FoodHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6328214E4700ED06A4 /* FoodHome.swift */; };
+		868ADC6F28214E4700ED06A4 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6428214E4700ED06A4 /* LandingPage.swift */; };
+		868ADC7028214E4700ED06A4 /* CustomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6528214E4700ED06A4 /* CustomeTabBar.swift */; };
+		868ADC7128214E4800ED06A4 /* FoodHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868ADC6628214E4700ED06A4 /* FoodHomeView.swift */; };
 		869BBEB62802A8BE003D87E6 /* SystemConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */; };
 		869BBEBE28041281003D87E6 /* DestinationHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEBD28041280003D87E6 /* DestinationHostingController.swift */; };
 		869BBEC52804186A003D87E6 /* DefaultNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBEC42804186A003D87E6 /* DefaultNavigation.swift */; };
@@ -435,6 +442,13 @@
 		868ADC4C2821403400ED06A4 /* StoryProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryProvider.swift; sourceTree = "<group>"; };
 		868ADC522821407300ED06A4 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		868ADC542821407300ED06A4 /* ButtonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonProvider.swift; sourceTree = "<group>"; };
+		868ADC5F28214E4700ED06A4 /* Popular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popular.swift; sourceTree = "<group>"; };
+		868ADC6028214E4700ED06A4 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		868ADC6228214E4700ED06A4 /* PopularItemRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularItemRowView.swift; sourceTree = "<group>"; };
+		868ADC6328214E4700ED06A4 /* FoodHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodHome.swift; sourceTree = "<group>"; };
+		868ADC6428214E4700ED06A4 /* LandingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		868ADC6528214E4700ED06A4 /* CustomeTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeTabBar.swift; sourceTree = "<group>"; };
+		868ADC6628214E4700ED06A4 /* FoodHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodHomeView.swift; sourceTree = "<group>"; };
 		869BBEB52802A8BE003D87E6 /* SystemConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConstructor.swift; sourceTree = "<group>"; };
 		869BBEBD28041280003D87E6 /* DestinationHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationHostingController.swift; sourceTree = "<group>"; };
 		869BBEC42804186A003D87E6 /* DefaultNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigation.swift; sourceTree = "<group>"; };
@@ -761,6 +775,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				868ADC5A28214E4700ED06A4 /* FoodUI */,
 				868ADC4328213FD100ED06A4 /* LinkedinTemplate */,
 				868ADC3E282134EE00ED06A4 /* NikeDetailView */,
 				868ADBC0281E92A400ED06A4 /* Main */,
@@ -1492,6 +1507,36 @@
 			path = ButtonProvider;
 			sourceTree = "<group>";
 		};
+		868ADC5A28214E4700ED06A4 /* FoodUI */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC5E28214E4700ED06A4 /* Model */,
+				868ADC6128214E4700ED06A4 /* View */,
+				868ADC6628214E4700ED06A4 /* FoodHomeView.swift */,
+			);
+			path = FoodUI;
+			sourceTree = "<group>";
+		};
+		868ADC5E28214E4700ED06A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC5F28214E4700ED06A4 /* Popular.swift */,
+				868ADC6028214E4700ED06A4 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		868ADC6128214E4700ED06A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				868ADC6228214E4700ED06A4 /* PopularItemRowView.swift */,
+				868ADC6328214E4700ED06A4 /* FoodHome.swift */,
+				868ADC6428214E4700ED06A4 /* LandingPage.swift */,
+				868ADC6528214E4700ED06A4 /* CustomeTabBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		869BBEFF28045D5A003D87E6 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1950,6 +1995,7 @@
 				868ADC38281F840C00ED06A4 /* ToolbarViewModifier.swift in Sources */,
 				868ADBBF281E41A400ED06A4 /* ItemDetailView.swift in Sources */,
 				8640C1A1280A6409002448AC /* CoordInstance+.swift in Sources */,
+				868ADC6F28214E4700ED06A4 /* LandingPage.swift in Sources */,
 				8604233527EBA2400056EF17 /* ServerTrustManager.swift in Sources */,
 				861E85B427FDB6990032C4F5 /* ScreenRulesDemo.swift in Sources */,
 				8685B22628005CA90076B3AC /* FirebasePlugin.swift in Sources */,
@@ -1986,7 +2032,9 @@
 				861FCD66280F9F50007564A3 /* HomeStoryViewModel+Supports.swift in Sources */,
 				8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */,
 				8685B28528016CAF0076B3AC /* DefaultImage.swift in Sources */,
+				868ADC6C28214E4700ED06A4 /* Category.swift in Sources */,
 				8604236C27EDF5060056EF17 /* DefaultAppDelegate.swift in Sources */,
+				868ADC6B28214E4700ED06A4 /* Popular.swift in Sources */,
 				861FCD6D280FA1AE007564A3 /* ProxyStoryViewModel.swift in Sources */,
 				8685B21128005A180076B3AC /* AppDelegateProvider.swift in Sources */,
 				8685B27B280166FB0076B3AC /* Swinject+.swift in Sources */,
@@ -2003,6 +2051,7 @@
 				8685B205280056D10076B3AC /* Migration+Cell.swift in Sources */,
 				86D084DA2812EEB10059BAF0 /* TopViewModel.swift in Sources */,
 				8604237727EDF83A0056EF17 /* TextShimmer.swift in Sources */,
+				868ADC7128214E4800ED06A4 /* FoodHomeView.swift in Sources */,
 				8685B23A28007C870076B3AC /* CoordinatorRule.swift in Sources */,
 				8640C1A4280A759F002448AC /* DefaultCoordinator.swift in Sources */,
 				868ADBBE281E41A400ED06A4 /* ItemDetailCoordinator.swift in Sources */,
@@ -2051,6 +2100,7 @@
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
 				862EF22F27F990590051A3A0 /* AppNotificationData.swift in Sources */,
 				8632D42A28021E5300141EDC /* UserLocal.swift in Sources */,
+				868ADC6E28214E4700ED06A4 /* FoodHome.swift in Sources */,
 				8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */,
 				8632D416280203E800141EDC /* UserRepository.swift in Sources */,
 				868ADC502821403400ED06A4 /* StoryProvider.swift in Sources */,
@@ -2068,10 +2118,12 @@
 				8685B27D2801676E0076B3AC /* ToastProvider.swift in Sources */,
 				8685B2662801607A0076B3AC /* ExNavigationController.swift in Sources */,
 				86D084D92812EEB10059BAF0 /* TopViewModel+Supports.swift in Sources */,
+				868ADC6D28214E4700ED06A4 /* PopularItemRowView.swift in Sources */,
 				86BA7508281C335A006FD228 /* TopViewModel+TopVideoView.swift in Sources */,
 				8685B25D280154B40076B3AC /* AppRegister.swift in Sources */,
 				8640C1972809A753002448AC /* HomeStory.swift in Sources */,
 				86D084C9281264950059BAF0 /* MenuContainView.swift in Sources */,
+				868ADC7028214E4700ED06A4 /* CustomeTabBar.swift in Sources */,
 				86BA750A281C3367006FD228 /* TopViewModel+TopNotificationView.swift in Sources */,
 				86FE295127DC8E6000EF2C70 /* Main.swift in Sources */,
 				868ADBBD281E41A400ED06A4 /* ItemDetailViewModel+Supports.swift in Sources */,

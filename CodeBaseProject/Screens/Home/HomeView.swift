@@ -5,6 +5,8 @@
 //  Created by HaiKaito on 25/03/2022.
 //
 
+// TODO: Use custom view https://www.youtube.com/watch?v=YyRBo3lARKo
+
 import SwiftUI
 
 // ViewModel ===> View
