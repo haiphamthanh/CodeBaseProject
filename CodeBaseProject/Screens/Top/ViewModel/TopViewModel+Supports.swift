@@ -27,7 +27,6 @@ extension TopViewModelImpl: TopViewModelViewSupport {
 	var authState: Observable<AuthState> { _authState }
 	var counting: Observable<Int> { _counting }
 	
-	func gotoItemDetail(item: TopSearchView.FruitItem) { _detail.onNext(item) }
 	func gotoFacebook() { _home.onNext(Void()) }
 	func gotoPrivacy() { _intro.onNext(Void()) }
 	func gotoHelp() { print("Move to help by coordinator") }

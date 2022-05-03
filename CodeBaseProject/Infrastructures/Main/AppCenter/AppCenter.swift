@@ -19,6 +19,7 @@ class AppCenter {
 	private(set) lazy var container = Container()
 	private var pNavigationVC: UINavigationController?
 	private let disposeBag = DisposeBag()
+	private var appStory: AppStory?
 }
 
 // MARK: - ================================= Usage =================================
@@ -47,7 +48,13 @@ extension AppCenter {
 #if DEBUG
 		print("\(#function) is called")
 #endif
-		return SystemConstructor(container: container).start()
+		let isDone = SystemConstructor(container: container).start()
+		if isDone {
+			@Inject var appStory: AppStory
+			self.appStory = appStory
+		}
+		
+		return isDone
 	}
 	
 	func makeWindowVisible(on view: AnyView, onNavigation: Bool = true) {
@@ -78,6 +85,7 @@ extension AppCenter.Manager {
 	static var crypto: CryptoManager { return CryptoManager.shared }
 	static var localize: LocalizationManager { return LocalizationManager.shared }
 	static var popup: PopupManager { return PopupManager.shared }
+	static var modelId: ModelIdTreeManager { return ModelIdTreeManager.shared }
 }
 
 // MARK: - ================================= Private =================================
@@ -86,7 +94,7 @@ extension AppCenter.Manager {
 /////https://www.cuvenx.com/post/swiftui-pop-to-root-view
 private extension AppCenter {
 	func startAppStory() {
-		@Inject var appStory: AppStory
+		guard let appStory = appStory else { return }
 		return appStory
 			.run()
 			.subscribe()

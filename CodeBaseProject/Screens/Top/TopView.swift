@@ -52,25 +52,23 @@ extension TopView {
 		
 		// Actions
 		func action(for menu: MenuType) {
-			preventInvalidateModel {
-				switch menu {
-				case .home:
-					selectedTabbar = .home
-				case .search:
-					selectedTabbar = .search
-				case .noti:
-					selectedTabbar = .noti
-				case .video:
-					selectedTabbar = .video
-				case .facebook:
-					indViewModel?.gotoFacebook()
-				case .privacy:
-					indViewModel?.gotoPrivacy()
-				case .help:
-					indViewModel?.gotoHelp()
-				case .none:
-					return
-				}
+			switch menu {
+			case .home:
+				selectedTabbar = .home
+			case .search:
+				selectedTabbar = .search
+			case .noti:
+				selectedTabbar = .noti
+			case .video:
+				selectedTabbar = .video
+			case .facebook:
+				indViewModel?.gotoFacebook()
+			case .privacy:
+				indViewModel?.gotoPrivacy()
+			case .help:
+				indViewModel?.gotoHelp()
+			case .none:
+				return
 			}
 		}
 	}

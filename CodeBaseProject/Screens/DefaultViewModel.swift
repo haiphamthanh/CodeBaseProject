@@ -8,7 +8,7 @@
 import RxSwift
 
 class DefaultViewModel<Input> {
-	// MARK: - ================================= Properties =================================
+	let id: UUID = UUID()
 	let disposeBag = DisposeBag()
 	let _done = PublishSubject<Void>()
 	private(set) weak var delegate: AnyObject?
@@ -27,6 +27,7 @@ class DefaultViewModel<Input> {
 	
 	deinit {
 		_done.onNext(())
+		_ = AppCenter.Manager.modelId.deAttach(id)
 		print("\(self) is deinit")
 	}
 }

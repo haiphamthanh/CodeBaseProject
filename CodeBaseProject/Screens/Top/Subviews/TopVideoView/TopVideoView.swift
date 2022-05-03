@@ -30,7 +30,7 @@ extension TopVideoView {
 		// MARK: Layout
 		var body: some View {
 			VStack {
-				Text(TabbarType.noti.info.name)
+				Text(TabbarType.video.info.name)
 				Spacer()
 			}
 		}
@@ -41,7 +41,7 @@ extension TopVideoView {
 #if DEBUG
 struct TopVideoView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopVideoViewModelImpl()
+		let viewModel = TopViewModelImpl()
 		let props = TopVideoView.IPros(viewModel: viewModel)
 		AnyView(TopVideoView.IView(pros: props))
 	}

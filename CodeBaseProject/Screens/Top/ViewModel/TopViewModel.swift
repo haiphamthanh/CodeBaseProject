@@ -5,7 +5,6 @@
 //  Created by HaiKaito on 16/04/2022.
 //
 
-import Combine
 import RxSwift
 
 /// ViewModel Out
@@ -20,20 +19,15 @@ class TopViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopViewModel {
 	let _intro = PublishSubject<Void>()
 	let _showMenu = PublishSubject<Bool>()
 	let _detail = PublishSubject<TopSearchView.FruitItem>()
-	private lazy var tabbarManager = TabBarPropsViewModel()
+	private var tabbarManager: TabBarPropsViewModel!
 	
 	private var counter = 0
 	
 	required init() {
 		super.init()
 		
-		setup()
+		tabbarManager = TabBarPropsViewModel(viewModel: self)
 		firstLoading()
-	}
-	
-	final func setup() {
-		// Tabbar setting up
-		return tabbarManager.delegate(self)
 	}
 	
 	final func firstLoading() {

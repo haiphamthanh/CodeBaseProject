@@ -41,7 +41,7 @@ extension TopNotificationView {
 #if DEBUG
 struct TopNotificationView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopNotificationViewModelImpl()
+		let viewModel = TopViewModelImpl()
 		let props = TopNotificationView.IPros(viewModel: viewModel)
 		AnyView(TopNotificationView.IView(pros: props))
 	}

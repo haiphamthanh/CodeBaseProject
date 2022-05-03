@@ -62,7 +62,7 @@ extension TopHomeView {
 #if DEBUG
 struct TopHomeView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopHomeViewModelImpl()
+		let viewModel = TopViewModelImpl()
 		let props = TopHomeView.IPros(viewModel: viewModel)
 		AnyView(TopHomeView.IView(pros: props))
 	}

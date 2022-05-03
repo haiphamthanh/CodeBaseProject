@@ -103,7 +103,7 @@ extension TopSearchView {
 #if DEBUG
 struct TopSearchView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopSearchViewModelImpl()
+		let viewModel = TopViewModelImpl()
 		let props = TopSearchView.IPros(viewModel: viewModel)
 		AnyView(TopSearchView.IView(pros: props))
 	}

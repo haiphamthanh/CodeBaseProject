@@ -61,6 +61,8 @@ extension ItemDetailView {
 					.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 					.background(Color.red)
 				}
+				.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
+				.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
 				.toolbar {
 					ToolbarItem(placement: .principal) {
 						HStack {
@@ -70,8 +72,6 @@ extension ItemDetailView {
 						}
 					}
 				}
-				.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
-				.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
 			}
 			.onDisappear {
 				self.pros.invalidate()     // << here !!
