@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import RxSwift
 
 // ViewModel ===> View
 protocol TopVideoViewModelViewSupport: AnyObject {
+	// MARK: Broadcasting object
+	var counting: Observable<Int> { get }
 }
 
 struct TopVideoView {
@@ -18,6 +21,20 @@ struct TopVideoView {
 // Properties is used for View
 extension TopVideoView {
 	class IPros: DefaultIPros<TopVideoViewModelViewSupport>, ObservableObject {
+		private let disposeBag = DisposeBag()
+		@Published private(set) var counting: String = "0"
+		
+		override init(viewModel: ViewModelRule) {
+			super.init(viewModel: viewModel)
+			
+			// View Model Adapter to
+			let onNextCounting = strongify(self, closure: { (instance, number: Int) in
+				instance.counting = "\(number)"
+			})
+			indViewModel?.counting
+				.subscribe(onNext: onNextCounting)
+				.disposed(by: disposeBag)
+		}
 	}
 }
 
@@ -31,6 +48,10 @@ extension TopVideoView {
 		var body: some View {
 			VStack {
 				Text(TabbarType.video.info.name)
+				Spacer()
+				
+				Text("Loading... Please wait for a minutes")
+				Text(pros.counting)
 				Spacer()
 			}
 		}

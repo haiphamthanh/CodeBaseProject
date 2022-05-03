@@ -13,16 +13,23 @@ protocol TopViewModel {
 }
 
 class TopViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopViewModel {
-	let _counting = PublishSubject<Int>()
+	// MARK: Actions
 	let _authState = PublishSubject<AuthState>()
+	let _showMenu = PublishSubject<Bool>()
+	
+	// MARK: Moving
 	let _home = PublishSubject<Void>()
 	let _intro = PublishSubject<Void>()
-	let _showMenu = PublishSubject<Bool>()
 	let _detail = PublishSubject<TopSearchView.FruitItem>()
+	
+	// MARK: Subs
 	private var tabbarManager: TabBarPropsViewModel!
 	
+	// MARK: Sample
 	private var counter = 0
+	let _counting = PublishSubject<Int>()
 	
+	// MARK: ================================= Init =================================
 	required init() {
 		super.init()
 		
@@ -31,10 +38,13 @@ class TopViewModelImpl: DefaultViewModel<Void>, ViewModelRule, TopViewModel {
 	}
 	
 	final func firstLoading() {
+		
+		// MARK: Sample
 		return changeState()
 	}
 }
 
+// MARK: Sample
 private extension TopViewModelImpl {
 	func changeState() {
 		Task {

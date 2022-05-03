@@ -15,8 +15,8 @@ protocol TopCoordinator {
 
 // ViewModel ===> Coordinator
 protocol TopViewModelCoordSupport: AnyObject {
-	var goHome: Observable<Void> { get }
 	var goFacebook: Observable<Void> { get }
+	var goHome: Observable<Void> { get }
 	var goDetail: Observable<TopSearchView.FruitItem> { get }
 }
 

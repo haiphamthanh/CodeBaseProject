@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import RxSwift
 
 // ViewModel ===> View
 protocol TopHomeViewModelViewSupport: AnyObject {
-	func avatarButtonHandler()
-	func settingButtonHandler()
+	// MARK: Broadcasting object
+	var authState: Observable<AuthState> { get }
+	
+	// MARK: Actions
+	func tapAvatar()
+	func tapSetting()
 }
 
 struct TopHomeView {
@@ -20,12 +25,28 @@ struct TopHomeView {
 // Properties is used for View
 extension TopHomeView {
 	class IPros: DefaultIPros<TopHomeViewModelViewSupport>, ObservableObject {
+		private let disposeBag = DisposeBag()
+		@Published private(set) var authState: AuthState = .unAuthorized
+		@Published var selectedTabbar: TabbarType = .home
+		
+		override init(viewModel: ViewModelRule) {
+			super.init(viewModel: viewModel)
+			
+			// View Model Adapter to
+			let onNextAuth = strongify(self, closure: { (instance, auth: AuthState) in
+				print("State \(auth)")
+			})
+			indViewModel?.authState
+				.subscribe(onNext: onNextAuth)
+				.disposed(by: disposeBag)
+		}
+		
 		func avatarButtonHandler() {
-			indViewModel?.avatarButtonHandler()
+			indViewModel?.tapAvatar()
 		}
 		
 		func settingButtonHandler() {
-			indViewModel?.settingButtonHandler()
+			indViewModel?.tapSetting()
 		}
 	}
 }

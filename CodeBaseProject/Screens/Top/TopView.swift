@@ -10,13 +10,11 @@ import RxSwift
 
 // ViewModel ===> View
 protocol TopViewModelViewSupport {
-	var authState: Observable<AuthState> { get }
-	var counting: Observable<Int> { get }
-	
-	// Actions
+	// MARK: Moving (Pusher)
 	func gotoFacebook()
 	func gotoPrivacy()
 	func gotoHelp()
+	func gotoSetting()
 }
 
 struct TopView {
@@ -26,29 +24,7 @@ struct TopView {
 // Properties is used for View
 extension TopView {
 	class IPros: DefaultIPros<TopViewModelViewSupport>, ObservableObject {
-		private let disposeBag = DisposeBag()
-		@Published private(set) var counting: String = "0"
-		@Published private(set) var authState: AuthState = .unAuthorized
 		@Published var selectedTabbar: TabbarType = .home
-		
-		override init(viewModel: ViewModelRule) {
-			super.init(viewModel: viewModel)
-			
-			// View Model Adapter to
-			let onNextAuth = strongify(self, closure: { (instance, auth: AuthState) in
-				print("State \(auth)")
-			})
-			indViewModel?.authState
-				.subscribe(onNext: onNextAuth)
-				.disposed(by: disposeBag)
-			
-			let onNextCounting = strongify(self, closure: { (instance, number: Int) in
-				instance.counting = "\(number)"
-			})
-			indViewModel?.counting
-				.subscribe(onNext: onNextCounting)
-				.disposed(by: disposeBag)
-		}
 		
 		// Actions
 		func action(for menu: MenuType) {
