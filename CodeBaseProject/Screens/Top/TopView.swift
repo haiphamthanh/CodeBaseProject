@@ -23,7 +23,7 @@ struct TopView {
 
 // Properties is used for View
 extension TopView {
-	class IPros: DefaultIPros<TopViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<TopViewModelViewSupport>, ObservableObject {
 		@Published var selectedTabbar: TabbarType = .home
 		
 		// Actions
@@ -54,7 +54,7 @@ extension TopView {
 extension TopView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		@State private var menuOutput: MenuType = .none
 		
 		var body: some View {
@@ -64,14 +64,14 @@ extension TopView {
 		// MARK: Layout
 		var containView: some View {
 			MainContainerView_A(menuOutput: $menuOutput.onUpdate(menuHandler),
-								currentTab: $pros.selectedTabbar)
+								currentTab: $props.selectedTabbar)
 			.onDisappear {
-				self.pros.invalidate()     // << here !!
+				self.props.invalidate()     // << here !!
 			}
 		}
 		
 		private func menuHandler(_ menu: MenuType) {
-			pros.action(for: menu)
+			props.action(for: menu)
 		}
 	}
 }

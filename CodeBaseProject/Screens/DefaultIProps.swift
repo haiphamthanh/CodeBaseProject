@@ -1,5 +1,5 @@
 //
-//  DefaultIPros.swift
+//  DefaultIProps.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 17/04/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DefaultIPros<IndividualViewModel> {
+class DefaultIProps<IndividualViewModel> {
 	private(set) var viewModel: ViewModelRule?
 	var indViewModel: IndividualViewModel? {
 		return viewModel as? IndividualViewModel

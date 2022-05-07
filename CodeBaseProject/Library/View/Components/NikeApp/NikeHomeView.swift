@@ -17,7 +17,7 @@ struct NikeHomeView {
 
 // Properties is used for View
 extension NikeHomeView {
-	class IPros: DefaultComponentIPros<NikeHomeViewDelegate>, ObservableObject {
+	class IProps: DefaultComponentIProps<NikeHomeViewDelegate>, ObservableObject {
 		func addToCart(_ isAdded: Bool) {
 			delegator?.addToCart(isAdded)
 		}
@@ -28,13 +28,13 @@ extension NikeHomeView {
 extension NikeHomeView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		@State private var added: Bool = false
 		
 		// MARK: Layout
 		var body: some View {
 			NikeHome(added: $added.onUpdate({ added in
-				pros.addToCart(added)
+				props.addToCart(added)
 			}))
 		}
 	}
@@ -42,6 +42,6 @@ extension NikeHomeView {
 
 struct NikeHomeView_Previews: PreviewProvider {
 	static var previews: some View {
-		NikeHomeView.IView(pros: NikeHomeView.IPros(delegator: nil))
+		NikeHomeView.IView(props: NikeHomeView.IProps(delegator: nil))
 	}
 }

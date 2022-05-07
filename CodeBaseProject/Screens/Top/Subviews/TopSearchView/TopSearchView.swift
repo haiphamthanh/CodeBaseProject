@@ -25,7 +25,7 @@ struct TopSearchView {
 
 // Properties is used for View
 extension TopSearchView {
-	class IPros: DefaultIPros<TopSearchViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<TopSearchViewModelViewSupport>, ObservableObject {
 		func didSelected(fruit: FruitItem) {
 			indViewModel?.didSelected(fruit: fruit)
 		}
@@ -36,7 +36,7 @@ extension TopSearchView {
 extension TopSearchView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		@State private var searchText = ""
 		var searchResults: [FruitItem] {
 			if searchText.isEmpty {
@@ -95,7 +95,7 @@ extension TopSearchView {
 		}
 		
 		private func didSelected(fruit: FruitItem) {
-			pros.didSelected(fruit: fruit)
+			props.didSelected(fruit: fruit)
 		}
 	}
 }
@@ -104,8 +104,8 @@ extension TopSearchView {
 struct TopSearchView_Previews: PreviewProvider {
 	static var previews: some View {
 		let viewModel = TopViewModelImpl()
-		let props = TopSearchView.IPros(viewModel: viewModel)
-		AnyView(TopSearchView.IView(pros: props))
+		let props = TopSearchView.IProps(viewModel: viewModel)
+		AnyView(TopSearchView.IView(props: props))
 	}
 }
 #endif

@@ -1,5 +1,5 @@
 //
-//  DefaultComponentIPros.swift
+//  DefaultComponentIProps.swift
 //  CodeBaseProject
 //
 //  Created by HaiKaito on 07/05/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class DefaultComponentIPros<DelegateType> {
+class DefaultComponentIProps<DelegateType> {
 	var delegator: DelegateType? {
 		return _delegator as? DelegateType
 	}

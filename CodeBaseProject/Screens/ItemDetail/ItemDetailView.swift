@@ -20,7 +20,7 @@ struct ItemDetailView {
 
 // Properties is used for View
 extension ItemDetailView {
-	class IPros: DefaultIPros<ItemDetailViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<ItemDetailViewModelViewSupport>, ObservableObject {
 		@Published private(set) var title: String = "0"
 		private let disposeBag = DisposeBag()
 		
@@ -44,7 +44,7 @@ extension ItemDetailView {
 }
 
 // Properties is used for Sub Views
-extension ItemDetailView.IPros: NikeHomeViewDelegate {
+extension ItemDetailView.IProps: NikeHomeViewDelegate {
 	func addToCart(_ isAdded: Bool) {
 		print("Did add to cart something \(isAdded)")
 	}
@@ -54,27 +54,27 @@ extension ItemDetailView.IPros: NikeHomeViewDelegate {
 extension ItemDetailView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		
 		// MARK: Layout
 		var body: some View {
 			ZStack {
 				Color.green.edgesIgnoringSafeArea(.all) //<-- Important!!! Add this modifier to the background Color
-				NikeHomeView.IView(pros: NikeHomeView.IPros(delegator: pros))
+				NikeHomeView.IView(props: NikeHomeView.IProps(delegator: props))
 					.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
 					.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
 					.toolbar {
 						ToolbarItem(placement: .principal) {
 							HStack {
 								Image(systemName: "sun.min.fill")
-								Text(pros.title)
+								Text(props.title)
 									.font(.headline)
 							}
 						}
 					}
 			}
 			.onDisappear {
-				self.pros.invalidate()     // << here !!
+				self.props.invalidate()     // << here !!
 			}
 		}
 	}

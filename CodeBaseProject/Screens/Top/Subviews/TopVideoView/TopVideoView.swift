@@ -20,7 +20,7 @@ struct TopVideoView {
 
 // Properties is used for View
 extension TopVideoView {
-	class IPros: DefaultIPros<TopVideoViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<TopVideoViewModelViewSupport>, ObservableObject {
 		private let disposeBag = DisposeBag()
 		@Published private(set) var counting: String = "0"
 		
@@ -42,7 +42,7 @@ extension TopVideoView {
 extension TopVideoView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		@State private var animationAmount = 1.0
 		
 		// MARK: Layout
@@ -53,7 +53,7 @@ extension TopVideoView {
 				Spacer()
 				
 				Text("Loading... Please wait for a minutes")
-				Text(pros.counting)
+				Text(props.counting)
 				
 				Button("Tap Me") {
 					print("This is Button")
@@ -87,8 +87,8 @@ extension TopVideoView {
 struct TopVideoView_Previews: PreviewProvider {
 	static var previews: some View {
 		let viewModel = TopViewModelImpl()
-		let props = TopVideoView.IPros(viewModel: viewModel)
-		AnyView(TopVideoView.IView(pros: props))
+		let props = TopVideoView.IProps(viewModel: viewModel)
+		AnyView(TopVideoView.IView(props: props))
 	}
 }
 #endif

@@ -8,10 +8,10 @@
 import SwiftUI
 
 enum TopViewPropType {
-	case topHome(TopHomeView.IPros)
-	case topSearch(TopSearchView.IPros)
-	case topNoti(TopNotificationView.IPros)
-	case topVideo(TopVideoView.IPros)
+	case topHome(TopHomeView.IProps)
+	case topSearch(TopSearchView.IProps)
+	case topNoti(TopNotificationView.IProps)
+	case topVideo(TopVideoView.IProps)
 	
 	var viewModel: ViewModelRule? {
 		switch self {
@@ -32,10 +32,10 @@ class TabBarViewBuilder {
 	static let builder = TabBarViewBuilder()
 	private init() { }
 	
-	private weak var topHomeProp: TopHomeView.IPros?
-	private weak var topSearchProp: TopSearchView.IPros?
-	private weak var topNotiProp: TopNotificationView.IPros?
-	private weak var topVideoProp: TopVideoView.IPros?
+	private weak var topHomeProp: TopHomeView.IProps?
+	private weak var topSearchProp: TopSearchView.IProps?
+	private weak var topNotiProp: TopNotificationView.IProps?
+	private weak var topVideoProp: TopVideoView.IProps?
 }
 
 // Views
@@ -44,25 +44,25 @@ extension TabBarViewBuilder {
 		guard let topHomeProp = topHomeProp else {
 			fatalError("Props can not be founded")
 		}
-		return ViewInstance.SubView.topHomeView(pros: topHomeProp)
+		return ViewInstance.SubView.topHomeView(props: topHomeProp)
 	}
 	var topSearchView: AnyView {
 		guard let topSearchProp = topSearchProp else {
 			fatalError("Props can not be founded")
 		}
-		return ViewInstance.SubView.topSearchView(pros: topSearchProp)
+		return ViewInstance.SubView.topSearchView(props: topSearchProp)
 	}
 	var topNotiView: AnyView {
 		guard let topNotiProp = topNotiProp else {
 			fatalError("Props can not be founded")
 		}
-		return ViewInstance.SubView.topNotiView(pros: topNotiProp)
+		return ViewInstance.SubView.topNotiView(props: topNotiProp)
 	}
 	var topVideoView: AnyView {
 		guard let topVideoProp = topVideoProp else {
 			fatalError("Props can not be founded")
 		}
-		return ViewInstance.SubView.topVideoView(pros: topVideoProp)
+		return ViewInstance.SubView.topVideoView(props: topVideoProp)
 	}
 }
 

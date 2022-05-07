@@ -24,7 +24,7 @@ struct TopHomeView {
 
 // Properties is used for View
 extension TopHomeView {
-	class IPros: DefaultIPros<TopHomeViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<TopHomeViewModelViewSupport>, ObservableObject {
 		private let disposeBag = DisposeBag()
 		@Published private(set) var authState: AuthState = .unAuthorized
 		@Published var selectedTabbar: TabbarType = .home
@@ -55,7 +55,7 @@ extension TopHomeView {
 extension TopHomeView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		@State private var touchedAvatar: Bool = false
 		@State private var touchedSetting: Bool = false
 		
@@ -72,11 +72,11 @@ extension TopHomeView {
 		}
 		
 		private func avatarButtonHandler(_ isTouched: Bool) {
-			pros.avatarButtonHandler()
+			props.avatarButtonHandler()
 		}
 		
 		private func settingButtonHandler(_ isTouched: Bool) {
-			pros.settingButtonHandler()
+			props.settingButtonHandler()
 		}
 	}
 }
@@ -86,8 +86,8 @@ extension TopHomeView {
 struct TopHomeView_Previews: PreviewProvider {
 	static var previews: some View {
 		let viewModel = TopViewModelImpl()
-		let props = TopHomeView.IPros(viewModel: viewModel)
-		AnyView(TopHomeView.IView(pros: props))
+		let props = TopHomeView.IProps(viewModel: viewModel)
+		AnyView(TopHomeView.IView(props: props))
 	}
 }
 #endif

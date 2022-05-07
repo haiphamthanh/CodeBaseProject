@@ -27,7 +27,7 @@
 //	func gotoSomeWhere() {
 //		let viewModel: AppRootViewModel = AppRootViewModelImpl()
 //		let viewModelAdapter = AppRootViewModelAdapter(viewModel: viewModel)
-//		let view = AnyView(AppRootView(pros: viewModelAdapter))
+//		let view = AnyView(AppRootView(props: viewModelAdapter))
 //		let navigator = DefaultNavigation()
 //
 //		guard let viewModelWithCoorSupport = viewModel as? AppRootViewModelCoorSupport else {
@@ -90,8 +90,8 @@
 ////			guard let viewModel = ViewModelWrapper(data: rootViewModel as! AppRootViewModelProtocol) as? AppRootViewModelProtocol else {
 ////				fatalError("")
 ////			}
-////			let pros = AppRootPros(viewModel: viewModel)
-////			let viewR = AppRootView(pros: pros)
+////			let props = AppRootProps(viewModel: viewModel)
+////			let viewR = AppRootView(props: props)
 ////
 ////			let coor = AppRootCoordinator(view: AnyView(viewR), viewModel: viewModel, navigator: navigator)
 ////
