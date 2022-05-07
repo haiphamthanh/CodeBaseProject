@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import RxSwift
 
 // ViewModel ===> View
 protocol TopVideoViewModelViewSupport: AnyObject {
+	// MARK: Broadcasting object
+	var counting: Observable<Int> { get }
 }
 
 struct TopVideoView {
@@ -17,7 +20,21 @@ struct TopVideoView {
 
 // Properties is used for View
 extension TopVideoView {
-	class IPros: DefaultIPros<TopVideoViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<TopVideoViewModelViewSupport>, ObservableObject {
+		private let disposeBag = DisposeBag()
+		@Published private(set) var counting: String = "0"
+		
+		override init(viewModel: ViewModelRule) {
+			super.init(viewModel: viewModel)
+			
+			// View Model Adapter to
+			let onNextCounting = strongify(self, closure: { (instance, number: Int) in
+				instance.counting = "\(number)"
+			})
+			indViewModel?.counting
+				.subscribe(onNext: onNextCounting)
+				.disposed(by: disposeBag)
+		}
 	}
 }
 
@@ -25,13 +42,41 @@ extension TopVideoView {
 extension TopVideoView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
+		@State private var animationAmount = 1.0
 		
 		// MARK: Layout
 		var body: some View {
 			VStack {
-				Text(TabbarType.noti.info.name)
+				Text(TabbarType.video.info.name)
+				
 				Spacer()
+				
+				Text("Loading... Please wait for a minutes")
+				Text(props.counting)
+				
+				Button("Tap Me") {
+					print("This is Button")
+				}
+				.padding(50)
+				.foregroundColor(.white)
+				.clipShape(Circle())
+				.overlay(
+					Circle()
+						.stroke(.red)
+						.scaleEffect(animationAmount)
+						.opacity(2 - animationAmount)
+						.animation(
+							.easeInOut(duration: 1)
+							.repeatForever(autoreverses: false),
+							value: animationAmount
+						)
+				)
+				.onAppear {
+					animationAmount = 2
+				}
+				Spacer()
+				
 			}
 		}
 	}
@@ -41,9 +86,9 @@ extension TopVideoView {
 #if DEBUG
 struct TopVideoView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopVideoViewModelImpl()
-		let props = TopVideoView.IPros(viewModel: viewModel)
-		AnyView(TopVideoView.IView(pros: props))
+		let viewModel = TopViewModelImpl()
+		let props = TopVideoView.IProps(viewModel: viewModel)
+		AnyView(TopVideoView.IView(props: props))
 	}
 }
 #endif

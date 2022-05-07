@@ -11,6 +11,9 @@ import SwiftUI
 extension AppNotificationData {
 	public static let didReceiveNotification = Notification.Name(rawValue: "org.gochickencode.notification.name.notification.didReceive")
 	public static let notificationKey = "org.gochickencode.notification.key.notification"
+	
+	public static let didOpenMenu = Notification.Name(rawValue: "org.gochickencode.notification.name.menu.open")
+	public static let didCloseMenu = Notification.Name(rawValue: "org.gochickencode.notification.name.menu.close")
 }
 
 extension AppUserData {
@@ -25,7 +28,7 @@ extension AppUserData {
 // MARK: - ================================= App commons =================================
 var isBottomIndicatorAvailable: Bool {
 	if #available(iOS 11.0, *),
-	   let keyWindow = AppProvider.shared.window,
+	   let keyWindow = AppCenter.shared.window,
 	   keyWindow.safeAreaInsets.bottom > 0 {
 		return true
 	}

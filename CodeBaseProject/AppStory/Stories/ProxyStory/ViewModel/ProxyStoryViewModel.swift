@@ -10,6 +10,6 @@
 protocol ProxyStoryViewModel {
 }
 
-class ProxyStoryViewModelImpl: DefaultViewModel, ViewModelRule, ProxyStoryViewModel {
+class ProxyStoryViewModelImpl: DefaultViewModel<Void>, ViewModelRule, ProxyStoryViewModel {
 }
 

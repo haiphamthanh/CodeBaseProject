@@ -31,6 +31,6 @@ extension Resolver {
 	let wrappedValue: T
 	
 	init() {
-		self.wrappedValue = AppProvider.shared.container.sureResolve(T.self)
+		self.wrappedValue = AppCenter.shared.container.sureResolve(T.self)
 	}
 }

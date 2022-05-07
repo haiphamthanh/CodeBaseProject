@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import RxSwift
 
 // ViewModel ===> View
 protocol TopHomeViewModelViewSupport: AnyObject {
-	func avatarButtonHandler()
-	func settingButtonHandler()
+	// MARK: Broadcasting object
+	var authState: Observable<AuthState> { get }
+	
+	// MARK: Actions
+	func tapAvatar()
+	func tapSetting()
 }
 
 struct TopHomeView {
@@ -19,13 +24,29 @@ struct TopHomeView {
 
 // Properties is used for View
 extension TopHomeView {
-	class IPros: DefaultIPros<TopHomeViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<TopHomeViewModelViewSupport>, ObservableObject {
+		private let disposeBag = DisposeBag()
+		@Published private(set) var authState: AuthState = .unAuthorized
+		@Published var selectedTabbar: TabbarType = .home
+		
+		override init(viewModel: ViewModelRule) {
+			super.init(viewModel: viewModel)
+			
+			// View Model Adapter to
+			let onNextAuth = strongify(self, closure: { (instance, auth: AuthState) in
+				print("State \(auth)")
+			})
+			indViewModel?.authState
+				.subscribe(onNext: onNextAuth)
+				.disposed(by: disposeBag)
+		}
+		
 		func avatarButtonHandler() {
-			indViewModel?.avatarButtonHandler()
+			indViewModel?.tapAvatar()
 		}
 		
 		func settingButtonHandler() {
-			indViewModel?.settingButtonHandler()
+			indViewModel?.tapSetting()
 		}
 	}
 }
@@ -34,7 +55,7 @@ extension TopHomeView {
 extension TopHomeView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		@State private var touchedAvatar: Bool = false
 		@State private var touchedSetting: Bool = false
 		
@@ -44,16 +65,18 @@ extension TopHomeView {
 				ExNavigationBarView(touchedAvatar: $touchedAvatar.onUpdate(avatarButtonHandler),
 									touchedSetting: $touchedSetting.onUpdate(settingButtonHandler))
 				
+				FoodHomeView()
+				
 				Spacer()
 			}
 		}
 		
 		private func avatarButtonHandler(_ isTouched: Bool) {
-			pros.avatarButtonHandler()
+			props.avatarButtonHandler()
 		}
 		
 		private func settingButtonHandler(_ isTouched: Bool) {
-			pros.settingButtonHandler()
+			props.settingButtonHandler()
 		}
 	}
 }
@@ -62,9 +85,9 @@ extension TopHomeView {
 #if DEBUG
 struct TopHomeView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopHomeViewModelImpl()
-		let props = TopHomeView.IPros(viewModel: viewModel)
-		AnyView(TopHomeView.IView(pros: props))
+		let viewModel = TopViewModelImpl()
+		let props = TopHomeView.IProps(viewModel: viewModel)
+		AnyView(TopHomeView.IView(props: props))
 	}
 }
 #endif

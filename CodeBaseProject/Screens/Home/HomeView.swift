@@ -5,6 +5,8 @@
 //  Created by HaiKaito on 25/03/2022.
 //
 
+// TODO: Use custom view https://www.youtube.com/watch?v=YyRBo3lARKo
+
 import SwiftUI
 
 // ViewModel ===> View
@@ -18,7 +20,7 @@ struct HomeView {
 
 // Properties is used for View
 extension HomeView {
-	class IPros: DefaultIPros<HomeViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<HomeViewModelViewSupport>, ObservableObject {
 		func gotoSomeWhere() {
 			indViewModel?.gotoSomeWhere()
 		}
@@ -29,19 +31,19 @@ extension HomeView {
 extension HomeView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		
 		// MARK: Layout
 		var body: some View {
 			VStack {
 				Text("Home view")
 				Button("Go to some where") {
-					pros.gotoSomeWhere()
+					props.gotoSomeWhere()
 				}
 				.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 				.background(Color.red)
 			}.onDisappear {
-				self.pros.invalidate()     // << here !!
+				self.props.invalidate()     // << here !!
 			}
 		}
 	}

@@ -23,7 +23,7 @@ struct RootView {
 
 // Properties is used for View
 extension RootView {
-	class IPros: DefaultIPros<RootViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<RootViewModelViewSupport>, ObservableObject {
 		private let disposeBag = DisposeBag()
 		@Published private(set) var counting: String = "0"
 		@Published private(set) var authState: AuthState = .unAuthorized
@@ -50,9 +50,7 @@ extension RootView {
 		
 		// Actions
 		func gotoHome() {
-			preventInvalidateModel {
-				indViewModel?.gotoHome()
-			}
+			indViewModel?.gotoHome()
 		}
 	}
 }
@@ -61,18 +59,18 @@ extension RootView {
 extension RootView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		
 		// MARK: Layout
 		var containView: some View {
 			VStack {
 				Text("Loading... Please wait for a minutes")
-				Text(pros.counting)
+				Text(props.counting)
 				Button("Go home") {
-					pros.gotoHome()
+					props.gotoHome()
 				}
 			}.onDisappear {
-				self.pros.invalidate()     // << here !!
+				self.props.invalidate()     // << here !!
 			}
 		}
 		

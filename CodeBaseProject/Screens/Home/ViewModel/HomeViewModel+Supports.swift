@@ -10,11 +10,14 @@ import Combine
 
 // MARK: - ================================= Coordinator support =================================
 extension HomeViewModelImpl: HomeViewModelCoordSupport {
+	var goDetail: Observable<TopSearchView.FruitItem> {
+		return _detail
+	}
 }
 
 // MARK: - ================================= View support =================================
 extension HomeViewModelImpl: HomeViewModelViewSupport {
 	func gotoSomeWhere() {
-		// go some where
+		_detail.onNext(TopSearchView.FruitItem(id: UUID(), name: "Banana 🍌"))
 	}
 }
