@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class DefaultAppDelegate: AppDelegateProvider {
 	func app(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		GADMobileAds.sharedInstance().start(completionHandler: nil)
 		return AppCenter.shared.setupSystem()
 	}
 	
