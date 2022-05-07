@@ -9,7 +9,7 @@ import Foundation
 
 protocol AppNotificationProvider {
 	// MARK: - Setup
-	func setting1() -> Self
-	func setting2() -> Self
+	func requestPermission() -> Self
+	func startMonitoring() -> Self
 	func done() -> Bool
 }

@@ -72,8 +72,8 @@ private extension SystemConstructor {
 		
 		var isSuccess = true
 		isSuccess = isSuccess && notification
-			.setting1()
-			.setting2()
+			.startMonitoring()
+			.requestPermission()
 			.done()
 		
 		isSuccess = isSuccess && background

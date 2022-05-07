@@ -240,6 +240,7 @@
 		86D084EA2813B3460059BAF0 /* TabbarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D084E92813B3460059BAF0 /* TabbarType.swift */; };
 		86D2C9972819B0FB0099A377 /* TabBarPropsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2C9962819B0FB0099A377 /* TabBarPropsViewModel.swift */; };
 		86E9455C280C2EEE00C58CCD /* DefaultIProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9455B280C2EEE00C58CCD /* DefaultIProps.swift */; };
+		86EE8E5428264A0C00F4D4A3 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EE8E5328264A0C00F4D4A3 /* NotificationHandler.swift */; };
 		86FE295127DC8E6000EF2C70 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295027DC8E6000EF2C70 /* Main.swift */; };
 		86FE295327DC8E6000EF2C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FE295227DC8E6000EF2C70 /* MainView.swift */; };
 		86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FE295427DC8E6300EF2C70 /* Assets.xcassets */; };
@@ -499,6 +500,7 @@
 		86D084E92813B3460059BAF0 /* TabbarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarType.swift; sourceTree = "<group>"; };
 		86D2C9962819B0FB0099A377 /* TabBarPropsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPropsViewModel.swift; sourceTree = "<group>"; };
 		86E9455B280C2EEE00C58CCD /* DefaultIProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIProps.swift; sourceTree = "<group>"; };
+		86EE8E5328264A0C00F4D4A3 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE295027DC8E6000EF2C70 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		86FE295227DC8E6000EF2C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -925,10 +927,10 @@
 		861FCD5C280F987F007564A3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				86EE8E52282649FF00F4D4A3 /* AppNotification */,
 				8685B1FD2800560C0076B3AC /* FirstLoading.swift */,
 				861FCD57280F208E007564A3 /* AppSetting.swift */,
 				861E857F27FB5A580032C4F5 /* AppColor.swift */,
-				8685B1FB280055F90076B3AC /* AppNotification.swift */,
 				8685B1FF2800561A0076B3AC /* AppTheme.swift */,
 				8685B24B28012A190076B3AC /* AppBackground.swift */,
 			);
@@ -1700,6 +1702,15 @@
 			path = TopHomeView;
 			sourceTree = "<group>";
 		};
+		86EE8E52282649FF00F4D4A3 /* AppNotification */ = {
+			isa = PBXGroup;
+			children = (
+				86EE8E5328264A0C00F4D4A3 /* NotificationHandler.swift */,
+				8685B1FB280055F90076B3AC /* AppNotification.swift */,
+			);
+			path = AppNotification;
+			sourceTree = "<group>";
+		};
 		86FA503D2805CCAE00FFB057 /* InternalTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -2139,6 +2150,7 @@
 				8604231D27EA36AA0056EF17 /* Serializer.swift in Sources */,
 				862EF22F27F990590051A3A0 /* AppNotificationData.swift in Sources */,
 				8632D42A28021E5300141EDC /* UserLocal.swift in Sources */,
+				86EE8E5428264A0C00F4D4A3 /* NotificationHandler.swift in Sources */,
 				868ADC6E28214E4700ED06A4 /* FoodHome.swift in Sources */,
 				8604234C27ED08AD0056EF17 /* DateExtensions.swift in Sources */,
 				8632D416280203E800141EDC /* UserRepository.swift in Sources */,

@@ -62,6 +62,12 @@ extension AppCenter {
 		window?.makeKeyAndVisible()
 	}
 	
+	@MainActor
+	func openAppSettings(){
+		UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!,
+								  options: [:], completionHandler: nil)
+	}
+	
 	///
 	/// Use for make root by UINavigationController
 	///

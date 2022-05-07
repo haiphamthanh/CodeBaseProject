@@ -8,18 +8,17 @@
 import Foundation
 
 class AppNotification: AppNotificationProvider {
-	func setting1() -> Self {
-		//TODO: Implement later
+	func requestPermission() -> Self {
+		NotificationHandler.shared.requestPermission()
 		return self
 	}
 	
-	func setting2() -> Self {
-		//TODO: Implement later
+	func startMonitoring() -> Self {
+		NotificationManager.shared.startMonitoringNotification()
 		return self
 	}
 	
 	func done() -> Bool{
-		//TODO: Implement later
 		return true
 	}
 }
