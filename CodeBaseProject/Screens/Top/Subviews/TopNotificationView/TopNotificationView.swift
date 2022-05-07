@@ -17,7 +17,7 @@ struct TopNotificationView {
 
 // Properties is used for View
 extension TopNotificationView {
-	class IPros: DefaultIPros<TopNotificationViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<TopNotificationViewModelViewSupport>, ObservableObject {
 	}
 }
 
@@ -25,13 +25,12 @@ extension TopNotificationView {
 extension TopNotificationView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		
 		// MARK: Layout
 		var body: some View {
 			VStack {
-				Text(TabbarType.noti.info.name)
-				Spacer()
+				LinkedInTemplate()
 			}
 		}
 	}
@@ -41,9 +40,9 @@ extension TopNotificationView {
 #if DEBUG
 struct TopNotificationView_Previews: PreviewProvider {
 	static var previews: some View {
-		let viewModel = TopNotificationViewModelImpl()
-		let props = TopNotificationView.IPros(viewModel: viewModel)
-		AnyView(TopNotificationView.IView(pros: props))
+		let viewModel = TopViewModelImpl()
+		let props = TopNotificationView.IProps(viewModel: viewModel)
+		AnyView(TopNotificationView.IView(props: props))
 	}
 }
 #endif

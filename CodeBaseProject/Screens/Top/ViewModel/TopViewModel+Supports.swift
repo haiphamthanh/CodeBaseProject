@@ -9,20 +9,21 @@ import RxSwift
 
 // MARK: - ================================= Coordinator support =================================
 extension TopViewModelImpl: TopViewModelCoordSupport {
-	var goHome: Observable<Void> {
-		return _home
-			.asObservable()
-	}
+	// MARK: Moving (Coordinator)
+	var goHome: Observable<Void> { return _home }
+	var goFacebook: Observable<Void> { return _intro }
+	var goDetail: Observable<TopSearchView.FruitItem> { return _detail }
 }
 
 // MARK: - ================================= View support =================================
 extension TopViewModelImpl: TopViewModelViewSupport {
-	var authState: Observable<AuthState> { _authState.asObservable() }
-	var counting: Observable<Int> { _counting.asObservable() }
-	var showMenu: Observable<Bool> { _showMenu.asObservable() }
+	// MARK: Actions
+	var authState: Observable<AuthState> { _authState }
+	var counting: Observable<Int> { _counting }
 	
+	// MARK: Moving (Pusher)
 	func gotoFacebook() { _home.onNext(Void()) }
-	func gotoPrivacy() { print("Move to privacy by coordinator") }
+	func gotoPrivacy() { _intro.onNext(Void()) }
 	func gotoHelp() { print("Move to help by coordinator") }
 	func gotoSetting() { print("Move to setting by coordinator") }
 }

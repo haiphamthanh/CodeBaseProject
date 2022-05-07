@@ -18,7 +18,7 @@ struct IntroView {
 
 // Properties is used for View
 extension IntroView {
-	class IPros: DefaultIPros<IntroViewModelViewSupport>, ObservableObject {
+	class IProps: DefaultIProps<IntroViewModelViewSupport>, ObservableObject {
 		func gotoSomeWhere() {
 			indViewModel?.gotoSomeWhere()
 		}
@@ -29,19 +29,19 @@ extension IntroView {
 extension IntroView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		
 		// MARK: Layout
 		var body: some View {
 			VStack {
 				Text("Intro view")
 				Button("Go to Home") {
-					pros.gotoSomeWhere()
+					props.gotoSomeWhere()
 				}
 				.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 				.background(Color.red)
 			}.onDisappear {
-				self.pros.invalidate()     // << here !!
+				self.props.invalidate()     // << here !!
 			}
 		}
 	}

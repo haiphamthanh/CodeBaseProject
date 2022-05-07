@@ -9,21 +9,13 @@ import RxSwift
 
 // MARK: - ================================= Coordinator support =================================
 extension RootViewModelImpl: RootViewModelCoordSupport {
-	var goHome: Observable<Void> {
-		return _home
-			.asObservable()
-	}
+	var goHome: Observable<Void> { return _home }
 }
 
 // MARK: - ================================= View support =================================
 extension RootViewModelImpl: RootViewModelViewSupport {
-	var authState: Observable<AuthState> {
-		_authState.asObservable()
-	}
-	
-	var counting: Observable<Int> {
-		_counting.asObservable()
-	}
+	var authState: Observable<AuthState> { _authState }	
+	var counting: Observable<Int> { _counting }
 	
 	func gotoHome() {
 		_home.onNext(Void())

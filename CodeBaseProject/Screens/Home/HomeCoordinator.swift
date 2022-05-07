@@ -15,6 +15,7 @@ protocol HomeCoordinator {
 
 // ViewModel ===> Coordinator
 protocol HomeViewModelCoordSupport: AnyObject {
+	var goDetail: Observable<TopSearchView.FruitItem> { get }
 }
 
 // Implementation
@@ -32,12 +33,27 @@ class HomeCoordinatorImpl: DefaultCoordinator<Void>, CoordinatorRule, HomeCoordi
 	
 	override func customAction(on viewModel: ViewModelRule?,
 							   view: AnyView?) -> Observable<Void> {
-		guard let viewModel = viewModel else {
-			fatalError("View model need to available")
+		guard let viewModel = viewModel, let indViewModel = viewModel as? IndividualViewModel else {
+			fatalError("View model need to support \(IndividualViewModel.self)")
 		}
-
+		
+		let detail = indViewModel.goDetail
+			.flatMap(toItemDetail)
+			.subscribe()
+		
 		return viewModel.didDone
 			.take(1)
-			.do(onNext: { _ in })
+			.do(onNext: { _ in
+				detail.dispose()
+			})
+	}
+}
+
+
+// Bridge
+private extension HomeCoordinatorImpl {
+	func toItemDetail(_ item: TopSearchView.FruitItem) -> Observable<Void> {
+		CoordTransiter(self)
+			.move(to: .itemDetail(item))
 	}
 }

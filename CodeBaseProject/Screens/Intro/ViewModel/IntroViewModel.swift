@@ -10,5 +10,5 @@
 protocol IntroViewModel {
 }
 
-class IntroViewModelImpl: DefaultViewModel, ViewModelRule, IntroViewModel {
+class IntroViewModelImpl: DefaultViewModel<Void>, ViewModelRule, IntroViewModel {
 }

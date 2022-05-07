@@ -18,7 +18,7 @@ enum AuthState {
 protocol RootViewModel {
 }
 
-class RootViewModelImpl: DefaultViewModel, ViewModelRule, RootViewModel {
+class RootViewModelImpl: DefaultViewModel<Void>, ViewModelRule, RootViewModel {
 	let _counting = PublishSubject<Int>()
 	let _authState = PublishSubject<AuthState>()
 	let _home = PublishSubject<Void>()

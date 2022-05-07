@@ -63,5 +63,10 @@ extension CoordInstance {
 			@Inject var coordinator: HomeCoordinator
 			return defaultCoordinator(coordinator)
 		}
+		
+		static func itemDetail<ResultType>(_ item: TopSearchView.FruitItem) -> DefaultCoordinator<ResultType> {
+			@Inject var coordinator: ItemDetailCoordinator
+			return defaultCoordinator(coordinator)
+		}
 	}
 }

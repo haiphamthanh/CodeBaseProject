@@ -10,14 +10,11 @@ import RxSwift
 
 // ViewModel ===> View
 protocol TopViewModelViewSupport {
-	var authState: Observable<AuthState> { get }
-	var counting: Observable<Int> { get }
-	var showMenu: Observable<Bool> { get }
-	
-	// Actions
+	// MARK: Moving (Pusher)
 	func gotoFacebook()
 	func gotoPrivacy()
 	func gotoHelp()
+	func gotoSetting()
 }
 
 struct TopView {
@@ -26,62 +23,28 @@ struct TopView {
 
 // Properties is used for View
 extension TopView {
-	class IPros: DefaultIPros<TopViewModelViewSupport>, ObservableObject {
-		private let disposeBag = DisposeBag()
-		@Published private(set) var counting: String = "0"
-		@Published private(set) var authState: AuthState = .unAuthorized
-		@Published var showMenu: Bool = false
+	class IProps: DefaultIProps<TopViewModelViewSupport>, ObservableObject {
 		@Published var selectedTabbar: TabbarType = .home
-		
-		override init(viewModel: ViewModelRule) {
-			super.init(viewModel: viewModel)
-			
-			// View Model Adapter to
-			let onNextAuth = strongify(self, closure: { (instance, auth: AuthState) in
-				print("State \(auth)")
-			})
-			indViewModel?.authState
-				.subscribe(onNext: onNextAuth)
-				.disposed(by: disposeBag)
-			
-			let onNextCounting = strongify(self, closure: { (instance, number: Int) in
-				instance.counting = "\(number)"
-			})
-			indViewModel?.counting
-				.subscribe(onNext: onNextCounting)
-				.disposed(by: disposeBag)
-			
-			let onNextShowMenu = strongify(self, closure: { (instance, showMenu: Bool) in
-				instance.showMenu = showMenu
-			})
-			indViewModel?.showMenu
-				.subscribe(onNext: onNextShowMenu)
-				.disposed(by: disposeBag)
-		}
 		
 		// Actions
 		func action(for menu: MenuType) {
-			showMenu = false
-			
-			preventInvalidateModel {
-				switch menu {
-				case .home:
-					selectedTabbar = .home
-				case .search:
-					selectedTabbar = .search
-				case .noti:
-					selectedTabbar = .noti
-				case .video:
-					selectedTabbar = .video
-				case .facebook:
-					indViewModel?.gotoFacebook()
-				case .privacy:
-					indViewModel?.gotoPrivacy()
-				case .help:
-					indViewModel?.gotoHelp()
-				case .none:
-					return
-				}
+			switch menu {
+			case .home:
+				selectedTabbar = .home
+			case .search:
+				selectedTabbar = .search
+			case .noti:
+				selectedTabbar = .noti
+			case .video:
+				selectedTabbar = .video
+			case .facebook:
+				indViewModel?.gotoFacebook()
+			case .privacy:
+				indViewModel?.gotoPrivacy()
+			case .help:
+				indViewModel?.gotoHelp()
+			case .none:
+				return
 			}
 		}
 	}
@@ -91,9 +54,8 @@ extension TopView {
 extension TopView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		@State private var menuOutput: MenuType = .none
-		@State private var currentTab: TabbarType = .home
 		
 		var body: some View {
 			NavigationViewWrapper(containView: AnyView(containView))
@@ -101,16 +63,15 @@ extension TopView {
 		
 		// MARK: Layout
 		var containView: some View {
-			SlideOutMenu(showMenu: $pros.showMenu,
-						 menuOutput: $menuOutput.onUpdate(menuHandler),
-						 currentTab: $pros.selectedTabbar)
+			MainContainerView_A(menuOutput: $menuOutput.onUpdate(menuHandler),
+								currentTab: $props.selectedTabbar)
 			.onDisappear {
-				self.pros.invalidate()     // << here !!
+				self.props.invalidate()     // << here !!
 			}
 		}
 		
 		private func menuHandler(_ menu: MenuType) {
-			pros.action(for: menu)
+			props.action(for: menu)
 		}
 	}
 }
