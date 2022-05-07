@@ -119,6 +119,7 @@
 		8640C1AE280AA88F002448AC /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AD280AA88F002448AC /* RootViewModel.swift */; };
 		8640C1B0280AA8CC002448AC /* RootViewModel+Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */; };
 		8657B5042826DB9E00E52120 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B5032826DB9E00E52120 /* BannerAd.swift */; };
+		8657B5072826E4C400E52120 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B5062826E4C400E52120 /* InterstitialAd.swift */; };
 		86609EDC280B286400EAD104 /* ViewInstance+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EDB280B286400EAD104 /* ViewInstance+.swift */; };
 		86609EDE280B34D300EAD104 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EDD280B34D300EAD104 /* StartView.swift */; };
 		86609EE0280B355300EAD104 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EDF280B355300EAD104 /* ProgressView.swift */; };
@@ -379,6 +380,7 @@
 		8640C1AD280AA88F002448AC /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		8640C1AF280AA8CC002448AC /* RootViewModel+Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewModel+Supports.swift"; sourceTree = "<group>"; };
 		8657B5032826DB9E00E52120 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		8657B5062826E4C400E52120 /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
 		86609EDB280B286400EAD104 /* ViewInstance+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewInstance+.swift"; sourceTree = "<group>"; };
 		86609EDD280B34D300EAD104 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		86609EDF280B355300EAD104 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -790,6 +792,7 @@
 		8604237427EDF76E0056EF17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8657B5052826E26A00E52120 /* GoogleAds */,
 				868ADC742821523C00ED06A4 /* NikeApp */,
 				868ADC5A28214E4700ED06A4 /* FoodUI */,
 				868ADC4328213FD100ED06A4 /* LinkedinTemplate */,
@@ -893,7 +896,6 @@
 		861E85AC27FB70580032C4F5 /* Representable */ = {
 			isa = PBXGroup;
 			children = (
-				8657B5032826DB9E00E52120 /* BannerAd.swift */,
 				861E858427FB5BB20032C4F5 /* PullToRefresh.swift */,
 			);
 			path = Representable;
@@ -1291,6 +1293,15 @@
 				869BBF02280483EC003D87E6 /* HasRootNavigationController.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		8657B5052826E26A00E52120 /* GoogleAds */ = {
+			isa = PBXGroup;
+			children = (
+				8657B5032826DB9E00E52120 /* BannerAd.swift */,
+				8657B5062826E4C400E52120 /* InterstitialAd.swift */,
+			);
+			path = GoogleAds;
 			sourceTree = "<group>";
 		};
 		8685B1FA280055D00076B3AC /* Settings */ = {
@@ -2068,6 +2079,7 @@
 				868ADC4E2821403400ED06A4 /* SearchView.swift in Sources */,
 				8604235E27EDF1530056EF17 /* HomeView.swift in Sources */,
 				868ADC832821523C00ED06A4 /* NikeHome.swift in Sources */,
+				8657B5072826E4C400E52120 /* InterstitialAd.swift in Sources */,
 				861FCD66280F9F50007564A3 /* HomeStoryViewModel+Supports.swift in Sources */,
 				8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */,
 				8685B28528016CAF0076B3AC /* DefaultImage.swift in Sources */,

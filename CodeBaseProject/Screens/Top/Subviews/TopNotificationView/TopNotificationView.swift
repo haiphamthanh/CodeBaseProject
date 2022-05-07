@@ -30,7 +30,7 @@ extension TopNotificationView {
 		// MARK: Layout
 		var body: some View {
 			VStack {
-				BannerAddView()
+				InterstitialAd()
 			}
 		}
 	}
@@ -79,6 +79,22 @@ struct BannerAddView: View {
 					.cornerRadius(15)
 			}
 			.frame(height: 250)
+		}
+	}
+}
+
+
+import GoogleMobileAds
+
+/// https://www.youtube.com/watch?v=h7O0e_lGkL8
+struct InterstitialAd: View {
+	@EnvironmentObject var adsVM: AdsViewModel
+	
+	var body: some View {
+		Button {
+			adsVM.showInterstitial = true
+		} label: {
+			Text("Show")
 		}
 	}
 }
