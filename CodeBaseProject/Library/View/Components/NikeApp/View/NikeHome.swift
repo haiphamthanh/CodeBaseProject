@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct NikeHome: View {
+	// MARK: Private configuration properties
+	var edges = UIApplication.shared.windows.first?.safeAreaInsets
 	var black = Color.black.opacity(0.7)
 	var width = UIScreen.main.bounds.width
-	@State var more = false
-	@State var gender = "Male"
-	@State var size = 6
-	var edges = UIApplication.shared.windows.first?.safeAreaInsets
-	@State var added = false
 	
+	// MARK: Private properties
+	@State private var more = false
+	@State private var gender = "Male"
+	@State private var size = 6
+	
+	// MARK: Exports properties
+	@Binding var added: Bool
+	
+	// MARK: Layout
 	var body: some View {
 		VStack {
 			ZStack {
@@ -166,10 +172,12 @@ struct NikeHome: View {
 	}
 }
 
+#if DEBUG
 struct NikeHome_Previews: PreviewProvider {
 	static var previews: some View {
-		NikeHome()
+		NikeHome(added: .constant(true))
 	}
 }
+#endif
 
 //var sizes = [6, 7, 8, 9, 10]

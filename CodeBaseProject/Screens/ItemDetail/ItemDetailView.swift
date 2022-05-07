@@ -43,6 +43,13 @@ extension ItemDetailView {
 	}
 }
 
+// Properties is used for Sub Views
+extension ItemDetailView.IPros: NikeHomeViewDelegate {
+	func addToCart(_ isAdded: Bool) {
+		print("Did add to cart something \(isAdded)")
+	}
+}
+
 // MARK: - ================================= View Layout =================================
 extension ItemDetailView {
 	struct IView: View, ViewRule {
@@ -53,7 +60,7 @@ extension ItemDetailView {
 		var body: some View {
 			ZStack {
 				Color.green.edgesIgnoringSafeArea(.all) //<-- Important!!! Add this modifier to the background Color
-				NikeHomeView()
+				NikeHomeView.IView(pros: NikeHomeView.IPros(delegator: pros))
 					.frame(maxWidth: .infinity, maxHeight: .infinity) //<-- Important!!! Make full background
 					.background(Color.blue.edgesIgnoringSafeArea(.bottom)) //<-- Important!!! We need to ignore color instead of focusing to frame
 					.toolbar {
