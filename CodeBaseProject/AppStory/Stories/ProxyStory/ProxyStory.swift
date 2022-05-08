@@ -37,13 +37,18 @@ class ProxyStoryImpl: DefaultStory<Void>, ProxyStory {
 // MARK: - ########################## DRIVER
 private extension ProxyStoryImpl {
 	func driver(by viewModel: ViewModelRule?) -> Observable<Void> {
-		return toRoot()
+		return toTop()
 			.do(onNext: { })
 	}
 }
 
 // Bridge
 private extension ProxyStoryImpl {
+	func toTop() -> Observable<Void> {
+		return CoordTransiter(self)
+			.move(to: .top(nil, .`init`))
+	}
+	
 	func toRoot() -> Observable<Void> {
 		return CoordTransiter(self)
 			.move(to: .root(nil, .`init`))

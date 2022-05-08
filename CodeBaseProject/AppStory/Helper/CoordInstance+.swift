@@ -49,6 +49,11 @@ extension CoordInstance {
 			return defaultCoordinator(coordinator)
 		}
 		
+		static func top<ResultType>(_ params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<ResultType> {
+			@Inject var coordinator: TopCoordinator
+			return defaultCoordinator(coordinator)
+		}
+		
 		static func root<ResultType>(_ params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<ResultType> {
 			@Inject var coordinator: RootCoordinator
 			return defaultCoordinator(coordinator)
@@ -56,6 +61,11 @@ extension CoordInstance {
 		
 		static func home<ResultType>(_ params: Dictionary<String, Any>? = nil) -> DefaultCoordinator<ResultType> {
 			@Inject var coordinator: HomeCoordinator
+			return defaultCoordinator(coordinator)
+		}
+		
+		static func itemDetail<ResultType>(_ item: TopSearchView.FruitItem) -> DefaultCoordinator<ResultType> {
+			@Inject var coordinator: ItemDetailCoordinator
 			return defaultCoordinator(coordinator)
 		}
 	}

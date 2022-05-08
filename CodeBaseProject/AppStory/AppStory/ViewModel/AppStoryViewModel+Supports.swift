@@ -9,7 +9,5 @@ import RxSwift
 
 // MARK: - ================================= Story support =================================
 extension AppStoryViewModelImpl: AppStoryViewModelStorySupport {
-	var isAppValid: Observable<Bool> {
-		_isAppValid.asObservable()
-	}
+	var isAppValid: Observable<Bool> { _isAppValid }
 }

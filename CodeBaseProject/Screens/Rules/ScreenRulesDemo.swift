@@ -45,13 +45,13 @@ extension DemoViewModelImp: DemoViewModelCoorSupport {
 }
 
 // VIEW
-protocol DemoViewPros: ObservableObject {
+protocol DemoViewProps: ObservableObject {
 	var title: String { get set }
 	
 	func go()
 }
 
-class DemoViewModelAdapter: DemoViewPros {
+class DemoViewModelAdapter: DemoViewProps {
 	var title: String {
 		get { viewModel.title }
 		set { viewModel.title = newValue }
@@ -67,11 +67,11 @@ class DemoViewModelAdapter: DemoViewPros {
 	}
 }
 
-struct DemoView<IPros: DemoViewPros>: View, ViewRule {
-	@ObservedObject var pros: IPros
+struct DemoView<IProps: DemoViewProps>: View, ViewRule {
+	@ObservedObject var props: IProps
 	
-	init(pros: IPros) {
-		self.pros = pros
+	init(props: IProps) {
+		self.props = props
 	}
 	
 	var body: some View {
@@ -115,14 +115,14 @@ private class DemoPreview {
 	func execute() {
 //		let viewModel: SampleViewModel = SampleViewModelImp()
 //		let viewModelAdapter = SampleViewModelAdapter(viewModel: viewModel)
-//		let view = AnyView(SampleView(pros: viewModelAdapter, act: viewModelAdapter))
+//		let view = AnyView(SampleView(props: viewModelAdapter, act: viewModelAdapter))
 //		let navigator = DefaultNavigation()
 //		let coordinator: SampleCoor = SampleCoorImpl(navigator: navigator, viewModel: viewModel, view: view)
 		
 		let container = Container()
 		let viewModel: DemoViewModel = container.sureResolve(DemoViewModel.self)
 		let viewModelAdapter = DemoViewModelAdapter(viewModel: viewModel)
-		let view = AnyView(DemoView(pros: viewModelAdapter))
+		let view = AnyView(DemoView(props: viewModelAdapter))
 		let navigator = container.sureResolve(NavigationProvider.self)
 		
 		guard let viewModelWithCoorSupport = viewModel as? DemoViewModelCoorSupport else {

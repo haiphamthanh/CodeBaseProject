@@ -14,30 +14,34 @@ protocol IntroViewModelViewSupport {
 
 struct IntroView {
 	private init() { }
-	
-	// Properties is used for View
-	class IPros: DefaultIPros<IntroViewModelViewSupport>, ObservableObject {
+}
+
+// Properties is used for View
+extension IntroView {
+	class IProps: DefaultIProps<IntroViewModelViewSupport>, ObservableObject {
 		func gotoSomeWhere() {
 			indViewModel?.gotoSomeWhere()
 		}
 	}
-	
-	// MARK: - ================================= View Layout =================================
+}
+
+// MARK: - ================================= View Layout =================================
+extension IntroView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
-		@ObservedObject var pros: IPros
+		@ObservedObject var props: IProps
 		
 		// MARK: Layout
 		var body: some View {
 			VStack {
 				Text("Intro view")
 				Button("Go to Home") {
-					pros.gotoSomeWhere()
+					props.gotoSomeWhere()
 				}
 				.frame(minWidth: 280, maxWidth: 400, idealHeight: 35, alignment: .leading)
 				.background(Color.red)
 			}.onDisappear {
-				self.pros.invalidate()     // << here !!
+				self.props.invalidate()     // << here !!
 			}
 		}
 	}
