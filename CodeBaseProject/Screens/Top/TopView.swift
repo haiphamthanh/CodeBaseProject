@@ -50,33 +50,15 @@ extension TopView {
 	}
 }
 
-
-class AdsViewModel: ObservableObject {
-	static let shared = AdsViewModel()
-	@Published var interstitial = AdsManager.Interstitial()
-	@Published var showInterstitial = false {
-		didSet {
-			if showInterstitial {
-				interstitial.showAd()
-				showInterstitial = false
-			} else {
-				interstitial.requestInterstitialAds()
-			}
-		}
-	}
-}
-
 // MARK: - ================================= View Layout =================================
 extension TopView {
 	struct IView: View, ViewRule {
 		// MARK: Properties
 		@ObservedObject var props: IProps
 		@State private var menuOutput: MenuType = .none
-		let adsVM = AdsViewModel.shared
 		
 		var body: some View {
 			NavigationViewWrapper(containView: AnyView(containView))
-				.environmentObject(adsVM)
 		}
 		
 		// MARK: Layout

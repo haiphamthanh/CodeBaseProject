@@ -19,12 +19,21 @@ class ModelIdTreeManager {
 	static let shared = ModelIdTreeManager()
 	private init() { }
 	private var modelIdTree: ModelIdNode?
+	
+	/// Everytime when we present some view that dont confirm to model - view rule, you should call these functions
+	/// 	lockModel: to prevent model is released (Before present your view)
+	/// 	unLockModel: to make everything become normal state (After your view was dissapeared)
+	private var isLocking = false
 }
 
 // MARK: - ================================= Usage =================================
 extension ModelIdTreeManager {
 	func isLeafNode(id: UUID) -> Bool {
 		print("\(#function) is called")
+		if isLocking {
+			return false
+		}
+		
 		return modelIdTree?
 			.findModel(id: id)?
 			.isLeafNode ?? false
@@ -53,6 +62,14 @@ extension ModelIdTreeManager {
 		return modelIdTree?
 			.findRootModel(id: id)?
 			.removeChild(id: id) ?? false
+	}
+	
+	func lockModel() {
+		isLocking = true
+	}
+	
+	func unLockModel() {
+		isLocking = false
 	}
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 import GoogleMobileAds
 
 struct BannerAd: UIViewRepresentable {
-	var unitId: String
+	var adUnitID: String
 	
 	func makeCoordinator() -> Coordinator {
 		// For implementing delegate....
@@ -23,7 +23,7 @@ struct BannerAd: UIViewRepresentable {
 		let adView = GADBannerView(adSize: GADAdSizeBanner)
 		
 		/// https://developers.google.com/admob/ios/banner#load_an_ad
-		adView.adUnitID = unitId
+		adView.adUnitID = adUnitID
 		adView.rootViewController = AppCenter.shared.navigationVC
 		adView.delegate = context.coordinator
 		adView.load(GADRequest())
