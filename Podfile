@@ -33,6 +33,8 @@ def shared_pods
 	pod 'SwifterSwift' # –Over 500 in 1– for iOS, macOS, tvOS and watchOS
 	pod 'SwiftDate' # The best way to deal with Dates & Time Zones in Swift
 	pod 'Introspect'
+	pod 'Google-Mobile-Ads-SDK'
+#	pod 'SwiftyAds' # https://github.com/crashoverride777/swifty-ads
 	
 	#Animations
 #	https://github.com/Toni77777/awesome-swiftui-libraries#Animation
