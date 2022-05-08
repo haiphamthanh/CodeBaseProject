@@ -21,7 +21,7 @@ class ModelIdTreeManager {
 	private var modelIdTree: ModelIdNode?
 	
 	/// Everytime when we present some view that dont confirm to model - view rule, you should call these functions
-	/// 	lockModel: to prevent model is released (Before present your view)
+	/// 	lockModel: to prevent model can be released (Before present your view)
 	/// 	unLockModel: to make everything become normal state (After your view was dissapeared)
 	private var isLocking = false
 }
