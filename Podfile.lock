@@ -50,7 +50,6 @@ PODS:
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - PromisesObjC (2.0.0)
-  - ReachabilitySwift (5.0.0)
   - RxSwift (6.5.0)
   - SwiftDate (6.3.1)
   - Swinject (2.8.1)
@@ -59,7 +58,6 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Introspect
   - PopupDialog
-  - ReachabilitySwift
   - RxSwift
   - SwiftDate
   - Swinject
@@ -75,7 +73,6 @@ SPEC REPOS:
     - nanopb
     - PopupDialog
     - PromisesObjC
-    - ReachabilitySwift
     - RxSwift
     - SwiftDate
     - Swinject
@@ -90,11 +87,10 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: 42f2bc1e1f24eba6f2c359d66c8bc6529b974ade
+PODFILE CHECKSUM: d266dfa8f577ac1fe5256747ba3ed4328db71cfa
 
 COCOAPODS: 1.11.3

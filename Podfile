@@ -48,7 +48,7 @@ def shared_pods
 	
 	# Pods for Network
 	# Checking
-	pod 'ReachabilitySwift'
+	# pod 'ReachabilitySwift'
 	
 	# Pods for presentation
 	# Dialog

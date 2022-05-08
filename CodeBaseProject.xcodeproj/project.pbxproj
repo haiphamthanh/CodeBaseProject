@@ -132,6 +132,7 @@
 		866D592628282C69000D5E1A /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592528282C69000D5E1A /* SwifterSwift */; };
 		866D592928282F15000D5E1A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592828282F15000D5E1A /* Toast */; };
 		866D592C282830AE000D5E1A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */; };
+		866D592F2828311F000D5E1A /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592E2828311F000D5E1A /* Reachability */; };
 		8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FB280055F90076B3AC /* AppNotification.swift */; };
 		8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FD2800560C0076B3AC /* FirstLoading.swift */; };
 		8685B2002800561A0076B3AC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FF2800561A0076B3AC /* AppTheme.swift */; };
@@ -534,6 +535,7 @@
 			files = (
 				866D592928282F15000D5E1A /* Toast in Frameworks */,
 				866D592C282830AE000D5E1A /* IQKeyboardManagerSwift in Frameworks */,
+				866D592F2828311F000D5E1A /* Reachability in Frameworks */,
 				4C4888F82024800F097F7646 /* Pods_CodeBaseProject.framework in Frameworks */,
 				866D592628282C69000D5E1A /* SwifterSwift in Frameworks */,
 			);
@@ -1834,6 +1836,7 @@
 				866D592528282C69000D5E1A /* SwifterSwift */,
 				866D592828282F15000D5E1A /* Toast */,
 				866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */,
+				866D592E2828311F000D5E1A /* Reachability */,
 			);
 			productName = CodeBaseProject;
 			productReference = 86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */;
@@ -1911,6 +1914,7 @@
 				866D592428282C69000D5E1A /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				866D592728282F15000D5E1A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				866D592A282830AE000D5E1A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */,
 			);
 			productRefGroup = 86FE294E27DC8E6000EF2C70 /* Products */;
 			projectDirPath = "";
@@ -2613,6 +2617,14 @@
 				kind = branch;
 			};
 		};
+		866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2630,6 +2642,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 866D592A282830AE000D5E1A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		866D592E2828311F000D5E1A /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
