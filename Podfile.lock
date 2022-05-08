@@ -54,31 +54,6 @@ PODS:
   - ReachabilitySwift (5.0.0)
   - RxSwift (6.5.0)
   - SwiftDate (6.3.1)
-  - SwifterSwift (5.2.0):
-    - SwifterSwift/AppKit (= 5.2.0)
-    - SwifterSwift/CoreAnimation (= 5.2.0)
-    - SwifterSwift/CoreGraphics (= 5.2.0)
-    - SwifterSwift/CoreLocation (= 5.2.0)
-    - SwifterSwift/Dispatch (= 5.2.0)
-    - SwifterSwift/Foundation (= 5.2.0)
-    - SwifterSwift/MapKit (= 5.2.0)
-    - SwifterSwift/SceneKit (= 5.2.0)
-    - SwifterSwift/SpriteKit (= 5.2.0)
-    - SwifterSwift/StoreKit (= 5.2.0)
-    - SwifterSwift/SwiftStdlib (= 5.2.0)
-    - SwifterSwift/UIKit (= 5.2.0)
-  - SwifterSwift/AppKit (5.2.0)
-  - SwifterSwift/CoreAnimation (5.2.0)
-  - SwifterSwift/CoreGraphics (5.2.0)
-  - SwifterSwift/CoreLocation (5.2.0)
-  - SwifterSwift/Dispatch (5.2.0)
-  - SwifterSwift/Foundation (5.2.0)
-  - SwifterSwift/MapKit (5.2.0)
-  - SwifterSwift/SceneKit (5.2.0)
-  - SwifterSwift/SpriteKit (5.2.0)
-  - SwifterSwift/StoreKit (5.2.0)
-  - SwifterSwift/SwiftStdlib (5.2.0)
-  - SwifterSwift/UIKit (5.2.0)
   - Swinject (2.8.1)
   - Toast-Swift (5.0.1)
 
@@ -90,7 +65,6 @@ DEPENDENCIES:
   - ReachabilitySwift
   - RxSwift
   - SwiftDate
-  - SwifterSwift
   - Swinject
   - Toast-Swift
 
@@ -109,7 +83,6 @@ SPEC REPOS:
     - ReachabilitySwift
     - RxSwift
     - SwiftDate
-    - SwifterSwift
     - Swinject
     - Toast-Swift
 
@@ -127,10 +100,9 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
-  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: d98e6b6dc093a7bc1b612287747c46de7823f144
+PODFILE CHECKSUM: 37aebafb5e7f6c209362dbc4b89454a81212c102
 
 COCOAPODS: 1.11.3
