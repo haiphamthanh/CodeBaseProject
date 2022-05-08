@@ -57,7 +57,7 @@ def shared_pods
 	# Toast
 	# pod 'Toast-Swift'
 	# keyboard
-	pod 'IQKeyboardManagerSwift'
+	# pod 'IQKeyboardManagerSwift'
 	
 end
 

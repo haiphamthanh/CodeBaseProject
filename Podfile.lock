@@ -42,7 +42,6 @@ PODS:
   - GoogleUtilities/Reachability (7.7.0):
     - GoogleUtilities/Logger
   - Introspect (0.1.4)
-  - IQKeyboardManagerSwift (6.5.9)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -59,7 +58,6 @@ PODS:
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Introspect
-  - IQKeyboardManagerSwift
   - PopupDialog
   - ReachabilitySwift
   - RxSwift
@@ -74,7 +72,6 @@ SPEC REPOS:
     - GoogleUserMessagingPlatform
     - GoogleUtilities
     - Introspect
-    - IQKeyboardManagerSwift
     - nanopb
     - PopupDialog
     - PromisesObjC
@@ -90,7 +87,6 @@ SPEC CHECKSUMS:
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
-  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
@@ -99,6 +95,6 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: 7498706f5472569f8730848580225754f71514c1
+PODFILE CHECKSUM: 42f2bc1e1f24eba6f2c359d66c8bc6529b974ade
 
 COCOAPODS: 1.11.3
