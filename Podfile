@@ -55,7 +55,7 @@ def shared_pods
 	pod 'PopupDialog'
 #	pod 'ExytePopupView' # Check later to SwifUI Usage https://github.com/exyte/PopupView
 	# Toast
-	pod 'Toast-Swift'
+	# pod 'Toast-Swift'
 	# keyboard
 	pod 'IQKeyboardManagerSwift'
 	
