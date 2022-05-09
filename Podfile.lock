@@ -47,14 +47,12 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
-  - RxSwift (6.5.0)
   - SwiftDate (6.3.1)
   - Swinject (2.8.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Introspect
-  - RxSwift
   - SwiftDate
   - Swinject
 
@@ -67,7 +65,6 @@ SPEC REPOS:
     - Introspect
     - nanopb
     - PromisesObjC
-    - RxSwift
     - SwiftDate
     - Swinject
 
@@ -79,10 +76,9 @@ SPEC CHECKSUMS:
   Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: 6ca9caa7f3ce458187efb0dd4c9d297983478afd
+PODFILE CHECKSUM: 0e0fd9527318fe0bbc34fb95b0ff8c786d6c5e7f
 
 COCOAPODS: 1.11.3

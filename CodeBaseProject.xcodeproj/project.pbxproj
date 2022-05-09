@@ -134,6 +134,7 @@
 		866D592C282830AE000D5E1A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */; };
 		866D592F2828311F000D5E1A /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592E2828311F000D5E1A /* Reachability */; };
 		866D5932282831CF000D5E1A /* PopupDialog in Frameworks */ = {isa = PBXBuildFile; productRef = 866D5931282831CF000D5E1A /* PopupDialog */; };
+		866D594128289F32000D5E1A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D594028289F32000D5E1A /* RxSwift */; };
 		8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FB280055F90076B3AC /* AppNotification.swift */; };
 		8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FD2800560C0076B3AC /* FirstLoading.swift */; };
 		8685B2002800561A0076B3AC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FF2800561A0076B3AC /* AppTheme.swift */; };
@@ -540,6 +541,7 @@
 				866D5932282831CF000D5E1A /* PopupDialog in Frameworks */,
 				4C4888F82024800F097F7646 /* Pods_CodeBaseProject.framework in Frameworks */,
 				866D592628282C69000D5E1A /* SwifterSwift in Frameworks */,
+				866D594128289F32000D5E1A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1840,6 +1842,7 @@
 				866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */,
 				866D592E2828311F000D5E1A /* Reachability */,
 				866D5931282831CF000D5E1A /* PopupDialog */,
+				866D594028289F32000D5E1A /* RxSwift */,
 			);
 			productName = CodeBaseProject;
 			productReference = 86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */;
@@ -1919,6 +1922,7 @@
 				866D592A282830AE000D5E1A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */,
 				866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */,
+				866D593F28289F32000D5E1A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 86FE294E27DC8E6000EF2C70 /* Products */;
 			projectDirPath = "";
@@ -2637,6 +2641,14 @@
 				kind = branch;
 			};
 		};
+		866D593F28289F32000D5E1A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2664,6 +2676,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */;
 			productName = PopupDialog;
+		};
+		866D594028289F32000D5E1A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D593F28289F32000D5E1A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
