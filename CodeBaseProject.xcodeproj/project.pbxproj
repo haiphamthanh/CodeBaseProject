@@ -133,6 +133,7 @@
 		866D592928282F15000D5E1A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592828282F15000D5E1A /* Toast */; };
 		866D592C282830AE000D5E1A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */; };
 		866D592F2828311F000D5E1A /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592E2828311F000D5E1A /* Reachability */; };
+		866D5932282831CF000D5E1A /* PopupDialog in Frameworks */ = {isa = PBXBuildFile; productRef = 866D5931282831CF000D5E1A /* PopupDialog */; };
 		8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FB280055F90076B3AC /* AppNotification.swift */; };
 		8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FD2800560C0076B3AC /* FirstLoading.swift */; };
 		8685B2002800561A0076B3AC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FF2800561A0076B3AC /* AppTheme.swift */; };
@@ -536,6 +537,7 @@
 				866D592928282F15000D5E1A /* Toast in Frameworks */,
 				866D592C282830AE000D5E1A /* IQKeyboardManagerSwift in Frameworks */,
 				866D592F2828311F000D5E1A /* Reachability in Frameworks */,
+				866D5932282831CF000D5E1A /* PopupDialog in Frameworks */,
 				4C4888F82024800F097F7646 /* Pods_CodeBaseProject.framework in Frameworks */,
 				866D592628282C69000D5E1A /* SwifterSwift in Frameworks */,
 			);
@@ -1837,6 +1839,7 @@
 				866D592828282F15000D5E1A /* Toast */,
 				866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */,
 				866D592E2828311F000D5E1A /* Reachability */,
+				866D5931282831CF000D5E1A /* PopupDialog */,
 			);
 			productName = CodeBaseProject;
 			productReference = 86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */;
@@ -1915,6 +1918,7 @@
 				866D592728282F15000D5E1A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				866D592A282830AE000D5E1A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+				866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */,
 			);
 			productRefGroup = 86FE294E27DC8E6000EF2C70 /* Products */;
 			projectDirPath = "";
@@ -2625,6 +2629,14 @@
 				kind = branch;
 			};
 		};
+		866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Orderella/PopupDialog.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2647,6 +2659,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */;
 			productName = Reachability;
+		};
+		866D5931282831CF000D5E1A /* PopupDialog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */;
+			productName = PopupDialog;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

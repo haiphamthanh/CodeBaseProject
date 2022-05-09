@@ -6,6 +6,7 @@
 //
 
 import PopupDialog
+import UIKit
 
 enum AlertButton: Int {
 	case normal = 0

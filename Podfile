@@ -52,7 +52,7 @@ def shared_pods
 	
 	# Pods for presentation
 	# Dialog
-	pod 'PopupDialog'
+	# pod 'PopupDialog'
 #	pod 'ExytePopupView' # Check later to SwifUI Usage https://github.com/exyte/PopupView
 	# Toast
 	# pod 'Toast-Swift'
