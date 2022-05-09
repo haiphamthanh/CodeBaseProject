@@ -5,6 +5,7 @@
 //  Created by HaiKaito on 09/04/2022.
 //
 
+import SwiftUI
 import Swinject
 
 class DefaultAppSceneDelegate: AppSceneDelegateProvider {

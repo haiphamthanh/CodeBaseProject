@@ -42,7 +42,7 @@ def shared_pods
 	
 	# Pods for Design pattern
 	# Dependency injection
-	pod 'Swinject'
+	# pod 'Swinject'
 	# pod 'RxSwift'
 #	pod 'RxRelay' # Check later to make Rx mapping to Combine https://kean.blog/post/rxui
 	

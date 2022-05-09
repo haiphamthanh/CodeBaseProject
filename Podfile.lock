@@ -48,13 +48,11 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
   - SwiftDate (6.3.1)
-  - Swinject (2.8.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Introspect
   - SwiftDate
-  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -66,7 +64,6 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SwiftDate
-    - Swinject
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 5a1d44987c82e441811ecaa5ae824e100ea819d7
@@ -77,8 +74,7 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
-  Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: 0e0fd9527318fe0bbc34fb95b0ff8c786d6c5e7f
+PODFILE CHECKSUM: ae027bf2c9766df0853e6f72884198dadca466b4
 
 COCOAPODS: 1.11.3
