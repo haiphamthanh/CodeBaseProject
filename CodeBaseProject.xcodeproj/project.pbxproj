@@ -103,6 +103,8 @@
 		8632D423280213FA00141EDC /* UserNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D422280213FA00141EDC /* UserNetworkImpl.swift */; };
 		8632D42A28021E5300141EDC /* UserLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42928021E5300141EDC /* UserLocal.swift */; };
 		8632D43028021EDB00141EDC /* UserLocalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42F28021EDB00141EDC /* UserLocalImpl.swift */; };
+		8634BB73282A97E500F27E59 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 8634BB72282A97E500F27E59 /* SwiftDate */; };
+		8634BB76282A983B00F27E59 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 8634BB75282A983B00F27E59 /* Introspect */; };
 		8636E877280C91C000AE73E1 /* DefaultStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E876280C91C000AE73E1 /* DefaultStory.swift */; };
 		8636E87A280CA42600AE73E1 /* AppStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E879280CA42600AE73E1 /* AppStoryViewModel.swift */; };
 		8636E87D280CA49B00AE73E1 /* IntroStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E87C280CA49B00AE73E1 /* IntroStoryViewModel.swift */; };
@@ -129,6 +131,13 @@
 		86609EE2280B357200EAD104 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EE1280B357200EAD104 /* SuccessView.swift */; };
 		86609EE4280B363500EAD104 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EE3280B363500EAD104 /* ContainerView.swift */; };
 		86609EE6280B4CAA00EAD104 /* NavigationViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86609EE5280B4CAA00EAD104 /* NavigationViewWrapper.swift */; };
+		866D592628282C69000D5E1A /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592528282C69000D5E1A /* SwifterSwift */; };
+		866D592928282F15000D5E1A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592828282F15000D5E1A /* Toast */; };
+		866D592C282830AE000D5E1A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */; };
+		866D592F2828311F000D5E1A /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 866D592E2828311F000D5E1A /* Reachability */; };
+		866D5932282831CF000D5E1A /* PopupDialog in Frameworks */ = {isa = PBXBuildFile; productRef = 866D5931282831CF000D5E1A /* PopupDialog */; };
+		866D594128289F32000D5E1A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 866D594028289F32000D5E1A /* RxSwift */; };
+		866D594428289F6C000D5E1A /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 866D594328289F6C000D5E1A /* Swinject */; };
 		8685B1FC280055F90076B3AC /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FB280055F90076B3AC /* AppNotification.swift */; };
 		8685B1FE2800560C0076B3AC /* FirstLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FD2800560C0076B3AC /* FirstLoading.swift */; };
 		8685B2002800561A0076B3AC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685B1FF2800561A0076B3AC /* AppTheme.swift */; };
@@ -529,7 +538,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866D592928282F15000D5E1A /* Toast in Frameworks */,
+				866D592C282830AE000D5E1A /* IQKeyboardManagerSwift in Frameworks */,
+				866D592F2828311F000D5E1A /* Reachability in Frameworks */,
+				866D5932282831CF000D5E1A /* PopupDialog in Frameworks */,
 				4C4888F82024800F097F7646 /* Pods_CodeBaseProject.framework in Frameworks */,
+				866D592628282C69000D5E1A /* SwifterSwift in Frameworks */,
+				866D594128289F32000D5E1A /* RxSwift in Frameworks */,
+				8634BB76282A983B00F27E59 /* Introspect in Frameworks */,
+				866D594428289F6C000D5E1A /* Swinject in Frameworks */,
+				8634BB73282A97E500F27E59 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1824,6 +1842,17 @@
 			dependencies = (
 			);
 			name = CodeBaseProject;
+			packageProductDependencies = (
+				866D592528282C69000D5E1A /* SwifterSwift */,
+				866D592828282F15000D5E1A /* Toast */,
+				866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */,
+				866D592E2828311F000D5E1A /* Reachability */,
+				866D5931282831CF000D5E1A /* PopupDialog */,
+				866D594028289F32000D5E1A /* RxSwift */,
+				866D594328289F6C000D5E1A /* Swinject */,
+				8634BB72282A97E500F27E59 /* SwiftDate */,
+				8634BB75282A983B00F27E59 /* Introspect */,
+			);
 			productName = CodeBaseProject;
 			productReference = 86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */;
 			productType = "com.apple.product-type.application";
@@ -1896,6 +1925,17 @@
 				Base,
 			);
 			mainGroup = 86FE294427DC8E6000EF2C70;
+			packageReferences = (
+				866D592428282C69000D5E1A /* XCRemoteSwiftPackageReference "SwifterSwift" */,
+				866D592728282F15000D5E1A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				866D592A282830AE000D5E1A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+				866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */,
+				866D593F28289F32000D5E1A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				866D594228289F6C000D5E1A /* XCRemoteSwiftPackageReference "Swinject" */,
+				8634BB71282A97E500F27E59 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				8634BB74282A983B00F27E59 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = 86FE294E27DC8E6000EF2C70 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2571,6 +2611,129 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8634BB71282A97E500F27E59 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		8634BB74282A983B00F27E59 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+		866D592428282C69000D5E1A /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		866D592728282F15000D5E1A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		866D592A282830AE000D5E1A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Orderella/PopupDialog.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		866D593F28289F32000D5E1A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		866D594228289F6C000D5E1A /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8634BB72282A97E500F27E59 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8634BB71282A97E500F27E59 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+		8634BB75282A983B00F27E59 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8634BB74282A983B00F27E59 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+		866D592528282C69000D5E1A /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D592428282C69000D5E1A /* XCRemoteSwiftPackageReference "SwifterSwift" */;
+			productName = SwifterSwift;
+		};
+		866D592828282F15000D5E1A /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D592728282F15000D5E1A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		866D592B282830AE000D5E1A /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D592A282830AE000D5E1A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		866D592E2828311F000D5E1A /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D592D2828311F000D5E1A /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
+		};
+		866D5931282831CF000D5E1A /* PopupDialog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */;
+			productName = PopupDialog;
+		};
+		866D594028289F32000D5E1A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D593F28289F32000D5E1A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		866D594328289F6C000D5E1A /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 866D594228289F6C000D5E1A /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86FE294527DC8E6000EF2C70 /* Project object */;
 }

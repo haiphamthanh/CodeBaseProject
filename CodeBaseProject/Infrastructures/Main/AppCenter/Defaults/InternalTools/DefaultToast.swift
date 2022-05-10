@@ -5,7 +5,8 @@
 //  Created by HaiKaito on 09/04/2022.
 //
 
-import Toast_Swift
+import Toast
+import UIKit
 
 class DefaultToast {
 	@Inject private var navigator: NavigationProvider

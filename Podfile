@@ -30,9 +30,9 @@ def shared_pods
 	use_frameworks!
 	
 	# Pods for utils
-	pod 'SwifterSwift' # –Over 500 in 1– for iOS, macOS, tvOS and watchOS
-	pod 'SwiftDate' # The best way to deal with Dates & Time Zones in Swift
-	pod 'Introspect'
+	# pod 'SwifterSwift' # –Over 500 in 1– for iOS, macOS, tvOS and watchOS
+	# pod 'SwiftDate' # The best way to deal with Dates & Time Zones in Swift
+	# pod 'Introspect'
 	pod 'Google-Mobile-Ads-SDK'
 #	pod 'SwiftyAds' # https://github.com/crashoverride777/swifty-ads
 	
@@ -42,22 +42,22 @@ def shared_pods
 	
 	# Pods for Design pattern
 	# Dependency injection
-	pod 'Swinject'
-	pod 'RxSwift'
+	# pod 'Swinject'
+	# pod 'RxSwift'
 #	pod 'RxRelay' # Check later to make Rx mapping to Combine https://kean.blog/post/rxui
 	
 	# Pods for Network
 	# Checking
-	pod 'ReachabilitySwift'
+	# pod 'ReachabilitySwift'
 	
 	# Pods for presentation
 	# Dialog
-	pod 'PopupDialog'
+	# pod 'PopupDialog'
 #	pod 'ExytePopupView' # Check later to SwifUI Usage https://github.com/exyte/PopupView
 	# Toast
-	pod 'Toast-Swift'
+	# pod 'Toast-Swift'
 	# keyboard
-	pod 'IQKeyboardManagerSwift'
+	# pod 'IQKeyboardManagerSwift'
 	
 end
 
