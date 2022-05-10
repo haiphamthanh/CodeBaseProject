@@ -25,7 +25,7 @@ struct CustomeTabBar: View {
                     .frame(width: 24, height: 24)
                     .foregroundColor(.white)
                     .padding(20)
-                    .background(Color("pink"))
+                    .background(Color(Asset.AppColor.colorPink))
                     .clipShape(Circle())
                 // Shadows..
                     .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
@@ -74,11 +74,11 @@ struct TabBarButton: View {
                     .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 28, height: 28)
-                    .foregroundColor(selectedTab == image ? Color("pink") : Color.gray.opacity(0.5))
+                    .foregroundColor(selectedTab == image ? Color(Asset.AppColor.colorPink) : Color.gray.opacity(0.5))
 
                 if selectedTab == image {
                     Circle()
-                        .fill(Color("pink"))
+                        .fill(Color(Asset.AppColor.colorPink))
                         .matchedGeometryEffect(id: "TAB", in: animation)
                         .frame(width: 8, height: 8)
                 }

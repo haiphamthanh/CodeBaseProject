@@ -20,7 +20,7 @@ struct ExNavigationBarView: View {
 						touchedAvatar.toggle()
 					}
 				} label: {
-					Image("img_my_avatar")
+					Image(Asset.Assets.imgMyAvatar)
 						.resizable()
 						.aspectRatio(contentMode: .fill)
 						.frame(width: 35, height: 35)

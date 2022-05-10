@@ -36,7 +36,7 @@ struct PopularItemRowView: View {
             (
                 Text("$")
                     .font(.footnote)
-                    .foregroundColor(Color("pink"))
+					.foregroundColor(Color(Asset.AppColor.colorPink))
                 +
                     Text(item.price)
                     .font(.title2)

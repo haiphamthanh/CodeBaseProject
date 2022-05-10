@@ -167,7 +167,7 @@ struct NikeHome: View {
 			.padding(.top, 30)
 			.shadow(color: Color.black.opacity(0.12), radius: 5, x: -5, y: -10)
 		}
-		.background(Color("bg").ignoresSafeArea())
+		.background(Color(Asset.AppColor.colorBg).ignoresSafeArea())
 		.ignoresSafeArea(.all, edges: .bottom)
 	}
 }

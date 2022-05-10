@@ -16,8 +16,8 @@ struct LandingPage: View {
                     Image(systemName: "circle.grid.2x2")
                         .font(.title2)
                         .padding(10)
-                        .background(Color("pink").opacity(0.12))
-                        .foregroundColor(Color("pink"))
+                        .background(Color(Asset.AppColor.colorPink).opacity(0.12))
+                        .foregroundColor(Color(Asset.AppColor.colorPink))
                         .cornerRadius(8)
                 })
 
@@ -31,7 +31,7 @@ struct LandingPage: View {
                         .font(.title2)
                         .padding(10)
                         .background(Color.black.opacity(0.08))
-                        .foregroundColor(Color("pink"))
+                        .foregroundColor(Color(Asset.AppColor.colorPink))
                         .cornerRadius(8)
                 })
             }
@@ -43,7 +43,7 @@ struct LandingPage: View {
                         .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 18, height: 18)
-                        .foregroundColor(Color("pink"))
+                        .foregroundColor(Color(Asset.AppColor.colorPink))
                     Text("California, US")
                         .font(.footnote)
                         .fontWeight(.bold)
@@ -60,7 +60,7 @@ struct LandingPage: View {
                                 Text("The Fastest in Delivery ")
                                 +
                                 Text("Food")
-                                    .foregroundColor(Color("pink"))
+                                    .foregroundColor(Color(Asset.AppColor.colorPink))
                             )
                             .font(.title2)
                             .fontWeight(.bold)
@@ -73,7 +73,7 @@ struct LandingPage: View {
                                     .foregroundColor(.white)
                                     .padding(.vertical, 10)
                                     .padding(.horizontal)
-                                    .background(Color("pink"))
+                                    .background(Color(Asset.AppColor.colorPink))
                                     .clipShape(Capsule())
                             })
                         })
@@ -87,7 +87,7 @@ struct LandingPage: View {
                             .frame(width: rect.width / 3.3)
                     }
                     .padding()
-                    .background(Color("lightYellow"))
+					.background(Color(Asset.AppColor.colorLightYellow))
                     .cornerRadius(15)
                     .padding(.horizontal)
 
@@ -114,7 +114,7 @@ struct LandingPage: View {
                                 }
                                 .padding(.vertical, 12)
                                 .padding(.horizontal)
-                                .background(selectedCategory.id == category.id ? Color("pink") : Color.gray.opacity(0.06))
+                                .background(selectedCategory.id == category.id ? Color(Asset.AppColor.colorPink) : Color.gray.opacity(0.06))
                                 .clipShape(Capsule())
                                 // Shadows
                                 .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
@@ -139,14 +139,14 @@ struct LandingPage: View {
                                 Text("View All")
                                     .font(.footnote)
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color("pink"))
+                                    .foregroundColor(Color(Asset.AppColor.colorPink))
 
                                 Image(systemName: "chevron.right")
                                     .font(.footnote)
                                     .foregroundColor(.white)
                                     .padding(.vertical, 4)
                                     .padding(.horizontal, 6)
-                                    .background(Color("pink"))
+                                    .background(Color(Asset.AppColor.colorPink))
                                     .cornerRadius(5)
                             }
                         })

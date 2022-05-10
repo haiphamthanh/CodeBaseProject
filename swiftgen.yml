@@ -9,6 +9,6 @@ xcassets:
   # 3
   outputs:
     # 4
-    templateName: swift5
+    templatePath: CodeBaseProject/Infrastructures/Resources/SwiftGen/xcassets-swiftui.stencil
     # 5
-    output: CodeBaseProject/Infrastructures/Resources/Assets.swift
+    output: CodeBaseProject/Infrastructures/Resources/SwiftGen/Assets.swift

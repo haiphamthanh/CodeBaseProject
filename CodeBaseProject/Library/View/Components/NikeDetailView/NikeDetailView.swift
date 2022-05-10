@@ -175,7 +175,7 @@ struct NikeDetailView: View {
 			
 			
 		}
-		.background(Color("bg").ignoresSafeArea(.all, edges: .all))
+		.background(Color(Asset.AppColor.colorBg).ignoresSafeArea(.all, edges: .all))
 		.ignoresSafeArea(.all, edges: .bottom)
 	}
 }
