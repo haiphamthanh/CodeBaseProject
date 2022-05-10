@@ -103,6 +103,8 @@
 		8632D423280213FA00141EDC /* UserNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D422280213FA00141EDC /* UserNetworkImpl.swift */; };
 		8632D42A28021E5300141EDC /* UserLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42928021E5300141EDC /* UserLocal.swift */; };
 		8632D43028021EDB00141EDC /* UserLocalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42F28021EDB00141EDC /* UserLocalImpl.swift */; };
+		8634BB73282A97E500F27E59 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 8634BB72282A97E500F27E59 /* SwiftDate */; };
+		8634BB76282A983B00F27E59 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 8634BB75282A983B00F27E59 /* Introspect */; };
 		8636E877280C91C000AE73E1 /* DefaultStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E876280C91C000AE73E1 /* DefaultStory.swift */; };
 		8636E87A280CA42600AE73E1 /* AppStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E879280CA42600AE73E1 /* AppStoryViewModel.swift */; };
 		8636E87D280CA49B00AE73E1 /* IntroStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E87C280CA49B00AE73E1 /* IntroStoryViewModel.swift */; };
@@ -543,7 +545,9 @@
 				4C4888F82024800F097F7646 /* Pods_CodeBaseProject.framework in Frameworks */,
 				866D592628282C69000D5E1A /* SwifterSwift in Frameworks */,
 				866D594128289F32000D5E1A /* RxSwift in Frameworks */,
+				8634BB76282A983B00F27E59 /* Introspect in Frameworks */,
 				866D594428289F6C000D5E1A /* Swinject in Frameworks */,
+				8634BB73282A97E500F27E59 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1846,6 +1850,8 @@
 				866D5931282831CF000D5E1A /* PopupDialog */,
 				866D594028289F32000D5E1A /* RxSwift */,
 				866D594328289F6C000D5E1A /* Swinject */,
+				8634BB72282A97E500F27E59 /* SwiftDate */,
+				8634BB75282A983B00F27E59 /* Introspect */,
 			);
 			productName = CodeBaseProject;
 			productReference = 86FE294D27DC8E6000EF2C70 /* CodeBaseProject.app */;
@@ -1927,6 +1933,8 @@
 				866D5930282831CF000D5E1A /* XCRemoteSwiftPackageReference "PopupDialog" */,
 				866D593F28289F32000D5E1A /* XCRemoteSwiftPackageReference "RxSwift" */,
 				866D594228289F6C000D5E1A /* XCRemoteSwiftPackageReference "Swinject" */,
+				8634BB71282A97E500F27E59 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				8634BB74282A983B00F27E59 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 86FE294E27DC8E6000EF2C70 /* Products */;
 			projectDirPath = "";
@@ -2605,6 +2613,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8634BB71282A97E500F27E59 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		8634BB74282A983B00F27E59 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		866D592428282C69000D5E1A /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift.git";
@@ -2664,6 +2688,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8634BB72282A97E500F27E59 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8634BB71282A97E500F27E59 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+		8634BB75282A983B00F27E59 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8634BB74282A983B00F27E59 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		866D592528282C69000D5E1A /* SwifterSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 866D592428282C69000D5E1A /* XCRemoteSwiftPackageReference "SwifterSwift" */;

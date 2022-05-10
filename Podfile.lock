@@ -40,19 +40,15 @@ PODS:
   - "GoogleUtilities/NSData+zlib (7.7.0)"
   - GoogleUtilities/Reachability (7.7.0):
     - GoogleUtilities/Logger
-  - Introspect (0.1.4)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
-  - SwiftDate (6.3.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
-  - Introspect
-  - SwiftDate
 
 SPEC REPOS:
   trunk:
@@ -60,21 +56,17 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUserMessagingPlatform
     - GoogleUtilities
-    - Introspect
     - nanopb
     - PromisesObjC
-    - SwiftDate
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 5a1d44987c82e441811ecaa5ae824e100ea819d7
   GoogleAppMeasurement: 71156240babd3cc6ced03e0d54816f01a880c730
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
-  Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
 
-PODFILE CHECKSUM: ae027bf2c9766df0853e6f72884198dadca466b4
+PODFILE CHECKSUM: 35715e9587686fa54ce69c682566b635db392610
 
 COCOAPODS: 1.11.3
