@@ -1,0 +1,14 @@
+## XCAssets
+## XCColors
+# 1
+xcassets:
+  # 2
+  inputs:
+    - CodeBaseProject/Infrastructures/Resources/Assets.xcassets
+    - CodeBaseProject/Infrastructures/Resources/AppColor.xcassets
+  # 3
+  outputs:
+    # 4
+    templateName: swift5
+    # 5
+    output: CodeBaseProject/Infrastructures/Resources/Assets.swift

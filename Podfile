@@ -34,6 +34,7 @@ def shared_pods
 	# pod 'SwiftDate' # The best way to deal with Dates & Time Zones in Swift
 	# pod 'Introspect'
 	pod 'Google-Mobile-Ads-SDK'
+	pod 'SwiftGen' # https://swiftpack.co/package/SwiftGen/SwiftGen ----- https://github.com/SwiftGen/SwiftGen/tree/stable/Documentation/templates
 #	pod 'SwiftyAds' # https://github.com/crashoverride777/swifty-ads
 	
 	#Animations

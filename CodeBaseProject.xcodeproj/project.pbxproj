@@ -105,6 +105,8 @@
 		8632D43028021EDB00141EDC /* UserLocalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632D42F28021EDB00141EDC /* UserLocalImpl.swift */; };
 		8634BB73282A97E500F27E59 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 8634BB72282A97E500F27E59 /* SwiftDate */; };
 		8634BB76282A983B00F27E59 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 8634BB75282A983B00F27E59 /* Introspect */; };
+		8634BB87282AB11200F27E59 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8634BB86282AB11200F27E59 /* swiftgen.yml */; };
+		8634BB8C282AB21100F27E59 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8634BB8B282AB21100F27E59 /* Assets.swift */; };
 		8636E877280C91C000AE73E1 /* DefaultStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E876280C91C000AE73E1 /* DefaultStory.swift */; };
 		8636E87A280CA42600AE73E1 /* AppStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E879280CA42600AE73E1 /* AppStoryViewModel.swift */; };
 		8636E87D280CA49B00AE73E1 /* IntroStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636E87C280CA49B00AE73E1 /* IntroStoryViewModel.swift */; };
@@ -376,6 +378,8 @@
 		8632D422280213FA00141EDC /* UserNetworkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkImpl.swift; sourceTree = "<group>"; };
 		8632D42928021E5300141EDC /* UserLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocal.swift; sourceTree = "<group>"; };
 		8632D42F28021EDB00141EDC /* UserLocalImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalImpl.swift; sourceTree = "<group>"; };
+		8634BB86282AB11200F27E59 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		8634BB8B282AB21100F27E59 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		8636E876280C91C000AE73E1 /* DefaultStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStory.swift; sourceTree = "<group>"; };
 		8636E879280CA42600AE73E1 /* AppStoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryViewModel.swift; sourceTree = "<group>"; };
 		8636E87C280CA49B00AE73E1 /* IntroStoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroStoryViewModel.swift; sourceTree = "<group>"; };
@@ -703,6 +707,7 @@
 		8604235327EDEFF10056EF17 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8634BB8B282AB21100F27E59 /* Assets.swift */,
 				86FE295427DC8E6300EF2C70 /* Assets.xcassets */,
 				8685B22F280063480076B3AC /* AppColor.xcassets */,
 			);
@@ -1766,6 +1771,7 @@
 		86FE294427DC8E6000EF2C70 = {
 			isa = PBXGroup;
 			children = (
+				8634BB86282AB11200F27E59 /* swiftgen.yml */,
 				86FE294F27DC8E6000EF2C70 /* CodeBaseProject */,
 				86FE296027DC8E6300EF2C70 /* CodeBaseProjectTests */,
 				86FE296A27DC8E6300EF2C70 /* CodeBaseProjectUITests */,
@@ -1836,6 +1842,7 @@
 				86FE294A27DC8E6000EF2C70 /* Frameworks */,
 				86FE294B27DC8E6000EF2C70 /* Resources */,
 				3C0ABA28F779B561F4CF278B /* [CP] Embed Pods Frameworks */,
+				8634BB85282AB0F600F27E59 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1955,6 +1962,7 @@
 				86FE295827DC8E6300EF2C70 /* Preview Assets.xcassets in Resources */,
 				86FE295527DC8E6300EF2C70 /* Assets.xcassets in Resources */,
 				8685B230280063480076B3AC /* AppColor.xcassets in Resources */,
+				8634BB87282AB11200F27E59 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1991,6 +1999,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodeBaseProject/Pods-CodeBaseProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8634BB85282AB0F600F27E59 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
 		};
 		EB82200EAD4A325857AA911C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2172,6 +2197,7 @@
 				861FCD5A280F3498007564A3 /* StoryRegister.swift in Sources */,
 				862EF22D27F97F510051A3A0 /* AppDataPresentation.swift in Sources */,
 				86D084AD28103AA30059BAF0 /* DrawerMenu.swift in Sources */,
+				8634BB8C282AB21100F27E59 /* Assets.swift in Sources */,
 				8685B21528005A360076B3AC /* AppNotificationProvider.swift in Sources */,
 				861E857827FB4D570032C4F5 /* ViewType.swift in Sources */,
 				86A8303C281AC85700D12E55 /* TopViewModel+TopHomeView.swift in Sources */,
